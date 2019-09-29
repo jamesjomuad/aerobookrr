@@ -1,6 +1,4 @@
-!/plugins/bookrr
 /modules
-/plugins
 /tests
 /bootstrap/compiled.php
 /vendor
