@@ -9,7 +9,7 @@ name: User
 form: $/aeroparks/user/models/user/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\User
+modelClass: Bookrr\User\Models\User
 
 # Default redirect location
 defaultRedirect: aeroparks/user/user

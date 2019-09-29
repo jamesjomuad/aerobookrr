@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Map;
+<?php namespace Bookrr\Map;
 
 use Backend;
 use System\Classes\PluginBase;

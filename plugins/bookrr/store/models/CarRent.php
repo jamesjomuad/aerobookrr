@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Store\Models;
+<?php namespace Bookrr\Store\Models;
 
 use Model;
 
@@ -17,7 +17,7 @@ class CarRent extends Model
     ];
 
     public $hasOne = [
-        'carbooking' => ['Aeroparks\Store\Models\CarBooking','key' => 'car_id']
+        'carbooking' => ['Bookrr\Store\Models\CarBooking','key' => 'car_id']
     ];
 
 

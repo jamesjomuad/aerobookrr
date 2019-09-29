@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Components;
+<?php namespace Bookrr\User\Components;
 
 use Cms\Classes\ComponentBase;
 use BackendAuth;
@@ -7,19 +7,19 @@ use ValidationException;
 use Flash;
 use Redirect;
 use DB;
-use Aeroparks\Booking\Models\Parking;
-use Aeroparks\Booking\Models\Ticket;
-use Aeroparks\User\Models\Vehicle;
-use Aeroparks\User\Models\User;
-use Aeroparks\User\Models\Contact;
-use Aeroparks\User\Models\Customer;
-use Aeroparks\Booking\Controllers\Ticket as TicketController;
+use Bookrr\Booking\Models\Parking;
+use Bookrr\Booking\Models\Ticket;
+use Bookrr\User\Models\Vehicle;
+use Bookrr\User\Models\User;
+use Bookrr\User\Models\Contact;
+use Bookrr\User\Models\Customer;
+use Bookrr\Booking\Controllers\Ticket as TicketController;
 
 
 
 class Register extends ComponentBase
 {
-    use \Aeroparks\User\Traits\formatter;
+    use \Bookrr\User\Traits\formatter;
 
     public function componentDetails()
     {

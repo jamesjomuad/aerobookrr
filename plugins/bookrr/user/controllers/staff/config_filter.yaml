@@ -1,7 +1,7 @@
 scopes:
   type:
     label: Type
-    modelClass: Aeroparks\User\Models\User
+    modelClass: Bookrr\User\Models\User
     conditions: id in (select type from aeroparks_user where type in (:filtered))
     options:
       staff: Staff

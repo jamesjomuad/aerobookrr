@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\General\ReportWidgets;
+<?php namespace Bookrr\General\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
 

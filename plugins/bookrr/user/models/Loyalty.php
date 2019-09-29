@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Models;
+<?php namespace Bookrr\User\Models;
 
 use Model;
 use Backend\Models\User;

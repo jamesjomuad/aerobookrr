@@ -1,9 +1,9 @@
-<?php namespace Aeroparks\Store\Controllers;
+<?php namespace Bookrr\Store\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Aeroparks\Store\Models\Cart as CartModel;
-use Aeroparks\Store\Models\Product;
+use Bookrr\Store\Models\Cart as CartModel;
+use Bookrr\Store\Models\Product;
 
 
 class Cart extends Controller

@@ -9,7 +9,7 @@ name: Booking
 form: $/aeroparks/booking/models/parking/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Booking\Models\Parking
+modelClass: Bookrr\Booking\Models\Parking
 
 # Default redirect location
 defaultRedirect: aeroparks/booking/parking

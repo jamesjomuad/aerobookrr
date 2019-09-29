@@ -9,7 +9,7 @@ title: Category Order
 nameFrom: name
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Category
+modelClass: Bookrr\Store\Models\Category
 
 # Toolbar widget configuration
 toolbar:

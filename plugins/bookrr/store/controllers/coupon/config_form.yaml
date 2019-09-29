@@ -9,7 +9,7 @@ name: Coupon
 form: $/aeroparks/store/models/coupon/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Coupon
+modelClass: Bookrr\Store\Models\Coupon
 
 # Default redirect location
 defaultRedirect: aeroparks/store/coupon

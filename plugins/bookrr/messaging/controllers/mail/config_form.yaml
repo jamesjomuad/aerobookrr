@@ -9,7 +9,7 @@ name: Mail
 form: $/aeroparks/messaging/models/mail/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Messaging\Models\Mail
+modelClass: Bookrr\Messaging\Models\Mail
 
 # Default redirect location
 defaultRedirect: aeroparks/messaging/mail

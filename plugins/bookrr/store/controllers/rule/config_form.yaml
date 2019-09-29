@@ -9,7 +9,7 @@ name: Rule
 form: $/aeroparks/store/models/rule/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Rule
+modelClass: Bookrr\Store\Models\Rule
 
 # Default redirect location
 defaultRedirect: aeroparks/store/rule

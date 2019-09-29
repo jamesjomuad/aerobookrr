@@ -9,7 +9,7 @@ name: Revenue
 form: $/aeroparks/report/models/revenue/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Report\Models\Revenue
+modelClass: Bookrr\Report\Models\Revenue
 
 # Default redirect location
 defaultRedirect: aeroparks/report/revenue

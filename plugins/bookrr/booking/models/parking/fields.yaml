@@ -246,7 +246,7 @@ tabs:
         #     nameFrom: name
         #     prompt: "%s Add Products or Services"
         #     useRelation: false
-        #     modelClass: \Aeroparks\Store\Models\Product
+        #     modelClass: \Bookrr\Store\Models\Product
         # products:
         #     tab: Cart
         #     nameFrom: name

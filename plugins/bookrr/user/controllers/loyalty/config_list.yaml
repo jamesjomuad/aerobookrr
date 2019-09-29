@@ -6,7 +6,7 @@
 list: $/aeroparks/user/models/loyalty/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\Loyalty
+modelClass: Bookrr\User\Models\Loyalty
 
 # List Title
 title: Manage Loyalties

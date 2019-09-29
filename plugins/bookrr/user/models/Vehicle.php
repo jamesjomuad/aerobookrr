@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Models;
+<?php namespace Bookrr\User\Models;
 
 use Model;
 use Backend\Models\User;
@@ -19,12 +19,12 @@ class Vehicle extends Model
     public $rules = [];
 
     public $hasOne = [
-        'parking' => ['Aeroparks\Booking\Models\Parking']
+        'parking' => ['Bookrr\Booking\Models\Parking']
     ];
 
     public $belongsTo = [
-        'customer'  => ['Aeroparks\User\Models\Customer','key' => 'user_id'],
-        'user'      => ['Aeroparks\User\Models\User','key' => 'user_id']
+        'customer'  => ['Bookrr\User\Models\Customer','key' => 'user_id'],
+        'user'      => ['Bookrr\User\Models\User','key' => 'user_id']
     ];
 
 

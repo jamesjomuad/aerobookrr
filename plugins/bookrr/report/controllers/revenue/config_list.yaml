@@ -6,7 +6,7 @@
 list: $/aeroparks/report/models/revenue/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Report\Models\Revenue
+modelClass: Bookrr\Report\Models\Revenue
 
 # List Title
 title: Manage Revenues

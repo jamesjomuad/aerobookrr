@@ -9,7 +9,7 @@ name: Product
 form: $/aeroparks/store/models/product/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Product
+modelClass: Bookrr\Store\Models\Product
 
 # Default redirect location
 defaultRedirect: aeroparks/store/product

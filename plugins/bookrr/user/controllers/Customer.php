@@ -1,24 +1,24 @@
-<?php namespace Aeroparks\User\Controllers;
+<?php namespace Bookrr\User\Controllers;
 
 use BackendMenu;
 use Validator;
 use ValidationException;
 use BackendAuth;
 use Backend\Classes\Controller;
-use Aeroparks\User\Models\BaseUser;
-use Aeroparks\User\Models\User;
-use Aeroparks\User\Models\Customer as CustomerModel;
-use Aeroparks\Booking\Models\Parking;
-use Aeroparks\user\Models\Vehicle;
-use Aeroparks\User\Models\Contact;
+use Bookrr\User\Models\BaseUser;
+use Bookrr\User\Models\User;
+use Bookrr\User\Models\Customer as CustomerModel;
+use Bookrr\Booking\Models\Parking;
+use Bookrr\user\Models\Vehicle;
+use Bookrr\User\Models\Contact;
 use \Carbon\Carbon;
 
 
 
 class Customer extends Controller
 {
-    use \Aeroparks\User\Traits\formatter;
-    use \Aeroparks\General\Traits\fflash;
+    use \Bookrr\User\Traits\formatter;
+    use \Bookrr\General\Traits\fflash;
 
     public $implement = [
         'Backend.Behaviors.FormController',

@@ -25,4 +25,4 @@ fields:
     #     nameFrom: name
     #     searchMode: all
     #     useRelation: false
-    #     modelClass: Aeroparks\Store\Models\Product
+    #     modelClass: Bookrr\Store\Models\Product

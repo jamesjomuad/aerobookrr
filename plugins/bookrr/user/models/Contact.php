@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Models;
+<?php namespace Bookrr\User\Models;
 
 use Model;
 
@@ -24,7 +24,7 @@ class Contact extends Model
     protected $fillable = ['primary','title','first_name','last_name','phone','email','address','city','country','state','zip'];
 
     public $belongsTo = [
-        'customer' => ['Aeroparks\User\Models\Customer','key' => 'user_id'],
+        'customer' => ['Bookrr\User\Models\Customer','key' => 'user_id'],
     ];
 
 

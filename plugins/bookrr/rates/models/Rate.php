@@ -1,8 +1,8 @@
-<?php namespace Aeroparks\Rates\Models;
+<?php namespace Bookrr\Rates\Models;
 
 use Model;
 use \Carbon\Carbon;
-use Aeroparks\Rates\Models\Settings;
+use Bookrr\Rates\Models\Settings;
 
 class Rate extends Model
 {

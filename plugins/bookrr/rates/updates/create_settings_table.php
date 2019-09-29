@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Rates\Updates;
+<?php namespace Bookrr\Rates\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;

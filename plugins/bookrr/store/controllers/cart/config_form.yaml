@@ -9,7 +9,7 @@ name: Cart
 form: $/aeroparks/store/models/cart/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Cart
+modelClass: Bookrr\Store\Models\Cart
 
 # Default redirect location
 defaultRedirect: aeroparks/store/cart

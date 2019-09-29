@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Bay\Updates;
+<?php namespace Bookrr\Bay\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;

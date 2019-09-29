@@ -9,7 +9,7 @@ name: Zone
 form: $/aeroparks/bay/models/zone/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Bay\Models\Zone
+modelClass: Bookrr\Bay\Models\Zone
 
 # Default redirect location
 defaultRedirect: aeroparks/bay/zone

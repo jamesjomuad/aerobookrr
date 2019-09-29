@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Store\Models;
+<?php namespace Bookrr\Store\Models;
 
 use Model;
 
@@ -12,14 +12,14 @@ class Cart extends Model
     protected $guarded = ['*'];
 
     public $hasMany = [
-        'items_count' => ['Aeroparks\Store\Models\CartItem', 'count' => true]
+        'items_count' => ['Bookrr\Store\Models\CartItem', 'count' => true]
     ];
     public $belongsTo = [
-        'parking' => 'Aeroparks\Booking\Models\Parking'
+        'parking' => 'Bookrr\Booking\Models\Parking'
     ];
     public $belongsToMany = [
         'products' => [
-            'Aeroparks\Store\Models\Product',
+            'Bookrr\Store\Models\Product',
             'table' => 'aeroparks_cart_product',
             'pivot' => ['quantity']
         ]

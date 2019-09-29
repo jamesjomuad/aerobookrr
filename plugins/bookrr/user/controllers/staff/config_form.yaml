@@ -9,7 +9,7 @@ name: Staff
 form: $/aeroparks/user/models/staff/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\Staff
+modelClass: Bookrr\User\Models\Staff
 
 # Default redirect location
 defaultRedirect: aeroparks/user/staff

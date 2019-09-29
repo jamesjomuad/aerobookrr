@@ -9,7 +9,7 @@ name: Txt
 form: $/aeroparks/messaging/models/txt/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Messaging\Models\Txt
+modelClass: Bookrr\Messaging\Models\Txt
 
 # Default redirect location
 defaultRedirect: aeroparks/messaging/txt

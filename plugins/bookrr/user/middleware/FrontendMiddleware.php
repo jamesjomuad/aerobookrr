@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Middleware;
+<?php namespace Bookrr\User\Middleware;
 
 use Closure;
 use Config;
@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App;
 use BackendAuth;
-use Aeroparks\User\Models\BaseUser;
+use Bookrr\User\Models\BaseUser;
 
 class FrontendMiddleware
 {

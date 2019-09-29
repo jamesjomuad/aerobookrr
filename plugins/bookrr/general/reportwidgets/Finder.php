@@ -1,8 +1,8 @@
-<?php namespace Aeroparks\General\ReportWidgets;
+<?php namespace Bookrr\General\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
-use Aeroparks\Booking\Models\Parking;
-use Aeroparks\User\Models\Vehicle;
+use Bookrr\Booking\Models\Parking;
+use Bookrr\User\Models\Vehicle;
 use Carbon\Carbon;
 use Flash;
 

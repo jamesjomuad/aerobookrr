@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Models;
+<?php namespace Bookrr\User\Models;
 
 use Model;
 use Backend\Models\UserRole;
@@ -32,11 +32,11 @@ class BaseUser extends Model
     protected $guarded = ['password_confirmation'];
 
     public $hasOne = [
-        'user' => ['Aeroparks\User\Models\User','key' => 'user_id']
+        'user' => ['Bookrr\User\Models\User','key' => 'user_id']
     ];
 
     public $hasMany = [
-        'vehicles' => ['Aeroparks\User\Models\Vehicle','key' => 'user_id']
+        'vehicles' => ['Bookrr\User\Models\Vehicle','key' => 'user_id']
     ];
     
     public $belongsTo = [

@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\General\FormWidgets;
+<?php namespace Bookrr\General\FormWidgets;
 
 use Lang;
 use ApplicationException;

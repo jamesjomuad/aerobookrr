@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Bay\Models;
+<?php namespace Bookrr\Bay\Models;
 
 use Model;
 use \Carbon\Carbon;
@@ -28,7 +28,7 @@ class Zone extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'bay' => \Aeroparks\Bay\Models\Bay::class
+        'bay' => \Bookrr\Bay\Models\Bay::class
     ];
     public $belongsTo = [];
     public $belongsToMany = [];

@@ -6,7 +6,7 @@
 list: $/aeroparks/store/models/category/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Category
+modelClass: Bookrr\Store\Models\Category
 
 # List Title
 title: Manage Categories

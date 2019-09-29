@@ -1,8 +1,8 @@
-<?php namespace Aeroparks\Booking\Controllers;
+<?php namespace Bookrr\Booking\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Aeroparks\Booking\Models\Ticket as TicketModel;
+use Bookrr\Booking\Models\Ticket as TicketModel;
 use Renatio\DynamicPDF\Classes\PDF;
 use Milon\Barcode\DNS1D;
 use Milon\Barcode\DNS2D;

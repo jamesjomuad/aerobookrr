@@ -9,7 +9,7 @@ name: Movement
 form: $/aeroparks/booking/models/movement/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Booking\Models\Movement
+modelClass: Bookrr\Booking\Models\Movement
 
 # Default redirect location
 defaultRedirect: aeroparks/booking/movement

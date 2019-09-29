@@ -1,8 +1,8 @@
-<?php namespace Aeroparks\User\Controllers;
+<?php namespace Bookrr\User\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Aeroparks\User\Models\UserModel;
+use Bookrr\User\Models\UserModel;
 
 
 class User extends Controller

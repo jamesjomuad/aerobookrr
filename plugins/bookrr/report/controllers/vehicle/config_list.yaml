@@ -6,7 +6,7 @@
 list: $/aeroparks/report/controllers/vehicle/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\Vehicle
+modelClass: Bookrr\User\Models\Vehicle
 
 # List Title
 title: Manage Vehicles

@@ -1,8 +1,8 @@
-<?php namespace Aeroparks\Report\Controllers;
+<?php namespace Bookrr\Report\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Aeroparks\Report\Controllers\BaseController;
+use Bookrr\Report\Controllers\BaseController;
 
 /**
  * Customer Report Back-end Controller

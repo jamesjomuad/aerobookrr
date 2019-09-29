@@ -9,7 +9,7 @@ name: Customer Report
 form: $/aeroparks/report/models/customerreport/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Report\Models\CustomerReport
+modelClass: Bookrr\Report\Models\CustomerReport
 
 # Default redirect location
 defaultRedirect: aeroparks/report/customerreport

@@ -6,7 +6,7 @@
 list: $/aeroparks/store/models/cart/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Cart
+modelClass: Bookrr\Store\Models\Cart
 
 # List Title
 title: Manage Carts

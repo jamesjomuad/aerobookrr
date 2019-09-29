@@ -9,7 +9,7 @@ name: Agent
 form: $/aeroparks/user/models/agent/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\Agent
+modelClass: Bookrr\User\Models\Agent
 
 # Default redirect location
 defaultRedirect: aeroparks/user/agent

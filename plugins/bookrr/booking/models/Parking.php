@@ -1,12 +1,12 @@
-<?php namespace Aeroparks\Booking\Models;
+<?php namespace Bookrr\Booking\Models;
 
 
 use Model;
-use Aeroparks\User\Models\User;
+use Bookrr\User\Models\User;
 use \Carbon\Carbon;
 use BackendAuth;
-use Aeroparks\User\Models\BaseUser as AeroUser;
-use Aeroparks\Store\Models\Product;
+use Bookrr\User\Models\BaseUser as AeroUser;
+use Bookrr\Store\Models\Product;
 use Jomuad\Pxpay\Models\Transaction;
 
 
@@ -53,28 +53,28 @@ class Parking extends Model
     ];
 
     public $hasOne = [
-        'cart' => ['Aeroparks\Store\Models\Cart','key'=>'book_id']
+        'cart' => ['Bookrr\Store\Models\Cart','key'=>'book_id']
     ];
 
     public $hasMany = [
         'movements' => [
-            \Aeroparks\Booking\Models\Movement::class,
+            \Bookrr\Booking\Models\Movement::class,
             'key'    => 'booking_id',
             'delete' => true
         ],
     ];
 
     public $belongsTo = [
-        'user'      => ['Aeroparks\User\Models\User','key' => 'user_id'],
-        'customer'  => ['Aeroparks\User\Models\Customer','key' => 'user_id'],
-        'vehicle'   => ['Aeroparks\User\Models\Vehicle'],
-        'bay'       => \Aeroparks\Bay\Models\Bay::class,
-        'ticket'    => \Aeroparks\Booking\Models\Ticket::class
+        'user'      => ['Bookrr\User\Models\User','key' => 'user_id'],
+        'customer'  => ['Bookrr\User\Models\Customer','key' => 'user_id'],
+        'vehicle'   => ['Bookrr\User\Models\Vehicle'],
+        'bay'       => \Bookrr\Bay\Models\Bay::class,
+        'ticket'    => \Bookrr\Booking\Models\Ticket::class
     ];
 
     public $belongsToMany = [
         'products' => [
-            'Aeroparks\Store\Models\Product',
+            'Bookrr\Store\Models\Product',
             'table' => 'aeroparks_cart_product',
             'order' => 'name',
             'key' => 'cart_id',

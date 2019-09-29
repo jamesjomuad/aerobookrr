@@ -1,7 +1,7 @@
-<?php namespace Aeroparks\Store\Models;
+<?php namespace Bookrr\Store\Models;
 
 use Model;
-use Aeroparks\Store\Models\BaseModel;
+use Bookrr\Store\Models\BaseModel;
 
 class Rule extends BaseModel
 {

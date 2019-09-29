@@ -6,7 +6,7 @@
 list: $/aeroparks/user/models/user/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\User
+modelClass: Bookrr\User\Models\User
 
 # List Title
 title: Manage Users

@@ -9,7 +9,7 @@ name: Contact
 form: $/aeroparks/report/models/contact/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Report\Models\Contact
+modelClass: Bookrr\Report\Models\Contact
 
 # Default redirect location
 defaultRedirect: aeroparks/report/contact

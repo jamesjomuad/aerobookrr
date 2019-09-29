@@ -1,12 +1,12 @@
-<?php namespace Aeroparks\Store\Controllers;
+<?php namespace Bookrr\Store\Controllers;
 
 use BackendMenu;
 use BackendAuth as Auth;
 use Validator;
 use ValidationException;
 use Backend\Classes\Controller;
-use Aeroparks\Store\Models\CarRent as Car;
-use Aeroparks\Store\Models\CarBooking as CarBooking;
+use Bookrr\Store\Models\CarRent as Car;
+use Bookrr\Store\Models\CarBooking as CarBooking;
 use Flash;
 use \Carbon\Carbon;
 
@@ -14,7 +14,7 @@ use \Carbon\Carbon;
 class CarRent extends Controller
 {
 
-    use \Aeroparks\Store\Traits\Widgets;
+    use \Bookrr\Store\Traits\Widgets;
 
     public $implement = [
         'Backend.Behaviors.FormController',

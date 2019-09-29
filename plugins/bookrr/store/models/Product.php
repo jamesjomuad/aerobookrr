@@ -1,6 +1,6 @@
-<?php namespace Aeroparks\Store\Models;
+<?php namespace Bookrr\Store\Models;
 
-use Aeroparks\Store\Models\BaseModel;
+use Bookrr\Store\Models\BaseModel;
 use Html;
 use Request;
 
@@ -27,12 +27,12 @@ class Product extends BaseModel
     ];
     public $belongsToMany = [
         'category' => [
-            'Aeroparks\Store\Models\Category',
+            'Bookrr\Store\Models\Category',
             'table' => 'aeroparks_product_pivot',
             'order' => 'name'
         ],
         'cart' => [
-            'Aeroparks\Store\Models\Cart',
+            'Bookrr\Store\Models\Cart',
             'table' => 'aeroparks_cart_product'
         ]
     ];

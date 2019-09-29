@@ -1,9 +1,9 @@
-<?php namespace Aeroparks\Report\Controllers;
+<?php namespace Bookrr\Report\Controllers;
 
 use Backend\Classes\Controller;
 use \Carbon\Carbon;
 use Renatio\DynamicPDF\Classes\PDF;
-use Aeroparks\Booking\Models\Parking;
+use Bookrr\Booking\Models\Parking;
 
 
 

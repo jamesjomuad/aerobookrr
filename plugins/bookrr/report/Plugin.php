@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Report;
+<?php namespace Bookrr\Report;
 
 use Backend;
 use System\Classes\PluginBase;

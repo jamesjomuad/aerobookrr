@@ -9,7 +9,7 @@ name: Rate
 form: $/aeroparks/general/models/rate/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\General\Models\Rate
+modelClass: Bookrr\General\Models\Rate
 
 # Default redirect location
 defaultRedirect: aeroparks/general/rates

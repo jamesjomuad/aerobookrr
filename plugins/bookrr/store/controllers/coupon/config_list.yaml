@@ -6,7 +6,7 @@
 list: $/aeroparks/store/models/coupon/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Coupon
+modelClass: Bookrr\Store\Models\Coupon
 
 # List Title
 title: Manage Coupons

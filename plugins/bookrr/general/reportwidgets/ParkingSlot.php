@@ -1,7 +1,7 @@
-<?php namespace Aeroparks\General\ReportWidgets;
+<?php namespace Bookrr\General\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
-use Aeroparks\Bay\Models\Bay;
+use Bookrr\Bay\Models\Bay;
 
 class ParkingSlot extends ReportWidgetBase
 {

@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Booking\Models;
+<?php namespace Bookrr\Booking\Models;
 
 use Model;
 use \Carbon\Carbon;
@@ -12,8 +12,8 @@ class Movement extends Model
     protected $fillable = ['*'];
 
     public $belongsTo = [
-        'booking' => ['\Aeroparks\Booking\Models\Parking','key' => 'booking_id'],
-        'staff'   => [\Aeroparks\User\Models\Staff::class,'key' => 'user_id']
+        'booking' => ['\Bookrr\Booking\Models\Parking','key' => 'booking_id'],
+        'staff'   => [\Bookrr\User\Models\Staff::class,'key' => 'user_id']
     ];
 
     public $events = [
@@ -43,7 +43,7 @@ class Movement extends Model
 
     public function listParkBays($value, $formData)
     {
-        return (new \Aeroparks\Booking\Models\Parking)->listParkBays();
+        return (new \Bookrr\Booking\Models\Parking)->listParkBays();
     }
 
     public function getCreatedatAttribute($date)

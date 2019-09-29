@@ -1,7 +1,7 @@
-<?php namespace Aeroparks\General\ReportWidgets;
+<?php namespace Bookrr\General\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
-use Aeroparks\User\Models\Customer;
+use Bookrr\User\Models\Customer;
 use Carbon\Carbon;
 use Faker\Factory as Faker;
 

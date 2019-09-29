@@ -6,7 +6,7 @@
 list: $/aeroparks/store/models/product/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Product
+modelClass: Bookrr\Store\Models\Product
 
 # List Title
 title: Manage Products

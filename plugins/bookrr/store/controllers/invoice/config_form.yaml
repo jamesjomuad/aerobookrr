@@ -9,7 +9,7 @@ name: Invoice
 form: $/aeroparks/store/models/invoice/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Invoice
+modelClass: Bookrr\Store\Models\Invoice
 
 # Default redirect location
 defaultRedirect: aeroparks/store/invoice

@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Store\Models;
+<?php namespace Bookrr\Store\Models;
 
 use Model;
 
@@ -35,7 +35,7 @@ class Category extends Model
     public $attachMany = [];
     public $belongsToMany = [
         'product' => [
-            'Aeroparks\Store\Models\Product'
+            'Bookrr\Store\Models\Product'
         ]
     ];
 }

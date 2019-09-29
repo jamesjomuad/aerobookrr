@@ -9,7 +9,7 @@ name: Bay
 form: $/aeroparks/bay/models/bay/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Bay\Models\Bay
+modelClass: Bookrr\Bay\Models\Bay
 
 # Default redirect location
 defaultRedirect: aeroparks/bay/bay

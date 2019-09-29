@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Models;
+<?php namespace Bookrr\User\Models;
 
 use Model;
 use Backend\Models\User;
@@ -23,7 +23,7 @@ class Staff extends Model
 
     public $belongsTo = [
         // 'backendUser' => User::class,
-        'backendUser' => ['Aeroparks\User\Models\BaseUser','key' => 'user_id'],
+        'backendUser' => ['Bookrr\User\Models\BaseUser','key' => 'user_id'],
         'role' => UserRole::class
     ];
 

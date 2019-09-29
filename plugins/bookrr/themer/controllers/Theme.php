@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Themer\Controllers;
+<?php namespace Bookrr\Themer\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;

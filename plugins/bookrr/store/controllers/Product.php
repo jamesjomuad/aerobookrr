@@ -1,8 +1,8 @@
-<?php namespace Aeroparks\Store\Controllers;
+<?php namespace Bookrr\Store\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Aeroparks\Store\Models\Product as ProductModel;
+use Bookrr\Store\Models\Product as ProductModel;
 
 
 /**

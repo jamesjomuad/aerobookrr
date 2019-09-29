@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Rates;
+<?php namespace Bookrr\Rates;
 
 use Backend;
 use System\Classes\PluginBase;
@@ -35,7 +35,7 @@ class Plugin extends PluginBase
         return []; // Remove this line to activate
 
         return [
-            'Aeroparks\Rates\Components\MyComponent' => 'myComponent',
+            'Bookrr\Rates\Components\MyComponent' => 'myComponent',
         ];
     }
 

@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Themer;
+<?php namespace Bookrr\Themer;
 
 use Backend;
 use Event;

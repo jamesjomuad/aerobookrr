@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Rates\Models;
+<?php namespace Bookrr\Rates\Models;
 
 use Model;
 

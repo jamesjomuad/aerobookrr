@@ -6,7 +6,7 @@
 list: $/aeroparks/bay/models/zone/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Bay\Models\Zone
+modelClass: Bookrr\Bay\Models\Zone
 
 # List Title
 title: Manage Zones

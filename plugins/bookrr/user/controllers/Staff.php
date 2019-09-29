@@ -1,11 +1,11 @@
-<?php namespace Aeroparks\User\Controllers;
+<?php namespace Bookrr\User\Controllers;
 
 use BackendMenu;
 use Backend\Models\UserRole;
 use Backend\Classes\Controller;
-use Aeroparks\User\Models\BaseUser;
-use Aeroparks\User\Models\User;
-use Aeroparks\User\Models\Staff as StaffModel;
+use Bookrr\User\Models\BaseUser;
+use Bookrr\User\Models\User;
+use Bookrr\User\Models\Staff as StaffModel;
 use Validator;
 use ValidationException;
 use Carbon\Carbon;

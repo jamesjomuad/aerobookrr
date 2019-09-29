@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Store\Models;
+<?php namespace Bookrr\Store\Models;
 
 use Model;
 use Carbon\Carbon;
@@ -27,8 +27,8 @@ class CarBooking extends Model
      */
     public $hasMany = [];
     public $belongsTo = [
-        'car' => ['Aeroparks\Store\Models\CarRent'],
-        'user' => ['Aeroparks\User\Models\User']
+        'car' => ['Bookrr\Store\Models\CarRent'],
+        'user' => ['Bookrr\User\Models\User']
     ];
     public $belongsToMany = [];
     public $morphTo = [];

@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Booking\Models;
+<?php namespace Bookrr\Booking\Models;
 
 use Model;
 
@@ -17,7 +17,7 @@ class Ticket extends Model
     protected $fillable = ['qrcode','barcode','status','amount'];
 
     public $hasOne = [
-        'booking' => ['Aeroparks\Booking\Models\Parking']
+        'booking' => ['Bookrr\Booking\Models\Parking']
     ];
     public $hasMany = [];
     public $belongsTo = [];

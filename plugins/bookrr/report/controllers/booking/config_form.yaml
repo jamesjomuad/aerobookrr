@@ -9,7 +9,7 @@ name: Booking Report
 form: $/aeroparks/report/models/bookingreport/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Report\Models\BookingReport
+modelClass: Bookrr\Report\Models\BookingReport
 
 # Default redirect location
 defaultRedirect: aeroparks/report/bookingreport

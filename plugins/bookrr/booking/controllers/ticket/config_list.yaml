@@ -6,7 +6,7 @@
 list: $/aeroparks/booking/models/ticket/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Booking\Models\Ticket
+modelClass: Bookrr\Booking\Models\Ticket
 
 # List Title
 title: Manage Tickets

@@ -9,7 +9,7 @@ name: Vehicle
 form: $/aeroparks/report/models/vehicle/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Report\Models\Vehicle
+modelClass: Bookrr\Report\Models\Vehicle
 
 # Default redirect location
 defaultRedirect: aeroparks/report/vehicle

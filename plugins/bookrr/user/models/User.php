@@ -1,7 +1,7 @@
-<?php namespace Aeroparks\User\Models;
+<?php namespace Bookrr\User\Models;
 
 use Model;
-use Aeroparks\User\Models\BaseUser;
+use Bookrr\User\Models\BaseUser;
 use \Carbon\Carbon;
 
 
@@ -27,14 +27,14 @@ class User extends Model
     *   Relation
     */
     public $belongsTo = [
-        'backendUser' => ['Aeroparks\User\Models\BaseUser','key' => 'user_id', 'delete' => true],  //enable relation delete
+        'backendUser' => ['Bookrr\User\Models\BaseUser','key' => 'user_id', 'delete' => true],  //enable relation delete
         'role' => UserRole::class
     ];
 
     public $hasMany = [
-        'bookings' => ['Aeroparks\Booking\Models\Parking','key' => 'user_id','delete' => true],
-        'vehicles' => ['aeroparks\User\Models\Vehicle','key' => 'user_id','delete' => true],
-        'contacts' => ['Aeroparks\User\Models\Contact','key' => 'user_id','delete' => true]
+        'bookings' => ['Bookrr\Booking\Models\Parking','key' => 'user_id','delete' => true],
+        'vehicles' => ['Bookrr\User\Models\Vehicle','key' => 'user_id','delete' => true],
+        'contacts' => ['Bookrr\User\Models\Contact','key' => 'user_id','delete' => true]
     ];
 
 

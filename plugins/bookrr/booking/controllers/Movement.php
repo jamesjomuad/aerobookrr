@@ -1,12 +1,12 @@
-<?php namespace Aeroparks\Booking\Controllers;
+<?php namespace Bookrr\Booking\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
 use Carbon\Carbon;
 use Flash;
-use Aeroparks\Booking\Models\Parking;
-use Aeroparks\Booking\Models\Movement as MovementModel;
-use Aeroparks\User\Models\Vehicle;
+use Bookrr\Booking\Models\Parking;
+use Bookrr\Booking\Models\Movement as MovementModel;
+use Bookrr\User\Models\Vehicle;
 
 
 

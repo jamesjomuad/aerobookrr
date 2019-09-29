@@ -9,7 +9,7 @@ name: Loyalty
 form: $/aeroparks/user/models/loyalty/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\Loyalty
+modelClass: Bookrr\User\Models\Loyalty
 
 # Default redirect location
 defaultRedirect: aeroparks/user/loyalty

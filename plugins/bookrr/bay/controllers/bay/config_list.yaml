@@ -6,7 +6,7 @@
 list: $/aeroparks/bay/models/bay/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Bay\Models\Bay
+modelClass: Bookrr\Bay\Models\Bay
 
 # List Title
 title: Manage Bays

@@ -9,7 +9,7 @@ name: Category
 form: $/aeroparks/store/models/category/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Category
+modelClass: Bookrr\Store\Models\Category
 
 # Default redirect location
 defaultRedirect: aeroparks/store/category

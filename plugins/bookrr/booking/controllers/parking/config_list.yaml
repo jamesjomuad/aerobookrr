@@ -6,7 +6,7 @@
 list: $/aeroparks/booking/models/parking/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Booking\Models\Parking
+modelClass: Bookrr\Booking\Models\Parking
 
 # List Title
 title: Manage Bookings

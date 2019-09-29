@@ -9,7 +9,7 @@ name: Tracker
 form: $/aeroparks/map/models/tracker/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Map\Models\Tracker
+modelClass: Bookrr\Map\Models\Tracker
 
 # Default redirect location
 defaultRedirect: aeroparks/map/tracker

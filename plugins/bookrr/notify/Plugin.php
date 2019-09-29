@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Notify;
+<?php namespace Bookrr\Notify;
 
 use Backend;
 use Event;

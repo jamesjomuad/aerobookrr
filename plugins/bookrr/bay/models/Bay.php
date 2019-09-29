@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Bay\Models;
+<?php namespace Bookrr\Bay\Models;
 
 use Model;
 use \Carbon\Carbon;
@@ -21,10 +21,10 @@ class Bay extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'parking' => \Aeroparks\Booking\Models\Parking::class
+        'parking' => \Bookrr\Booking\Models\Parking::class
     ];
     public $belongsTo = [
-        'zone' => \Aeroparks\Bay\Models\Zone::class
+        'zone' => \Bookrr\Bay\Models\Zone::class
     ];
     public $morphTo = [];
     public $morphOne = [];

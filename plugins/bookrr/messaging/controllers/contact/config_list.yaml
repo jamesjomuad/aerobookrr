@@ -6,7 +6,7 @@
 list: $/aeroparks/messaging/models/contact/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Messaging\Models\Contact
+modelClass: Bookrr\Messaging\Models\Contact
 
 # List Title
 title: Manage Contacts

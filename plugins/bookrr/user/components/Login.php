@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Components;
+<?php namespace Bookrr\User\Components;
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;

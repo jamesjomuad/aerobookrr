@@ -1,8 +1,8 @@
-<?php namespace Aeroparks\Booking\Controllers;
+<?php namespace Bookrr\Booking\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Aeroparks\Booking\Models\Parking;
+use Bookrr\Booking\Models\Parking;
 
 /**
  * Calendar Back-end Controller

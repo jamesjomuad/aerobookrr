@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Messaging;
+<?php namespace Bookrr\Messaging;
 
 use Backend;
 use System\Classes\PluginBase;
@@ -23,7 +23,7 @@ class Plugin extends PluginBase
         return []; // Remove this line to activate
 
         return [
-            'Aeroparks\Messaging\Components\MyComponent' => 'myComponent',
+            'Bookrr\Messaging\Components\MyComponent' => 'myComponent',
         ];
     }
 

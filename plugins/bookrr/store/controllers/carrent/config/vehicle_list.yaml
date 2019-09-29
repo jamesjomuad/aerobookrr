@@ -6,7 +6,7 @@
 list: $/aeroparks/store/models/carrent/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\CarRent
+modelClass: Bookrr\Store\Models\CarRent
 
 # List Title
 title: Manage Car Rents

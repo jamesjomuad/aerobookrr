@@ -17,19 +17,19 @@ scopes:
 
   brand:
     label: Brand
-    modelClass: Aeroparks\User\Models\Vehicle
+    modelClass: Bookrr\User\Models\Vehicle
     conditions: brand in (:filtered)
     options: getBrandOptions
 
   model:
     label: Model
-    modelClass: Aeroparks\User\Models\Vehicle
+    modelClass: Bookrr\User\Models\Vehicle
     conditions: model in (:filtered)
     options: getModelOptions
 
   size:
     label: Size
-    modelClass: Aeroparks\User\Models\Vehicle
+    modelClass: Bookrr\User\Models\Vehicle
     conditions: size in (:filtered)
     options: getSizeOptions
 

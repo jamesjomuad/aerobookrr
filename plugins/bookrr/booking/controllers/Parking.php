@@ -1,23 +1,23 @@
-<?php namespace Aeroparks\Booking\Controllers;
+<?php namespace Bookrr\Booking\Controllers;
 
 use BackendMenu;
 use BackendAuth as Auth;
 use Request;
 use Backend\Classes\Controller;
 use \Carbon\Carbon;
-use Aeroparks\User\Models\BaseUser as AeroUser;
-use Aeroparks\User\Models\Customer;
-use Aeroparks\User\Models\Vehicle;
-use Aeroparks\Booking\Models\Parking as ParkingModel;
-use Aeroparks\Store\Models\Product;
-use Aeroparks\Bay\Models\Bay;
-use Aeroparks\Store\Controllers\Cart as CartController;
+use Bookrr\User\Models\BaseUser as AeroUser;
+use Bookrr\User\Models\Customer;
+use Bookrr\User\Models\Vehicle;
+use Bookrr\Booking\Models\Parking as ParkingModel;
+use Bookrr\Store\Models\Product;
+use Bookrr\Bay\Models\Bay;
+use Bookrr\Store\Controllers\Cart as CartController;
 
 
 
 class Parking extends CartController
 {
-    use \Aeroparks\General\Traits\Widgets;
+    use \Bookrr\General\Traits\Widgets;
 
     public $model;
 

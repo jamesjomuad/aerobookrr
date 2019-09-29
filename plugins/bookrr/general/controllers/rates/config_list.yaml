@@ -6,7 +6,7 @@
 list: $/aeroparks/general/models/rate/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\General\Models\Rate
+modelClass: Bookrr\General\Models\Rate
 
 # List Title
 title: Manage Rates

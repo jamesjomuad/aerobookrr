@@ -1,8 +1,8 @@
-<?php namespace Aeroparks\Store\Controllers;
+<?php namespace Bookrr\Store\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Aeroparks\Store\Models\Coupon as CouponModel;
+use Bookrr\Store\Models\Coupon as CouponModel;
 
 /**
  * Coupon Back-end Controller

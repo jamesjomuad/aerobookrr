@@ -1,9 +1,9 @@
-<?php namespace Aeroparks\Bay\Controllers;
+<?php namespace Bookrr\Bay\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
-use Aeroparks\Bay\Models\Bay as BayModel;
+use Bookrr\Bay\Models\Bay as BayModel;
 
 
 

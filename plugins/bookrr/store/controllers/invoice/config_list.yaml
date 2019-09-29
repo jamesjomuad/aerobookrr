@@ -6,7 +6,7 @@
 list: $/aeroparks/store/models/invoice/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\Invoice
+modelClass: Bookrr\Store\Models\Invoice
 
 # List Title
 title: Manage Invoices

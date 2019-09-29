@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Updates;
+<?php namespace Bookrr\User\Updates;
 
 
 use October\Rain\Database\Updates\Seeder;

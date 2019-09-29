@@ -6,7 +6,7 @@
 list: $/aeroparks/messaging/models/txt/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Messaging\Models\Txt
+modelClass: Bookrr\Messaging\Models\Txt
 
 # List Title
 title: Manage Txts

@@ -1,7 +1,7 @@
-<?php namespace Aeroparks\Store\Components;
+<?php namespace Bookrr\Store\Components;
 
 use Cms\Classes\ComponentBase;
-use Aeroparks\Store\Models\Product as Products;
+use Bookrr\Store\Models\Product as Products;
 
 class Product extends ComponentBase
 {

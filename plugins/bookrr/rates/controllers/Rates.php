@@ -1,10 +1,10 @@
-<?php namespace Aeroparks\Rates\Controllers;
+<?php namespace Bookrr\Rates\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
-use Aeroparks\Rates\Models\Settings as dbSettings;
-use Aeroparks\Rates\Models\Rate as RateModel;
+use Bookrr\Rates\Models\Settings as dbSettings;
+use Bookrr\Rates\Models\Rate as RateModel;
 use Carbon\Carbon;
 
 /**
@@ -12,7 +12,7 @@ use Carbon\Carbon;
  */
 class Rates extends Controller
 {
-    use \Aeroparks\General\Traits\Widgets;
+    use \Bookrr\General\Traits\Widgets;
 
     public $model;
 

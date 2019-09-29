@@ -6,7 +6,7 @@
 list: $/aeroparks/user/models/agent/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\Agent
+modelClass: Bookrr\User\Models\Agent
 
 # List Title
 title: Manage Agents

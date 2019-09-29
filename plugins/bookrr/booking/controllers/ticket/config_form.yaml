@@ -9,7 +9,7 @@ name: Ticket
 form: $/aeroparks/booking/models/ticket/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Booking\Models\Ticket
+modelClass: Bookrr\Booking\Models\Ticket
 
 # Default redirect location
 defaultRedirect: aeroparks/booking/ticket

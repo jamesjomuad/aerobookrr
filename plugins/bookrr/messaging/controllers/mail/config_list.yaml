@@ -6,7 +6,7 @@
 list: $/aeroparks/messaging/models/mail/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Messaging\Models\Mail
+modelClass: Bookrr\Messaging\Models\Mail
 
 # List Title
 title: Manage Mails

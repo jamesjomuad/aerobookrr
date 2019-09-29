@@ -6,7 +6,7 @@
 list: $/aeroparks/user/models/staff/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\User\Models\Staff
+modelClass: Bookrr\User\Models\Staff
 
 # List Title
 title: Manage Staff

@@ -6,7 +6,7 @@
 list: $/aeroparks/map/models/tracker/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Map\Models\Tracker
+modelClass: Bookrr\Map\Models\Tracker
 
 # List Title
 title: Manage Trackers

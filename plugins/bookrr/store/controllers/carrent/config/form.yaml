@@ -9,7 +9,7 @@ name: Vehicle
 form: $/aeroparks/store/models/carrent/fields.yaml
 
 # Model Class name
-modelClass: Aeroparks\Store\Models\CarRent
+modelClass: Bookrr\Store\Models\CarRent
 
 # Default redirect location
 defaultRedirect: aeroparks/store/carrent

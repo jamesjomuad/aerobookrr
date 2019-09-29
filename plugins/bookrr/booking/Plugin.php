@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\Booking;
+<?php namespace Bookrr\Booking;
 
 use Backend;
 use System\Classes\PluginBase;

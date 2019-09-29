@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User\Traits;
+<?php namespace Bookrr\User\Traits;
 
 use Illuminate\Support\Arr;
 use Carbon\Carbon;

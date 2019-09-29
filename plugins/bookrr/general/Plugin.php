@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\General;
+<?php namespace Bookrr\General;
 
 use Backend;
 use Event;
@@ -29,9 +29,9 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Aeroparks\User\Components\Register' => 'Register',
-            'Aeroparks\User\Components\Login' => 'Login',
-            'Aeroparks\Store\Components\Product' => 'Product'
+            'Bookrr\User\Components\Register' => 'Register',
+            'Bookrr\User\Components\Login' => 'Login',
+            'Bookrr\Store\Components\Product' => 'Product'
         ];
     }
 
@@ -52,42 +52,42 @@ class Plugin extends PluginBase
     public function registerReportWidgets()
     {
         return [
-            '\Aeroparks\General\ReportWidgets\Finder' => [
+            '\Bookrr\General\ReportWidgets\Finder' => [
                 'label'   => 'Aeroparks - Finder',
                 'context' => 'dashboard',
                 'permissions' => [
                     'aeroparks.widget.booker',
                 ],
             ],
-            '\Aeroparks\General\ReportWidgets\ParkingFeed' => [
+            '\Bookrr\General\ReportWidgets\ParkingFeed' => [
                 'label'   => 'Aeroparks - Aero Feed',
                 'context' => 'dashboard',
                 'permissions' => [
                     'aeroparks.widget.*',
                 ],
             ],
-            '\Aeroparks\General\ReportWidgets\ParkingSlot' => [
+            '\Bookrr\General\ReportWidgets\ParkingSlot' => [
                 'label'   => 'Aeroparks - Parking Slot',
                 'context' => 'dashboard',
                 'permissions' => [
                     'aeroparks.widget.booker',
                 ],
             ],
-            '\Aeroparks\General\ReportWidgets\BookingStat' => [
+            '\Bookrr\General\ReportWidgets\BookingStat' => [
                 'label'   => 'Aeroparks - Booking Stat',
                 'context' => 'dashboard',
                 'permissions' => [
                     'aeroparks.widget.bookingstat',
                 ],
             ],
-            '\Aeroparks\General\ReportWidgets\Tasks' => [
+            '\Bookrr\General\ReportWidgets\Tasks' => [
                 'label'   => 'Aeroparks - Tasks',
                 'context' => 'dashboard',
                 'permissions' => [
                     'aeroparks.widget.task',
                 ],
             ],
-            '\Aeroparks\General\ReportWidgets\Instafeed' => [
+            '\Bookrr\General\ReportWidgets\Instafeed' => [
                 'label'   => 'Instagram Feed',
                 'context' => 'dashboard',
                 'permissions' => [
@@ -100,15 +100,15 @@ class Plugin extends PluginBase
     public function registerFormWidgets()
     {
         return[
-            'Aeroparks\General\FormWidgets\DateTimePicker' => [
+            'Bookrr\General\FormWidgets\DateTimePicker' => [
                 'label' => 'Bootstrap Datetime picker',
                 'code' => 'datetimepicker'
             ],
-            'Aeroparks\General\FormWidgets\FinderPlus' => [
+            'Bookrr\General\FormWidgets\FinderPlus' => [
                 'label' => 'Finder and Selector list',
                 'code' => 'finderplus'
             ],
-            'Aeroparks\General\FormWidgets\Basket' => [
+            'Bookrr\General\FormWidgets\Basket' => [
                 'label' => 'Basket for items.',
                 'code' => 'basket'
             ]

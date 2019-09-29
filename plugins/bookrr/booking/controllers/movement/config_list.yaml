@@ -6,7 +6,7 @@
 list: $/aeroparks/booking/models/movement/columns.yaml
 
 # Model Class name
-modelClass: Aeroparks\Booking\Models\Movement
+modelClass: Bookrr\Booking\Models\Movement
 
 # List Title
 title: Manage Movements

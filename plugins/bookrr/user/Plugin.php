@@ -1,4 +1,4 @@
-<?php namespace Aeroparks\User;
+<?php namespace Bookrr\User;
 
 use Backend;
 use Event;
@@ -6,8 +6,8 @@ use System\Classes\PluginBase;
 use Backend\Models\User as UserModel;
 use Backend\Controllers\Users as UserController;
 use BackendAuth;
-use Aeroparks\User\Models\User;
-use Aeroparks\User\Models\Loyalty;
+use Bookrr\User\Models\User;
+use Bookrr\User\Models\Loyalty;
 
 
 
@@ -29,16 +29,16 @@ class Plugin extends PluginBase
     {
         # Middleware
         $this->app['Illuminate\Contracts\Http\Kernel']
-        ->pushMiddleware('Aeroparks\User\Middleware\FrontendMiddleware');
-        // ->pushMiddleware('Aeroparks\User\Middleware\CustomerMiddleware');
+        ->pushMiddleware('Bookrr\User\Middleware\FrontendMiddleware');
+        // ->pushMiddleware('Bookrr\User\Middleware\CustomerMiddleware');
 
 
         # Overide backend user model
         UserModel::extend(function($model){
             // Relation
             $model->hasOne = [
-                'aeroUser'  => ['Aeroparks\User\Models\User'],
-                'points'    => ['Aeroparks\User\Models\Loyalty']
+                'aeroUser'  => ['Bookrr\User\Models\User'],
+                'points'    => ['Bookrr\User\Models\Loyalty']
             ];
 
             // isCustomer method

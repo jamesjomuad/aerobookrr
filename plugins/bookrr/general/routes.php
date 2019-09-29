@@ -2,16 +2,16 @@
 
 use Backend\Models\User as BackUser;
 use Backend\Models\UserRole;
-use Aeroparks\User\Models\BaseUser;
-use Aeroparks\User\Models\User;
-use Aeroparks\User\Models\Staff;
-use Aeroparks\User\Models\Customer;
-use Aeroparks\User\Models\Vehicle;
-use Aeroparks\Booking\Models\Parking;
-use Aeroparks\Booking\Models\Movement;
-use Aeroparks\Booking\Models\Ticket;
-use Aeroparks\Booking\Controllers\Ticket as TicketController;
-use Aeroparks\Bay\Models\Bay;
+use Bookrr\User\Models\BaseUser;
+use Bookrr\User\Models\User;
+use Bookrr\User\Models\Staff;
+use Bookrr\User\Models\Customer;
+use Bookrr\User\Models\Vehicle;
+use Bookrr\Booking\Models\Parking;
+use Bookrr\Booking\Models\Movement;
+use Bookrr\Booking\Models\Ticket;
+use Bookrr\Booking\Controllers\Ticket as TicketController;
+use Bookrr\Bay\Models\Bay;
 use Renatio\DynamicPDF\Classes\PDF;
 use Faker\Factory as Faker;
 use Carbon\Carbon;
