@@ -8,7 +8,7 @@ class CreateBaysTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_bay', function(Blueprint $table) {
+        Schema::create('bookrr_bay', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('zone_id')->nullable();
@@ -21,6 +21,6 @@ class CreateBaysTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_bay');
+        Schema::dropIfExists('bookrr_bay');
     }
 }

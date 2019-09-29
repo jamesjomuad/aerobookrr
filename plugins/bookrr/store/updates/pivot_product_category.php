@@ -7,7 +7,7 @@ class CreateAeroparksProductPivot extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_product_pivot', function($table)
+        Schema::create('bookrr_product_pivot', function($table)
         {
             $table->engine = 'InnoDB';
             $table->integer('product_id');
@@ -18,6 +18,6 @@ class CreateAeroparksProductPivot extends Migration
     
     public function down()
     {
-        Schema::dropIfExists('aeroparks_product_pivot');
+        Schema::dropIfExists('bookrr_product_pivot');
     }
 }

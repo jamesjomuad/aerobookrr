@@ -8,7 +8,7 @@ class CreateTicketsTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_booking_tickets', function(Blueprint $table) {
+        Schema::create('bookrr_booking_tickets', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
@@ -17,6 +17,6 @@ class CreateTicketsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_booking_tickets');
+        Schema::dropIfExists('bookrr_booking_tickets');
     }
 }

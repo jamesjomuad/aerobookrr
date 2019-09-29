@@ -8,7 +8,7 @@ class CreateCouponsTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_product_coupon', function(Blueprint $table) {
+        Schema::create('bookrr_product_coupon', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('title')->nullable();
@@ -24,6 +24,6 @@ class CreateCouponsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_product_coupon');
+        Schema::dropIfExists('bookrr_product_coupon');
     }
 }

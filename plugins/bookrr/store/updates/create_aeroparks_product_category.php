@@ -7,7 +7,7 @@ class CreateAeroparksProductCategory extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_product_category', function($table)
+        Schema::create('bookrr_product_category', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -22,6 +22,6 @@ class CreateAeroparksProductCategory extends Migration
     
     public function down()
     {
-        Schema::dropIfExists('aeroparks_product_category');
+        Schema::dropIfExists('bookrr_product_category');
     }
 }

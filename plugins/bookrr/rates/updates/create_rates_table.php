@@ -8,7 +8,7 @@ class CreateRatesTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_rates', function(Blueprint $table) {
+        Schema::create('bookrr_rates', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name',100)->nullable();
@@ -26,6 +26,6 @@ class CreateRatesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_rates');
+        Schema::dropIfExists('bookrr_rates');
     }
 }

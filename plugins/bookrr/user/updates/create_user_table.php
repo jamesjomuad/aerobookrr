@@ -8,7 +8,7 @@ class CreateUsersTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_user', function(Blueprint $table) {
+        Schema::create('bookrr_user', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
@@ -28,6 +28,6 @@ class CreateUsersTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_user');
+        Schema::dropIfExists('bookrr_user');
     }
 }

@@ -8,7 +8,7 @@ class CreateCartsTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_carts', function(Blueprint $table) {
+        Schema::create('bookrr_carts', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('book_id');
@@ -27,6 +27,6 @@ class CreateCartsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_carts');
+        Schema::dropIfExists('bookrr_carts');
     }
 }

@@ -8,7 +8,7 @@ class CreateInvoiceTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_store_invoice', function(Blueprint $table) {
+        Schema::create('bookrr_store_invoice', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('title')->nullable();
@@ -25,6 +25,6 @@ class CreateInvoiceTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_store_invoice');
+        Schema::dropIfExists('bookrr_store_invoice');
     }
 }

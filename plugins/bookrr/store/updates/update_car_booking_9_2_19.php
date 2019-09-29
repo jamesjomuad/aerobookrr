@@ -8,14 +8,14 @@ class UpdateBookingTable extends Migration
 {
     public function up()
     {
-        Schema::table('aeroparks_carrental_booking', function(Blueprint $table){
+        Schema::table('bookrr_carrental_booking', function(Blueprint $table){
             $table->timestamp('deleted_at')->nullable();
         });
     }
 
     public function down()
     {
-        Schema::table('aeroparks_carrental_booking', function(Blueprint $table){
+        Schema::table('bookrr_carrental_booking', function(Blueprint $table){
             $table->dropColumn('deleted_at');
         });
     }

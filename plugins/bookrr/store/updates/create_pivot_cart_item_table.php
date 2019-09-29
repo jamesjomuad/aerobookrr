@@ -8,7 +8,7 @@ class CreatePivotCartItemTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_cart_product', function(Blueprint $table) {
+        Schema::create('bookrr_cart_product', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->integer('cart_id');
             $table->integer('product_id');
@@ -20,6 +20,6 @@ class CreatePivotCartItemTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_cart_product');
+        Schema::dropIfExists('bookrr_cart_product');
     }
 }

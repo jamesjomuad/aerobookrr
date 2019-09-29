@@ -8,7 +8,7 @@ class UpdateUsersTable extends Migration
 {
     public function up()
     {
-        Schema::table('aeroparks_user', function(Blueprint $table) {
+        Schema::table('bookrr_user', function(Blueprint $table) {
             $table->string('code',50)->nullable()->unique();
         });
     }

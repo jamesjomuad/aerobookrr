@@ -8,7 +8,7 @@ class CreateContactsTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_user_contacts', function(Blueprint $table) {
+        Schema::create('bookrr_user_contacts', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
@@ -30,6 +30,6 @@ class CreateContactsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_user_contacts');
+        Schema::dropIfExists('bookrr_user_contacts');
     }
 }

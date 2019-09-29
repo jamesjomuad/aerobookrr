@@ -8,7 +8,7 @@ class CreateZonesTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_bay_zone', function(Blueprint $table) {
+        Schema::create('bookrr_bay_zone', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
@@ -23,6 +23,6 @@ class CreateZonesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_bay_zone');
+        Schema::dropIfExists('bookrr_bay_zone');
     }
 }

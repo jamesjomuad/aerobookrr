@@ -8,7 +8,7 @@ class CreateVehiclesTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_vehicle', function($table)
+        Schema::create('bookrr_vehicle', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -27,6 +27,6 @@ class CreateVehiclesTable extends Migration
     
     public function down()
     {
-        Schema::dropIfExists('aeroparks_vehicle');
+        Schema::dropIfExists('bookrr_vehicle');
     }
 }

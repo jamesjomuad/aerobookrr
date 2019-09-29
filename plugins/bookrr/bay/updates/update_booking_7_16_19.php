@@ -8,14 +8,14 @@ class UpdateBookingTable extends Migration
 {
     public function up()
     {
-        Schema::table('aeroparks_booking', function(Blueprint $table){
+        Schema::table('bookrr_booking', function(Blueprint $table){
             $table->integer('bay_id')->nullable()->after('id');
         });
     }
 
     public function down()
     {
-        Schema::table('aeroparks_booking', function(Blueprint $table){
+        Schema::table('bookrr_booking', function(Blueprint $table){
             $table->dropColumn('bay_id');
         });
     }

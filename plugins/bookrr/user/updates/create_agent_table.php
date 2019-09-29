@@ -9,7 +9,7 @@ class CreateAgentsTable extends Migration
 
     public function up()
     {
-        Schema::create('aeroparks_agent', function(Blueprint $table){
+        Schema::create('bookrr_agent', function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
@@ -24,7 +24,7 @@ class CreateAgentsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_agent');
+        Schema::dropIfExists('bookrr_agent');
     }
 
 }
