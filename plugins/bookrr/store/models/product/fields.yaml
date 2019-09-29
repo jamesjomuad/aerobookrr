@@ -1,0 +1,42 @@
+fields:
+    price:
+        label: Price
+        span: auto
+        type: text
+    sku:
+        label: SKU
+        span: right
+        type: text
+    name:
+        label: Name
+        span: left
+        type: text
+    type:
+        label: Type
+        options:
+            product: Product
+            service: Service
+        span: auto
+        type: dropdown
+    description:
+        label: Description
+        size: large
+        span: full
+        type: richeditor
+    images:
+        label: 'Product Images'
+        mode: image
+        imageWidth: '150'
+        imageHeight: '150'
+        useCaption: 1
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        type: fileupload
+    category:
+        label: Category
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation

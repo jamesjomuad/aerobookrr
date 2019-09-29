@@ -1,0 +1,29 @@
+fields:
+    id:
+        label: ID
+        span: left
+        disabled: true
+        type: text
+    rate:
+        label: 'Daily Rack Rate'
+        span: right
+        type: text
+    refund_percent:
+        label: 'Refund Percentage'
+        span: left
+        type: text
+    refund_fee:
+        label: 'Refund Service Charge'
+        span: right
+        type: text
+    cancel_allow:
+        label: 'Allow Cancellation'
+        span: full
+        type: checkbox
+    type:
+        label: Type
+        options:
+            1: Default
+            2: 'Special Rate Pool'
+        span: auto
+        type: radio

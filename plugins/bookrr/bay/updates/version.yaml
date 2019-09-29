@@ -1,0 +1,10 @@
+1.0.1: First version of bay
+1.0.2:
+  - 'Create Bay table'
+  - create_bays_table.php
+1.0.3:
+  - 'Create Zones table'
+  - create_zones_table.php
+1.0.4:
+  - 'Update Booking table. Booking Bays relation.'
+  - update_booking_7_16_19.php

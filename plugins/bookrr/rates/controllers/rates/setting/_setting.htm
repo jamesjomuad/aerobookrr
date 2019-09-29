@@ -1,0 +1,18 @@
+<?php if(!$this->settings->get('rate')) : ?>
+    <?= $this->makePartial('setting/callout-warning') ?>
+<?php endif; ?>
+
+<?= $settings->render() ?>
+
+<div class="loading-indicator-container">
+    <button
+        type="submit"
+        data-request="onSave"
+        data-request-data="redirect:0"
+        data-request-update="scoreboard: '#scoreboards'"
+        data-hotkey="ctrl+s, cmd+s"
+        data-load-indicator="Saving setting..."
+        class="btn btn-primary">
+        <u>S</u>ave
+    </button>
+</div>

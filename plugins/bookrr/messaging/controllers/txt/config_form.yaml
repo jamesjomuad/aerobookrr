@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Txt
+
+# Model Form Field configuration
+form: $/aeroparks/messaging/models/txt/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Messaging\Models\Txt
+
+# Default redirect location
+defaultRedirect: aeroparks/messaging/txt
+
+# Create page
+create:
+    title: Create Txt
+    redirect: aeroparks/messaging/txt/update/:id
+    redirectClose: aeroparks/messaging/txt
+
+# Update page
+update:
+    title: Edit Txt
+    redirect: aeroparks/messaging/txt
+    redirectClose: aeroparks/messaging/txt
+
+# Preview page
+preview:
+    title: Preview Txt

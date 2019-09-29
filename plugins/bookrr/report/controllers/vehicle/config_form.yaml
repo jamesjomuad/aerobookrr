@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Vehicle
+
+# Model Form Field configuration
+form: $/aeroparks/report/models/vehicle/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Report\Models\Vehicle
+
+# Default redirect location
+defaultRedirect: aeroparks/report/vehicle
+
+# Create page
+create:
+    title: Create Vehicle
+    redirect: aeroparks/report/vehicle/update/:id
+    redirectClose: aeroparks/report/vehicle
+
+# Update page
+update:
+    title: Edit Vehicle
+    redirect: aeroparks/report/vehicle
+    redirectClose: aeroparks/report/vehicle
+
+# Preview page
+preview:
+    title: Preview Vehicle

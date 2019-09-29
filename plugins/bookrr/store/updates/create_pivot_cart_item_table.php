@@ -1,0 +1,25 @@
+<?php namespace Aeroparks\Store\Updates;
+
+use Schema;
+use October\Rain\Database\Schema\Blueprint;
+use October\Rain\Database\Updates\Migration;
+
+class CreatePivotCartItemTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('aeroparks_cart_product', function(Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->integer('cart_id');
+            $table->integer('product_id');
+            $table->integer('quantity');
+            $table->primary(['cart_id','product_id']);
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('aeroparks_cart_product');
+    }
+}

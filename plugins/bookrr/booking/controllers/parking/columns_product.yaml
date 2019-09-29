@@ -1,0 +1,26 @@
+columns:
+    id:
+        label: ID
+        type: text
+        searchable: true
+        sortable: true
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: Description
+        type: text
+        searchable: false
+        sortable: false
+    price:
+        label: Price
+        type: text
+        searchable: true
+        clickable: false
+    sku:
+        label: SKU
+        type: text
+        searchable: true
+        clickable: false

@@ -1,0 +1,28 @@
+<?php if($value): ?>
+    <div class="col-md-3 item">
+        <input
+            type="hidden"
+            name="<?= $field->getName() ?>[]"
+            id="<?= $field->getId() ?>"
+            value="<?= e($item->id) ?>"
+        />
+        <!-- Card -->
+        <div class="card">
+            <!-- Card image -->
+            <img class="img-responsive card-img-top" src="<?= $this->getThumb($item) ?>" style="width:100%;max-height: 215px;">
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+                <!-- Title -->
+                <h4 class="card-title"><?= $item->name ?></h4>
+                <!-- Subtitle -->
+                <h3 class="blue-text pb-2 my-4"><strong>$<?= $item->price ?></strong></h3>
+                <!-- Text -->
+                <p class="card-text"><?= str_limit(strip_tags($item->description)) ?></p>
+                <!-- Button -->
+                <!-- <a href="#" class="btn btn-primary">Button</a> -->
+                <button type="button" class="btn btn-danger" data-disposable="" onclick="$.oc.basket('remove',this)">Remove</button>
+            </div>
+        </div>
+        <!-- Card -->
+    </div>
+<?php endif; ?>

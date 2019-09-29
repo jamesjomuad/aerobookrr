@@ -1,0 +1,60 @@
+<div class="col-md-3">
+    <div class="card">
+        <!-- Card image -->
+        <img class="card-img-top" src="<?= $record->images()->first()->getThumb(200, 150, 'crop') ?>"
+            alt="Card image cap">
+        <!-- Card content -->
+        <div class="card-body">
+            <a
+                href="javascript:;"
+                class="btn-floating btn-primary btn-action ml-auto mr-4 mdb-color waves-effect waves-light book-now"
+                data-control="popup"
+                data-handler="onRentForm"
+                data-request-data="id:<?= $record->id ?>">
+                <i class="fa fa-bookmark"></i>
+            </a>
+            <!-- Title -->
+            <h4 class="card-title"><?= $record->model ?> <br> <small><?= $record->brand ?></small></h4>
+            <ul class="list-unstyled list-inline rating mb-0">
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
+                <li class="list-inline-item"><i class="fas fa-star-half-alt amber-text"></i></li>
+                <li class="list-inline-item">
+                    <p class="text-muted">4.5 (413)</p>
+                </li>
+            </ul>
+            <!-- Text -->
+            <p class="card-text"><?= $record->description ?></p>
+            <hr class="my-4">
+            <p class="lead"><strong>Car Details</strong></p>
+            <ul class="list-unstyled list-inline d-flex justify-content-left flex-wrap mb-0">
+                <li class="list-inline-item mr-0">
+                    <div class="chip deep-purple white-text mr-0"><i class="far fa-clock pr-1"></i>$50/hr</div>
+                </li>
+                <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">
+                        <i class="fa fa-gas-pump"></i> <?= $record->mpg ?> MPG
+                    </div>
+                </li>
+                <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">
+                        <i class="fa fa-cogs"></i> <?= $record->gear ?>
+                    </div>
+                </li>
+                <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">
+                        <i class="fa fa-users"> </i> <?= $record->capacity ?>
+                    </div>
+                </li>
+                <li class="list-inline-item mr-0">
+                    <div class="chip mr-0">
+                        <i class="fa fa-suitcase-rolling"></i> <?= $record->luggages ?> Luggages
+                    </div>
+                </li>
+            </ul>
+            <br class="clr">
+        </div>
+    </div>
+</div>

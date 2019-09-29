@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Cars In</th>
+            <th scope="col">Cars Out</th>
+            <th scope="col">Movement</th>
+            <th scope="col">Occupancy</th>
+            <th scope="col">Free Bays</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $this->statistics()->each(function($item,$key){ ?>
+            <tr>
+                <td scope="row"><?= $key ?></td>
+                <td><?= $item['carsIn'] ?></td>
+                <td><?= $item['carsOut'] ?></td>
+                <td><?= $item['movements'] ?></td>
+                <td><?= $item['occupancy'] ?></td>
+                <td><?= $item['free_bays'] ?></td>
+            </tr>
+        <?php }); ?>
+    </tbody>
+</table>

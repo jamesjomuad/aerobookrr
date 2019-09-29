@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Car Booking
+
+# Model Form Field configuration
+form: $/aeroparks/store/models/carrentbooking/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Store\Models\CarBooking
+
+# Default redirect location
+defaultRedirect: aeroparks/store/carrentbooking
+
+# Create page
+create:
+    title: Create Car Booking
+    redirect: aeroparks/store/carrentbooking/update/:id
+    redirectClose: aeroparks/store/carrentbooking
+
+# Update page
+update:
+    title: Edit Car Booking
+    redirect: aeroparks/store/carrent#contentTabThree
+    redirectClose: aeroparks/store/carrent#contentTabThree
+
+# Preview page
+preview:
+    title: Preview Car Booking

@@ -1,0 +1,52 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+    barcode: 
+        label: 'Booking Bcode'
+        relation: booking
+        valueFrom: barcode
+        searchable: true
+        select: barcode
+    code: 
+        label: 'Staff Bcode'
+        relation: staff
+        valueFrom: code
+        searchable: true
+        select: code
+    slot: 
+        label: 'Parking Bay'
+        relation: booking
+        valueFrom: slot
+        searchable: true
+        select: slot
+        align: center
+    number: 
+        label: 'Booking Number'
+        relation: booking
+        valueFrom: number
+        searchable: true
+        select: number
+    first_name: 
+        label: 'Handler'
+        relation: staff
+        valueFrom: backendUser[first_name]
+        select: user_id
+        searchable: false
+        sortable: false
+    event:
+        label: Event
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: Created
+        type: text
+        searchable: true
+    action:
+        labe: Action
+        type: partial
+        path: list_action
+        align: center
+        # path: ~/plugins/acme/blog/models/comments/_content_column.htm

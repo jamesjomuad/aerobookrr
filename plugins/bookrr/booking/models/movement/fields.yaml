@@ -1,0 +1,31 @@
+fields:
+    booking:
+        label: Booking
+        title: 'Booking Finder'
+        nameFrom: number
+        list: $/aeroparks/booking/models/movement/columns_booking.yaml
+        span: auto
+        type: recordfinder
+    _bay:
+        label: 'Parking Bay'
+        span: auto
+        type: dropdown
+        options: listParkBays
+        emptyOption: " "
+    staff:
+        label: Staff/Handler
+        nameFrom: id
+        descriptionFrom: name
+        list: $/aeroparks/booking/models/movement/columns_staff.yaml
+        span: auto
+        type: recordfinder
+    event:
+        label: Event
+        span: auto
+        required: 1
+        type: dropdown
+    note:
+        label: Notes
+        size: large
+        span: full
+        type: textarea

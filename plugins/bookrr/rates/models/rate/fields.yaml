@@ -1,0 +1,32 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name/Season
+        type: text
+        span: full
+    rate:
+        label: Rate
+        span: left
+        type: text
+    code:
+        label: Code
+        span: right
+        type: text
+    date_start:
+        label: 'Date Start'
+        mode: date
+        span: left
+        type: datetimepicker
+    date_end:
+        label: 'Date End'
+        mode: date
+        span: right
+        type: datetimepicker
+    active:
+        label: Active
+        type: switch
+        default: true
+    

@@ -1,0 +1,20 @@
+<?php if ($this->previewMode): ?>
+    <div class="form-control">
+        <?= $this->getFormatValue() ?>
+    </div>
+<?php else: ?>
+    <input
+        type="text"
+        id="<?= $this->getId('input') ?>"
+        name="<?= $name ?>"
+        value="<?= $this->getFormatValue(); ?>"
+        class="form-control"
+        data-depends="<?=$this->getDependsOnID()?>"
+        autocomplete="off" />
+<?php endif; ?>
+
+<script>
+    $(function () {
+        $("#<?= $this->getId('input')?>").datetimepicker(<?= $this->getJSOption(); ?>);
+    });
+</script>

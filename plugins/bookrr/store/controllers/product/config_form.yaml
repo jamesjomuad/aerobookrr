@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/aeroparks/store/models/product/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Store\Models\Product
+
+# Default redirect location
+defaultRedirect: aeroparks/store/product
+
+# Create page
+create:
+    title: Create Product
+    redirect: aeroparks/store/product/update/:id
+    redirectClose: aeroparks/store/product
+
+# Update page
+update:
+    title: Edit Product
+    redirect: aeroparks/store/product
+    redirectClose: aeroparks/store/product
+
+# Preview page
+preview:
+    title: Preview Product

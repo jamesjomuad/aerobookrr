@@ -1,0 +1,28 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: Bay
+        searchable: true
+    # zone_name:
+    #     label: 'Zone'
+    #     relation: zone
+    #     valueFrom: name
+    #     select: name
+    #     searchable: true
+    zone[name]:
+        label: Zone
+        searchable: true
+        align: center
+    status:
+        label: Status
+        searchable: true
+        align: center
+    created_at:
+        label: Created
+        searchable: true

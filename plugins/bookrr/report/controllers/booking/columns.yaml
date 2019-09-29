@@ -1,0 +1,35 @@
+columns:
+    id:
+        label: ID
+        type: text
+        searchable: true
+    number:
+        label: Number
+        type: text
+        searchable: true
+    user:
+        label: Phone
+        type: text
+        relation: user
+        select: phone
+        sortable: false
+        searchable: true
+    date_in:
+        label: 'Date In'
+        type: text
+    date_out:
+        label: 'Date Out'
+        type: text
+    barcode:
+        label: Barcode
+        type: text
+        searchable: true
+    agent_reference:
+        label: 'Agent Code'
+        type: text
+        searchable: true
+    created_at:
+        label: Created
+        type: datetime
+        searchable: true
+        sortable: true

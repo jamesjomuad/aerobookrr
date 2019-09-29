@@ -1,0 +1,73 @@
+<?= Form::open() ?>
+<input type="hidden" name="car_id" value="<?= $model->id ?>">
+
+<div class="text-white rgba-white-strong py-5 px-5 z-depth-4">
+    <!--Header-->
+    <div class="modal-header text-center pb-4">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h3 class="modal-title dark-grey-text font-weight-bold" id="myModalLabel"><strong>BOOK</strong> <a class="green-text font-weight-bold"><strong>Now</strong></a></h3>
+    </div>
+
+    <!--Body-->
+    <div class="modal-body">
+        <div class="fotorama" data-nav="thumbs">
+            <?php foreach($model->imageGallery as $image) : ?>
+                <img src="<?= $image ?>">
+            <?php endforeach; ?>
+        </div>
+
+        <hr>
+        <h2><?= $model->brand ?></h2>
+        <h4><?= $model->model ?></h4>
+        <hr>
+
+        <p><?= $model->description ?></p>
+
+        <div class="btn-group btn-group-toggle d-flex flex-column flex-md-row py-5" data-toggle="buttons">
+            <div class="btn btn-primary waves-effect waves-light col-md-auto text-center">
+                <i class="far fa-clock pr-1"></i> $<?= $model->rate ?> / hr
+            </div>
+            <div class="btn btn-primary waves-effect waves-light col-md-auto text-center">
+                <i class="fa fa-gas-pump"></i> <?= $model->mpg ?> MPG
+            </div>
+            <div class="btn btn-primary waves-effect waves-light col-md-auto text-center">
+                <i class="fa fa-cogs"></i> <?= $model->gear ?>
+            </div>
+            <div class="btn btn-primary waves-effect waves-light col-md-auto text-center">
+                <i class="fa fa-users"> </i> <?= $model->capacity ?>
+            </div>
+            <div class="btn btn-primary waves-effect waves-light col-md-auto text-center">
+                <i class="fa fa-suitcase-rolling"></i> <?= $model->luggages ?> Luggages
+            </div>
+        </div>
+
+        <?= $bookFormWidget->render() ?>
+        <hr>
+    </div>
+
+    <div class="modal-footer text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-column">
+                    <button type="button" class="btn btn-primary my-4 text-center"
+                        data-request="onBookNow"
+                        data-request-success="$('[data-dismiss=popup]').click()">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="d-flex flex-column">
+                    <button type="button" class="btn btn-default text-center" data-dismiss="popup" style="margin: 0;">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?= Form::close() ?>
+
+<script>
+    $('.fotorama').fotorama();
+</script>

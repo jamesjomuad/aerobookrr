@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Tracker
+
+# Model Form Field configuration
+form: $/aeroparks/map/models/tracker/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Map\Models\Tracker
+
+# Default redirect location
+defaultRedirect: aeroparks/map/tracker
+
+# Create page
+create:
+    title: Create Tracker
+    redirect: aeroparks/map/tracker/update/:id
+    redirectClose: aeroparks/map/tracker
+
+# Update page
+update:
+    title: Edit Tracker
+    redirect: aeroparks/map/tracker
+    redirectClose: aeroparks/map/tracker
+
+# Preview page
+preview:
+    title: Preview Tracker

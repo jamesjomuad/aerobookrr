@@ -1,0 +1,11 @@
+<?php
+    $formWidget = $this->createFormWidget([
+            'alias'     => 'vehicleForm',
+            'arrayName' => 'Vehicle',
+            'model'     =>  $model->vehicle,
+            'config'    => '$/aeroparks/booking/models/booking/fields_vehicle.yaml'
+    ]);
+?>
+
+
+<?= $formWidget->render(); ?>

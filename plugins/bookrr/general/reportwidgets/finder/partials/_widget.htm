@@ -1,0 +1,22 @@
+<div id="aero-reservation" class="report-widget">
+    <h3><?= $this->property('title') ?></h3>
+    <form class="form-elements" role="form">
+
+        <div class="form-group span-full">
+            <label>Barcode</label>
+            <input id="finder-barcode" type="text" name="booking[barcode]" class="form-control" placeholder="Barcode"/>
+        </div>
+        
+        <div class="form-group span-full">
+            <label>Check In / Check Out</label>
+            <input id="finder-book-no" type="text" name="booking[number]" class="form-control" placeholder="Booking No."/>
+        </div>
+
+        <div class="form-group span-full">
+            <label>Registration Number</label>
+            <input id="finder-plate-no" type="text" name="vehicle[plate]" class="form-control" placeholder="Plate No."/>
+        </div>
+
+        <br style="clear:both;">
+    </form>
+</div>

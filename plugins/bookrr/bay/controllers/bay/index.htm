@@ -1,0 +1,14 @@
+<div class="control-tabs content-tabs" data-control="tab">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#bay">Bays</a></li>
+        <li><a href="#zone">Zones</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <?= $this->listRender('bay') ?>
+        </div>
+        <div class="tab-pane">
+            <?= $this->listRender('zone') ?>
+        </div>
+    </div>
+</div>

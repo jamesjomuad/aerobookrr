@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    book_id:
+        label: ID
+        searchable: true
+    items_count:
+        label: Items
+        relation: items_count
+        useRelationCount: true

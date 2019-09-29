@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Bay
+
+# Model Form Field configuration
+form: $/aeroparks/bay/models/bay/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Bay\Models\Bay
+
+# Default redirect location
+defaultRedirect: aeroparks/bay/bay
+
+# Create page
+create:
+    title: Create Bay
+    redirect: aeroparks/bay/bay/update/:id
+    redirectClose: aeroparks/bay/bay
+
+# Update page
+update:
+    title: Edit Bay
+    redirect: aeroparks/bay/bay
+    redirectClose: aeroparks/bay/bay
+
+# Preview page
+preview:
+    title: Preview Bay

@@ -1,0 +1,39 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+  status:
+    label: Status
+    type: group
+    conditions: status in (:filtered)
+    options:
+      pending: 'Pending'
+      parked: 'Parked'
+      declined: 'Declined'
+      canceled: 'Canceled'
+      expired: Expired'
+
+  brand:
+    label: Brand
+    modelClass: Aeroparks\User\Models\Vehicle
+    conditions: brand in (:filtered)
+    options: getBrandOptions
+
+  model:
+    label: Model
+    modelClass: Aeroparks\User\Models\Vehicle
+    conditions: model in (:filtered)
+    options: getModelOptions
+
+  size:
+    label: Size
+    modelClass: Aeroparks\User\Models\Vehicle
+    conditions: size in (:filtered)
+    options: getSizeOptions
+
+  created_at:
+    label: 'Created'
+    type: daterange
+    conditions: created_at >= ':after' AND created_at <= ':before'

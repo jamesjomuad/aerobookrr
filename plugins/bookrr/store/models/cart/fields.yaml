@@ -1,0 +1,28 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+        span: auto
+    products:
+        label: Product
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    #     emptyOption: 'No Service/Product available right now.'
+    # product:
+    #     label: Product
+    #     type: recordfinder
+    #     list: ~/plugins/aeroparks/store/models/product/columns_cart.yaml
+    #     recordsPerPage: 10
+    #     title: Find Record
+    #     prompt: Click the Find button to find a user
+    #     keyFrom: id
+    #     nameFrom: name
+    #     searchMode: all
+    #     useRelation: false
+    #     modelClass: Aeroparks\Store\Models\Product

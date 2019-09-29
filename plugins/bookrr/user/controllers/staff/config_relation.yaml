@@ -1,0 +1,5 @@
+BaseUser:
+  label: backendUser
+  manage:
+    form: $/aeroparks/user/models/user/fields.yaml
+    showCheckboxes: true

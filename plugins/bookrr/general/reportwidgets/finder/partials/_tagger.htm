@@ -1,0 +1,25 @@
+<?= Form::open(['id'=>'tagger']) ?>
+    <input type="hidden" name="booking[number]" value="<?= post('booking.number') ?>" />
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title">Assign Barcode Tag</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="content">
+            <div class="form-group span-full">
+                <input id="barcode-tag" type="text" name="booking[barcode]" value="" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            Close
+        </button>
+    </div>
+<?= Form::close() ?>

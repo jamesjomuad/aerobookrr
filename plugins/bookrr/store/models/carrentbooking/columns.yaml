@@ -1,0 +1,36 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+    number:
+        label: 'Booking No.'
+        type: text
+        searchable: false
+        sortable: false
+    date_in:
+        label: 'Rent Date'
+        type: text
+        searchable: false
+        sortable: true
+    date_out:
+        label: 'Return Date'
+        type: text
+        searchable: false
+        sortable: true
+    status:
+        label: 'Status'
+        type: text
+        searchable: false
+        sortable: true
+    created_at:
+        label: Created
+        type: datetime
+        searchable: false
+        sortable: true
+    updated_at:
+        label: Updated
+        type: datetime
+        searchable: false
+        sortable: true

@@ -56,7 +56,7 @@ return [
             'driver'    => 'mysql',
             'host'      => 'localhost',
             'port'      => 3306,
-            'database'  => 'database',
+            'database'  => 'aeroparks',
             'username'  => 'root',
             'password'  => '',
             'charset'   => 'utf8mb4',

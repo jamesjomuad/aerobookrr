@@ -1,0 +1,35 @@
+<?php if ( $this->action!='create' ): ?>
+<?php $items = $model->customer->vehicles; ?>
+    <?php if (count($items)): ?>
+        <div class="list-preview list-flush">
+            <div class="control-list">
+                <table class="table data" data-control="rowlink">
+                    <thead>
+                        <tr>
+                            <th><span>ID</span></th>
+                            <th><span>Name</span></th>
+                            <th><span>Plate Number</span></th>
+                            <th><span>Brand</span></th>
+                            <th><span>Model</span></th>
+                            <th><span>Size</span></th>
+                            <th><span>Color</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($items->reverse() as $item): ?>
+                            <tr>
+                                <td><?= e($item->id) ?></td>
+                                <td><?= e($item->name) ?></td>
+                                <td><?= e($item->plate) ?></td>
+                                <td><?= e($item->brand) ?></td>
+                                <td><?= e($item->model) ?></td>
+                                <td><?= e($item->size) ?></td>
+                                <td><?= e($item->color) ?></td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <?php endif ?>
+<?php endif ?>

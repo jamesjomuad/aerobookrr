@@ -1,0 +1,10 @@
+<div class="modal-body p-4">
+    <div class="loader loading-indicator-container">
+        <div class="loading-indicator indicator-center">
+            <span></span>
+        </div>
+    </div>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe id="pxpayFrame" class="embed-responsive-item" src="<?= $PxPay->Url ?>" style="display:none;" onload="$('.modal-dialog.pxpay .loader').fadeOut(); $('.modal-dialog.pxpay iframe').fadeIn()"></iframe>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+    plate:
+        label: 'Plate Number'
+        type: text
+        searchable: true
+        sortable: true
+    brand:
+        label: Brand
+        type: text
+        searchable: true
+        sortable: true
+    model:
+        label: Model
+        type: text
+        searchable: true
+        sortable: true
+    size:
+        label: Size
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: Created
+        type: text

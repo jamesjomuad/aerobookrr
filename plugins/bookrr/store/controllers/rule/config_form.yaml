@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Rule
+
+# Model Form Field configuration
+form: $/aeroparks/store/models/rule/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Store\Models\Rule
+
+# Default redirect location
+defaultRedirect: aeroparks/store/rule
+
+# Create page
+create:
+    title: Create Rule
+    redirect: aeroparks/store/rule/update/:id
+    redirectClose: aeroparks/store/rule
+
+# Update page
+update:
+    title: Edit Rule
+    redirect: aeroparks/store/rule
+    redirectClose: aeroparks/store/rule
+
+# Preview page
+preview:
+    title: Preview Rule

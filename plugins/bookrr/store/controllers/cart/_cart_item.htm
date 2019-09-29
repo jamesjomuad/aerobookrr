@@ -1,0 +1,22 @@
+<tr class="rowlink" data-id="<?= $product->id ?>">
+    <td class="list-checkbox nolink">
+        <div class="checkbox custom-checkbox nolabel">
+            <input type="checkbox" class="cart-item" name="Cart[checked][]" id="Lists-checkbox-<?= $product->id ?>" value="<?= $product->id ?>">
+            <label for="Lists-checkbox-<?= $product->id ?>">Check</label>
+        </div>
+    </td>
+    <td><?= $product->sku ?></td>
+    <td><?= $product->name ?></td>
+    <td><?= $product->description ?></td>
+    <td width="50">
+        <input type="text" name="Cart[qty][<?=$product->id?>]" class="form-control qty" 
+            value="<?= $product->quantity() ?>"
+            data-request="onUpdateQty"
+            data-request-data="pid:<?=$product->id?>"
+            data-track-input="100"
+        />
+    </td>
+    <td class="list-cell-align-center">x</td>
+    <td><?= $this->currency ?><?= $product->price ?></td>
+    <td><?= $this->currency ?><?= $product->totalwithQty() ?></td>
+</tr>

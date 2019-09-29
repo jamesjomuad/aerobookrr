@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Vehicle
+
+# Model Form Field configuration
+form: $/aeroparks/store/models/carrent/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Store\Models\CarRent
+
+# Default redirect location
+defaultRedirect: aeroparks/store/carrent
+
+# Create page
+create:
+    title: Create Vehicle
+    redirect: aeroparks/store/carrent/update/:id
+    redirectClose: aeroparks/store/carrent#contentTabTwo
+
+# Update page
+update:
+    title: Edit Vehicle
+    redirect: aeroparks/store/carrent
+    redirectClose: aeroparks/store/carrent#contentTabTwo
+
+# Preview page
+preview:
+    title: Preview Vehicle

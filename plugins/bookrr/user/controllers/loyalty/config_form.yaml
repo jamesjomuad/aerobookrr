@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Loyalty
+
+# Model Form Field configuration
+form: $/aeroparks/user/models/loyalty/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\User\Models\Loyalty
+
+# Default redirect location
+defaultRedirect: aeroparks/user/loyalty
+
+# Create page
+create:
+    title: Create Loyalty
+    redirect: aeroparks/user/loyalty/update/:id
+    redirectClose: aeroparks/user/loyalty
+
+# Update page
+update:
+    title: Edit Loyalty
+    redirect: aeroparks/user/loyalty
+    redirectClose: aeroparks/user/loyalty
+
+# Preview page
+preview:
+    title: Preview Loyalty

@@ -1,0 +1,138 @@
+<div class="container-fluid">
+    <!-- First row -->
+    <div class="row white z-depth-1 mb-r py-4">
+        <div class="col-md-6">
+            <h4 class="h4-responsive mt-3">Invoice #124190</h4>
+        </div>
+        <div class="col-md-6 text-md-right">
+            <a href="#" class="btn btn-default waves-effect waves-light"><i class="fa fa-save"></i> Save</a>
+            <a href="#" class="btn btn-primary waves-effect waves-light"><i class="fa fa-file-pdf"></i> PDF</a>
+            <a id="print_invoice" href="#" class="btn btn-primary waves-effect waves-light"><i class="fa fa-print"></i> Print</a>
+        </div>
+    </div>
+    <!-- /.First row -->
+
+    <section id="invoice" class="invoice row mb-r">
+
+        <div class="col-md-12">
+            <!-- First row -->
+            <div class="row invoice-data mb-5">
+                
+                <div class="col-md-4">
+                    <p><small>From:</small></p>
+                    <p><strong>Aeroparks</strong></p>
+                    <p>112 Pavilion Drive,</p>
+                    <p>Airport Oaks, Auckland Airport</p>
+                    <p>
+                        <strong>Invoice date:</strong>
+                        <input type="text" name="number" value="<?= $invoice_date ?>" class="form-control text-left"> </p>
+                    <p>
+                        <strong>Due date:</strong>
+                        <input type="text" name="number" value="<?= $invoice_due ?>" class="form-control text-left"> </p>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4 text-right">
+                    <h4 class="h4-responsive">
+                        <small>Invoice No.</small>
+                        <br>
+                        <strong>
+                            <input type="text" name="number" value="#124190" class="form-control text-right">
+                        </strong>
+                    </h4>
+
+                    <p><small>To:</small></p>
+                    <p><strong> <input class="form-control text-right" type="text" name="company" value="The Company, Inc"> </strong></p>
+                    <textarea class="form-control text-right" name="company_address" id="" cols="30" rows="3">
+                        1-245 East Russel Road &#13;
+                        Munger, MI 48747
+                    </textarea>
+                    
+                </div>
+
+            </div>
+            <!-- ./First row -->
+
+            <!-- Second row -->
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <!-- Item list -->
+                        <table id="invoice-table" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Line Item</th>
+                                    <th style="width: 10%;">Quantity</th>
+                                    <th style="width: 10%;">Unit Price</th>
+                                    <th style="width: 10%;">Tax</th>
+                                    <th style="width: 10%;">Total price</th>
+                                    <th style="width: 5%;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="line_item">
+                                    <td>
+                                        <input class="form-control" name="item[][name]" type="text">
+                                    </td>
+                                    <td>
+                                        <input class="form-control quantity" name="item[][quantity]" type="number" value="1">
+                                    </td>
+                                    <td>
+                                        <input class="form-control price" name="item[][price]" type="number">
+                                    </td>
+                                    <td>
+                                        <input class="form-control tax" name="item[][tax]" type="number">
+                                    </td>
+                                    <td>
+                                        <input class="form-control total" name="item[][total]" type="number" readonly>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn-block text-warning del"><i class="fa fa-minus-circle fa-2x"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row py-4">
+                            <div class="col-md-12 text-md-right">
+                                <a id="add_item" href="#" class="btn btn-primary waves-effect waves-light"><i class="fa fa-plus"></i> New Item</a>
+                            </div>
+                        </div>
+                        
+                        <!-- /.Item list -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.Second row -->
+
+            <!-- Third row -->
+            <div class="row mt-2">
+                <div class="col-md-4 float-md-right ml-auto pull-right">
+                    <table class="table data">
+                        <tbody>
+                            <tr>
+                                <td><strong>Sub Total:</strong></td>
+                                <td>
+                                    <input id="sub_total" class="form-control" name="sub_total" type="text" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>TAX:</strong></td>
+                                <td>
+                                    <input id="tax" class="form-control" name="sub_total" type="text" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>TOTAL:</strong></td>
+                                <td>
+                                    <input id="total" class="form-control" name="sub_total" type="text" readonly>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.Third row -->
+        </div>
+
+    </section>
+</div>

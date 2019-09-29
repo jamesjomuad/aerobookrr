@@ -1,0 +1,29 @@
+columns:
+    id:
+        label: ID
+        type: text
+        searchable: true
+    number:
+        label: Number
+        type: text
+        searchable: true
+    slot:
+        label: Parking Bay
+        type: text
+        searchable: true
+    user:
+        label: Phone
+        type: text
+        relation: user
+        select: phone
+        sortable: false
+        searchable: true
+    status:
+        label: 'Status'
+        type: partial
+        path: status
+        searchable: true
+    barcode:
+        label: Barcode
+        type: text
+        searchable: true

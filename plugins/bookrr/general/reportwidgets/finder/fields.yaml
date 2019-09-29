@@ -1,0 +1,140 @@
+fields:
+    status:
+        label: Status
+        options:
+            pending: Pending
+            parked: Parked
+            declined: Declined
+            canceled: Canceled
+            expired: Expired
+        span: left
+        disabled: 1
+        type: dropdown
+    number:
+        label: 'Booking Number'
+        span: right
+        type: text
+        disabled: 1
+    date_in:
+        label: 'Date In'
+        mode: datetime
+        span: left
+        type: datepicker
+        disabled: 1
+    date_out:
+        label: 'Date Out'
+        mode: datetime
+        span: auto
+        type: datepicker
+        disabled: 1
+    park_in:
+        label: 'Check In'
+        span: left
+        type: text
+        disabled: 1
+        context:
+            - update
+            - preview
+    park_out:
+        label: 'Check Out'
+        span: right
+        type: text
+        disabled: 1
+        context:
+            - update
+            - preview
+tabs:
+    fields:
+        _customer:
+            span: full
+            path: customer
+            context:
+                - update
+                - preview
+            type: partial
+            tab: Details
+        _going:
+            label: 'Going to Airport'
+            span: left
+            type: section
+            tab: Details
+        _returning:
+            label: 'Returning from Airport'
+            span: right
+            type: section
+            tab: Details
+        adult_going:
+            label: 'Number of Persons Going'
+            span: left
+            disabled: 1
+            type: number
+            tab: Details
+        adult_returning:
+            label: 'Number of Persons Returning'
+            span: right
+            disabled: 1
+            type: number
+            tab: Details
+        main_contact:
+            label: 'Contact Details'
+            span: full
+            type: section
+            tab: Details
+        'base_user[first_name]':
+            label: 'First Name'
+            span: auto
+            disabled: 1
+            type: text
+            tab: Details
+        'base_user[last_name]':
+            label: 'Last Name'
+            span: auto
+            disabled: 1
+            type: text
+            tab: Details
+        'user[phone]':
+            label: 'Phone Number'
+            span: auto
+            disabled: 1
+            type: text
+            tab: Details
+            span: auto
+            type: dropdown
+            disabled: 1
+            tab: Customer
+        'base_user[email]':
+            label: Email
+            span: auto
+            disabled: 1
+            type: text
+            tab: Details
+        'vehicle[plate]':
+            label: Plate
+            span: auto
+            type: text
+            disabled: 1
+            tab: Vehicle
+        'vehicle[brand]':
+            label: Brand
+            span: auto
+            type: text
+            disabled: 1
+            tab: Vehicle
+        'vehicle[model]':
+            label: Model
+            span: auto
+            type: text
+            disabled: 1
+            tab: Vehicle
+        'vehicle[size]':
+            label: Size
+            span: auto
+            type: text
+            disabled: 1
+            tab: Vehicle
+        note:
+            label: Notes
+            size: large
+            span: full
+            type: textarea
+            tab: Notes

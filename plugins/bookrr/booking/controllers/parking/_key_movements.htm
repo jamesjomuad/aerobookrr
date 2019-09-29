@@ -1,0 +1,29 @@
+<?php
+    $items = $model->movements;
+    $total_items = count($items);
+?>
+
+<?php if (count($items)): ?>
+    <div class="list-preview list-flush">
+        <div class="control-list">
+            <table class="table data" data-control="rowlink">
+                <thead>
+                    <tr>
+                        <th><span>Handler</span></th>
+                        <th><span>Event</span></th>
+                        <th><span>Note</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($items->reverse() as $k=>$item): ?>
+                        <tr class="<?= e(++$k==$total_items ? 'active' : '') ?>">
+                            <td><?= e(@$item->staff->backendUser->first_name) ?></td>
+                            <td><?= e($item->event) ?></td>
+                            <td><?= e($item->note) ?></td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<?php endif ?>

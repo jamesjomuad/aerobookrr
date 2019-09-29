@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Customer Report
+
+# Model Form Field configuration
+form: $/aeroparks/report/models/customerreport/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Report\Models\CustomerReport
+
+# Default redirect location
+defaultRedirect: aeroparks/report/customerreport
+
+# Create page
+create:
+    title: Create Customer Report
+    redirect: aeroparks/report/customerreport/update/:id
+    redirectClose: aeroparks/report/customerreport
+
+# Update page
+update:
+    title: Edit Customer Report
+    redirect: aeroparks/report/customerreport
+    redirectClose: aeroparks/report/customerreport
+
+# Preview page
+preview:
+    title: Preview Customer Report

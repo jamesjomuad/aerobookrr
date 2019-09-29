@@ -1,0 +1,31 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+  brand:
+    label: Brand
+    modelClass: Aeroparks\Store\Models\CarRent
+    conditions: brand in (:filtered)
+    options: getBrandOptions
+
+  model:
+    label: Model
+    modelClass: Aeroparks\Store\Models\CarRent
+    conditions: model in (:filtered)
+    options: getModelOptions
+
+  mpg:
+    label: Miles Per Gallon
+    modelClass: Aeroparks\Store\Models\CarRent
+    conditions: mpg in (:filtered)
+    options: getMpgOptions
+
+  transmission:
+    label: Transmission
+    type: group
+    conditions: transmission in (:filtered)
+    options:
+      manual: Manual
+      automatic: Automatic

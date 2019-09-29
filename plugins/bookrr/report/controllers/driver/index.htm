@@ -1,0 +1,46 @@
+<div data-control="toolbar">
+    <button
+        type="button"
+        class="btn btn-primary oc-icon-file-pdf-o"
+        onclick="$.popup({ handler: 'onPdf', dataType: 'arraybuffer', size:'giant', extraData: { table: $('#Lists').html() } });">
+        PDF Preview
+    </button>
+    <button
+        type="button"
+        class="btn btn-primary oc-icon-download"
+        data-request="onDownload"
+        data-request-data="table:$('#Lists').html()">
+        Download
+    </button>
+    <a
+        href="<?= Backend::url('aeroparks/report/booking/create') ?>"
+        class="btn btn-primary oc-icon-envelope">
+        Email
+    </a>
+</div>
+
+<br>
+<br>
+
+<div id="Lists" class="control-list">
+    <table class="table data">
+        <thead>
+            <tr>
+                <th><span>First Name</span></th>
+                <th><span>Last Name</span></th>
+                <th><span>Radio Number</span></th>
+                <th><span>Passengers</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($data as $item): ?>
+                <tr>
+                    <td><?= $item['fname'] ?></td>
+                    <td><?= $item['lname'] ?></td>
+                    <td><?= $item['radio'] ?></td>
+                    <td><?= $item['passengers'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

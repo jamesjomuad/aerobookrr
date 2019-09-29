@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Staff
+
+# Model Form Field configuration
+form: $/aeroparks/user/models/staff/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\User\Models\Staff
+
+# Default redirect location
+defaultRedirect: aeroparks/user/staff
+
+# Create page
+create:
+    title: Create Staff
+    redirect: aeroparks/user/staff/update/:id
+    redirectClose: aeroparks/user/staff
+
+# Update page
+update:
+    title: Edit Staff
+    redirect: aeroparks/user/staff
+    redirectClose: aeroparks/user/staff
+
+# Preview page
+preview:
+    title: Preview Staff

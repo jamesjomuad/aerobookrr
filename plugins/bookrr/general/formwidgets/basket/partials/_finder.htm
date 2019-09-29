@@ -1,0 +1,24 @@
+
+<button
+    class="btn btn-default find-record"
+    data-control="popup"
+    data-size="huge"
+    data-handler="<?= $this->getEventHandler('onFindItem') ?>"
+    data-request-data="basket_flag: 1"
+    type="button">
+    <i class="icon-th-list"></i> Add
+</button>
+
+<section 
+    id="<?= $this->getId() ?>" 
+    class="field-basket loading-indicator-container size-input-text"
+    data-control="items"
+    data-refresh-handler="<?= $this->getEventHandler('onRefresh') ?>"
+    data-data-locker="#<?= $field->getId() ?>">
+    <input
+        type="hidden"
+        name="<?= $field->getName() ?>"
+        id="<?= $field->getId() ?>"
+        value="<?= e($value) ?>"
+    />
+</section>

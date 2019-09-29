@@ -1,0 +1,9 @@
+.control-popup .modal-dialog.pxpay .modal-body .embed-responsive iframe{
+    height: 880px;
+    width: 100%;
+    border: none;
+    overflow: hidden!important;
+}
+body.modal-open{
+    overflow: hidden;
+}

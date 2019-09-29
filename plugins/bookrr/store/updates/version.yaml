@@ -1,0 +1,33 @@
+1.0.2:
+    - 'Create Products table'
+    - create_aeroparks_product.php
+1.0.3:
+    - 'Create Category table'
+    - create_aeroparks_product_category.php
+1.0.4:
+    - 'Create Product Pivot table'
+    - pivot_product_category.php
+1.0.5:
+    - 'Create Product Rule table'
+    - create_rules_table.php
+1.0.6:
+    - 'Create Coupon/Promo table'
+    - create_coupon_table.php
+1.0.7:
+    - 'Create Invoice table'
+    - create_invoice_table.php
+1.0.8:
+    - 'Create Car Rental table'
+    - create_car_rental_table.php
+1.0.9:
+    - 'Create Car Rental Booking table'
+    - create_car_rent_bookings_table.php
+1.0.10:
+    - 'Update Car Rental Booking table'
+    - update_car_booking_9_2_19.php
+2.0.0:
+    - 'Create Cart table'
+    - create_carts_table.php
+2.0.1:
+    - 'Create Pivot Cart Item table'
+    - create_pivot_cart_item_table.php

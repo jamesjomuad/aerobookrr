@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Contact
+
+# Model Form Field configuration
+form: $/aeroparks/messaging/models/contact/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Messaging\Models\Contact
+
+# Default redirect location
+defaultRedirect: aeroparks/messaging/contact
+
+# Create page
+create:
+    title: Create Contact
+    redirect: aeroparks/messaging/contact/update/:id
+    redirectClose: aeroparks/messaging/contact
+
+# Update page
+update:
+    title: Edit Contact
+    redirect: aeroparks/messaging/contact
+    redirectClose: aeroparks/messaging/contact
+
+# Preview page
+preview:
+    title: Preview Contact

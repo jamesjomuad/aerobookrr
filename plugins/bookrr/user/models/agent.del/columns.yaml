@@ -1,0 +1,20 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    code:
+        label: Code
+        searchable: true
+    name:
+        label: Name
+        searchable: true
+    address:
+        label: Address
+        searchable: true
+    contact:
+        label: 'Contacter Name'
+        searchable: true

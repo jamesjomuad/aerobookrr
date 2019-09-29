@@ -1,0 +1,33 @@
+<?= Form::open() ?>
+
+    <input type="hidden" name="id" value="<?= post('id') ?>" />
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title">Update Contact</h4>
+    </div>
+
+    <div class="modal-body">
+        <?= $formWidget->render() ?>
+    </div>
+
+    <div class="modal-footer">
+        <button
+            type="submit"
+            data-request="onUpdateContact"
+            data-request-data="contactId:<?= post('contactId') ?>"
+            data-hotkey="ctrl+s, cmd+s"
+            data-popup-load-indicator
+            class="btn btn-primary">
+            Update
+        </button>
+
+        <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            Cancel
+        </button>
+    </div>
+
+<?= Form::close() ?>

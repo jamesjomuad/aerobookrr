@@ -1,0 +1,23 @@
+<?php if(!$this->user->isCustomer()) : ?>
+    <div class="control-tabs content-tabs" data-control="tab">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#overview">Overview</a></li>
+            <li><a href="#vehicles">Manage Vehicle</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <div class="container-fluid my-5 py-5">
+                    <?= $this->makePartial('summary') ?>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <?= $this->listRender('vehicle') ?>
+            </div>
+        </div>
+    </div>
+<?php else: ?>
+    <?= $this->listRender() ?>
+<?php endif; ?>
+
+
+

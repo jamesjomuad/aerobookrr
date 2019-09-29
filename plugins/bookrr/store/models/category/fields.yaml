@@ -1,0 +1,19 @@
+fields:
+    id:
+        label: ID
+        span: full
+        disabled: true
+        type: text
+    name:
+        label: 'Category Name'
+        span: left
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        type: text
+    description:
+        label: Description
+        size: large
+        span: full
+        type: textarea

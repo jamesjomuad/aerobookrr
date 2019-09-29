@@ -1,0 +1,40 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    code:
+        label: Code
+        searchable: true
+    name:
+        label: Name
+        relation: backendUser
+        valueFrom: first_name
+        searchable: true
+        select: login
+    login:
+        label: Login
+        relation: backendUser
+        valueFrom: login
+        searchable: true
+        select: login
+    email:
+        label: Email
+        relation: backendUser
+        valueFrom: email
+        searchable: true
+        select: email
+    phone:
+        label: Phone
+        type: text
+        searchable: true
+    last_login:
+        label: Last login
+        relation: backendUser
+        valueFrom: last_login
+        searchable: true
+        select: login
+        searchable: true

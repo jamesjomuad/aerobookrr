@@ -1,0 +1,22 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: Name
+        searchable: true
+    description:
+        label: Description
+        searchable: true
+    slug:
+        label: Slug
+        searchable: true
+    bay:
+        label: Bays
+        relation: bay
+        useRelationCount: true
+        align: center

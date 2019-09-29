@@ -1,0 +1,31 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+  status:
+    label: Status
+    type: group
+    conditions: status in (:filtered)
+    options:
+      pending: 'Pending'
+      parked: 'Parked'
+      declined: 'Declined'
+      canceled: 'Canceled'
+      expired: 'Expired'
+
+  park_in:
+    label: 'Check In'
+    type: daterange
+    conditions: park_in >= ':after' AND park_in <= ':before'
+
+  park_out:
+    label: 'Check Out'
+    type: daterange
+    conditions: park_out >= ':after' AND park_out <= ':before'
+
+  created_at:
+    label: 'Date Created'
+    type: daterange
+    conditions: created_at >= ':after' AND created_at <= ':before'

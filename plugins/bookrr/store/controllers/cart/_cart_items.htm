@@ -1,0 +1,3 @@
+<?php $products->each(function($product){ 
+    print $this->makePartial($this->getCartViewPath('cart_item'),['product'=>$product]);
+}); ?>

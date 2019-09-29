@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Revenue
+
+# Model Form Field configuration
+form: $/aeroparks/report/models/revenue/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Report\Models\Revenue
+
+# Default redirect location
+defaultRedirect: aeroparks/report/revenue
+
+# Create page
+create:
+    title: Create Revenue
+    redirect: aeroparks/report/revenue/update/:id
+    redirectClose: aeroparks/report/revenue
+
+# Update page
+update:
+    title: Edit Revenue
+    redirect: aeroparks/report/revenue
+    redirectClose: aeroparks/report/revenue
+
+# Preview page
+preview:
+    title: Preview Revenue

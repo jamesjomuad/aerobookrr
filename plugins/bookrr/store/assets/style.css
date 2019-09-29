@@ -1,0 +1,41 @@
+.line_item:first-child .del {
+    display: none;
+}
+.car_rent{}
+.car_rent .card-img-top {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+.car_rent .card .view + .btn-floating{
+    float: right;
+}
+.car_rent .card .book-now{
+    left: 50%;
+    margin-left: -35px!important;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 15px;
+    margin-top: -45px;
+}
+
+.car_rent .card .btn-action .fa{
+    font-size: 30px;
+    line-height: 75px;
+    background: #4285f4;
+}
+
+.car_rent .card .list-group-item{
+    margin: 10px 0;
+    padding: 0px;
+    font-size: 12px;
+}
+.car_rent .card .list-group-item i{
+    margin: 0 5px;
+}
+.flex-wrap{flex-wrap: wrap;}
+
+.car_rent .card-text{
+    min-height: 80px;
+    overflow-y: auto;
+    max-height: 80px;
+}

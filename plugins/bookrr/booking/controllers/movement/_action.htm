@@ -1,0 +1,40 @@
+<?= Form::open() ?>
+    <input type="hidden" name="booking[number]" value="<?= post('booking.number') ?>" />
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">What would you like to do with this Booking?</h3>
+    </div>
+    <div class="modal-body p-4">
+        <div class="card-body m-4">
+            <h4 class="blue-text pb-2 text-center"><strong><?= $number ?></strong></h4>
+            <div class="md-form">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" class="form-control" readonly value="<?= @$name ?>">
+            </div>
+            <div class="md-form">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="text" class="form-control" readonly value="<?= @$email ?>">
+            </div>
+            <div class="md-form">
+                <i class="fas fa-phone prefix grey-text"></i>
+                <input type="text" class="form-control" readonly value="<?= @$phone ?>">
+            </div>
+            <!-- <div class="text-center">
+                <div class="call">
+                    <br>
+                    <p>Or would you prefer to call?
+                        <br>
+                        <span>
+                            <i class="fas fa-phone"> </i>
+                        </span> + 01 234 565 280
+                    </p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="modal-footer text-center p-5">
+        <button type="button" class="btn btn-default">Check Out</button>
+        <a class="btn btn-secondary" href="/backend/aeroparks/booking/movement/create/<?= $booking->id ?>">Record Key Movement</a>
+        <a class="btn btn-primary" href="/backend/aeroparks/booking/booking/preview/<?= $booking->id ?>" target="_blank">View Booking</a>
+    </div>
+<?= Form::close() ?>

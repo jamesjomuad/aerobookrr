@@ -1,0 +1,30 @@
+.notify #layout-body{background:#7c7c7c;padding:0}
+.notify #layout-body .title{color:#fff}
+#ads{min-height:100%;background:#fff;position:absolute;right:0}
+.shaker{animation:bellshake .6s cubic-bezier(.36,.07,.19,.97) infinite;backface-visibility:hidden;transform-origin:top right}
+@keyframes bellshake {
+0%{transform:rotate(0)}
+15%{transform:rotate(5deg)}
+30%{transform:rotate(-5deg)}
+45%{transform:rotate(4deg)}
+60%{transform:rotate(-4deg)}
+75%{transform:rotate(2deg)}
+85%{transform:rotate(-2deg)}
+90%{transform:rotate(1deg)}
+100%{transform:rotate(0)}
+}
+
+
+#ads #content{
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    right: 0;
+    color: #ccc;
+    margin-top: -90px;
+}
+
+#ntfy-list{}

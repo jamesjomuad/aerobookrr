@@ -1,0 +1,59 @@
+<?php if($type=='warning'): ?>
+<div class="callout fade in callout-warning">
+    <button
+        type="button"
+        class="close"
+        data-dismiss="callout"
+        aria-hidden="true">&times;</button>
+    <div class="header">
+        <i class="icon-warning"></i>
+        <h3>Warning</h3>
+        <p><?= $message ?></p>
+    </div>
+    <?php if($content): ?>
+        <div class="content">
+            <p><?= $content ?></p>
+        </div>
+    <?php endif; ?>
+</div>
+<?php endif; ?>
+
+<?php if($type=='info'): ?>
+<div class="callout fade in callout-info">
+    <button
+        type="button"
+        class="close"
+        data-dismiss="callout"
+        aria-hidden="true">&times;</button>
+    <div class="header">
+        <i class="icon-info"></i>
+        <h3>info</h3>
+        <p><?= $message ?></p>
+    </div>
+    <?php if($content): ?>
+        <div class="content">
+            <p><?= $content ?></p>
+        </div>
+    <?php endif; ?>
+</div>
+<?php endif; ?>
+
+<?php if($type=='danger'): ?>
+<div class="callout fade in callout-danger">
+    <button
+        type="button"
+        class="close"
+        data-dismiss="callout"
+        aria-hidden="true">&times;</button>
+    <div class="header">
+        <i class="icon-exclamation"></i>
+        <h3>danger</h3>
+        <p><?= $message ?></p>
+    </div>
+    <?php if($content): ?>
+        <div class="content">
+            <p><?= $content ?></p>
+        </div>
+    <?php endif; ?>
+</div>
+<?php endif; ?>

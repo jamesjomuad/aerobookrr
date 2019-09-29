@@ -1,0 +1,42 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Space</th>
+            <th scope="col">Plate Number</th>
+            <th scope="col">Check In</th>
+            <th scope="col">Planned Check out</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?= $faker->numberBetween(200,400) ?></td>
+            <td><?= $faker->lexify('???? '.$faker->numberBetween(100,900)) ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-1 months', '+1 months')->format('d/m/Y g:i A') ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-3 days', 'now')->format('d/m/Y g:i A') ?></td>
+        </tr>
+        <tr>
+            <td><?= $faker->numberBetween(200,400) ?></td>
+            <td><?= $faker->lexify('???? '.$faker->numberBetween(100,900)) ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-1 months', '+1 months')->format('d/m/Y g:i A') ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-3 days', 'now')->format('d/m/Y g:i A') ?></td>
+        </tr>
+        <tr>
+            <td><?= $faker->numberBetween(200,400) ?></td>
+            <td><?= $faker->lexify('???? '.$faker->numberBetween(100,900)) ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-1 months', '+1 months')->format('d/m/Y g:i A') ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-3 days', 'now')->format('d/m/Y g:i A') ?></td>
+        </tr>
+        <tr>
+            <td><?= $faker->numberBetween(200,400) ?></td>
+            <td><?= $faker->lexify('???? '.$faker->numberBetween(100,900)) ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-1 months', '+1 months')->format('d/m/Y g:i A') ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-3 days', 'now')->format('d/m/Y g:i A') ?></td>
+        </tr>
+        <tr>
+            <td><?= $faker->numberBetween(200,400) ?></td>
+            <td><?= $faker->lexify('???? '.$faker->numberBetween(100,900)) ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-1 months', '+1 months')->format('d/m/Y g:i A') ?></td>
+            <td scope="row"><?= $faker->dateTimeBetween('-3 days', 'now')->format('d/m/Y g:i A') ?></td>
+        </tr>
+    </tbody>
+</table>

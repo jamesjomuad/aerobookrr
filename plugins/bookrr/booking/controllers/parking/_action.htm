@@ -1,0 +1,45 @@
+<?php if($record->isPaid!='YES'): ?>
+<a tabindex="-1" 
+    href="#" 
+    class="btn btn-xs btn-warning oc-icon-credit-card"
+    data-handler="onPay"
+    data-request-data="id:<?= $record->id ?>"
+    data-control="popup">Pay</a>
+<?php endif; ?>
+    
+
+<?php /*
+    <div class="dropdown" data-id="<?= $record->id ?>">
+        <a href="#" data-toggle="dropdown" class="btn btn-primary">Action</a>
+
+        <ul class="dropdown-menu" data-dropdown-title="Add something small">
+            <?php if(strtolower($record->status)=='pending'): ?>
+            <li>
+                <a tabindex="-1" href="#" class="check-in oc-icon-folder">Check In</a>
+            </li>
+            <?php endif; ?>
+            <?php if(strtolower($record->status)=='parked'): ?>
+            <li>
+                <a tabindex="-1" href="#" 
+                    class="check-out oc-icon-copy"
+                    data-request="onCheckOut"
+                    data-request-data="id:<?= $record->id ?>">Check Out</a>
+            </li>
+            <?php endif; ?>
+            <li>
+                <a tabindex="-1" href="/backend/aeroparks/booking/movement/create/<?= $record->id ?>" class="remove oc-icon-arrows">Move</a>
+            </li>
+            <li>
+                <a tabindex="-1" 
+                    href="#" 
+                    class="oc-icon-credit-card"
+                    data-handler="onPay"
+                    data-request-data="id:<?= $record->id ?>"
+                    data-control="popup">Pay</a>
+            </li>
+            <li>
+                <a tabindex="-1" href="#" class="remove oc-icon-trash">Remove</a>
+            </li>
+        </ul>
+    </div>
+*/ ?>

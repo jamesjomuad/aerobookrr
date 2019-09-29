@@ -1,0 +1,37 @@
+fields:
+    id:
+        label: ID
+        span: full
+        context:
+            - update
+            - preview
+        type: text
+    plate:
+        label: 'Plate Number'
+        span: auto
+        required: 1
+        type: text
+    brand:
+        label: Brand
+        span: auto
+        required: 1
+        type: text
+    model:
+        label: Model
+        span: auto
+        required: 1
+        type: text
+    size:
+        label: Size
+        span: auto
+        required: 1
+        type: text
+    primary:
+        label: Default
+        span: full
+        type: checkbox
+        comment: 'Set this vehicle as your primary.'
+    color:
+        label: Color
+        span: full
+        type: colorpicker

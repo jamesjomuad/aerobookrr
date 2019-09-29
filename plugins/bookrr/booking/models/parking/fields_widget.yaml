@@ -1,0 +1,153 @@
+fields:
+    status:
+        label: Status
+        options:
+            Pending: Pending
+            Parked: Parked
+            Declined: Declined
+            Canceled: Canceled
+            Expired: Expired
+        span: left
+        disabled: 0
+        type: dropdown
+    book_num:
+        label: 'Booking Number'
+        span: right
+        type: text
+        disabled: 1
+    date_in:
+        label: 'Date In'
+        mode: datetime
+        span: left
+        type: datepicker
+    date_out:
+        label: 'Date Out'
+        mode: datetime
+        span: auto
+        type: datepicker
+    park_in:
+        label: 'Check In'
+        span: left
+        type: text
+        disabled: 1
+        context:
+            - update
+            - preview
+    park_out:
+        label: 'Check Out'
+        span: right
+        type: text
+        disabled: 1
+        context:
+            - update
+            - preview
+    agent_reference:
+        label: 'Agent Code'
+        span: full
+        type: text
+tabs:
+    fields:
+        _customer:
+            span: full
+            path: customer
+            context:
+                - update
+                - preview
+            type: partial
+            tab: Details
+        _going:
+            label: 'Going to Airport'
+            span: full
+            type: section
+            tab: Details
+        adult_going:
+            label: 'Adults Going'
+            span: left
+            disabled: 0
+            type: number
+            tab: Details
+        child_going:
+            label: 'Children Going'
+            span: right
+            disabled: 0
+            type: number
+            tab: Details
+        _returning:
+            label: 'Returning from Airport'
+            span: full
+            type: section
+            tab: Details
+        adult_returning:
+            label: 'Adults Returning'
+            span: left
+            disabled: 0
+            type: number
+            tab: Details
+        child_returning:
+            label: 'Children Returning'
+            span: right
+            disabled: 0
+            type: number
+            tab: Details
+        _child_seat:
+            label: 'Child Seat'
+            span: auto
+            type: checkbox
+            comment: 'Provide seat to safely transport the child to and from the airport'
+            tab: Details
+        _disability:
+            label: 'Disabled Access'
+            span: auto
+            type: checkbox
+            comment: 'One or more of my party require disabled access'
+            tab: Details
+        _parking_class:
+            label: 'Parking Class'
+            options:
+                - Regular
+                - Special
+                - Deluxe
+            span: full
+            type: dropdown
+            tab: Details
+        note:
+            label: Notes
+            size: large
+            span: full
+            type: textarea
+            tab: Notes
+        'customer[title]':
+            label: Title
+            span: left
+            type: dropdown
+            tab: Customer
+        'customer[company]':
+            label: Company
+            span: auto
+            type: text
+            tab: Customer
+        'customer[age]':
+            label: Age
+            span: auto
+            type: text
+            tab: Customer
+        'customer[birthdate]':
+            label: 'Birth Date'
+            mode: date
+            span: auto
+            type: datepicker
+            tab: Customer
+        'customer[phone]':
+            label: Phone
+            span: auto
+            type: text
+            tab: Customer
+        'customer[gender]':
+            label: Gender
+            options:
+                0: Male
+                1: Female
+                3: Other
+            span: auto
+            type: dropdown
+            tab: Customer

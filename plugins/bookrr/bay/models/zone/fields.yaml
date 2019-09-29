@@ -1,0 +1,36 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+        hidden: true
+    name:
+        label: Name
+        type: text
+        span: auto
+    slug:
+        label: Slug
+        type: text
+        span: auto
+        dependsOn: name
+    building:
+        label: Building
+        span: auto
+        type: dropdown
+        options:
+            first: Main Building
+            second: Second Building
+            Third: Third Building
+    floor:
+        label: Floor
+        span: auto
+        type: dropdown
+        # dependsOn: building
+        options: floors
+    description:
+        type: richeditor
+        toolbarButtons: bold|italic|formatOL|formatUL
+        size: huge

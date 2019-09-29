@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Ticket
+
+# Model Form Field configuration
+form: $/aeroparks/booking/models/ticket/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Booking\Models\Ticket
+
+# Default redirect location
+defaultRedirect: aeroparks/booking/ticket
+
+# Create page
+create:
+    title: Create Ticket
+    redirect: aeroparks/booking/ticket/update/:id
+    redirectClose: aeroparks/booking/ticket
+
+# Update page
+update:
+    title: Edit Ticket
+    redirect: aeroparks/booking/ticket
+    redirectClose: aeroparks/booking/ticket
+
+# Preview page
+preview:
+    title: Preview Ticket

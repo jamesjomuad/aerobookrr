@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Invoice
+
+# Model Form Field configuration
+form: $/aeroparks/store/models/invoice/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Store\Models\Invoice
+
+# Default redirect location
+defaultRedirect: aeroparks/store/invoice
+
+# Create page
+create:
+    title: Create Invoice
+    redirect: aeroparks/store/invoice/update/:id
+    redirectClose: aeroparks/store/invoice
+
+# Update page
+update:
+    title: Edit Invoice
+    redirect: aeroparks/store/invoice
+    redirectClose: aeroparks/store/invoice
+
+# Preview page
+preview:
+    title: Preview Invoice

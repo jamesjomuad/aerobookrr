@@ -1,0 +1,101 @@
+<div class="report-widget park-stat">
+    <h3>Parking Stat</h3>
+    
+
+    <div class="control-list" style="overflow-x: auto;">
+        <button type="button" class="btn btn-warning btn-xs waves-effect waves-light mt-4 pull-left blink mb-5" title="Carpark capacity warnings"> 
+            <i class="fa fa-exclamation"></i>
+            <i class="icon-car"></i>
+        </button>
+        <table class="table data" style="min-width: 550px;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th class="<?= $this->rowClass('Mon') ?>"><a href="#">Mon</a></th>
+                    <th class="<?= $this->rowClass('Tue') ?>"><a href="#">Tue</a></th>
+                    <th class="<?= $this->rowClass('Wed') ?>"><a href="#">Wed</a></th>
+                    <th class="<?= $this->rowClass('Thu') ?>"><a href="#">Thu</a></th>
+                    <th class="<?= $this->rowClass('Fri') ?>"><a href="#">Fri</a></th>
+                    <th class="<?= $this->rowClass('Sat') ?>"><a href="#">Sat</a></th>
+                    <th class="<?= $this->rowClass('Sun') ?>"><a href="#">Sun</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width:80px;vertical-align:middle;font-weight:700;">Incoming</td>
+                    <td>
+                        <i class="icon-car"></i> <br>
+                        <i class="fa fa-walking"></i>
+                    </td>
+                    <td class="<?= $this->rowClass('Mon') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Tue') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Wed') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Thu') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Fri') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Sat') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Sun') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:80px;vertical-align:middle;font-weight:700;">Outgoing</td>
+                    <td>
+                        <i class="icon-car"></i> <br>
+                        <i class="fa fa-walking"></i>
+                    </td>
+                    <td class="<?= $this->rowClass('Sun') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Sun') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Sun') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Sun') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Sun') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Sun') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                    <td class="<?= $this->rowClass('Sun') ?> text-center">
+                        <?= $faker->numberBetween(5,1000) ?> <br>
+                        <?= $faker->numberBetween(5,1000) ?>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-warning waves-effect waves-light mt-4 pull-right blink ml-4"> <i class="fa fa-exclamation"></i> Services not done</button>
+        <button type="button" class="btn btn-danger waves-effect waves-light mt-4 pull-right blink"> <i class="fa fa-exclamation"></i> Run Third Shuttle</button>
+        <br class="clearfix">
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="row white mb-r py-4">
+    <div class="col-md-6 text-md-left">
+        <a href="#" class="btn btn-default waves-effect waves-light"><i class="fa fa-save"></i> Save</a>
+        <a href="#" class="btn btn-primary waves-effect waves-light"><i class="fa fa-file-pdf"></i> PDF</a>
+        <a id="print_invoice" href="#" class="btn btn-primary waves-effect waves-light"><i class="fa fa-print"></i> Print</a>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Statistics</h3>
+        <!-- <p>Occupancy Per Hour</p> -->
+        <?= $this->makePartial('statistics') ?>
+    </div>
+    <div class="col-md-6">
+        <h3>Expired Bay</h3>
+        <!-- <p>&nbsp;</p> -->
+        <?= $this->makePartial('expired') ?>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Occupancy Report</h3>
+        <?= $this->makePartial('occupation') ?>
+    </div>
+</div>
+

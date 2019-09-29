@@ -1,0 +1,28 @@
+<?php if ($this->previewMode && !$value): ?>
+
+    <span class="form-control" disabled="disabled"><?= e(trans('backend::lang.form.preview_no_record_message')) ?></span>
+
+<?php else: ?>
+    
+    <button
+        class="btn btn-default pull-right find-record"
+        data-control="popup"
+        data-size="huge"
+        data-handler="<?= $this->getEventHandler('onFindRecord') ?>"
+        data-request-data="recordfinder_flag: 1"
+        type="button">
+        <i class="icon-th-list"></i> Add Ons
+    </button>
+
+    <br style="clear:both;">
+    
+    <div class="recordfinder-widget hidden" id="<?= $this->getId('container') ?>">
+        <?= $this->makePartial('recordfinder') ?>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row" id="<?= $this->getId('items') ?>">
+            <?= $this->makePartial('items') ?>
+        </div>
+    </div>
+<?php endif ?>

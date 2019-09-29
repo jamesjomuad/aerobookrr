@@ -1,0 +1,25 @@
+<?= Form::open(['class' => 'layout']) ?>
+
+    <div class="control-tabs content-tabs" data-control="tab">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#rates">Rates Table</a></li>
+            <li><a href="#calendar">Date Band</a></li>
+            <li><a href="#settings">Settings</a></li>
+        </ul>
+        <div class="tab-content" style="background: #fff;">
+            <div class="tab-pane active">
+                <div id="scoreboards">
+                    <?= $this->makePartial('scoreboard') ?>
+                </div>
+                <?= $this->listRender() ?>
+            </div>
+            <div class="tab-pane">
+                <?= $this->makePartial('dateband/dateband') ?>
+            </div>
+            <div class="tab-pane">
+                <?= $this->makePartial('setting/setting') ?>
+            </div>
+        </div>
+    </div>
+
+<?= Form::close() ?>

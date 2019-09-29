@@ -1,0 +1,30 @@
+fields:
+    code:
+        label: 'Promo Code'
+        span: auto
+        type: text
+    discount:
+        label: '% Discount'
+        span: auto
+        type: number
+    title:
+        label: Title
+        span: full
+        type: text
+    description:
+        label: Description
+        size: large
+        span: full
+        type: textarea
+    promo_start:
+        label: 'Promo Start'
+        mode: datetime
+        span: auto
+        type: datepicker
+        default: now
+    promo_end:
+        label: 'Promo End'
+        mode: datetime
+        span: auto
+        type: datepicker
+        default: now

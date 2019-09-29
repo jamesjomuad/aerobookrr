@@ -1,0 +1,28 @@
+<div data-control="toolbar">
+    <a
+        href="<?= Backend::url('aeroparks/bay/bay/create') ?>"
+        class="btn btn-primary oc-icon-plus">
+        New Bay
+    </a>
+
+    <button
+        class="btn btn-danger oc-icon-trash-o"
+        disabled="disabled"
+        onclick="$(this).data('request-data', { checked: $('#Lists-bay .control-list').listWidget('getChecked') })"
+        data-request="onDelete"
+        data-request-confirm="Are you sure you want to delete the selected Bays?"
+        data-trigger-action="enable"
+        data-trigger="#Lists-bay .control-list input[type=checkbox]"
+        data-trigger-condition="checked"
+        data-request-success="$(this).prop('disabled', 'disabled')"
+        data-stripe-load-indicator>
+        Delete selected
+    </button>
+
+    <button
+        class="btn btn-default oc-icon-refresh"
+        data-request="bay::onRefresh"
+        data-stripe-load-indicator>
+        Refresh
+    </button>
+</div>

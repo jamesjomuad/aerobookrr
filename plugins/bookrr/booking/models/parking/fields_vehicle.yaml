@@ -1,0 +1,21 @@
+fields:
+    plate:
+        label: 'Plate Number'
+        span: auto
+        disabled: 1
+        type: text
+    brand:
+        label: Brand
+        span: auto
+        disabled: 1
+        type: text
+    model:
+        label: Model
+        span: auto
+        disabled: 1
+        type: text
+    size:
+        label: Size
+        span: auto
+        disabled: 1
+        type: text

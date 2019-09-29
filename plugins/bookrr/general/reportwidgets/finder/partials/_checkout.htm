@@ -1,0 +1,42 @@
+<?= Form::open() ?>
+    <input type="hidden" name="booking[number]" value="<?= post('booking.number_out') ?>" />
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title">Confirm Check Out</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="control-toolbar">
+            <div class="toolbar-item toolbar-primary">
+                <div data-control="toolbar">
+                    <div class="btn-group">
+                        <a target="_blank" href="/backend/aeroparks/booking/booking/update/<?= $model->id ?>" class="btn btn-primary oc-icon-file-text-o">View</a>
+                        <button type="button" class="btn btn-primary oc-icon-dollar">Balance</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <?= $formWidget->render() ?>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button
+            type="button"
+            data-request="onSetCheckOut"
+            data-hotkey="ctrl+s, cmd+s"
+            data-attach-loading
+            class="btn btn-primary">
+            Confirm Check Out
+        </button>
+
+        <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            Close
+        </button>
+    </div>
+<?= Form::close() ?>

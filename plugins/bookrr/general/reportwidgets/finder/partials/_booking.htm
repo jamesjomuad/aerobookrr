@@ -1,0 +1,61 @@
+<?= Form::open() ?>
+    <input type="hidden" name="booking[number]" value="<?= post('booking.number') ?>" />
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title">Confirm Check In</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="content">
+            <div id="toolbar" class="control-toolbar">
+                <div class="toolbar-item toolbar-primary">
+                    <div data-control="toolbar">
+                        <div class="btn-group">
+                            <button
+                                type="button"
+                                class="btn btn-default oc-icon-barcode"
+                                title="Assign barcode tag"
+                                data-placement="bottom"
+                                data-control="popup"
+                                data-handler="onAddTag"
+                                data-hotkey="ctrl+d, cmd+d">
+                                Assign Tag
+                            </button>
+                            <?php if($model->status=='pending'): ?>
+                            <button
+                                type="button"
+                                data-request="onSetCheckIn"
+                                class="btn btn-primary">
+                                Check In
+                            </button>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="toolbar-item" style="width: 110px">
+                    <input placeholder="search..." type="text" name="" value="" class="form-control icon search" />
+                </div> -->
+            </div>
+
+            <?= $formWidget->render() ?>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button
+            type="button"
+            data-request="onSetCheckIn"
+            data-hotkey="ctrl+s, cmd+s"
+            class="btn btn-primary">
+            Confirm Check In
+        </button>
+
+        <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            Close
+        </button>
+    </div>
+<?= Form::close() ?>

@@ -1,0 +1,33 @@
+columns:
+    id:
+        label: ID
+        type: text
+        searchable: true
+        sortable: true
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: Description
+        type: text
+        searchable: false
+        sortable: false
+    price:
+        label: Price
+        type: partial
+        path: price
+        searchable: true
+    sku:
+        label: SKU
+        type: text
+        searchable: true
+    type:
+        label: Type
+        type: text
+        sortable: true
+    thumb:
+        label: Thumb
+        type: partial
+        path: thumb

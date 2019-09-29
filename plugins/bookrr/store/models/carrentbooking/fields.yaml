@@ -1,0 +1,57 @@
+fields:
+    section_booking:
+        label: 'Booking Details'
+        span: left
+        type: section
+    car_details:
+        label: 'Car Details'
+        span: auto
+        type: section
+    status:
+        label: Status
+        options:
+            pending: Pending
+            cancelled: Cancelled
+            travelling: Travelling
+        span: auto
+        type: dropdown
+    'car[model]':
+        label: Model
+        span: auto
+        disabled: 1
+        type: text
+    number:
+        label: 'Booking No.'
+        span: auto
+        disabled: 1
+        type: text
+    'car[rate]':
+        label: Rate
+        span: auto
+        disabled: 1
+        type: text
+    date_in:
+        label: 'Date / Time Going'
+        type: text
+        span: auto
+        disabled: 1
+    'car[brand]':
+        label: Brand
+        span: auto
+        disabled: 1
+        type: text
+    date_out:
+        label: 'Date / Time Return'
+        type: text
+        span: auto
+        disabled: 1
+    'car[transmission]':
+        label: Transmission
+        span: auto
+        disabled: 1
+        type: text
+    amount:
+        label: 'Amount Payable'
+        span: auto
+        disabled: 1
+        type: number

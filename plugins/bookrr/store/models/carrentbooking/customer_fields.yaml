@@ -1,0 +1,21 @@
+fields:
+    passenger:
+        label: 'Number of passenger'
+        type: number
+        span: auto
+    _contact:
+        label: 'Phone Number'
+        type: text
+        span: auto
+    date_in:
+        label: 'Date / Time Going'
+        mode: datetime
+        type: datetimepicker
+        default: now
+        span: auto
+    date_out:
+        label: 'Date / Time Return'
+        mode: datetime
+        type: datetimepicker
+        default: now
+        span: auto

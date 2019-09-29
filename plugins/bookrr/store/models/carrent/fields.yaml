@@ -1,0 +1,69 @@
+fields:
+    id:
+        label: ID
+        span: full
+        disabled: true
+        context:
+            - update
+            - preview
+        type: text
+    brand:
+        label: Brand
+        span: auto
+        type: text
+    model:
+        label: Model
+        span: auto
+        type: text
+    rate:
+        label: 'Rate / Hour'
+        span: auto
+        type: number
+    mpg:
+        label: 'MPG (Miles per gallon)'
+        span: auto
+        type: number
+    capacity:
+        label: 'Passenger Capacity'
+        span: auto
+        type: number
+    luggages:
+        label: Bag/Luggages
+        span: auto
+        type: number
+    transmission:
+        label: Transmission
+        options:
+            manual: Manual
+            automatic: Automatic
+        span: auto
+        type: dropdown
+    status:
+        label: Status
+        options:
+            available: Available
+            not_available: 'Not Available'
+            trouble: Trouble
+        span: auto
+        type: dropdown
+    description:
+        label: Description
+        size: large
+        span: full
+        type: textarea
+    is_published:
+        label: Publish
+        span: auto
+        default: 1
+        type: switch
+    images:
+        label: 'Vehicle Images'
+        mode: image
+        imageWidth: '150'
+        imageHeight: '150'
+        useCaption: 1
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        type: fileupload

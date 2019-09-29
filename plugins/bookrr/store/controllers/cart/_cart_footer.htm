@@ -1,0 +1,29 @@
+<tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th class="list-cell-align-right">
+        <h5>Cash Tender:</h5>
+        <h5>Change Due:</h5>
+        <h5>Qty of (Item)s:</h5>
+        <h5>Discount %:</h5>
+        <h4>Total:</h4>
+    </th>
+    <th>
+        <h5>&nbsp;</h5>
+        <h5>&nbsp;</h5>
+        <h5>&nbsp;</h5>
+        <h5><?= $details['discount_percent'] ?></h5>
+        <h5>&nbsp;</h5>
+        <h5>&nbsp;</h5>
+    </th>
+    <th>
+        <h5><?= $this->currency ?><?= $details['cash_tender'] ?></h5>
+        <h5><?= $this->currency ?><?= $details['cash_change'] ?></h5>
+        <h5><?= $details['total_quantity'] ?></h5>
+        <h5><?= $details['discount_amount'] ?></h5>
+        <h4><?= $this->currency ?><?= $details['total'] ?></h4>
+    </th>
+</tr>

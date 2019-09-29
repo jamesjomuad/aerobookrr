@@ -1,0 +1,27 @@
+<?php namespace Aeroparks\Store\Updates;
+
+use Schema;
+use October\Rain\Database\Updates\Migration;
+
+class CreateAeroparksProductCategory extends Migration
+{
+    public function up()
+    {
+        Schema::create('aeroparks_product_category', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name',50);
+            $table->text('description');
+            $table->string('slug',50);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+        });
+    }
+    
+    public function down()
+    {
+        Schema::dropIfExists('aeroparks_product_category');
+    }
+}

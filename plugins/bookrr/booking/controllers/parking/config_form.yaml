@@ -1,0 +1,32 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking
+
+# Model Form Field configuration
+form: $/aeroparks/booking/models/parking/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Booking\Models\Parking
+
+# Default redirect location
+defaultRedirect: aeroparks/booking/parking
+
+# Create page
+create:
+    title: Create Booking
+    redirect: aeroparks/booking/parking/update/:id
+    redirectClose: aeroparks/booking/parking
+
+# Update page
+update:
+    title: Edit Booking
+    redirect: aeroparks/booking/parking
+    redirectClose: aeroparks/booking/parking
+
+# Preview page
+preview:
+    title: Preview Booking
+ 

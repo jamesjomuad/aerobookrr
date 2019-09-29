@@ -1,0 +1,7 @@
+<?php if($record->isPaid): ?>
+    <a href="#" class="btn btn-success btn-xs ">Paid</a>
+<?php elseif($record->isFail): ?>
+    <a href="#" class="btn btn-danger btn-xs ">Fail</a>
+<?php else: ?>
+    <a href="#" class="btn btn-danger btn-xs ">No</a>
+<?php endif; ?>

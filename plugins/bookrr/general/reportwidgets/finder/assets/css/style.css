@@ -1,0 +1,30 @@
+#aero-reservation{
+    background: #E44D26;
+    background: -webkit-linear-gradient(to right, #F16529, #E44D26);
+    background: linear-gradient(to right, #F16529, #E44D26);    
+}
+#aero-reservation h3,
+#aero-reservation label{
+color: #fff;
+}
+
+#aero-reservation button{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+#tagger{
+background: #FF512F;
+background: -webkit-linear-gradient(to right, #F09819, #FF512F);
+background: linear-gradient(to right, #F09819, #FF512F);
+}
+#tagger .modal-title{
+    color: #fff;
+    font-weight: 200;
+}
+
+.modeal-content .callout {
+    margin-bottom: 0px;
+}

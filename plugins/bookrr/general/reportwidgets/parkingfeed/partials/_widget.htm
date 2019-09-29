@@ -1,0 +1,135 @@
+<div class="report-widget park-stat">
+    <h3>Aero Feeds</h3>
+
+    <!-- Section: Social newsfeed v.1 -->
+    <section class="my-5">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-12">
+                <!-- Newsfeed -->
+                <div class="mdb-feed">
+                    <!-- First news -->
+                    <div class="news">
+                        <!-- Label -->
+                        <div class="label">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg"
+                                class="rounded-circle z-depth-1-half">
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="excerpt">
+                            <!-- Brief -->
+                            <div class="brief">
+                                <a class="name">John Doe</a> is Checking Out
+                                <div class="date">1 hour ago</div>
+                            </div>
+                            <div class="added-text">Plate Number: <b>RERE</b></div>
+                        </div>
+                        <!-- Excerpt -->
+                    </div>
+                    <!-- First news -->
+
+                    <!-- Second news -->
+                    <div class="news">
+                        <!-- Label -->
+                        <div class="label">
+                            <i class="fa fa-robot fa-3x"></i>
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="excerpt">
+                            <!-- Brief -->
+                            <div class="brief">
+                                <a class="name">System Bot</a>
+                            </div>
+                            <!-- Added images -->
+                            <div class="added-text">
+                                4 New User <br>
+                                14 New Bookings Today <br>
+                                6 Incoming Bookings from now
+                            </div>
+                        </div>
+                        <!-- Excerpt -->
+                    </div>
+                    <!-- Second news -->
+
+                    <!-- Third news -->
+                    <div class="news">
+                        <!-- Label -->
+                        <div class="label">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9)-mini.jpg"
+                                class="rounded-circle z-depth-1-half">
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="excerpt">
+                            <!-- Brief -->
+                            <div class="brief">
+                                <a class="name">Danny Moore</a> is Checking Out
+                                <div class="date">7 hours ago</div>
+                            </div>
+                            <div class="added-text">Plate Number: <b>XOX</b></div>
+                        </div>
+                        <!-- Excerpt -->
+                    </div>
+                    <!-- Third news -->
+
+                    <!-- Fourth news -->
+                    <div class="news">
+                        <!-- Label -->
+                        <div class="label">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg"
+                                class="rounded-circle z-depth-1-half">
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="excerpt">
+                            <!-- Brief -->
+                            <div class="brief">
+                                <a class="name">Lili Rose</a> is Checking In<div class="date">5 min</div>
+                            </div>
+                            <!-- Added text -->
+                            <div class="added-text">Number of Passengers: 3<br>Terminal: International</div>
+                        </div>
+                        <!-- Excerpt -->
+                    </div>
+                    <!-- Fourth news -->
+
+                    <!-- Fifth news -->
+                    <div class="news">
+                        <!-- Label -->
+                        <div class="label">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20)-mini.jpg"
+                                class="rounded-circle  z-depth-1-half">
+                        </div>
+                        <!-- Excerpt -->
+                        <div class="excerpt mb-0">
+                            <!-- Brief -->
+                            <div class="brief">
+                                <a class="name">Kate Harrison</a> arriving soon to the Airport
+                            </div>
+                            <div class="added-text">Number of Passengers: 5<br>Terminal: Domestic</div>
+
+
+
+
+                        </div>
+                        <!-- Excerpt -->
+                    </div>
+                    <!-- Fifth news -->
+                </div>
+                <!-- Newsfeed -->
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+    </section>
+    <!-- Section: Social newsfeed v.1 -->
+</div>
+
+
+<script>
+    setInterval(function(){
+        $('.mdb-feed .news').first().fadeOut("slow",function(){
+            $('.mdb-feed').append($(this));
+            $('.mdb-feed .news').last().fadeIn('slow');
+        });
+    }, 5000);
+</script>

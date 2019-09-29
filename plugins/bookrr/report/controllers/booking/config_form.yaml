@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking Report
+
+# Model Form Field configuration
+form: $/aeroparks/report/models/bookingreport/fields.yaml
+
+# Model Class name
+modelClass: Aeroparks\Report\Models\BookingReport
+
+# Default redirect location
+defaultRedirect: aeroparks/report/bookingreport
+
+# Create page
+create:
+    title: Create Booking Report
+    redirect: aeroparks/report/bookingreport/update/:id
+    redirectClose: aeroparks/report/bookingreport
+
+# Update page
+update:
+    title: Edit Booking Report
+    redirect: aeroparks/report/bookingreport
+    redirectClose: aeroparks/report/bookingreport
+
+# Preview page
+preview:
+    title: Preview Booking Report

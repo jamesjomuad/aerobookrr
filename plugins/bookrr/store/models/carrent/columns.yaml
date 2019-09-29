@@ -1,0 +1,39 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        type: text
+        searchable: true
+        sortable: true
+    brand:
+        label: Brand
+        type: text
+        searchable: true
+        sortable: true
+    model:
+        label: Model
+        type: text
+        searchable: true
+    rate:
+        label: Rate
+        type: text
+        searchable: true
+    mpg:
+        label: MPG
+        type: text
+        sortable: true
+    transmission:
+        label: Transmission
+        type: text
+        sortable: true
+    status:
+        label: Status
+        type: text
+        sortable: true
+    thumb:
+        label: Thumb
+        type: partial
+        path: thumb
