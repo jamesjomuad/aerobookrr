@@ -1,0 +1,82 @@
+{
+    "name": "october/october",
+    "description": "October CMS",
+    "homepage": "https://octobercms.com",
+    "keywords": ["october", "cms", "octobercms", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Jomuad",
+            "email": "st.james.jomuad@gmail.com",
+            "role": "Co-founder, Developer"
+        },
+        {
+            "name": "Jennifer Jomuad",
+            "email": "daftspunky@gmail.com",
+            "role": "Co-founder, Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/octobercms/october/issues",
+        "forum": "https://octobercms.com/forum/",
+        "docs": "https://octobercms.com/docs/",
+        "irc": "irc://irc.freenode.net/october",
+        "source": "https://github.com/octobercms/october"
+    },
+    "require": {
+        "php": ">=7.0",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "october/rain": "~1.0",
+        "october/system": "~1.0",
+        "october/backend": "~1.0",
+        "october/cms": "~1.0",
+        "laravel/framework": "5.5.*",
+        "wikimedia/composer-merge-plugin": "dev-master"
+    },
+    "require-dev": {
+        "beyondcode/laravel-dump-server": "^1.0",
+        "filp/whoops": "^2.0",
+        "fzaninotto/faker": "^1.4",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^3.0",
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php artisan key:generate",
+            "php artisan package:discover"
+        ],
+        "post-update-cmd": [
+            "php artisan october:util set build",
+            "php artisan package:discover"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "platform": {
+            "php": "7.0"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "plugins/*/*/composer.json"
+            ],
+            "recurse": true,
+            "replace": false,
+            "merge-dev": false
+        }
+    }
+}
