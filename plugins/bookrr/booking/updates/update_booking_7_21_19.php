@@ -4,7 +4,7 @@ use Schema;
 use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 
-class UpdateBookingTable extends Migration
+class UpdateBookingTable72119 extends Migration
 {
     public function up()
     {
