@@ -5,6 +5,6 @@
 1.0.3:
   - 'Create Zones table'
   - create_zones_table.php
-# 1.0.4:
-#   - 'Update Booking table. Booking Bays relation.'
-#   - update_booking_7_16_19.php
+1.0.4:
+  - 'Update Booking table. Booking Bays relation.'
+  - update_booking_7_16_19.php

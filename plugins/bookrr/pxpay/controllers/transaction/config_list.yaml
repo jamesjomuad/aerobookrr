@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/jomuad/pxpay/models/transaction/columns.yaml
+list: $/bookrr/pxpay/models/transaction/columns.yaml
 
 # Model Class name
 modelClass: Jomuad\Pxpay\Models\Transaction
@@ -12,7 +12,7 @@ modelClass: Jomuad\Pxpay\Models\Transaction
 title: Manage Transactions
 
 # Link URL for each record
-recordUrl: jomuad/pxpay/transaction/update/:id
+recordUrl: bookrr/pxpay/transaction/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

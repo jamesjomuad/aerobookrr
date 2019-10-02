@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('jomuad/pxpay/settings') ?>">Settings</a></li>
+        <li><a href="<?= Backend::url('bookrr/pxpay/settings') ?>">Settings</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -32,7 +32,7 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('jomuad/pxpay/settings') ?>" class="btn btn-default">Return to settings list</a></p>
+    <p><a href="<?= Backend::url('bookrr/pxpay/settings') ?>" class="btn btn-default">Return to settings list</a></p>
 
 <?php endif ?>
 

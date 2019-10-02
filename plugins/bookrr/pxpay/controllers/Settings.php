@@ -3,13 +3,13 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
-use Jomuad\Pxpay\Models\Settings as dbSettings;
+use Bookrr\Pxpay\Models\Settings as dbSettings;
 
 
 class Settings extends Controller
 {
 
-    use \Aeroparks\General\Traits\Widgets;
+    use \Bookrr\General\Traits\Widgets;
 
     public $model;
 
@@ -27,11 +27,11 @@ class Settings extends Controller
     {
         $this->pageTitle = "PxPay Settings";
 
-        $this->vars['form'] = $this->newFormWidget([
+        $this->vars['form'] = $this->FormWidget([
             'alias'     => 'PxPayForm',
             'arrayName' => 'PxPay',
             'model'     => $this->model,
-            'config'    => '$/jomuad/pxpay/models/settings/fields.yaml'
+            'config'    => '$/bookrr/pxpay/models/settings/fields.yaml'
         ]);
     }
 

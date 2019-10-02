@@ -27,7 +27,7 @@ class Plugin extends PluginBase
                 'description' => 'PxPay2 Payment gateway.',
                 'category'    => 'Aeroparks',
                 'icon'        => 'icon-usd',
-                'url'         => Backend::url('jomuad/pxpay/settings'),
+                'url'         => Backend::url('bookrr/pxpay/settings'),
                 'order'       => 900,
                 'keywords'    => 'aeropark setting payment gateway',
                 'permissions' => ['pxpay.*']
