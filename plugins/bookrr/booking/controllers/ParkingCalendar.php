@@ -15,7 +15,7 @@ class ParkingCalendar extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Booking', 'booking', 'parking-calendar');
+        BackendMenu::setContext('Bookrr.Booking', 'booking', 'parking-calendar');
     }
 
     public function index()

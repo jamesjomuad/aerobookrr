@@ -13,7 +13,7 @@ class Insight extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Report', 'report', 'insight');
+        BackendMenu::setContext('Bookrr.Report', 'report', 'insight');
     }
 
     public function index()

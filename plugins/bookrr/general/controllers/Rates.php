@@ -20,6 +20,6 @@ class Rates extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.General', 'general', 'rates');
+        BackendMenu::setContext('Bookrr.General', 'general', 'rates');
     }
 }

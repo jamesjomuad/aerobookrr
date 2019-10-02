@@ -24,6 +24,6 @@ class Category extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Store', 'store', 'category');
+        BackendMenu::setContext('Bookrr.Store', 'store', 'category');
     }
 }

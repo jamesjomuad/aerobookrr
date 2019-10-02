@@ -13,8 +13,8 @@ class Loyalty extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.User', 'user', 'loyalty');
-        // BackendMenu::setContext('Aeroparks.User', 'loyalty');
+        BackendMenu::setContext('Bookrr.User', 'user', 'loyalty');
+        // BackendMenu::setContext('Bookrr.User', 'loyalty');
     }
 
 

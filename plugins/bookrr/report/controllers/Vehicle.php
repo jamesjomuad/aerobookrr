@@ -21,6 +21,6 @@ class Vehicle extends BaseController
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Report', 'report', 'vehicle');
+        BackendMenu::setContext('Bookrr.Report', 'report', 'vehicle');
     }
 }

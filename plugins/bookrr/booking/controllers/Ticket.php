@@ -26,7 +26,7 @@ class Ticket extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Booking', 'booking', 'ticket');
+        BackendMenu::setContext('Bookrr.Booking', 'booking', 'ticket');
     }
 
     public static function generate($bookModel)

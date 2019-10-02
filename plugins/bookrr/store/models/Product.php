@@ -33,7 +33,7 @@ class Product extends BaseModel
         ],
         'cart' => [
             'Bookrr\Store\Models\Cart',
-            'table' => 'aeroparks_cart_product'
+            'table' => 'bookrr_cart_product'
         ]
     ];
 

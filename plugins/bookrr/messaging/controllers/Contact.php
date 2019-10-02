@@ -20,7 +20,7 @@ class Contact extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Messaging', 'messaging', 'contact');
+        BackendMenu::setContext('Bookrr.Messaging', 'messaging', 'contact');
     }
 
     public function index()

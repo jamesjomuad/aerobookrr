@@ -75,7 +75,7 @@ class Parking extends Model
     public $belongsToMany = [
         'products' => [
             'Bookrr\Store\Models\Product',
-            'table' => 'aeroparks_cart_product',
+            'table' => 'bookrr_cart_product',
             'order' => 'name',
             'key' => 'cart_id',
             'otherKey' => 'product_id'

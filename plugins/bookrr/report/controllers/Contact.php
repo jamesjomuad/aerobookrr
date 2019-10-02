@@ -21,6 +21,6 @@ class Contact extends BaseController
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Report', 'report', 'contact');
+        BackendMenu::setContext('Bookrr.Report', 'report', 'contact');
     }
 }

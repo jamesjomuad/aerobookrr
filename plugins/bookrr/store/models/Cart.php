@@ -20,7 +20,7 @@ class Cart extends Model
     public $belongsToMany = [
         'products' => [
             'Bookrr\Store\Models\Product',
-            'table' => 'aeroparks_cart_product',
+            'table' => 'bookrr_cart_product',
             'pivot' => ['quantity']
         ]
     ];

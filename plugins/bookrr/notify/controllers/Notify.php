@@ -13,7 +13,7 @@ class Notify extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Notify', 'notify', 'notify');
+        BackendMenu::setContext('Bookrr.Notify', 'notify', 'notify');
     }
 
     public function index()

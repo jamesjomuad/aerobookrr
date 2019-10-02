@@ -37,7 +37,7 @@ class Customer extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.User', 'user', 'customer');
+        BackendMenu::setContext('Bookrr.User', 'user', 'customer');
 
         $this->bookingFormWidget = $this->createFormWidget([
             'alias'     => 'bookingForm',

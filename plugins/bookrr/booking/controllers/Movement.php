@@ -31,7 +31,7 @@ class Movement extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Booking', 'move_key');
+        BackendMenu::setContext('Bookrr.Booking', 'move_key');
     }
 
     public function index()

@@ -13,7 +13,7 @@ class Revenue extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Report', 'report', 'revenue');
+        BackendMenu::setContext('Bookrr.Report', 'report', 'revenue');
     }
 
     public function index()

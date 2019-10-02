@@ -20,7 +20,7 @@ class Bay extends BaseController
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Report', 'report', 'bay');
+        BackendMenu::setContext('Bookrr.Report', 'report', 'bay');
     }
 
     public function index()

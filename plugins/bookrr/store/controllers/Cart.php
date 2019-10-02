@@ -28,7 +28,7 @@ class Cart extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Store', 'store', 'cart');
+        BackendMenu::setContext('Bookrr.Store', 'store', 'cart');
 
         $this->model = new CartModel;
 

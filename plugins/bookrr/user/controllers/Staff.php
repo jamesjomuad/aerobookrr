@@ -28,7 +28,7 @@ class Staff extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.User', 'user', 'staff');
+        BackendMenu::setContext('Bookrr.User', 'user', 'staff');
     }
 
     public function create()

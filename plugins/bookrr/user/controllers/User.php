@@ -23,7 +23,7 @@ class User extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.User', 'user', 'user');
+        BackendMenu::setContext('Bookrr.User', 'user', 'user');
     }
 
     public function onCreate()

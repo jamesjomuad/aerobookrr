@@ -40,11 +40,11 @@ class CarRent extends Controller
 
         if(Auth::check() AND $this->user->isCustomer())
         {
-            BackendMenu::setContext('Aeroparks.Store', 'car-rental');
+            BackendMenu::setContext('Bookrr.Store', 'car-rental');
         }
         else
         {
-            BackendMenu::setContext('Aeroparks.Store', 'store', 'car-rental');
+            BackendMenu::setContext('Bookrr.Store', 'store', 'car-rental');
         }
 
         $this->addCss('/plugins/bookrr/store/assets/fotorama.css');

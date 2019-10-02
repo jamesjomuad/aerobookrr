@@ -20,7 +20,7 @@ class Mail extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Messaging', 'messaging', 'mail');
+        BackendMenu::setContext('Bookrr.Messaging', 'messaging', 'mail');
     }
 
     public function index()

@@ -20,6 +20,6 @@ class Agent extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.User', 'user', 'agent');
+        BackendMenu::setContext('Bookrr.User', 'user', 'agent');
     }
 }

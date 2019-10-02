@@ -25,7 +25,7 @@ class Booking extends BaseController
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Report', 'report', 'booking');
+        BackendMenu::setContext('Bookrr.Report', 'report', 'booking');
     }
 
 }

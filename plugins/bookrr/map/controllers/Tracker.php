@@ -28,7 +28,7 @@ class Tracker extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Map', 'map', 'tracker');
+        BackendMenu::setContext('Bookrr.Map', 'map', 'tracker');
     }
     
     public function index()

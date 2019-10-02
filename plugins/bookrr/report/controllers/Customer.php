@@ -21,7 +21,7 @@ class Customer extends BaseController
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Report', 'report', 'customer');
+        BackendMenu::setContext('Bookrr.Report', 'report', 'customer');
         // dd($this->widget->list->model);
     }
 

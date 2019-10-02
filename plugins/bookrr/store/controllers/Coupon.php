@@ -21,7 +21,7 @@ class Coupon extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Store', 'store', 'coupon');
+        BackendMenu::setContext('Bookrr.Store', 'store', 'coupon');
     }
 
     public function getCoupon($code)

@@ -20,7 +20,7 @@ class Txt extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Messaging', 'messaging', 'txt');
+        BackendMenu::setContext('Bookrr.Messaging', 'messaging', 'txt');
     }
 
     public function index()

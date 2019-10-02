@@ -20,6 +20,6 @@ class CarBooking extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Store', 'store', 'carbooking');
+        BackendMenu::setContext('Bookrr.Store', 'store', 'carbooking');
     }
 }

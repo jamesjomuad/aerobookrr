@@ -42,7 +42,7 @@ class Parking extends CartController
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Booking', 'booking', 'parking');
+        BackendMenu::setContext('Bookrr.Booking', 'booking', 'parking');
 
         $this->model = new ParkingModel;
 

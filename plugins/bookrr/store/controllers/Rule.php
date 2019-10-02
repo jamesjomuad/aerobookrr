@@ -24,6 +24,6 @@ class Rule extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Store', 'store', 'rule');
+        BackendMenu::setContext('Bookrr.Store', 'store', 'rule');
     }
 }

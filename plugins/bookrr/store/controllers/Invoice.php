@@ -26,7 +26,7 @@ class Invoice extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Store', 'store', 'invoice');
+        BackendMenu::setContext('Bookrr.Store', 'store', 'invoice');
     }
 
     public function create()

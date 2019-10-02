@@ -32,7 +32,7 @@ class Product extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Aeroparks.Store', 'store', 'product');
+        BackendMenu::setContext('Bookrr.Store', 'store', 'product');
     }
 
     public function getProduct($id)
