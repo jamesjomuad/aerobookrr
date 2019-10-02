@@ -16,7 +16,7 @@ class UpdateBookingTable82519 extends Migration
     public function down()
     {
         Schema::table('bookrr_booking', function(Blueprint $table){
-            $table->dropColumn('refNum');
+            $table->dropColumn('ref_num');
         });
     }
 }

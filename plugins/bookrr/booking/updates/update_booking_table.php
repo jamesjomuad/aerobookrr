@@ -16,6 +16,6 @@ class UpdateBookingTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('bookrr_booking');
+        
     }
 }

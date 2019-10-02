@@ -8,15 +8,21 @@ class UpdateBookingTable71619 extends Migration
 {
     public function up()
     {
-        Schema::table('bookrr_booking', function(Blueprint $table){
-            $table->integer('bay_id')->nullable()->after('id');
-        });
+        if (Schema::hasTable('bookrr_booking')) {
+            Schema::table('bookrr_booking', function(Blueprint $table){
+                $table->integer('bay_id')->nullable()->after('id');
+            });
+        }
     }
 
     public function down()
     {
-        Schema::table('bookrr_booking', function(Blueprint $table){
-            $table->dropColumn('bay_id');
-        });
+        if (Schema::hasTable('bookrr_booking')){
+            Schema::table('bookrr_booking', function(Blueprint $table){
+                if(Schema::hasColumn('bookrr_booking', 'bay_id')){
+                   $table->dropColumn('bay_id'); 
+                }
+            });
+        }
     }
 }
