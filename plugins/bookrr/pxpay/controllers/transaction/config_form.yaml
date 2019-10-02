@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Transaction
+
+# Model Form Field configuration
+form: $/jomuad/pxpay/models/transaction/fields.yaml
+
+# Model Class name
+modelClass: Jomuad\Pxpay\Models\Transaction
+
+# Default redirect location
+defaultRedirect: jomuad/pxpay/transaction
+
+# Create page
+create:
+    title: Create Transaction
+    redirect: jomuad/pxpay/transaction/update/:id
+    redirectClose: jomuad/pxpay/transaction
+
+# Update page
+update:
+    title: Edit Transaction
+    redirect: jomuad/pxpay/transaction
+    redirectClose: jomuad/pxpay/transaction
+
+# Preview page
+preview:
+    title: Preview Transaction

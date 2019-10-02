@@ -1,0 +1,13 @@
+{
+    "name": "aero/payment-gateway",
+    "description": "Cloud-based. Platform-independent. More accessible.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["october", "cms", "demo", "plugin"],
+    "autoload": {
+        "classmap": [
+            "vendor/pxpay"
+        ]
+    },
+    "require": {}
+}
