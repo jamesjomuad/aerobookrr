@@ -12,7 +12,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Aeroparks Themer',
+            'name'        => 'Bookrr Themer',
             'description' => 'Manage dashboard theme. Elements, components etc...',
             'author'      => 'Jomuad',
             'icon'        => 'icon-leaf'
@@ -38,7 +38,7 @@ class Plugin extends PluginBase
         return []; // Remove this line to activate
 
         return [
-            'aeroparks.themer.*' => [
+            'bookrr.themer.*' => [
                 'tab' => 'themer',
                 'label' => 'Some permission'
             ],
@@ -54,7 +54,7 @@ class Plugin extends PluginBase
                 'label'       => 'themer',
                 'url'         => Backend::url('bookrr/themer/mycontroller'),
                 'icon'        => 'icon-leaf',
-                'permissions' => ['aeroparks.themer.*'],
+                'permissions' => ['bookrr.themer.*'],
                 'order'       => 500,
             ],
         ];
@@ -63,15 +63,15 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
         return [
-            'aeroparks.theme' => [
+            'bookrr.theme' => [
                 'label'       => 'Themes',
                 'description' => 'Manage dashboard theme. Elements, components etc...',
-                'category'    => 'Aeroparks',
+                'category'    => 'Bookrr',
                 'icon'        => 'icon-paint-brush',
                 'url'         => Backend::url('bookrr/themer/theme'),
                 'order'       => 1000,
                 'keywords'    => 'aeropark setting',
-                'permissions' => ['aeroparks.general.*']
+                'permissions' => ['bookrr.general.*']
             ],
         ];
     }

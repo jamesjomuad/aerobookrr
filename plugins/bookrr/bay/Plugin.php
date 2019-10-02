@@ -14,7 +14,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'bay',
             'description' => 'No description provided yet...',
-            'author'      => 'aeroparks',
+            'author'      => 'bookrr',
             'icon'        => 'icon-leaf'
         ];
     }
@@ -22,8 +22,8 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'aeroparks.bay' => [
-                'tab' => 'Aeroparks',
+            'bookrr.bay' => [
+                'tab' => 'Bookrr',
                 'label' => 'Bay & Zone permission'
             ],
         ];
@@ -32,13 +32,13 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
         return [
-            'aeroparks.bay' => [
+            'bookrr.bay' => [
                 'label'       => 'Bays / Zones',
                 'description' => 'Manage parking Bays and Zones.',
-                'category'    => 'Aeroparks',
+                'category'    => 'Bookrr',
                 'url'         => Backend::url('bookrr/bay/bay'),
                 'icon'        => 'icon-car',
-                'permissions' => ['aeroparks.bay'],
+                'permissions' => ['bookrr.bay'],
                 'order'       => 999,
             ]
         ];

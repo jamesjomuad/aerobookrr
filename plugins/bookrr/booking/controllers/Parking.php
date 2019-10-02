@@ -26,7 +26,7 @@ class Parking extends CartController
     public $ProductToolbarWidget;
 
     public $requiredPermissions = [
-        'aeroparks.booking.park'
+        'bookrr.booking.park'
     ];
 
     public $implement = [

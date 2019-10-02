@@ -14,7 +14,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'Map',
             'description' => 'Visualize your customer.',
-            'author'      => 'aeroparks',
+            'author'      => 'bookrr',
             'icon'        => 'icon-map-marker'
         ];
     }
@@ -22,8 +22,8 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'aeroparks.map' => [
-                'tab' => 'Aeroparks',
+            'bookrr.map' => [
+                'tab' => 'Bookrr',
                 'label' => 'GPS Tracking'
             ],
         ];
@@ -36,7 +36,7 @@ class Plugin extends PluginBase
                 'label'       => 'Tracker',
                 'url'         => Backend::url('bookrr/map/tracker'),
                 'icon'        => 'icon-map-marker',
-                'permissions' => ['aeroparks.map'],
+                'permissions' => ['bookrr.map'],
                 'order'       => 1050,
             ],
         ];

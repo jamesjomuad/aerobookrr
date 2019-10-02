@@ -1,5 +1,5 @@
 <div data-control="toolbar">
-    <?php if ($this->user->hasAccess('aeroparks.rule.create')): ?>
+    <?php if ($this->user->hasAccess('bookrr.rule.create')): ?>
     <a
         href="<?= Backend::url('bookrr/store/rule/create') ?>"
         class="btn btn-primary oc-icon-plus">
@@ -7,7 +7,7 @@
     </a>
     <?php endif ?>
 
-    <?php if ($this->user->hasAccess('aeroparks.rule.delete')): ?>
+    <?php if ($this->user->hasAccess('bookrr.rule.delete')): ?>
     <button
         class="btn btn-danger oc-icon-trash-o"
         disabled="disabled"

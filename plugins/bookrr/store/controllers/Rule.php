@@ -9,7 +9,7 @@ use Backend\Classes\Controller;
 class Rule extends Controller
 {
     public $requiredPermissions = [
-        'aeroparks.rule.read'
+        'bookrr.rule.read'
     ];
 
     public $implement = [

@@ -19,8 +19,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Aeroparks',
-            'description' => 'Provides aeroparks functionality.',
+            'name'        => 'Bookrr',
+            'description' => 'Provides bookrr functionality.',
             'author'      => 'Jomuad',
             'icon'        => 'icon-car'
         ];
@@ -38,12 +38,12 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'aeroparks.general.*' => [
-                'tab' => 'Aeroparks',
+            'bookrr.general.*' => [
+                'tab' => 'Bookrr',
                 'label' => 'General settings'
             ],
-            'aeroparks.report.widget' => [
-                'tab' => 'Aeroparks',
+            'bookrr.report.widget' => [
+                'tab' => 'Bookrr',
                 'label' => 'Dashboard Report Widget'
             ]
         ];
@@ -53,45 +53,45 @@ class Plugin extends PluginBase
     {
         return [
             '\Bookrr\General\ReportWidgets\Finder' => [
-                'label'   => 'Aeroparks - Finder',
+                'label'   => 'Bookrr - Finder',
                 'context' => 'dashboard',
                 'permissions' => [
-                    'aeroparks.widget.booker',
+                    'bookrr.widget.booker',
                 ],
             ],
             '\Bookrr\General\ReportWidgets\ParkingFeed' => [
-                'label'   => 'Aeroparks - Aero Feed',
+                'label'   => 'Bookrr - Aero Feed',
                 'context' => 'dashboard',
                 'permissions' => [
-                    'aeroparks.widget.*',
+                    'bookrr.widget.*',
                 ],
             ],
             '\Bookrr\General\ReportWidgets\ParkingSlot' => [
-                'label'   => 'Aeroparks - Parking Slot',
+                'label'   => 'Bookrr - Parking Slot',
                 'context' => 'dashboard',
                 'permissions' => [
-                    'aeroparks.widget.booker',
+                    'bookrr.widget.booker',
                 ],
             ],
             '\Bookrr\General\ReportWidgets\BookingStat' => [
-                'label'   => 'Aeroparks - Booking Stat',
+                'label'   => 'Bookrr - Booking Stat',
                 'context' => 'dashboard',
                 'permissions' => [
-                    'aeroparks.widget.bookingstat',
+                    'bookrr.widget.bookingstat',
                 ],
             ],
             '\Bookrr\General\ReportWidgets\Tasks' => [
-                'label'   => 'Aeroparks - Tasks',
+                'label'   => 'Bookrr - Tasks',
                 'context' => 'dashboard',
                 'permissions' => [
-                    'aeroparks.widget.task',
+                    'bookrr.widget.task',
                 ],
             ],
             '\Bookrr\General\ReportWidgets\Instafeed' => [
                 'label'   => 'Instagram Feed',
                 'context' => 'dashboard',
                 'permissions' => [
-                    'aeroparks.widget.*',
+                    'bookrr.widget.*',
                 ],
             ]
         ];
@@ -124,7 +124,7 @@ class Plugin extends PluginBase
                 'label'       => 'general',
                 'url'         => Backend::url('bookrr/general/mycontroller'),
                 'icon'        => 'icon-leaf',
-                'permissions' => ['aeroparks.general.*'],
+                'permissions' => ['bookrr.general.*'],
                 'order'       => 500,
             ],
         ];
@@ -133,35 +133,35 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
         return [
-            'aeroparks.setting' => [
+            'bookrr.setting' => [
                 'label'       => 'Settings',
                 'description' => 'Manage System Settings.',
-                'category'    => 'Aeroparks',
+                'category'    => 'Bookrr',
                 'icon'        => 'icon-gear',
                 'url'         => Backend::url('bookrr/general/setting'),
                 'order'       => 1000,
                 'keywords'    => 'aeropark setting',
-                'permissions' => ['aeroparks.general.*']
+                'permissions' => ['bookrr.general.*']
             ],
-            'aeroparks.documentation' => [
+            'bookrr.documentation' => [
                 'label'       => 'Documentation',
                 'description' => 'Tips and Tricks.',
-                'category'    => 'Aeroparks',
+                'category'    => 'Bookrr',
                 'icon'        => 'icon-book',
                 'url'         => Backend::url('bookrr/general/general/documentation'),
                 'order'       => 1000,
                 'keywords'    => 'aeropark',
-                'permissions' => ['aeroparks.general.*']
+                'permissions' => ['bookrr.general.*']
             ],
-            // 'aeroparks.license' => [
+            // 'bookrr.license' => [
             //     'label'       => 'License',
             //     'description' => 'Manage Web Application License.',
-            //     'category'    => 'Aeroparks',
+            //     'category'    => 'Bookrr',
             //     'icon'        => 'icon-star-o',
             //     'url'         => Backend::url('bookrr/general/general/license'),
             //     'order'       => 1000,
             //     'keywords'    => 'aeropark',
-            //     'permissions' => ['aeroparks.general.*']
+            //     'permissions' => ['bookrr.general.*']
             // ]
         ];
     }

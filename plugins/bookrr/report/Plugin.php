@@ -20,11 +20,11 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'aeroparks.report.*' => [
+            'bookrr.report.*' => [
                 'tab' => 'Aeropark Reports',
                 'label' => 'Manage and process Reports'
             ],
-            'aeroparks.report.read' => [
+            'bookrr.report.read' => [
                 'tab' => 'Aeropark Reports',
                 'label' => 'Can View reports',
                 'order' => 202,
@@ -39,7 +39,7 @@ class Plugin extends PluginBase
                 'label'       => 'Reports',
                 'url'         => Backend::url('bookrr/report/bay'),
                 'icon'        => 'icon-area-chart',
-                'permissions' => ['aeroparks.report.*'],
+                'permissions' => ['bookrr.report.*'],
                 'order'       => 915,
 
                 'sideMenu' => [
@@ -47,49 +47,49 @@ class Plugin extends PluginBase
                         'label'       => 'Bay',
                         'url'         => Backend::url('bookrr/report/bay'),
                         'icon'        => 'fa fa-chart-area',
-                        'permissions' => ['aeroparks.report.*'],
+                        'permissions' => ['bookrr.report.*'],
                     ],
                     'insight' => [
                         'label'       => 'Insights',
                         'url'         => Backend::url('bookrr/report/insight'),
                         'icon'        => 'fa fa-chart-pie',
-                        'permissions' => ['aeroparks.report.*'],
+                        'permissions' => ['bookrr.report.*'],
                     ],
                     'revenue' => [
                         'label'       => 'Revenue',
                         'url'         => Backend::url('bookrr/report/revenue'),
                         'icon'        => 'fa fa-chart-bar',
-                        'permissions' => ['aeroparks.report.*'],
+                        'permissions' => ['bookrr.report.*'],
                     ],
                     'driver' => [
                         'label'       => "Driver's Manifest",
                         'url'         => Backend::url('bookrr/report/driver'),
                         'icon'        => 'icon-bar-chart',
-                        'permissions' => ['aeroparks.report.*'],
+                        'permissions' => ['bookrr.report.*'],
                     ],
                     'booking' => [
                         'label'       => 'Bookings',
                         'url'         => Backend::url('bookrr/report/booking'),
                         'icon'        => 'fa fa-chart-line',
-                        'permissions' => ['aeroparks.report.*'],
+                        'permissions' => ['bookrr.report.*'],
                     ],
                     'customer' => [
                         'label'       => 'Customers',
                         'url'         => Backend::url('bookrr/report/customer'),
                         'icon'        => 'fa fa-chart-bar',
-                        'permissions' => ['aeroparks.report.*'],
+                        'permissions' => ['bookrr.report.*'],
                     ],
                     'vehicle' => [
                         'label'       => 'Vehicles',
                         'url'         => Backend::url('bookrr/report/vehicle'),
                         'icon'        => 'fa fa-chart-area',
-                        'permissions' => ['aeroparks.report.*'],
+                        'permissions' => ['bookrr.report.*'],
                     ],
                     'contact' => [
                         'label'       => 'Contacts',
                         'url'         => Backend::url('bookrr/report/contact'),
                         'icon'        => 'icon-bar-chart',
-                        'permissions' => ['aeroparks.report.*'],
+                        'permissions' => ['bookrr.report.*'],
                     ],
                 ]
             ],

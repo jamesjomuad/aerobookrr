@@ -15,7 +15,7 @@ class Bay extends Controller
     public $model;
 
     public $requiredPermissions = [
-        'aeroparks.bay'
+        'bookrr.bay'
     ];
 
     public $implement = [
@@ -34,7 +34,7 @@ class Bay extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.System', 'system', 'setting');
-        SettingsManager::setContext('Aeroparks.Bay', 'aeroparks.bay');
+        SettingsManager::setContext('Bookrr.Bay', 'bookrr.bay');
 
         $this->model = new BayModel;
     }

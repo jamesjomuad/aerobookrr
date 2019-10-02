@@ -15,7 +15,7 @@
 
         <div class="form-buttons">
             <div class="loading-indicator-container">
-                <?php if ($this->user->hasAccess(['aeroparks.product.update'])): ?>
+                <?php if ($this->user->hasAccess(['bookrr.product.update'])): ?>
                 <button
                     type="submit"
                     data-request="onSave"
@@ -27,7 +27,7 @@
                 </button>
                 <?php endif ?>
 
-                <?php if ($this->user->hasAccess(['aeroparks.product.update'])): ?>
+                <?php if ($this->user->hasAccess(['bookrr.product.update'])): ?>
                 <button
                     type="button"
                     data-request="onSave"
@@ -39,7 +39,7 @@
                 </button>
                 <?php endif ?>
 
-                <?php if ($this->user->hasAccess('aeroparks.product.delete')): ?>
+                <?php if ($this->user->hasAccess('bookrr.product.delete')): ?>
                 <button
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"

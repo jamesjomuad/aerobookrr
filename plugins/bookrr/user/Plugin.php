@@ -143,8 +143,8 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'aeroparks.user.*' => [
-                'tab' => 'Aeroparks',
+            'bookrr.user.*' => [
+                'tab' => 'Bookrr',
                 'label' => 'Manage Aeropark Users.'
             ],
         ];
@@ -170,7 +170,7 @@ class Plugin extends PluginBase
                 'label'       => 'Users',
                 'url'         => Backend::url('bookrr/user/customer'),
                 'icon'        => 'icon-users',
-                'permissions' => ['aeroparks.user.*'],
+                'permissions' => ['bookrr.user.*'],
                 'order'       => 920,
 
                 'sideMenu' => [
@@ -178,31 +178,31 @@ class Plugin extends PluginBase
                         'label'       => 'Customers',
                         'url'         => Backend::url('bookrr/user/customer'),
                         'icon'        => 'icon-user-circle-o',
-                        'permissions' => ['aeroparks.user.*'],
+                        'permissions' => ['bookrr.user.*'],
                     ],
                     'staff' => [
                         'label'       => 'Staff',
                         'url'         => Backend::url('bookrr/user/staff'),
                         'icon'        => 'icon-user-secret',
-                        'permissions' => ['aeroparks.user.*'],
+                        'permissions' => ['bookrr.user.*'],
                     ],
                     // 'agent' => [
                     //     'label'       => 'Agents',
                     //     'url'         => Backend::url('bookrr/user/agent'),
                     //     'icon'        => 'icon-handshake-o',
-                    //     'permissions' => ['aeroparks.user.*'],
+                    //     'permissions' => ['bookrr.user.*'],
                     // ],
                     // 'affiliate' => [
                     //     'label'       => 'Affiliate',
                     //     'url'         => Backend::url('bookrr/user/affiliate'),
                     //     'icon'        => 'icon-user-plus',
-                    //     'permissions' => ['aeroparks.user.*'],
+                    //     'permissions' => ['bookrr.user.*'],
                     // ],
                     // 'loyalty' => [
                     //     'label'       => 'Loyalty',
                     //     'url'         => Backend::url('bookrr/user/loyalty'),
                     //     'icon'        => 'icon-star',
-                    //     'permissions' => ['aeroparks.user.*'],
+                    //     'permissions' => ['bookrr.user.*'],
                     // ]
                 ]
             ]

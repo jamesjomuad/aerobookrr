@@ -8,7 +8,7 @@ class CreateSettingsTable extends Migration
 {
     public function up()
     {
-        Schema::create('aeroparks_pxpay_settings', function(Blueprint $table) {
+        Schema::create('bookrr_pxpay_settings', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
@@ -17,6 +17,6 @@ class CreateSettingsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('aeroparks_pxpay_settings');
+        Schema::dropIfExists('bookrr_pxpay_settings');
     }
 }

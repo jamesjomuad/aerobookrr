@@ -34,7 +34,7 @@ class Rates extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.System', 'system', 'settings');
-        SettingsManager::setContext('Aeroparks.Rates', 'rates');
+        SettingsManager::setContext('Bookrr.Rates', 'rates');
 
         $this->settings = dbSettings::instance();
 

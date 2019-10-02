@@ -42,7 +42,7 @@ class Ticket extends Controller
 
 
         // Generate PDF
-        $template = 'aeroparks::pticket';
+        $template = 'bookrr::pticket';
         $filename = 'ticket-'.uniqid().'.pdf';
         $data = [
             'qrcode'    => DNS2D::getBarcodePNG($bookModel->ticket->qrcode, "QRCODE"),

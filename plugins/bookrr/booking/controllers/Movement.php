@@ -14,7 +14,7 @@ use Bookrr\User\Models\Vehicle;
 class Movement extends Controller
 {
     public $requiredPermissions = [
-        'aeroparks.movement'
+        'bookrr.movement'
     ];
 
     public $implement = [

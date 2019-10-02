@@ -15,7 +15,7 @@ class Theme extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.System', 'system', 'settings');
-        SettingsManager::setContext('Aeroparks.Themer', 'aeroparks.theme');
+        SettingsManager::setContext('Bookrr.Themer', 'bookrr.theme');
     }
 
     public function index()

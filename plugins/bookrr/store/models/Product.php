@@ -28,7 +28,7 @@ class Product extends BaseModel
     public $belongsToMany = [
         'category' => [
             'Bookrr\Store\Models\Category',
-            'table' => 'aeroparks_product_pivot',
+            'table' => 'bookrr_product_pivot',
             'order' => 'name'
         ],
         'cart' => [

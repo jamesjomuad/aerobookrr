@@ -29,7 +29,7 @@ class DateTimePicker extends FormWidgetBase
 
     public $dependsOn;
 
-    protected $defaultAlias = 'aeroparks_general_date_time_picker';
+    protected $defaultAlias = 'bookrr_general_date_time_picker';
 
 
     public function init()

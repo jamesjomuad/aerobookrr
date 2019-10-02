@@ -13,7 +13,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'messaging',
             'description' => 'No description provided yet...',
-            'author'      => 'aeroparks',
+            'author'      => 'bookrr',
             'icon'        => 'icon-leaf'
         ];
     }
@@ -30,8 +30,8 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'aeroparks.messaging.*' => [
-                'tab' => 'Aeroparks',
+            'bookrr.messaging.*' => [
+                'tab' => 'Bookrr',
                 'label' => 'Messaging'
             ],
         ];
@@ -44,7 +44,7 @@ class Plugin extends PluginBase
                 'label'       => 'Messaging',
                 'url'         => Backend::url('bookrr/messaging/txt'),
                 'icon'        => 'fa fa-comment-dots',
-                'permissions' => ['aeroparks.messaging.*'],
+                'permissions' => ['bookrr.messaging.*'],
                 'order'       => 925,
 
                 'sideMenu' => [
@@ -52,19 +52,19 @@ class Plugin extends PluginBase
                         'label'       => 'Txt',
                         'url'         => Backend::url('bookrr/messaging/txt'),
                         'icon'        => 'fa fa-sms',
-                        'permissions' => ['aeroparks.messaging.*'],
+                        'permissions' => ['bookrr.messaging.*'],
                     ],
                     'mail' => [
                         'label'       => 'Mail',
                         'url'         => Backend::url('bookrr/messaging/mail'),
                         'icon'        => 'fa fa-envelope',
-                        'permissions' => ['aeroparks.messaging.*'],
+                        'permissions' => ['bookrr.messaging.*'],
                     ],
                     'contact' => [
                         'label'       => 'Contacts',
                         'url'         => Backend::url('bookrr/messaging/contact'),
                         'icon'        => 'fa fa-address-book',
-                        'permissions' => ['aeroparks.messaging.*'],
+                        'permissions' => ['bookrr.messaging.*'],
                     ],
                 ]
             ],

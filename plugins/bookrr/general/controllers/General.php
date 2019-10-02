@@ -11,14 +11,14 @@ class General extends Controller
 {
 
     // public $requiredPermissions = [
-    //     'aeroparks.general.*'
+    //     'bookrr.general.*'
     // ];
 
     public function __construct()
     {
         parent::__construct();
         BackendMenu::setContext('October.System', 'system', 'settings');
-        SettingsManager::setContext('Aeroparks.General', 'settings');
+        SettingsManager::setContext('Bookrr.General', 'settings');
     }
 
     public function index()

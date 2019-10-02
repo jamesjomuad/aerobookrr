@@ -10,7 +10,7 @@ use \Carbon\Carbon;
 class Invoice extends Controller
 {
     public $requiredPermissions = [
-        'aeroparks.store.invoice'
+        'bookrr.store.invoice'
     ];
 
     public $implement = [

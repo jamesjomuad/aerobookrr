@@ -19,7 +19,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'rates',
             'description' => 'No description provided yet...',
-            'author'      => 'aeroparks',
+            'author'      => 'bookrr',
             'icon'        => 'icon-leaf'
         ];
     }
@@ -49,7 +49,7 @@ class Plugin extends PluginBase
         return []; // Remove this line to activate
 
         return [
-            'aeroparks.rates.some_permission' => [
+            'bookrr.rates.some_permission' => [
                 'tab' => 'rates',
                 'label' => 'Some permission'
             ],
@@ -67,12 +67,12 @@ class Plugin extends PluginBase
             'rates' => [
                 'label'       => 'Rates',
                 'description' => 'Manage Aeroparks Settings.',
-                'category'    => 'Aeroparks',
+                'category'    => 'Bookrr',
                 'icon'        => 'icon-usd',
                 'url'         => Backend::url('bookrr/rates/rates'),
                 'order'       => 900,
                 'keywords'    => 'aeropark setting',
-                'permissions' => ['aeroparks.rates.*']
+                'permissions' => ['bookrr.rates.*']
             ]
         ];
     }
