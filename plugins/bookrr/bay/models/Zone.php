@@ -11,7 +11,7 @@ class Zone extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'aeroparks_bay_zone';
+    public $table = 'bookrr_bay_zone';
 
     /**
      * @var array Guarded fields

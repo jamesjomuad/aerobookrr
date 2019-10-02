@@ -10,7 +10,7 @@ class CartItem extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'aeroparks_cart_product';
+    public $table = 'bookrr_cart_product';
 
     /**
      * @var array Guarded fields

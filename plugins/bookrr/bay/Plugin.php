@@ -36,7 +36,7 @@ class Plugin extends PluginBase
                 'label'       => 'Bays / Zones',
                 'description' => 'Manage parking Bays and Zones.',
                 'category'    => 'Aeroparks',
-                'url'         => Backend::url('aeroparks/bay/bay'),
+                'url'         => Backend::url('bookrr/bay/bay'),
                 'icon'        => 'icon-car',
                 'permissions' => ['aeroparks.bay'],
                 'order'       => 999,

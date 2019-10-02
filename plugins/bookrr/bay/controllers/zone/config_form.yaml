@@ -6,25 +6,25 @@
 name: Zone
 
 # Model Form Field configuration
-form: $/aeroparks/bay/models/zone/fields.yaml
+form: $/bookrr/bay/models/zone/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Bay\Models\Zone
 
 # Default redirect location
-defaultRedirect: aeroparks/bay/zone
+defaultRedirect: bookrr/bay/zone
 
 # Create page
 create:
     title: Create Zone
-    redirect: aeroparks/bay/zone/update/:id
-    redirectClose: aeroparks/bay/bay
+    redirect: bookrr/bay/zone/update/:id
+    redirectClose: bookrr/bay/bay
 
 # Update page
 update:
     title: Edit Zone
-    redirect: aeroparks/bay/zone
-    redirectClose: aeroparks/bay/bay
+    redirect: bookrr/bay/zone
+    redirectClose: bookrr/bay/bay
 
 # Preview page
 preview:

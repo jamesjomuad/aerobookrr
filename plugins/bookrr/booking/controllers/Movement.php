@@ -25,7 +25,7 @@ class Movement extends Controller
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
 
-    protected $assetsPath = '/plugins/aeroparks/booking/assets';
+    protected $assetsPath = '/plugins/bookrr/booking/assets';
 
     public function __construct()
     {

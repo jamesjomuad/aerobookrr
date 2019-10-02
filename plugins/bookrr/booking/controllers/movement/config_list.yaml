@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/booking/models/movement/columns.yaml
+list: $/bookrr/booking/models/movement/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Booking\Models\Movement
@@ -12,7 +12,7 @@ modelClass: Bookrr\Booking\Models\Movement
 title: Manage Movements
 
 # Link URL for each record
-recordUrl: aeroparks/booking/movement/update/:id
+recordUrl: bookrr/booking/movement/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

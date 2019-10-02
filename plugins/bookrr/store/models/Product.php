@@ -7,7 +7,7 @@ use Request;
 class Product extends BaseModel
 {
 
-    public $table = 'aeroparks_product';
+    public $table = 'bookrr_product';
 
     protected $guarded = ['*'];
 

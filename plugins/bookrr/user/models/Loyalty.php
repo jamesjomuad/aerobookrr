@@ -9,7 +9,7 @@ use Backend\Models\User;
 class Loyalty extends Model
 {
 
-    public $table = 'aeroparks_user_loyalty';
+    public $table = 'bookrr_user_loyalty';
 
     public static $loginPoints = 5;
 

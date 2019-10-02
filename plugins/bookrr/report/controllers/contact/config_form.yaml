@@ -6,25 +6,25 @@
 name: Contact
 
 # Model Form Field configuration
-form: $/aeroparks/report/models/contact/fields.yaml
+form: $/bookrr/report/models/contact/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Report\Models\Contact
 
 # Default redirect location
-defaultRedirect: aeroparks/report/contact
+defaultRedirect: bookrr/report/contact
 
 # Create page
 create:
     title: Create Contact
-    redirect: aeroparks/report/contact/update/:id
-    redirectClose: aeroparks/report/contact
+    redirect: bookrr/report/contact/update/:id
+    redirectClose: bookrr/report/contact
 
 # Update page
 update:
     title: Edit Contact
-    redirect: aeroparks/report/contact
-    redirectClose: aeroparks/report/contact
+    redirect: bookrr/report/contact
+    redirectClose: bookrr/report/contact
 
 # Preview page
 preview:

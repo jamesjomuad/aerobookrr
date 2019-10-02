@@ -6,25 +6,25 @@
 name: Revenue
 
 # Model Form Field configuration
-form: $/aeroparks/report/models/revenue/fields.yaml
+form: $/bookrr/report/models/revenue/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Report\Models\Revenue
 
 # Default redirect location
-defaultRedirect: aeroparks/report/revenue
+defaultRedirect: bookrr/report/revenue
 
 # Create page
 create:
     title: Create Revenue
-    redirect: aeroparks/report/revenue/update/:id
-    redirectClose: aeroparks/report/revenue
+    redirect: bookrr/report/revenue/update/:id
+    redirectClose: bookrr/report/revenue
 
 # Update page
 update:
     title: Edit Revenue
-    redirect: aeroparks/report/revenue
-    redirectClose: aeroparks/report/revenue
+    redirect: bookrr/report/revenue
+    redirectClose: bookrr/report/revenue
 
 # Preview page
 preview:

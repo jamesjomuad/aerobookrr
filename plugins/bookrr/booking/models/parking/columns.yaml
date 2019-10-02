@@ -31,14 +31,14 @@ columns:
         type: partial
         width: 170px
         align: center
-        path: ~/plugins/aeroparks/booking/controllers/parking/_dateIn.htm
+        path: ~/plugins/bookrr/booking/controllers/parking/_dateIn.htm
         searchable: true
     date_out:
         label: 'Date Out'
         type: partial
         width: 170px
         align: center
-        path: ~/plugins/aeroparks/booking/controllers/parking/_dateOut.htm
+        path: ~/plugins/bookrr/booking/controllers/parking/_dateOut.htm
         searchable: true
     status:
         label: 'Status'

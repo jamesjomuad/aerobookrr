@@ -6,25 +6,25 @@
 name: Txt
 
 # Model Form Field configuration
-form: $/aeroparks/messaging/models/txt/fields.yaml
+form: $/bookrr/messaging/models/txt/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Messaging\Models\Txt
 
 # Default redirect location
-defaultRedirect: aeroparks/messaging/txt
+defaultRedirect: bookrr/messaging/txt
 
 # Create page
 create:
     title: Create Txt
-    redirect: aeroparks/messaging/txt/update/:id
-    redirectClose: aeroparks/messaging/txt
+    redirect: bookrr/messaging/txt/update/:id
+    redirectClose: bookrr/messaging/txt
 
 # Update page
 update:
     title: Edit Txt
-    redirect: aeroparks/messaging/txt
-    redirectClose: aeroparks/messaging/txt
+    redirect: bookrr/messaging/txt
+    redirectClose: bookrr/messaging/txt
 
 # Preview page
 preview:

@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/store/models/coupon/columns.yaml
+list: $/bookrr/store/models/coupon/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Coupon
@@ -12,7 +12,7 @@ modelClass: Bookrr\Store\Models\Coupon
 title: Manage Coupons
 
 # Link URL for each record
-recordUrl: aeroparks/store/coupon/update/:id
+recordUrl: bookrr/store/coupon/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

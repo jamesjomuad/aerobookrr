@@ -13,7 +13,7 @@ class Staff extends Model
     
     use \October\Rain\Database\Traits\SoftDelete;
 
-    public $table = 'aeroparks_user';
+    public $table = 'bookrr_user';
 
     protected $rules=[];
 

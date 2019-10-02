@@ -56,7 +56,7 @@ class Finder extends ReportWidgetBase
                 'alias'     => 'barcodeForm',
                 'arrayName' => 'Barcode',
                 'model'     => $this->vars['model'],
-                'config'    => '$/aeroparks/general/reportwidgets/finder/fields.yaml'
+                'config'    => '$/bookrr/general/reportwidgets/finder/fields.yaml'
             ]);
 
             return $this->makePartial('barcode');
@@ -91,7 +91,7 @@ class Finder extends ReportWidgetBase
             'alias'     => 'checkinForm',
             'arrayName' => 'CheckIn',
             'model'     => $this->vars['model'],
-            'config'    => '$/aeroparks/general/reportwidgets/finder/fields.yaml'
+            'config'    => '$/bookrr/general/reportwidgets/finder/fields.yaml'
         ]);
 
         return $this->makePartial('booking');
@@ -129,7 +129,7 @@ class Finder extends ReportWidgetBase
             'alias'     => 'checkinForm',
             'arrayName' => 'CheckIn',
             'model'     => $this->vars['model'],
-            'config'    => '$/aeroparks/general/reportwidgets/finder/fields_checkin.yaml'
+            'config'    => '$/bookrr/general/reportwidgets/finder/fields_checkin.yaml'
         ]);
 
         return $this->makePartial('checkin');
@@ -161,7 +161,7 @@ class Finder extends ReportWidgetBase
             'alias'     => 'checkinForm',
             'arrayName' => 'CheckIn',
             'model'     => $this->vars['model'],
-            'config'    => '$/aeroparks/general/reportwidgets/finder/fields.yaml'
+            'config'    => '$/bookrr/general/reportwidgets/finder/fields.yaml'
         ]);
 
         return $this->makePartial('booking');
@@ -227,7 +227,7 @@ class Finder extends ReportWidgetBase
                 'alias'     => 'checkoutForm',
                 'arrayName' => 'CheckOut',
                 'model'     => $this->vars['model'],
-                'config'    => '$/aeroparks/general/reportwidgets/finder/fields.yaml'
+                'config'    => '$/bookrr/general/reportwidgets/finder/fields.yaml'
             ]);
 
             return $this->makePartial('checkout');

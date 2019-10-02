@@ -12,7 +12,7 @@ class Customer extends User
     
     use \October\Rain\Database\Traits\SoftDelete;
     
-    public $table = 'aeroparks_user';
+    public $table = 'bookrr_user';
 
     protected $rules = [];
 

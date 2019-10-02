@@ -1,8 +1,8 @@
 booking:
     label: Booking
     view:
-        list: $/aeroparks/booking/models/booking/columns.yaml
+        list: $/bookrr/booking/models/booking/columns.yaml
         toolbarButtons: create|delete
     manage:
-        form: $/aeroparks/booking/models/booking/fields.yaml
-        list: $/aeroparks/booking/models/booking/columns.yaml
+        form: $/bookrr/booking/models/booking/fields.yaml
+        list: $/bookrr/booking/models/booking/columns.yaml

@@ -6,25 +6,25 @@
 name: Bay
 
 # Model Form Field configuration
-form: $/aeroparks/bay/models/bay/fields.yaml
+form: $/bookrr/bay/models/bay/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Bay\Models\Bay
 
 # Default redirect location
-defaultRedirect: aeroparks/bay/bay
+defaultRedirect: bookrr/bay/bay
 
 # Create page
 create:
     title: Create Bay
-    redirect: aeroparks/bay/bay/update/:id
-    redirectClose: aeroparks/bay/bay
+    redirect: bookrr/bay/bay/update/:id
+    redirectClose: bookrr/bay/bay
 
 # Update page
 update:
     title: Edit Bay
-    redirect: aeroparks/bay/bay
-    redirectClose: aeroparks/bay/bay
+    redirect: bookrr/bay/bay
+    redirectClose: bookrr/bay/bay
 
 # Preview page
 preview:

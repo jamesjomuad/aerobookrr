@@ -10,7 +10,7 @@ class CarBooking extends Model
 {
     use \October\Rain\Database\Traits\SoftDelete;
     
-    public $table = 'aeroparks_carrental_booking';
+    public $table = 'bookrr_carrental_booking';
 
     /**
      * @var array Guarded fields

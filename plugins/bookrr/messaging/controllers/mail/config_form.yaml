@@ -6,25 +6,25 @@
 name: Mail
 
 # Model Form Field configuration
-form: $/aeroparks/messaging/models/mail/fields.yaml
+form: $/bookrr/messaging/models/mail/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Messaging\Models\Mail
 
 # Default redirect location
-defaultRedirect: aeroparks/messaging/mail
+defaultRedirect: bookrr/messaging/mail
 
 # Create page
 create:
     title: Create Mail
-    redirect: aeroparks/messaging/mail/update/:id
-    redirectClose: aeroparks/messaging/mail
+    redirect: bookrr/messaging/mail/update/:id
+    redirectClose: bookrr/messaging/mail
 
 # Update page
 update:
     title: Edit Mail
-    redirect: aeroparks/messaging/mail
-    redirectClose: aeroparks/messaging/mail
+    redirect: bookrr/messaging/mail
+    redirectClose: bookrr/messaging/mail
 
 # Preview page
 preview:

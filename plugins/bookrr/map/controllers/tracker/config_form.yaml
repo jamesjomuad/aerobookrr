@@ -6,25 +6,25 @@
 name: Tracker
 
 # Model Form Field configuration
-form: $/aeroparks/map/models/tracker/fields.yaml
+form: $/bookrr/map/models/tracker/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Map\Models\Tracker
 
 # Default redirect location
-defaultRedirect: aeroparks/map/tracker
+defaultRedirect: bookrr/map/tracker
 
 # Create page
 create:
     title: Create Tracker
-    redirect: aeroparks/map/tracker/update/:id
-    redirectClose: aeroparks/map/tracker
+    redirect: bookrr/map/tracker/update/:id
+    redirectClose: bookrr/map/tracker
 
 # Update page
 update:
     title: Edit Tracker
-    redirect: aeroparks/map/tracker
-    redirectClose: aeroparks/map/tracker
+    redirect: bookrr/map/tracker
+    redirectClose: bookrr/map/tracker
 
 # Preview page
 preview:

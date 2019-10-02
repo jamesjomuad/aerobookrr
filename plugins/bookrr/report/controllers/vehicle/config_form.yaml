@@ -6,25 +6,25 @@
 name: Vehicle
 
 # Model Form Field configuration
-form: $/aeroparks/report/models/vehicle/fields.yaml
+form: $/bookrr/report/models/vehicle/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Report\Models\Vehicle
 
 # Default redirect location
-defaultRedirect: aeroparks/report/vehicle
+defaultRedirect: bookrr/report/vehicle
 
 # Create page
 create:
     title: Create Vehicle
-    redirect: aeroparks/report/vehicle/update/:id
-    redirectClose: aeroparks/report/vehicle
+    redirect: bookrr/report/vehicle/update/:id
+    redirectClose: bookrr/report/vehicle
 
 # Update page
 update:
     title: Edit Vehicle
-    redirect: aeroparks/report/vehicle
-    redirectClose: aeroparks/report/vehicle
+    redirect: bookrr/report/vehicle
+    redirectClose: bookrr/report/vehicle
 
 # Preview page
 preview:

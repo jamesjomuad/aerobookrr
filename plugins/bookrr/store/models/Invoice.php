@@ -10,7 +10,7 @@ class Invoice extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'aeroparks_store_invoice';
+    public $table = 'bookrr_store_invoice';
 
     /**
      * @var array Guarded fields

@@ -6,25 +6,25 @@
 name: Car Booking
 
 # Model Form Field configuration
-form: $/aeroparks/store/models/carrentbooking/fields.yaml
+form: $/bookrr/store/models/carrentbooking/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\CarBooking
 
 # Default redirect location
-defaultRedirect: aeroparks/store/carrentbooking
+defaultRedirect: bookrr/store/carrentbooking
 
 # Create page
 create:
     title: Create Car Booking
-    redirect: aeroparks/store/carrentbooking/update/:id
-    redirectClose: aeroparks/store/carrentbooking
+    redirect: bookrr/store/carrentbooking/update/:id
+    redirectClose: bookrr/store/carrentbooking
 
 # Update page
 update:
     title: Edit Car Booking
-    redirect: aeroparks/store/carrent#contentTabThree
-    redirectClose: aeroparks/store/carrent#contentTabThree
+    redirect: bookrr/store/carrent#contentTabThree
+    redirectClose: bookrr/store/carrent#contentTabThree
 
 # Preview page
 preview:

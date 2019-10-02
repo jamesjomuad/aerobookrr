@@ -15,7 +15,7 @@ class Contact extends Model
         'customer' => 'required'
     ];
     
-    public $table = 'aeroparks_user_contacts';
+    public $table = 'bookrr_user_contacts';
 
     protected $guarded = ['*'];
 

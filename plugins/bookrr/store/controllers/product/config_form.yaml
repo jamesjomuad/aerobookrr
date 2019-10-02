@@ -6,25 +6,25 @@
 name: Product
 
 # Model Form Field configuration
-form: $/aeroparks/store/models/product/fields.yaml
+form: $/bookrr/store/models/product/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Product
 
 # Default redirect location
-defaultRedirect: aeroparks/store/product
+defaultRedirect: bookrr/store/product
 
 # Create page
 create:
     title: Create Product
-    redirect: aeroparks/store/product/update/:id
-    redirectClose: aeroparks/store/product
+    redirect: bookrr/store/product/update/:id
+    redirectClose: bookrr/store/product
 
 # Update page
 update:
     title: Edit Product
-    redirect: aeroparks/store/product
-    redirectClose: aeroparks/store/product
+    redirect: bookrr/store/product
+    redirectClose: bookrr/store/product
 
 # Preview page
 preview:

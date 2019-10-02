@@ -24,10 +24,10 @@ trait Widgets{
 
     public function NewListWidget()
     {
-        $config = $this->makeConfig('$/aeroparks/store/controllers/carbooking/config_list.yaml');
+        $config = $this->makeConfig('$/bookrr/store/controllers/carbooking/config_list.yaml');
         $columnConfig = $this->makeConfig($config->list);
         $columnConfig->model = new CarBooking;
-        $columnConfig->recordUrl = 'aeroparks/store/carbooking/update/:id';
+        $columnConfig->recordUrl = 'bookrr/store/carbooking/update/:id';
         $widget = $this->makeWidget('Backend\Widgets\Lists',$columnConfig);
         $widget->bindToController();
 

@@ -10,7 +10,7 @@ class Category extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'aeroparks_product_category';
+    public $table = 'bookrr_product_category';
 
     /**
      * @var array Guarded fields

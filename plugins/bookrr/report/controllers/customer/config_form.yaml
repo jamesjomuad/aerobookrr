@@ -6,25 +6,25 @@
 name: Customer Report
 
 # Model Form Field configuration
-form: $/aeroparks/report/models/customerreport/fields.yaml
+form: $/bookrr/report/models/customerreport/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Report\Models\CustomerReport
 
 # Default redirect location
-defaultRedirect: aeroparks/report/customerreport
+defaultRedirect: bookrr/report/customerreport
 
 # Create page
 create:
     title: Create Customer Report
-    redirect: aeroparks/report/customerreport/update/:id
-    redirectClose: aeroparks/report/customerreport
+    redirect: bookrr/report/customerreport/update/:id
+    redirectClose: bookrr/report/customerreport
 
 # Update page
 update:
     title: Edit Customer Report
-    redirect: aeroparks/report/customerreport
-    redirectClose: aeroparks/report/customerreport
+    redirect: bookrr/report/customerreport
+    redirectClose: bookrr/report/customerreport
 
 # Preview page
 preview:

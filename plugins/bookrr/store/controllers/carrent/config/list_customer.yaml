@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/store/models/carrent/columns.yaml
+list: $/bookrr/store/models/carrent/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\CarRent
@@ -12,7 +12,7 @@ modelClass: Bookrr\Store\Models\CarRent
 title: Manage Car Rents
 
 # Link URL for each record
-recordUrl: aeroparks/store/carrent/update/:id
+recordUrl: bookrr/store/carrent/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
@@ -51,4 +51,4 @@ toolbar:
         prompt: backend::lang.list.search_prompt
 
 
-customViewPath: $/aeroparks/store/controllers/carrent/list
+customViewPath: $/bookrr/store/controllers/carrent/list

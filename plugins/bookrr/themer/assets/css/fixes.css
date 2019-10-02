@@ -212,8 +212,8 @@ nav#layout-mainmenu .menu-toggle .menu-toggle-icon{height:80px!important;line-he
 @media(max-width: 576px) {
 .list-scrollable-container >.list-scrollable{max-width:475px!important}
 }
-.mainmenu-nav a[href*='aeroparks/notify'] .nav-icon{padding-top:15px!important}
-.mainmenu-nav a[href*='aeroparks/notify'] .nav-label{background:#ff0909;padding:0;position:relative;top:-25px;border-radius:20px;font-size:10px!important;width:25px;display:block;height:25px}
+.mainmenu-nav a[href*='bookrr/notify'] .nav-icon{padding-top:15px!important}
+.mainmenu-nav a[href*='bookrr/notify'] .nav-label{background:#ff0909;padding:0;position:relative;top:-25px;border-radius:20px;font-size:10px!important;width:25px;display:block;height:25px}
 .fade{opacity:0;transition:opacity .15s linear}
 .fade.show,.fade.in{opacity:1}
 .alert{position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem}
@@ -257,7 +257,7 @@ html.mobile nav#layout-mainmenu .menu-toggle .menu-toggle-title {font-size: 25px
     #layout-sidenav ul li:last-child {border-right: none;}
     #layout-sidenav ul li.active {background: #fb6600;}
     #layout-sidenav ul li a i{font-size: 25px;}
-    .mainmenu-nav a[href*='aeroparks/notify'] .nav-label {top: 20px;color: #ffff;width: 20px !important;left: 60px !important;}
+    .mainmenu-nav a[href*='bookrr/notify'] .nav-label {top: 20px;color: #ffff;width: 20px !important;left: 60px !important;}
     #layout-sidenav ul li a {padding: 10px !important;height: 100%;}
 }
 

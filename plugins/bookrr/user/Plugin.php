@@ -135,7 +135,7 @@ class Plugin extends PluginBase
         Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
             if(BackendAuth::getUser() && BackendAuth::getUser()->isCustomer())
             {
-                $controller->addCss('/plugins/aeroparks/user/assets/css/user.css',str_random(5));  
+                $controller->addCss('/plugins/bookrr/user/assets/css/user.css',str_random(5));  
             }
         });
     }
@@ -157,7 +157,7 @@ class Plugin extends PluginBase
             return [
                 'loyalty' => [
                     'label' => 'Rewards',
-                    'url'   => Backend::url('aeroparks/user/loyalty'),
+                    'url'   => Backend::url('bookrr/user/loyalty'),
                     'icon'  => 'icon-star',
                     'order' => 1000
                 ]
@@ -168,7 +168,7 @@ class Plugin extends PluginBase
         return [
             'user' => [
                 'label'       => 'Users',
-                'url'         => Backend::url('aeroparks/user/customer'),
+                'url'         => Backend::url('bookrr/user/customer'),
                 'icon'        => 'icon-users',
                 'permissions' => ['aeroparks.user.*'],
                 'order'       => 920,
@@ -176,31 +176,31 @@ class Plugin extends PluginBase
                 'sideMenu' => [
                     'customer' => [
                         'label'       => 'Customers',
-                        'url'         => Backend::url('aeroparks/user/customer'),
+                        'url'         => Backend::url('bookrr/user/customer'),
                         'icon'        => 'icon-user-circle-o',
                         'permissions' => ['aeroparks.user.*'],
                     ],
                     'staff' => [
                         'label'       => 'Staff',
-                        'url'         => Backend::url('aeroparks/user/staff'),
+                        'url'         => Backend::url('bookrr/user/staff'),
                         'icon'        => 'icon-user-secret',
                         'permissions' => ['aeroparks.user.*'],
                     ],
                     // 'agent' => [
                     //     'label'       => 'Agents',
-                    //     'url'         => Backend::url('aeroparks/user/agent'),
+                    //     'url'         => Backend::url('bookrr/user/agent'),
                     //     'icon'        => 'icon-handshake-o',
                     //     'permissions' => ['aeroparks.user.*'],
                     // ],
                     // 'affiliate' => [
                     //     'label'       => 'Affiliate',
-                    //     'url'         => Backend::url('aeroparks/user/affiliate'),
+                    //     'url'         => Backend::url('bookrr/user/affiliate'),
                     //     'icon'        => 'icon-user-plus',
                     //     'permissions' => ['aeroparks.user.*'],
                     // ],
                     // 'loyalty' => [
                     //     'label'       => 'Loyalty',
-                    //     'url'         => Backend::url('aeroparks/user/loyalty'),
+                    //     'url'         => Backend::url('bookrr/user/loyalty'),
                     //     'icon'        => 'icon-star',
                     //     'permissions' => ['aeroparks.user.*'],
                     // ]

@@ -25,10 +25,10 @@ class Plugin extends PluginBase
             // Avoid redundant resources
             if(Request::isMethod('get'))
             {
-                $controller->addCss('/plugins/aeroparks/themer/assets/css/fixes.css',str_random(5));
-                $controller->addCss('/plugins/aeroparks/themer/assets/fontawesome/css/all.css','font-awesome');
-                $controller->addCss('/plugins/aeroparks/themer/assets/css/mdb.min.css',str_random(5));
-                $controller->addJs('/plugins/aeroparks/themer/assets/js/script.js',str_random(5));
+                $controller->addCss('/plugins/bookrr/themer/assets/css/fixes.css',str_random(5));
+                $controller->addCss('/plugins/bookrr/themer/assets/fontawesome/css/all.css','font-awesome');
+                $controller->addCss('/plugins/bookrr/themer/assets/css/mdb.min.css',str_random(5));
+                $controller->addJs('/plugins/bookrr/themer/assets/js/script.js',str_random(5));
             }
         });
     }
@@ -52,7 +52,7 @@ class Plugin extends PluginBase
         return [
             'themer' => [
                 'label'       => 'themer',
-                'url'         => Backend::url('aeroparks/themer/mycontroller'),
+                'url'         => Backend::url('bookrr/themer/mycontroller'),
                 'icon'        => 'icon-leaf',
                 'permissions' => ['aeroparks.themer.*'],
                 'order'       => 500,
@@ -68,7 +68,7 @@ class Plugin extends PluginBase
                 'description' => 'Manage dashboard theme. Elements, components etc...',
                 'category'    => 'Aeroparks',
                 'icon'        => 'icon-paint-brush',
-                'url'         => Backend::url('aeroparks/themer/theme'),
+                'url'         => Backend::url('bookrr/themer/theme'),
                 'order'       => 1000,
                 'keywords'    => 'aeropark setting',
                 'permissions' => ['aeroparks.general.*']

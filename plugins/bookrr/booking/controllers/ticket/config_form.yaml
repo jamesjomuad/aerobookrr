@@ -6,25 +6,25 @@
 name: Ticket
 
 # Model Form Field configuration
-form: $/aeroparks/booking/models/ticket/fields.yaml
+form: $/bookrr/booking/models/ticket/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Booking\Models\Ticket
 
 # Default redirect location
-defaultRedirect: aeroparks/booking/ticket
+defaultRedirect: bookrr/booking/ticket
 
 # Create page
 create:
     title: Create Ticket
-    redirect: aeroparks/booking/ticket/update/:id
-    redirectClose: aeroparks/booking/ticket
+    redirect: bookrr/booking/ticket/update/:id
+    redirectClose: bookrr/booking/ticket
 
 # Update page
 update:
     title: Edit Ticket
-    redirect: aeroparks/booking/ticket
-    redirectClose: aeroparks/booking/ticket
+    redirect: bookrr/booking/ticket
+    redirectClose: bookrr/booking/ticket
 
 # Preview page
 preview:

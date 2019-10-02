@@ -1,5 +1,5 @@
 BaseUser:
   label: backendUser
   manage:
-    form: $/aeroparks/user/models/user/fields.yaml
+    form: $/bookrr/user/models/user/fields.yaml
     showCheckboxes: true

@@ -6,25 +6,25 @@
 name: Booking
 
 # Model Form Field configuration
-form: $/aeroparks/booking/models/parking/fields.yaml
+form: $/bookrr/booking/models/parking/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Booking\Models\Parking
 
 # Default redirect location
-defaultRedirect: aeroparks/booking/parking
+defaultRedirect: bookrr/booking/parking
 
 # Create page
 create:
     title: Create Booking
-    redirect: aeroparks/booking/parking/update/:id
-    redirectClose: aeroparks/booking/parking
+    redirect: bookrr/booking/parking/update/:id
+    redirectClose: bookrr/booking/parking
 
 # Update page
 update:
     title: Edit Booking
-    redirect: aeroparks/booking/parking
-    redirectClose: aeroparks/booking/parking
+    redirect: bookrr/booking/parking
+    redirectClose: bookrr/booking/parking
 
 # Preview page
 preview:

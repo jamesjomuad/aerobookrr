@@ -6,25 +6,25 @@
 name: Movement
 
 # Model Form Field configuration
-form: $/aeroparks/booking/models/movement/fields.yaml
+form: $/bookrr/booking/models/movement/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Booking\Models\Movement
 
 # Default redirect location
-defaultRedirect: aeroparks/booking/movement
+defaultRedirect: bookrr/booking/movement
 
 # Create page
 create:
     title: Create Movement
-    redirect: aeroparks/booking/movement/update/:id
-    redirectClose: aeroparks/booking/movement
+    redirect: bookrr/booking/movement/update/:id
+    redirectClose: bookrr/booking/movement
 
 # Update page
 update:
     title: Edit Movement
-    redirect: aeroparks/booking/movement
-    redirectClose: aeroparks/booking/movement
+    redirect: bookrr/booking/movement
+    redirectClose: bookrr/booking/movement
 
 # Preview page
 preview:

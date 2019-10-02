@@ -10,7 +10,7 @@ class Rate extends Model
     
     use \October\Rain\Database\Traits\SoftDelete;
 
-    public $table = 'aeroparks_rates';
+    public $table = 'bookrr_rates';
 
     protected $guarded = ['*'];
 

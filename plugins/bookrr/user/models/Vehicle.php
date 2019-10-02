@@ -10,7 +10,7 @@ class Vehicle extends Model
     
     use \October\Rain\Database\Traits\SoftDelete;
 
-    public $table = 'aeroparks_vehicle';
+    public $table = 'bookrr_vehicle';
 
     protected $dates = ['deleted_at'];
 

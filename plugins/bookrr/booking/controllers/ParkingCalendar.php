@@ -9,7 +9,7 @@ use Bookrr\Booking\Models\Parking;
  */
 class ParkingCalendar extends Controller
 {
-    protected $assetsPath = '/plugins/aeroparks/booking/assets';
+    protected $assetsPath = '/plugins/bookrr/booking/assets';
 
     public function __construct()
     {
@@ -46,7 +46,7 @@ class ParkingCalendar extends Controller
                 'title' => '('.$model->id.') '.$model->user->backendUser->first_name.' '.$model->user->backendUser->last_name,
                 'start' => $model->date_in,
                 // 'end'   => $model->date_out,
-                'url'   => '/backend/aeroparks/booking/booking/update/'.$model->id,
+                'url'   => '/backend/bookrr/booking/booking/update/'.$model->id,
                 'backgroundColor' => '#ff6600',
                 'borderColor' => '#ff5500'
             ];

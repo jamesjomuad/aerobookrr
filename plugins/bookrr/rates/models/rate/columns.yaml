@@ -25,6 +25,6 @@ columns:
         label: Active
         type: partial
         sortable: true
-        path: ~/plugins/aeroparks/rates/controllers/rates/_list_active.htm
+        path: ~/plugins/bookrr/rates/controllers/rates/_list_active.htm
         align: center
 

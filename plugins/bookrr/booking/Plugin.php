@@ -40,32 +40,32 @@ class Plugin extends PluginBase
         return [
             'booking' => [
                 'label'       => 'Booking',
-                'url'         => Backend::url('aeroparks/booking/parking'),
+                'url'         => Backend::url('bookrr/booking/parking'),
                 'icon'        => 'icon-calendar',
                 'permissions' => ['aeroparks.booking.*'],
                 'order'       => 905,
                 'sideMenu'    => [
                     'parking' => [
                         'label'       => 'Parking List',
-                        'url'         => Backend::url('aeroparks/booking/parking'),
+                        'url'         => Backend::url('bookrr/booking/parking'),
                         'icon'        => 'icon-car',
                         'permissions' => ['aeroparks.booking.park'],
                     ],
                     'parking-calendar' => [
                         'label'       => 'Parking Calendar',
-                        'url'         => Backend::url('aeroparks/booking/parkingcalendar'),
+                        'url'         => Backend::url('bookrr/booking/parkingcalendar'),
                         'icon'        => 'icon-calendar',
                         'permissions' => ['aeroparks.booking.park'],
                     ],
                     // 'rental' => [
                     //     'label'       => 'Rental List',
-                    //     'url'         => Backend::url('aeroparks/booking/rental'),
+                    //     'url'         => Backend::url('bookrr/booking/rental'),
                     //     'icon'        => 'icon-car',
                     //     'permissions' => ['aeroparks.booking.rent'],
                     // ],
                     // 'rental-calendar' => [
                     //     'label'       => 'Rental Calendar',
-                    //     'url'         => Backend::url('aeroparks/booking/rental'),
+                    //     'url'         => Backend::url('bookrr/booking/rental'),
                     //     'icon'        => 'icon-calendar',
                     //     'permissions' => ['aeroparks.booking.rent'],
                     // ],
@@ -73,7 +73,7 @@ class Plugin extends PluginBase
             ],
             'move_key' => [
                 'label'       => 'Move Key',
-                'url'         => Backend::url('aeroparks/booking/movement'),
+                'url'         => Backend::url('bookrr/booking/movement'),
                 'icon'        => 'fa fa-key',
                 'permissions' => ['aeroparks.movement'],
                 'order'       => 904,

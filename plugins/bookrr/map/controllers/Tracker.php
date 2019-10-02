@@ -12,7 +12,7 @@ use Backend\Models\User;
  */
 class Tracker extends Controller
 {
-    public $assetPath = '/plugins/aeroparks/map/assets/';
+    public $assetPath = '/plugins/bookrr/map/assets/';
 
     public $storageName = 'tracker';
 

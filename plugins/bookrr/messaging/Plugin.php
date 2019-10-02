@@ -42,7 +42,7 @@ class Plugin extends PluginBase
         return [
             'messaging' => [
                 'label'       => 'Messaging',
-                'url'         => Backend::url('aeroparks/messaging/txt'),
+                'url'         => Backend::url('bookrr/messaging/txt'),
                 'icon'        => 'fa fa-comment-dots',
                 'permissions' => ['aeroparks.messaging.*'],
                 'order'       => 925,
@@ -50,19 +50,19 @@ class Plugin extends PluginBase
                 'sideMenu' => [
                     'txt' => [
                         'label'       => 'Txt',
-                        'url'         => Backend::url('aeroparks/messaging/txt'),
+                        'url'         => Backend::url('bookrr/messaging/txt'),
                         'icon'        => 'fa fa-sms',
                         'permissions' => ['aeroparks.messaging.*'],
                     ],
                     'mail' => [
                         'label'       => 'Mail',
-                        'url'         => Backend::url('aeroparks/messaging/mail'),
+                        'url'         => Backend::url('bookrr/messaging/mail'),
                         'icon'        => 'fa fa-envelope',
                         'permissions' => ['aeroparks.messaging.*'],
                     ],
                     'contact' => [
                         'label'       => 'Contacts',
-                        'url'         => Backend::url('aeroparks/messaging/contact'),
+                        'url'         => Backend::url('bookrr/messaging/contact'),
                         'icon'        => 'fa fa-address-book',
                         'permissions' => ['aeroparks.messaging.*'],
                     ],

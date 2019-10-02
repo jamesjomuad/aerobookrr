@@ -19,8 +19,8 @@ class Revenue extends Controller
     public function index()
     {
         $this->pageTitle = "Revenue";
-        $this->addJs('/plugins/aeroparks/report/assets/js/mdbootstrap-4.7.5.min.js');
-        $this->addJs('/plugins/aeroparks/report/assets/js/revenue.js',str_random('5'));
+        $this->addJs('/plugins/bookrr/report/assets/js/mdbootstrap-4.7.5.min.js');
+        $this->addJs('/plugins/bookrr/report/assets/js/revenue.js',str_random('5'));
     }
 
 }

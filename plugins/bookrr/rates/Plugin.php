@@ -69,7 +69,7 @@ class Plugin extends PluginBase
                 'description' => 'Manage Aeroparks Settings.',
                 'category'    => 'Aeroparks',
                 'icon'        => 'icon-usd',
-                'url'         => Backend::url('aeroparks/rates/rates'),
+                'url'         => Backend::url('bookrr/rates/rates'),
                 'order'       => 900,
                 'keywords'    => 'aeropark setting',
                 'permissions' => ['aeroparks.rates.*']

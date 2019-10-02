@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/store/models/invoice/columns.yaml
+list: $/bookrr/store/models/invoice/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Invoice
@@ -12,7 +12,7 @@ modelClass: Bookrr\Store\Models\Invoice
 title: Manage Invoices
 
 # Link URL for each record
-recordUrl: aeroparks/store/invoice/update/:id
+recordUrl: bookrr/store/invoice/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

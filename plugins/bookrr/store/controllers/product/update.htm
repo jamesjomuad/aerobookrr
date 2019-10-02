@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('aeroparks/store/product') ?>">Product</a></li>
+        <li><a href="<?= Backend::url('bookrr/store/product') ?>">Product</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -50,12 +50,12 @@
                 <?php endif ?>
 
                 <span class="btn-text">
-                    <a href="<?= Backend::url('aeroparks/store/product') ?>">Cancel</a>
+                    <a href="<?= Backend::url('bookrr/store/product') ?>">Cancel</a>
                 </span>
             </div>
         </div>
     <?= Form::close() ?>
 <?php else: ?>
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('aeroparks/store/product') ?>" class="btn btn-default">Return to product list</a></p>
+    <p><a href="<?= Backend::url('bookrr/store/product') ?>" class="btn btn-default">Return to product list</a></p>
 <?php endif ?>

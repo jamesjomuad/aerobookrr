@@ -33,8 +33,8 @@ class Invoice extends Controller
     {
         $this->pageTitle = 'Invoice';
 
-        $this->addCss('/plugins/aeroparks/store/assets/style.css',str_random(5));
-        $this->addJs('/plugins/aeroparks/store/assets/script.js',str_random(5));
+        $this->addCss('/plugins/bookrr/store/assets/style.css',str_random(5));
+        $this->addJs('/plugins/bookrr/store/assets/script.js',str_random(5));
 
         $this->vars['invoice_date'] = (new Carbon())->now()->format('M d, Y');
         $this->vars['invoice_due'] = (new Carbon())->now()->addDays(7)->format('M d, Y');

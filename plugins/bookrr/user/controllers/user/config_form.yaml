@@ -6,25 +6,25 @@
 name: User
 
 # Model Form Field configuration
-form: $/aeroparks/user/models/user/fields.yaml
+form: $/bookrr/user/models/user/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\User\Models\User
 
 # Default redirect location
-defaultRedirect: aeroparks/user/user
+defaultRedirect: bookrr/user/user
 
 # Create page
 create:
     title: Create User
-    redirect: aeroparks/user/user/update/:id
-    redirectClose: aeroparks/user/user
+    redirect: bookrr/user/user/update/:id
+    redirectClose: bookrr/user/user
 
 # Update page
 update:
     title: Edit User
-    redirect: aeroparks/user/user
-    redirectClose: aeroparks/user/user
+    redirect: bookrr/user/user
+    redirectClose: bookrr/user/user
 
 # Preview page
 preview:

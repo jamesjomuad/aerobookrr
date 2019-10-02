@@ -122,7 +122,7 @@ class Plugin extends PluginBase
         return [
             'general' => [
                 'label'       => 'general',
-                'url'         => Backend::url('aeroparks/general/mycontroller'),
+                'url'         => Backend::url('bookrr/general/mycontroller'),
                 'icon'        => 'icon-leaf',
                 'permissions' => ['aeroparks.general.*'],
                 'order'       => 500,
@@ -138,7 +138,7 @@ class Plugin extends PluginBase
                 'description' => 'Manage System Settings.',
                 'category'    => 'Aeroparks',
                 'icon'        => 'icon-gear',
-                'url'         => Backend::url('aeroparks/general/setting'),
+                'url'         => Backend::url('bookrr/general/setting'),
                 'order'       => 1000,
                 'keywords'    => 'aeropark setting',
                 'permissions' => ['aeroparks.general.*']
@@ -148,7 +148,7 @@ class Plugin extends PluginBase
                 'description' => 'Tips and Tricks.',
                 'category'    => 'Aeroparks',
                 'icon'        => 'icon-book',
-                'url'         => Backend::url('aeroparks/general/general/documentation'),
+                'url'         => Backend::url('bookrr/general/general/documentation'),
                 'order'       => 1000,
                 'keywords'    => 'aeropark',
                 'permissions' => ['aeroparks.general.*']
@@ -158,7 +158,7 @@ class Plugin extends PluginBase
             //     'description' => 'Manage Web Application License.',
             //     'category'    => 'Aeroparks',
             //     'icon'        => 'icon-star-o',
-            //     'url'         => Backend::url('aeroparks/general/general/license'),
+            //     'url'         => Backend::url('bookrr/general/general/license'),
             //     'order'       => 1000,
             //     'keywords'    => 'aeropark',
             //     'permissions' => ['aeroparks.general.*']

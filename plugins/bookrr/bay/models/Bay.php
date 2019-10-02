@@ -8,7 +8,7 @@ use \Carbon\Carbon;
  */
 class Bay extends Model
 {
-    public $table = 'aeroparks_bay';
+    public $table = 'bookrr_bay';
 
     protected $guarded = ['*'];
 

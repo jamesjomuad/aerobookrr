@@ -6,7 +6,7 @@ use Bookrr\Store\Models\BaseModel;
 class Rule extends BaseModel
 {
 
-    public $table = 'aeroparks_product_rule';
+    public $table = 'bookrr_product_rule';
 
     protected $guarded = ['*'];
 

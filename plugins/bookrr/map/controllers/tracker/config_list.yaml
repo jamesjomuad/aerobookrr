@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/map/models/tracker/columns.yaml
+list: $/bookrr/map/models/tracker/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Map\Models\Tracker
@@ -12,7 +12,7 @@ modelClass: Bookrr\Map\Models\Tracker
 title: Manage Trackers
 
 # Link URL for each record
-recordUrl: aeroparks/map/tracker/update/:id
+recordUrl: bookrr/map/tracker/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/user/models/loyalty/columns.yaml
+list: $/bookrr/user/models/loyalty/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\User\Models\Loyalty
@@ -12,7 +12,7 @@ modelClass: Bookrr\User\Models\Loyalty
 title: Manage Loyalties
 
 # Link URL for each record
-recordUrl: aeroparks/user/loyalty/update/:id
+recordUrl: bookrr/user/loyalty/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

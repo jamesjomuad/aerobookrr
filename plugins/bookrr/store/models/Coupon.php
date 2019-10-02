@@ -10,7 +10,7 @@ class Coupon extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'aeroparks_product_coupon';
+    public $table = 'bookrr_product_coupon';
 
     protected $guarded = ['*'];
 

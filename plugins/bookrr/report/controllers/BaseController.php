@@ -90,7 +90,7 @@ class BaseController extends Controller
 
         $this->vars['pdfUrl'] = $this->createPdf(['data'=>$table])['url'];
 
-        return $this->makePartial('~/plugins/aeroparks/report/controllers/base/_pdf.htm');
+        return $this->makePartial('~/plugins/bookrr/report/controllers/base/_pdf.htm');
     }
 
     public function onDownload()
@@ -99,7 +99,7 @@ class BaseController extends Controller
 
         $pdf = $this->createPdf(['data'=>$table]);
 
-        return \Redirect::to('backend/aeroparks/report/booking/download/'.$pdf['filename']);
+        return \Redirect::to('backend/bookrr/report/booking/download/'.$pdf['filename']);
     }
 
     public function download($filename)

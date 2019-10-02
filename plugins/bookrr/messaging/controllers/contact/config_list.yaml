@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/messaging/models/contact/columns.yaml
+list: $/bookrr/messaging/models/contact/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Messaging\Models\Contact
@@ -12,7 +12,7 @@ modelClass: Bookrr\Messaging\Models\Contact
 title: Manage Contacts
 
 # Link URL for each record
-recordUrl: aeroparks/messaging/contact/update/:id
+recordUrl: bookrr/messaging/contact/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

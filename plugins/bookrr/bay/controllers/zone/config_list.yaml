@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/bay/models/zone/columns.yaml
+list: $/bookrr/bay/models/zone/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Bay\Models\Zone
@@ -12,7 +12,7 @@ modelClass: Bookrr\Bay\Models\Zone
 title: Manage Zones
 
 # Link URL for each record
-recordUrl: aeroparks/bay/zone/update/:id
+recordUrl: bookrr/bay/zone/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

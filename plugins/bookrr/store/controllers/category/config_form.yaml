@@ -6,25 +6,25 @@
 name: Category
 
 # Model Form Field configuration
-form: $/aeroparks/store/models/category/fields.yaml
+form: $/bookrr/store/models/category/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Category
 
 # Default redirect location
-defaultRedirect: aeroparks/store/category
+defaultRedirect: bookrr/store/category
 
 # Create page
 create:
     title: Create Category
-    redirect: aeroparks/store/category/update/:id
-    redirectClose: aeroparks/store/category
+    redirect: bookrr/store/category/update/:id
+    redirectClose: bookrr/store/category
 
 # Update page
 update:
     title: Edit Category
-    redirect: aeroparks/store/category
-    redirectClose: aeroparks/store/category
+    redirect: bookrr/store/category
+    redirectClose: bookrr/store/category
 
 # Preview page
 preview:

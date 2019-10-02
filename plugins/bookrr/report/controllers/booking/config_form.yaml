@@ -6,25 +6,25 @@
 name: Booking Report
 
 # Model Form Field configuration
-form: $/aeroparks/report/models/bookingreport/fields.yaml
+form: $/bookrr/report/models/bookingreport/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Report\Models\BookingReport
 
 # Default redirect location
-defaultRedirect: aeroparks/report/bookingreport
+defaultRedirect: bookrr/report/bookingreport
 
 # Create page
 create:
     title: Create Booking Report
-    redirect: aeroparks/report/bookingreport/update/:id
-    redirectClose: aeroparks/report/bookingreport
+    redirect: bookrr/report/bookingreport/update/:id
+    redirectClose: bookrr/report/bookingreport
 
 # Update page
 update:
     title: Edit Booking Report
-    redirect: aeroparks/report/bookingreport
-    redirectClose: aeroparks/report/bookingreport
+    redirect: bookrr/report/bookingreport
+    redirectClose: bookrr/report/bookingreport
 
 # Preview page
 preview:

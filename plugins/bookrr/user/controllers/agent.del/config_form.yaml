@@ -6,25 +6,25 @@
 name: Agent
 
 # Model Form Field configuration
-form: $/aeroparks/user/models/agent/fields.yaml
+form: $/bookrr/user/models/agent/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\User\Models\Agent
 
 # Default redirect location
-defaultRedirect: aeroparks/user/agent
+defaultRedirect: bookrr/user/agent
 
 # Create page
 create:
     title: Create Agent
-    redirect: aeroparks/user/agent/update/:id
-    redirectClose: aeroparks/user/agent
+    redirect: bookrr/user/agent/update/:id
+    redirectClose: bookrr/user/agent
 
 # Update page
 update:
     title: Edit Agent
-    redirect: aeroparks/user/agent
-    redirectClose: aeroparks/user/agent
+    redirect: bookrr/user/agent
+    redirectClose: bookrr/user/agent
 
 # Preview page
 preview:

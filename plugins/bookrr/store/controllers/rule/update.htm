@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('aeroparks/store/rule') ?>">Rule</a></li>
+        <li><a href="<?= Backend::url('bookrr/store/rule') ?>">Rule</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -45,7 +45,7 @@
                 </button>
                 <?php endif ?>
                 <span class="btn-text">
-                    <a href="<?= Backend::url('aeroparks/store/rule') ?>">Cancel</a>
+                    <a href="<?= Backend::url('bookrr/store/rule') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -55,6 +55,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('aeroparks/store/rule') ?>" class="btn btn-default">Return to rule list</a></p>
+    <p><a href="<?= Backend::url('bookrr/store/rule') ?>" class="btn btn-default">Return to rule list</a></p>
 
 <?php endif ?>

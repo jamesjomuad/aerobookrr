@@ -14,7 +14,7 @@ class Cart extends Controller
     public $items = 0;
     public $totalQty = 0;
     public $totalPrice = 0;
-    public $assetPath = '/plugins/aeroparks/store/assets/';
+    public $assetPath = '/plugins/bookrr/store/assets/';
 
     public $implement = [
         'Backend.Behaviors.FormController',
@@ -149,7 +149,7 @@ class Cart extends Controller
 
     public function getCartViewPath($partial='')
     {
-        return plugins_path()."/aeroparks/store/controllers/cart/$partial";
+        return plugins_path()."/bookrr/store/controllers/cart/$partial";
     }
 
     public function onUpdateQty($pid=null,$qty=null)

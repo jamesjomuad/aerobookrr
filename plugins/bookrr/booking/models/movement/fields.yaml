@@ -3,7 +3,7 @@ fields:
         label: Booking
         title: 'Booking Finder'
         nameFrom: number
-        list: $/aeroparks/booking/models/movement/columns_booking.yaml
+        list: $/bookrr/booking/models/movement/columns_booking.yaml
         span: auto
         type: recordfinder
     _bay:
@@ -16,7 +16,7 @@ fields:
         label: Staff/Handler
         nameFrom: id
         descriptionFrom: name
-        list: $/aeroparks/booking/models/movement/columns_staff.yaml
+        list: $/bookrr/booking/models/movement/columns_staff.yaml
         span: auto
         type: recordfinder
     event:

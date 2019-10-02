@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/general/models/rate/columns.yaml
+list: $/bookrr/general/models/rate/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\General\Models\Rate
@@ -12,7 +12,7 @@ modelClass: Bookrr\General\Models\Rate
 title: Manage Rates
 
 # Link URL for each record
-recordUrl: aeroparks/general/rates/update/:id
+recordUrl: bookrr/general/rates/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

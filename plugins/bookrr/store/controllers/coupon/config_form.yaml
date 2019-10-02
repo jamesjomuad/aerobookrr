@@ -6,25 +6,25 @@
 name: Coupon
 
 # Model Form Field configuration
-form: $/aeroparks/store/models/coupon/fields.yaml
+form: $/bookrr/store/models/coupon/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Coupon
 
 # Default redirect location
-defaultRedirect: aeroparks/store/coupon
+defaultRedirect: bookrr/store/coupon
 
 # Create page
 create:
     title: Create Coupon
-    redirect: aeroparks/store/coupon/update/:id
-    redirectClose: aeroparks/store/coupon
+    redirect: bookrr/store/coupon/update/:id
+    redirectClose: bookrr/store/coupon
 
 # Update page
 update:
     title: Edit Coupon
-    redirect: aeroparks/store/coupon
-    redirectClose: aeroparks/store/coupon
+    redirect: bookrr/store/coupon
+    redirectClose: bookrr/store/coupon
 
 # Preview page
 preview:

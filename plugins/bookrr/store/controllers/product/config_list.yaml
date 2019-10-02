@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/store/models/product/columns.yaml
+list: $/bookrr/store/models/product/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Product
@@ -12,7 +12,7 @@ modelClass: Bookrr\Store\Models\Product
 title: Manage Products
 
 # Link URL for each record
-recordUrl: aeroparks/store/product/update/:id
+recordUrl: bookrr/store/product/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/messaging/models/mail/columns.yaml
+list: $/bookrr/messaging/models/mail/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Messaging\Models\Mail
@@ -12,7 +12,7 @@ modelClass: Bookrr\Messaging\Models\Mail
 title: Manage Mails
 
 # Link URL for each record
-recordUrl: aeroparks/messaging/mail/update/:id
+recordUrl: bookrr/messaging/mail/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

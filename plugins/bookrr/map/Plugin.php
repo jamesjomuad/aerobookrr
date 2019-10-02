@@ -34,7 +34,7 @@ class Plugin extends PluginBase
         return [
             'map' => [
                 'label'       => 'Tracker',
-                'url'         => Backend::url('aeroparks/map/tracker'),
+                'url'         => Backend::url('bookrr/map/tracker'),
                 'icon'        => 'icon-map-marker',
                 'permissions' => ['aeroparks.map'],
                 'order'       => 1050,

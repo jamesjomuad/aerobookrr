@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/bay/models/bay/columns.yaml
+list: $/bookrr/bay/models/bay/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Bay\Models\Bay
@@ -12,7 +12,7 @@ modelClass: Bookrr\Bay\Models\Bay
 title: Manage Bays
 
 # Link URL for each record
-recordUrl: aeroparks/bay/bay/update/:id
+recordUrl: bookrr/bay/bay/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

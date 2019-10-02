@@ -6,25 +6,25 @@
 name: Cart
 
 # Model Form Field configuration
-form: $/aeroparks/store/models/cart/fields.yaml
+form: $/bookrr/store/models/cart/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Cart
 
 # Default redirect location
-defaultRedirect: aeroparks/store/cart
+defaultRedirect: bookrr/store/cart
 
 # Create page
 create:
     title: Create Cart
-    redirect: aeroparks/store/cart/update/:id
-    redirectClose: aeroparks/store/cart
+    redirect: bookrr/store/cart/update/:id
+    redirectClose: bookrr/store/cart
 
 # Update page
 update:
     title: Edit Cart
-    redirect: aeroparks/store/cart
-    redirectClose: aeroparks/store/cart
+    redirect: bookrr/store/cart
+    redirectClose: bookrr/store/cart
 
 # Preview page
 preview:

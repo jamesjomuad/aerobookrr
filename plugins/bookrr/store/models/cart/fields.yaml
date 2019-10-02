@@ -17,7 +17,7 @@ fields:
     # product:
     #     label: Product
     #     type: recordfinder
-    #     list: ~/plugins/aeroparks/store/models/product/columns_cart.yaml
+    #     list: ~/plugins/bookrr/store/models/product/columns_cart.yaml
     #     recordsPerPage: 10
     #     title: Find Record
     #     prompt: Click the Find button to find a user

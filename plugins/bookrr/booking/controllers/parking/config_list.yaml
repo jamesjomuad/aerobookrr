@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/booking/models/parking/columns.yaml
+list: $/bookrr/booking/models/parking/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\Booking\Models\Parking
@@ -12,7 +12,7 @@ modelClass: Bookrr\Booking\Models\Parking
 title: Manage Bookings
 
 # Link URL for each record
-recordUrl: aeroparks/booking/parking/update/:id
+recordUrl: bookrr/booking/parking/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

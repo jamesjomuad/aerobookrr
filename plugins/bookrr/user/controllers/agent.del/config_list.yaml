@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/user/models/agent/columns.yaml
+list: $/bookrr/user/models/agent/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\User\Models\Agent
@@ -12,7 +12,7 @@ modelClass: Bookrr\User\Models\Agent
 title: Manage Agents
 
 # Link URL for each record
-recordUrl: aeroparks/user/agent/update/:id
+recordUrl: bookrr/user/agent/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

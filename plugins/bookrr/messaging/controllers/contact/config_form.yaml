@@ -6,25 +6,25 @@
 name: Contact
 
 # Model Form Field configuration
-form: $/aeroparks/messaging/models/contact/fields.yaml
+form: $/bookrr/messaging/models/contact/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Messaging\Models\Contact
 
 # Default redirect location
-defaultRedirect: aeroparks/messaging/contact
+defaultRedirect: bookrr/messaging/contact
 
 # Create page
 create:
     title: Create Contact
-    redirect: aeroparks/messaging/contact/update/:id
-    redirectClose: aeroparks/messaging/contact
+    redirect: bookrr/messaging/contact/update/:id
+    redirectClose: bookrr/messaging/contact
 
 # Update page
 update:
     title: Edit Contact
-    redirect: aeroparks/messaging/contact
-    redirectClose: aeroparks/messaging/contact
+    redirect: bookrr/messaging/contact
+    redirectClose: bookrr/messaging/contact
 
 # Preview page
 preview:

@@ -7,7 +7,7 @@ use Model;
  */
 class Cart extends Model
 {
-    public $table = 'aeroparks_carts';
+    public $table = 'bookrr_carts';
 
     protected $guarded = ['*'];
 

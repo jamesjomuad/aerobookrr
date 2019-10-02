@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/user/models/customer/columns.yaml
+list: $/bookrr/user/models/customer/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\User\Models\Customer
@@ -12,7 +12,7 @@ modelClass: Bookrr\User\Models\Customer
 title: Manage Customers
 
 # Link URL for each record
-recordUrl: aeroparks/user/customer/update/:id
+recordUrl: bookrr/user/customer/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

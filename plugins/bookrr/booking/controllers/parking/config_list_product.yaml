@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/booking/controllers/parking/columns_product.yaml
+list: $/bookrr/booking/controllers/parking/columns_product.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Product

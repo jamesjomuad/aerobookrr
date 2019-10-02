@@ -7,7 +7,7 @@ use \Carbon\Carbon;
 class Movement extends Model
 {
 
-    public $table = 'aeroparks_booking_movement';
+    public $table = 'bookrr_booking_movement';
 
     protected $fillable = ['*'];
 

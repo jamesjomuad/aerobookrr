@@ -27,8 +27,8 @@ class Plugin extends PluginBase
             // Avoid redundant resources
             if(Request::isMethod('get'))
             {
-                $controller->addCss('/plugins/aeroparks/notify/assets/notify.css',str_random(5));
-                $controller->addJs('/plugins/aeroparks/notify/assets/notify.js',str_random(5));
+                $controller->addCss('/plugins/bookrr/notify/assets/notify.css',str_random(5));
+                $controller->addJs('/plugins/bookrr/notify/assets/notify.js',str_random(5));
             }
         });
     }
@@ -50,7 +50,7 @@ class Plugin extends PluginBase
         return [
             'notify' => [
                 'label'       => '0',
-                'url'         => Backend::url('aeroparks/notify/notify'),
+                'url'         => Backend::url('bookrr/notify/notify'),
                 'icon'        => 'icon-bell',
                 // 'permissions' => ['aeroparks.notify.*'],
                 'order'       => 5

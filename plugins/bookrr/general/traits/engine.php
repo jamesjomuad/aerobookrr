@@ -8,7 +8,7 @@ trait Engine{
     public function system()
     {
         // dd($this);
-        return '<p class="flash-message static warning">Demo Mode <a href="/backend/aeroparks/general/license">activate</a></p>';
+        return '<p class="flash-message static warning">Demo Mode <a href="/backend/bookrr/general/license">activate</a></p>';
     }
 
 

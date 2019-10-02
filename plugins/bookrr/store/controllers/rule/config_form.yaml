@@ -6,25 +6,25 @@
 name: Rule
 
 # Model Form Field configuration
-form: $/aeroparks/store/models/rule/fields.yaml
+form: $/bookrr/store/models/rule/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\Rule
 
 # Default redirect location
-defaultRedirect: aeroparks/store/rule
+defaultRedirect: bookrr/store/rule
 
 # Create page
 create:
     title: Create Rule
-    redirect: aeroparks/store/rule/update/:id
-    redirectClose: aeroparks/store/rule
+    redirect: bookrr/store/rule/update/:id
+    redirectClose: bookrr/store/rule
 
 # Update page
 update:
     title: Edit Rule
-    redirect: aeroparks/store/rule
-    redirectClose: aeroparks/store/rule
+    redirect: bookrr/store/rule
+    redirectClose: bookrr/store/rule
 
 # Preview page
 preview:

@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('aeroparks/messaging/mail') ?>">Mail</a></li>
+        <li><a href="<?= Backend::url('bookrr/messaging/mail') ?>">Mail</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -29,7 +29,7 @@
                     Send and Close
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('aeroparks/messaging/mail') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('bookrr/messaging/mail') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -39,6 +39,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('aeroparks/messaging/mail') ?>" class="btn btn-default">Return to mail list</a></p>
+    <p><a href="<?= Backend::url('bookrr/messaging/mail') ?>" class="btn btn-default">Return to mail list</a></p>
 
 <?php endif ?>

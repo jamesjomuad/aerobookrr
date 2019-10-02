@@ -16,7 +16,7 @@ class Parking extends Model
     
     use \October\Rain\Database\Traits\SoftDelete;
 
-    public $table = 'aeroparks_booking';
+    public $table = 'bookrr_booking';
 
     public $rules = [
         'customer' => 'required',

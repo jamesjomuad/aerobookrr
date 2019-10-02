@@ -36,7 +36,7 @@ class Parking extends CartController
 
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
-    public $assetPath = '/plugins/aeroparks/booking/assets/';
+    public $assetPath = '/plugins/bookrr/booking/assets/';
 
     public function __construct()
     {
@@ -111,7 +111,7 @@ class Parking extends CartController
                 }
                 else
                 {
-                    return \Redirect::to('/backend/aeroparks/booking/parking/update/'.$id);
+                    return \Redirect::to('/backend/bookrr/booking/parking/update/'.$id);
                 }
             }
             
@@ -144,7 +144,7 @@ class Parking extends CartController
                 }
                 else
                 {
-                    return \Redirect::to('/backend/aeroparks/booking/parking/update/'.$id);
+                    return \Redirect::to('/backend/bookrr/booking/parking/update/'.$id);
                 }
             }
 

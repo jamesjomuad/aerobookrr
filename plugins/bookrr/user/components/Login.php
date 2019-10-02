@@ -100,7 +100,7 @@ class Login extends ComponentBase
 
     public function prepareAssets()
     {
-        $this->addCss('/plugins/aeroparks/user/assets/css/login-comp.css');
+        $this->addCss('/plugins/bookrr/user/assets/css/login-comp.css');
         $this->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
         $this->addJs('//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js');
     }

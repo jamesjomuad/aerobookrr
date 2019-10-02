@@ -6,25 +6,25 @@
 name: Vehicle
 
 # Model Form Field configuration
-form: $/aeroparks/store/models/carrent/fields.yaml
+form: $/bookrr/store/models/carrent/fields.yaml
 
 # Model Class name
 modelClass: Bookrr\Store\Models\CarRent
 
 # Default redirect location
-defaultRedirect: aeroparks/store/carrent
+defaultRedirect: bookrr/store/carrent
 
 # Create page
 create:
     title: Create Vehicle
-    redirect: aeroparks/store/carrent/update/:id
-    redirectClose: aeroparks/store/carrent#contentTabTwo
+    redirect: bookrr/store/carrent/update/:id
+    redirectClose: bookrr/store/carrent#contentTabTwo
 
 # Update page
 update:
     title: Edit Vehicle
-    redirect: aeroparks/store/carrent
-    redirectClose: aeroparks/store/carrent#contentTabTwo
+    redirect: bookrr/store/carrent
+    redirectClose: bookrr/store/carrent#contentTabTwo
 
 # Preview page
 preview:

@@ -47,10 +47,10 @@ class CarRent extends Controller
             BackendMenu::setContext('Aeroparks.Store', 'store', 'car-rental');
         }
 
-        $this->addCss('/plugins/aeroparks/store/assets/fotorama.css');
-        $this->addCss('/plugins/aeroparks/store/assets/style.css');
-        $this->addJs('/plugins/aeroparks/store/assets/fotorama.js');
-        $this->addJs('/plugins/aeroparks/store/assets/script.js');
+        $this->addCss('/plugins/bookrr/store/assets/fotorama.css');
+        $this->addCss('/plugins/bookrr/store/assets/style.css');
+        $this->addJs('/plugins/bookrr/store/assets/fotorama.js');
+        $this->addJs('/plugins/bookrr/store/assets/script.js');
 
         
     }
@@ -82,7 +82,7 @@ class CarRent extends Controller
             'alias'     => 'rentForm',
             'arrayName' => 'Rental',
             'model'     => new Car,
-            'config'    => '$/aeroparks/store/models/carrentbooking/customer_fields.yaml'
+            'config'    => '$/bookrr/store/models/carrentbooking/customer_fields.yaml'
         ]);
         
         $this->vars['model'] = Car::find(post('id'));

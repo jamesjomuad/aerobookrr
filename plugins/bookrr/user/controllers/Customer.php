@@ -43,21 +43,21 @@ class Customer extends Controller
             'alias'     => 'bookingForm',
             'arrayName' => 'Booking',
             'model'     => new Parking,
-            'config'    => '$/aeroparks/user/models/customer/booking_fields.yaml'
+            'config'    => '$/bookrr/user/models/customer/booking_fields.yaml'
         ]);
 
         $this->vehicleFormWidget = $this->createFormWidget([
             'alias'     => 'vehicleForm',
             'arrayName' => 'Vehicle',
             'model'     => new Vehicle,
-            'config'    => '$/aeroparks/user/models/customer/vehicle_fields.yaml'
+            'config'    => '$/bookrr/user/models/customer/vehicle_fields.yaml'
         ]);
 
         $this->contactFormWidget = $this->createFormWidget([
             'alias'     => 'contactForm',
             'arrayName' => 'Contact',
             'model'     => new Contact,
-            'config'    => '$/aeroparks/user/models/customer/contact_fields.yaml'
+            'config'    => '$/bookrr/user/models/customer/contact_fields.yaml'
         ]);
     }
 
@@ -65,7 +65,7 @@ class Customer extends Controller
     {
         $this->pageTitle = "New Customer";
         
-        $config = $this->makeConfig('$/aeroparks/user/models/customer/fields.yaml');
+        $config = $this->makeConfig('$/bookrr/user/models/customer/fields.yaml');
 
         $config->model = new User;
 
@@ -107,9 +107,9 @@ class Customer extends Controller
         $backendUser->aeroUser()->save(User::create($data));
 
         if(post('close'))
-        return \Redirect::to('/backend/aeroparks/user/customer');
+        return \Redirect::to('/backend/bookrr/user/customer');
 
-        return \Redirect::to('/backend/aeroparks/user/customer/update/'.$backendUser->aeroUser->id);
+        return \Redirect::to('/backend/bookrr/user/customer/update/'.$backendUser->aeroUser->id);
 
         \Flash::success('User Successfully Created!');
     }
@@ -164,7 +164,7 @@ class Customer extends Controller
 
         $this->vars['custID'] = post('id');
 
-        $this->addJs('/plugins/aeroparks/user/assets/js/customer.js');
+        $this->addJs('/plugins/bookrr/user/assets/js/customer.js');
 
         return $this->makePartial('booking_create_form');
     }
@@ -217,7 +217,7 @@ class Customer extends Controller
             'arrayName' => 'Vehicle',
             'model'     => new Vehicle,
             'model'     => Vehicle::find(post('vehicleId')),
-            'config'    => '$/aeroparks/user/models/customer/vehicle_fields.yaml'
+            'config'    => '$/bookrr/user/models/customer/vehicle_fields.yaml'
         ]);
 
         $this->vars['custID'] = post('id');
@@ -351,7 +351,7 @@ class Customer extends Controller
             'arrayName' => 'contact',
             'model'     => new Contact,
             'model'     => Contact::find(post('contactId')),
-            'config'    => '$/aeroparks/user/models/customer/contact_fields.yaml'
+            'config'    => '$/bookrr/user/models/customer/contact_fields.yaml'
         ]);
 
         return $this->makePartial('contact_update_form');

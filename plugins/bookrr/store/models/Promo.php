@@ -10,7 +10,7 @@ class Promo extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'aeroparks_product_promo';
+    public $table = 'bookrr_product_promo';
 
     /**
      * @var array Guarded fields

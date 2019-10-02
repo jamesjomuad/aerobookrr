@@ -35,7 +35,7 @@ class Staff extends Controller
     {
         $this->pageTitle = 'Create Staff';
 
-        $config = $this->makeConfig('$/aeroparks/user/models/staff/fields.yaml');
+        $config = $this->makeConfig('$/bookrr/user/models/staff/fields.yaml');
 
         $config->model = new StaffModel;
 
@@ -77,7 +77,7 @@ class Staff extends Controller
         $backendUser->aeroUser()->save(User::create($data));
 
         if(post('close'))
-        return \Redirect::to('/backend/aeroparks/user/staff');
+        return \Redirect::to('/backend/bookrr/user/staff');
 
         \Flash::success('User Successfully Created!');
     }

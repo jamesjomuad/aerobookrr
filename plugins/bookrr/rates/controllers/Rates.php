@@ -52,17 +52,17 @@ class Rates extends Controller
     {
         $this->pageTitle = "Rates Settings";
 
-        $this->addJs("/plugins/aeroparks/rates/assets/js/fullcalendar.min.js");
+        $this->addJs("/plugins/bookrr/rates/assets/js/fullcalendar.min.js");
 
-        $this->addJs("/plugins/aeroparks/rates/assets/js/script.js");
+        $this->addJs("/plugins/bookrr/rates/assets/js/script.js");
         
-        $this->addCss("/plugins/aeroparks/rates/assets/css/fullcalendar.min.css");
+        $this->addCss("/plugins/bookrr/rates/assets/css/fullcalendar.min.css");
 
         $this->vars['settings'] = $this->FormWidget([
             'alias'     => 'RateSetting',
             'arrayName' => 'Rates',
             'model'     => $this->settings,
-            'config'    => '$/aeroparks/rates/models/settings/fields.yaml'
+            'config'    => '$/bookrr/rates/models/settings/fields.yaml'
         ]);
 
         $this->vars['rateToday'] = $this->pxpay->symbol.$this->model->amount();
@@ -82,7 +82,7 @@ class Rates extends Controller
                 'title' => $item->name,
                 'start' => Carbon::parse($item->date_start)->format('Y-m-d'), //->format('Y-m-d\TH:i'),
                 'end'   => Carbon::parse($item->date_end)->addDay()->format('Y-m-d'),
-                'url' => '/backend/aeroparks/rates/rates/update/'.$item->id,
+                'url' => '/backend/bookrr/rates/rates/update/'.$item->id,
                 'backgroundColor' => "#f1a36a",
                 'borderColor' => '#ffffff'
             ];
@@ -116,7 +116,7 @@ class Rates extends Controller
         }
 
         return redirect()
-        ->to(url('/backend/aeroparks/rates/rates/create'))
+        ->to(url('/backend/bookrr/rates/rates/create'))
         ->with(['start'=>input('start'),'end'=>input('end')]);
     }
 

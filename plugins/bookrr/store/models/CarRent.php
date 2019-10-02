@@ -6,7 +6,7 @@ use Model;
 class CarRent extends Model
 {
 
-    public $table = 'aeroparks_carrental';
+    public $table = 'bookrr_carrental';
 
     protected $guarded = ['*'];
 

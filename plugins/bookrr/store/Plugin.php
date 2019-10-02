@@ -123,7 +123,7 @@ class Plugin extends PluginBase
             return [
                 'car-rental' => [
                     'label'       => 'Car Rental',
-                    'url'         => Backend::url('aeroparks/store/carrent'),
+                    'url'         => Backend::url('bookrr/store/carrent'),
                     'icon'        => 'fa fa-file-invoice',
                     'permissions' => ['aeroparks.store.car-rent'],
                     'order'       => 910,
@@ -134,7 +134,7 @@ class Plugin extends PluginBase
         return [
             'store' => [
                 'label'       => 'Store',
-                'url'         => Backend::url('aeroparks/store/carrent'),
+                'url'         => Backend::url('bookrr/store/carrent'),
                 'icon'        => 'fa fa-store-alt',
                 'permissions' => ['aeroparks.store.*'],
                 'order'       => 910,
@@ -142,43 +142,43 @@ class Plugin extends PluginBase
                 'sideMenu' => [
                     'car-rental' => [
                         'label'       => 'Car Rental',
-                        'url'         => Backend::url('aeroparks/store/carrent'),
+                        'url'         => Backend::url('bookrr/store/carrent'),
                         'icon'        => 'fa fa-file-invoice',
                         'permissions' => ['aeroparks.store.car-rent'],
                     ],
                     'product' => [
                         'label'       => 'Product / Service',
-                        'url'         => Backend::url('aeroparks/store/product'),
+                        'url'         => Backend::url('bookrr/store/product'),
                         'icon'        => 'icon-shopping-basket',
                         'permissions' => ['aeroparks.product.read'],
                     ],
                     'cart' => [
                         'label'       => 'Carts',
-                        'url'         => Backend::url('aeroparks/store/cart'),
+                        'url'         => Backend::url('bookrr/store/cart'),
                         'icon'        => 'icon-cart-plus',
                         'permissions' => ['aeroparks.product.read'],
                     ],
                     'invoice' => [
                         'label'       => 'Invoice',
-                        'url'         => Backend::url('aeroparks/store/invoice'),
+                        'url'         => Backend::url('bookrr/store/invoice'),
                         'icon'        => 'fa fa-file-invoice',
                         'permissions' => ['aeroparks.store.invoice'],
                     ],
                     'coupon' => [
                         'label'       => 'Coupon',
-                        'url'         => Backend::url('aeroparks/store/coupon'),
+                        'url'         => Backend::url('bookrr/store/coupon'),
                         'icon'        => 'icon-certificate',
                         'permissions' => ['aeroparks.store.coupon'],
                     ],
                     'category' => [
                         'label'       => 'Category',
-                        'url'         => Backend::url('aeroparks/store/category'),
+                        'url'         => Backend::url('bookrr/store/category'),
                         'icon'        => 'icon-bookmark-o',
                         'permissions' => ['aeroparks.productCategory.*'],
                     ],
                     'rules' => [
                         'label'       => 'Rule Set',
-                        'url'         => Backend::url('aeroparks/store/rule'),
+                        'url'         => Backend::url('bookrr/store/rule'),
                         'icon'        => 'icon-list',
                         'permissions' => ['aeroparks.rule.*'],
                     ]

@@ -37,7 +37,7 @@ class Plugin extends PluginBase
         return [
             'report' => [
                 'label'       => 'Reports',
-                'url'         => Backend::url('aeroparks/report/bay'),
+                'url'         => Backend::url('bookrr/report/bay'),
                 'icon'        => 'icon-area-chart',
                 'permissions' => ['aeroparks.report.*'],
                 'order'       => 915,
@@ -45,49 +45,49 @@ class Plugin extends PluginBase
                 'sideMenu' => [
                     'bay' => [
                         'label'       => 'Bay',
-                        'url'         => Backend::url('aeroparks/report/bay'),
+                        'url'         => Backend::url('bookrr/report/bay'),
                         'icon'        => 'fa fa-chart-area',
                         'permissions' => ['aeroparks.report.*'],
                     ],
                     'insight' => [
                         'label'       => 'Insights',
-                        'url'         => Backend::url('aeroparks/report/insight'),
+                        'url'         => Backend::url('bookrr/report/insight'),
                         'icon'        => 'fa fa-chart-pie',
                         'permissions' => ['aeroparks.report.*'],
                     ],
                     'revenue' => [
                         'label'       => 'Revenue',
-                        'url'         => Backend::url('aeroparks/report/revenue'),
+                        'url'         => Backend::url('bookrr/report/revenue'),
                         'icon'        => 'fa fa-chart-bar',
                         'permissions' => ['aeroparks.report.*'],
                     ],
                     'driver' => [
                         'label'       => "Driver's Manifest",
-                        'url'         => Backend::url('aeroparks/report/driver'),
+                        'url'         => Backend::url('bookrr/report/driver'),
                         'icon'        => 'icon-bar-chart',
                         'permissions' => ['aeroparks.report.*'],
                     ],
                     'booking' => [
                         'label'       => 'Bookings',
-                        'url'         => Backend::url('aeroparks/report/booking'),
+                        'url'         => Backend::url('bookrr/report/booking'),
                         'icon'        => 'fa fa-chart-line',
                         'permissions' => ['aeroparks.report.*'],
                     ],
                     'customer' => [
                         'label'       => 'Customers',
-                        'url'         => Backend::url('aeroparks/report/customer'),
+                        'url'         => Backend::url('bookrr/report/customer'),
                         'icon'        => 'fa fa-chart-bar',
                         'permissions' => ['aeroparks.report.*'],
                     ],
                     'vehicle' => [
                         'label'       => 'Vehicles',
-                        'url'         => Backend::url('aeroparks/report/vehicle'),
+                        'url'         => Backend::url('bookrr/report/vehicle'),
                         'icon'        => 'fa fa-chart-area',
                         'permissions' => ['aeroparks.report.*'],
                     ],
                     'contact' => [
                         'label'       => 'Contacts',
-                        'url'         => Backend::url('aeroparks/report/contact'),
+                        'url'         => Backend::url('bookrr/report/contact'),
                         'icon'        => 'icon-bar-chart',
                         'permissions' => ['aeroparks.report.*'],
                     ],

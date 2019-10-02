@@ -30,7 +30,7 @@ class General extends Controller
     {
         $this->pageTitle = 'Documentation';
 
-        $md = \File::get(plugins_path().'/aeroparks/general/controllers/general/documentation.md');
+        $md = \File::get(plugins_path().'/bookrr/general/controllers/general/documentation.md');
         
         return \Markdown::parse($md);
     }

@@ -19,8 +19,8 @@ class Insight extends Controller
     public function index()
     {
         $this->pageTitle = 'Insights';
-        $this->addJs('/plugins/aeroparks/report/assets/js/mdbootstrap-4.7.5.min.js');
-        $this->addJs('/plugins/aeroparks/report/assets/js/insights.js');
+        $this->addJs('/plugins/bookrr/report/assets/js/mdbootstrap-4.7.5.min.js');
+        $this->addJs('/plugins/bookrr/report/assets/js/insights.js');
     }
 
 }

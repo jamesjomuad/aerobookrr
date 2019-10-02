@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/aeroparks/report/controllers/vehicle/columns.yaml
+list: $/bookrr/report/controllers/vehicle/columns.yaml
 
 # Model Class name
 modelClass: Bookrr\User\Models\Vehicle
@@ -12,7 +12,7 @@ modelClass: Bookrr\User\Models\Vehicle
 title: Manage Vehicles
 
 # Link URL for each record
-recordUrl: aeroparks/report/vehicle/update/:id
+recordUrl: bookrr/report/vehicle/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
