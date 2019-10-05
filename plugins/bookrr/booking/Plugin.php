@@ -24,10 +24,6 @@ class Plugin extends PluginBase
                 'tab' => 'Bookrr Booking',
                 'label' => 'Manage Booking parks'
             ],
-            'bookrr.booking.rent' => [
-                'tab' => 'Bookrr Booking',
-                'label' => 'Manage Booking rentals'
-            ],
             'bookrr.movement' => [
                 'tab' => 'Bookrr Booking',
                 'label' => 'Manage Booking Key Movements'
