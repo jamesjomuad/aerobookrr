@@ -13,8 +13,8 @@ class FrontendMiddleware
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-    
-        if(request()->is('backend') OR request()->is('backend/*'))
+
+        if(!request()->is('backend/*'))
         {
             if(BackendAuth::check() && strtolower(BackendAuth::getUser()->role->name)=="frontend")
             {

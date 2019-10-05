@@ -13,7 +13,7 @@ class CustomerMiddleware
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        
+
         if(BackendAuth::check() && strtolower(BackendAuth::getUser()->role->name)=="customer")
         {
             // Check if user is an Aeropark
