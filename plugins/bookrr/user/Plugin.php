@@ -13,6 +13,8 @@ use Bookrr\User\Models\Loyalty;
 
 class Plugin extends PluginBase
 {
+    use \Bookrr\General\Traits\Tool;
+
     public $elevated = true;
 
     public function pluginDetails()
@@ -143,34 +145,25 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'bookrr.user.*' => [
-                'tab' => 'Bookrr',
-                'label' => 'Manage Aeropark Users.'
+            'bookrr.users.customer' => [
+                'tab' => 'Bookrr Users',
+                'label' => 'Can Manage Customer.'
+            ],
+            'bookrr.users.staff' => [
+                'tab' => 'Bookrr Users',
+                'label' => 'Can Manage Staff.'
             ],
         ];
     }
 
     public function registerNavigation()
     {
-        if(BackendAuth::getUser()->isCustomer())
-        {
-            return [
-                'loyalty' => [
-                    'label' => 'Rewards',
-                    'url'   => Backend::url('bookrr/user/loyalty'),
-                    'icon'  => 'icon-star',
-                    'order' => 1000
-                ]
-            ];
-        }
-
-
-        return [
+        $navs = [
             'user' => [
                 'label'       => 'Users',
                 'url'         => Backend::url('bookrr/user/customer'),
                 'icon'        => 'icon-users',
-                'permissions' => ['bookrr.user.*'],
+                'permissions' => ['bookrr.users.*'],
                 'order'       => 920,
 
                 'sideMenu' => [
@@ -178,13 +171,13 @@ class Plugin extends PluginBase
                         'label'       => 'Customers',
                         'url'         => Backend::url('bookrr/user/customer'),
                         'icon'        => 'icon-user-circle-o',
-                        'permissions' => ['bookrr.user.*'],
+                        'permissions' => ['bookrr.users.customer'],
                     ],
                     'staff' => [
                         'label'       => 'Staff',
                         'url'         => Backend::url('bookrr/user/staff'),
                         'icon'        => 'icon-user-secret',
-                        'permissions' => ['bookrr.user.*'],
+                        'permissions' => ['bookrr.users.staff'],
                     ],
                     // 'agent' => [
                     //     'label'       => 'Agents',
@@ -207,5 +200,7 @@ class Plugin extends PluginBase
                 ]
             ]
         ];
+
+        return $this->setDefaultNav($navs,'bookrr.users');
     }
 }

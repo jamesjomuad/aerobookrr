@@ -7,6 +7,7 @@ use BackendAuth;
 
 class Plugin extends PluginBase
 {
+    use \Bookrr\General\Traits\Tool;
 
     public function pluginDetails()
     {
@@ -23,37 +24,37 @@ class Plugin extends PluginBase
         return [
             'bookrr.report.bay' => [
                 'tab' => 'Reports',
-                'label' => 'Bay Reports',
+                'label' => 'Manage Bay',
                 'order' => 300
             ],
             'bookrr.report.insight' => [
                 'tab' => 'Reports',
-                'label' => 'Insights reports',
+                'label' => 'Manage Insights',
                 'order' => 301
             ],
             'bookrr.report.revenue' => [
                 'tab' => 'Reports',
-                'label' => 'Revenue reports',
+                'label' => 'Manage Revenue',
                 'order' => 302
             ],
             'bookrr.report.manifest' => [
                 'tab' => 'Reports',
-                'label' => 'Manifest reports',
+                'label' => 'Manage Manifest',
                 'order' => 303
             ],
             'bookrr.report.booking' => [
                 'tab' => 'Reports',
-                'label' => 'Booking reports',
+                'label' => 'Manage Booking',
                 'order' => 304
             ],
             'bookrr.report.user' => [
                 'tab' => 'Reports',
-                'label' => 'User reports',
+                'label' => 'Manage User',
                 'order' => 305
             ],
             'bookrr.report.vehicle' => [
                 'tab' => 'Reports',
-                'label' => 'Vehicle reports',
+                'label' => 'Manage Vehicle',
                 'order' => 306
             ]
         ];
@@ -116,14 +117,7 @@ class Plugin extends PluginBase
             ],
         ];
 
-        foreach($navs['report']['sideMenu'] as $key=>$val){
-            if(BackendAuth::getUser()->hasPermission('bookrr.report.'.$key)){
-                $navs['report']['url'] = $val['url'];
-                break;
-            }
-        }
-
-        return $navs;
+        return $this->setDefaultNav($navs,'bookrr.report');
     }
 
 }
