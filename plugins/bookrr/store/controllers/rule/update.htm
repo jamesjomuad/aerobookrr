@@ -15,7 +15,7 @@
 
         <div class="form-buttons">
             <div class="loading-indicator-container">
-                <?php if ($this->user->hasAccess('aeroparks.rule.update')): ?>
+                <?php if ($this->user->hasAccess('bookrr.rule.update')): ?>
                 <button
                     type="submit"
                     data-request="onSave"
@@ -35,7 +35,7 @@
                     Update and Close
                 </button>
                 <?php endif ?>
-                <?php if ($this->user->hasAccess('aeroparks.rule.delete')): ?>
+                <?php if ($this->user->hasAccess('bookrr.rule.delete')): ?>
                 <button
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"

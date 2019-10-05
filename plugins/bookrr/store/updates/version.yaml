@@ -1,9 +1,9 @@
 1.0.2:
     - 'Create Products table'
-    - create_aeroparks_product.php
+    - create_bookrr_product.php
 1.0.3:
     - 'Create Category table'
-    - create_aeroparks_product_category.php
+    - create_bookrr_product_category.php
 1.0.4:
     - 'Create Product Pivot table'
     - pivot_product_category.php

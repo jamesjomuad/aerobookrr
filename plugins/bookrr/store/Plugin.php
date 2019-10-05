@@ -10,9 +10,9 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Aeroparks Store',
-            'description' => 'Aeroparks online Store.',
-            'author'      => 'aeroparks',
+            'name'        => 'Bookrr Store',
+            'description' => 'Bookrr online Store.',
+            'author'      => 'bookrr',
             'icon'        => 'icon-leaf'
         ];
     }
@@ -21,47 +21,47 @@ class Plugin extends PluginBase
     {
         return [
             // Store Management
-            'aeroparks.store.*' => [
+            'bookrr.store.*' => [
                 'tab' => 'Store Management',
                 'label' => 'Manage Store',
                 'order' => 201,
             ],
 
-            'aeroparks.store.car-rent' => [
+            'bookrr.store.car-rent' => [
                 'tab' => 'Store Management',
                 'label' => 'View Car Rental',
                 'order' => 202,
             ],
 
-            'aeroparks.store.invoice' => [
+            'bookrr.store.invoice' => [
                 'tab' => 'Store Management',
                 'label' => 'Manage Invoice',
                 'order' => 203,
             ],
 
-            'aeroparks.store.coupon' => [
+            'bookrr.store.coupon' => [
                 'tab' => 'Store Management',
                 'label' => 'Manage Coupon',
                 'order' => 204,
             ],
 
             /* Product Permision */
-            'aeroparks.product.create' => [
+            'bookrr.product.create' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Create product',
                 'order' => 205,
             ],
-            'aeroparks.product.read' => [
+            'bookrr.product.read' => [
                 'tab' => 'Store Management',
                 'label' => 'Can View product',
                 'order' => 206,
             ],
-            'aeroparks.product.update' => [
+            'bookrr.product.update' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Update product',
                 'order' => 207,
             ],
-            'aeroparks.product.delete' => [
+            'bookrr.product.delete' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Remove product',
                 'order' => 208,
@@ -69,22 +69,22 @@ class Plugin extends PluginBase
             /* end Permision */
 
             /* Product Category Permision */
-            'aeroparks.productCategory.create' => [
+            'bookrr.productCategory.create' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Create product category',
                 'order' => 205,
             ],
-            'aeroparks.productCategory.read' => [
+            'bookrr.productCategory.read' => [
                 'tab' => 'Store Management',
                 'label' => 'Can View product category',
                 'order' => 206,
             ],
-            'aeroparks.productCategory.update' => [
+            'bookrr.productCategory.update' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Update product category',
                 'order' => 207,
             ],
-            'aeroparks.productCategory.delete' => [
+            'bookrr.productCategory.delete' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Remove product category',
                 'order' => 208,
@@ -92,22 +92,22 @@ class Plugin extends PluginBase
             /* end Permision */
             
             /* Rule Permision */
-            'aeroparks.rule.create' => [
+            'bookrr.rule.create' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Create rule',
                 'order' => 209,
             ],
-            'aeroparks.rule.read' => [
+            'bookrr.rule.read' => [
                 'tab' => 'Store Management',
                 'label' => 'Can View rule',
                 'order' => 210,
             ],
-            'aeroparks.rule.update' => [
+            'bookrr.rule.update' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Update rule',
                 'order' => 211,
             ],
-            'aeroparks.rule.delete' => [
+            'bookrr.rule.delete' => [
                 'tab' => 'Store Management',
                 'label' => 'Can Remove rule',
                 'order' => 212,
@@ -125,7 +125,7 @@ class Plugin extends PluginBase
                     'label'       => 'Car Rental',
                     'url'         => Backend::url('bookrr/store/carrent'),
                     'icon'        => 'fa fa-file-invoice',
-                    'permissions' => ['aeroparks.store.car-rent'],
+                    'permissions' => ['bookrr.store.car-rent'],
                     'order'       => 910,
                 ]
             ];
@@ -136,7 +136,7 @@ class Plugin extends PluginBase
                 'label'       => 'Store',
                 'url'         => Backend::url('bookrr/store/carrent'),
                 'icon'        => 'fa fa-store-alt',
-                'permissions' => ['aeroparks.store.*'],
+                'permissions' => ['bookrr.store.*'],
                 'order'       => 910,
 
                 'sideMenu' => [
@@ -144,43 +144,43 @@ class Plugin extends PluginBase
                         'label'       => 'Car Rental',
                         'url'         => Backend::url('bookrr/store/carrent'),
                         'icon'        => 'fa fa-file-invoice',
-                        'permissions' => ['aeroparks.store.car-rent'],
+                        'permissions' => ['bookrr.store.car-rent'],
                     ],
                     'product' => [
                         'label'       => 'Product / Service',
                         'url'         => Backend::url('bookrr/store/product'),
                         'icon'        => 'icon-shopping-basket',
-                        'permissions' => ['aeroparks.product.read'],
+                        'permissions' => ['bookrr.product.read'],
                     ],
                     'cart' => [
                         'label'       => 'Carts',
                         'url'         => Backend::url('bookrr/store/cart'),
                         'icon'        => 'icon-cart-plus',
-                        'permissions' => ['aeroparks.product.read'],
+                        'permissions' => ['bookrr.product.read'],
                     ],
                     'invoice' => [
                         'label'       => 'Invoice',
                         'url'         => Backend::url('bookrr/store/invoice'),
                         'icon'        => 'fa fa-file-invoice',
-                        'permissions' => ['aeroparks.store.invoice'],
+                        'permissions' => ['bookrr.store.invoice'],
                     ],
                     'coupon' => [
                         'label'       => 'Coupon',
                         'url'         => Backend::url('bookrr/store/coupon'),
                         'icon'        => 'icon-certificate',
-                        'permissions' => ['aeroparks.store.coupon'],
+                        'permissions' => ['bookrr.store.coupon'],
                     ],
                     'category' => [
                         'label'       => 'Category',
                         'url'         => Backend::url('bookrr/store/category'),
                         'icon'        => 'icon-bookmark-o',
-                        'permissions' => ['aeroparks.productCategory.*'],
+                        'permissions' => ['bookrr.productCategory.*'],
                     ],
                     'rules' => [
                         'label'       => 'Rule Set',
                         'url'         => Backend::url('bookrr/store/rule'),
                         'icon'        => 'icon-list',
-                        'permissions' => ['aeroparks.rule.*'],
+                        'permissions' => ['bookrr.rule.*'],
                     ]
                 ]
             ]

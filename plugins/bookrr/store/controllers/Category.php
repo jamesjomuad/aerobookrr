@@ -9,7 +9,7 @@ use Backend\Classes\Controller;
 class Category extends Controller
 {
     public $requiredPermissions = [
-        'aeroparks.productCategory.read'
+        'bookrr.productCategory.read'
     ];
 
     public $implement = [

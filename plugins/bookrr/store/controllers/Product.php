@@ -11,7 +11,7 @@ use Bookrr\Store\Models\Product as ProductModel;
 class Product extends Controller
 {
     public $requiredPermissions = [
-        'aeroparks.product.read'
+        'bookrr.product.read'
     ];
 
     public $implement = [

@@ -34,7 +34,7 @@ Route::get('pticket',function(){
     $ticket = Ticket::find(51);
 
 
-    $template = 'aeroparks::pticket';
+    $template = 'bookrr::pticket';
     $filename = 'ticket-'.str_random(40).'.pdf';
     $data = [
         'qrcode' => '<img src="data:image/png;base64,' . DNS2D::getBarcodePNG($ticket->qrcode, "QRCODE") . '" style="width:70px;float:left"/>',

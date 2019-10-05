@@ -16,7 +16,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'Notification',
             'description' => 'No description provided yet...',
-            'author'      => 'aeroparks',
+            'author'      => 'bookrr',
             'icon'        => 'icon-leaf'
         ];
     }
@@ -38,7 +38,7 @@ class Plugin extends PluginBase
         return []; // Remove this line to activate
 
         return [
-            'aeroparks.notify.some_permission' => [
+            'bookrr.notify.some_permission' => [
                 'tab' => 'notify',
                 'label' => 'Some permission'
             ],
@@ -52,7 +52,7 @@ class Plugin extends PluginBase
                 'label'       => '0',
                 'url'         => Backend::url('bookrr/notify/notify'),
                 'icon'        => 'icon-bell',
-                // 'permissions' => ['aeroparks.notify.*'],
+                // 'permissions' => ['bookrr.notify.*'],
                 'order'       => 5
             ],
         ];

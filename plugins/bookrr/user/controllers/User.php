@@ -8,7 +8,7 @@ use Bookrr\User\Models\UserModel;
 class User extends Controller
 {
     public $requiredPermissions = [
-        'aeroparks.user.*'
+        'bookrr.user.*'
     ];
 
     public $implement = [

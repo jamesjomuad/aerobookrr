@@ -25,8 +25,8 @@ class BookingStat extends ReportWidgetBase
 
     public function loadAssets()
     {
-        $this->addCss('css/bookingstat.css', 'aeroparks.general');
-        $this->addJs('js/bookingstat.js', 'aeroparks.general');
+        $this->addCss('css/bookingstat.css', 'bookrr.general');
+        $this->addJs('js/bookingstat.js', 'bookrr.general');
     }
 
     public function getWeekShortName()

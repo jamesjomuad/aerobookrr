@@ -4,7 +4,7 @@ use Backend\Classes\ReportWidgetBase;
 
 class InstaFeed extends ReportWidgetBase
 {
-    protected $defaultAlias = 'aeroparks_general_instafeed';
+    protected $defaultAlias = 'bookrr_general_instafeed';
 
     public function render()
     {

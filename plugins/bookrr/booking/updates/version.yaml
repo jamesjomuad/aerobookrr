@@ -1,9 +1,9 @@
 1.0.1: 'First version of booking'
 1.0.2:
-    - 'Created table aeroparks_booking'
+    - 'Created table bookrr_booking'
     - create_booking_table.php
 1.0.3:
-    - 'Created table aeroparks Booking Movement'
+    - 'Created table bookrr Booking Movement'
     - create_movement_table.php
 1.0.4:
     - 'Update Aero Booking Table'

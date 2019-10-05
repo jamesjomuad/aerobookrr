@@ -14,7 +14,7 @@ class Setting extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.System', 'system', 'setting');
-        SettingsManager::setContext('Aeroparks.General', 'aeroparks.setting');
+        SettingsManager::setContext('Bookrr.General', 'bookrr.setting');
     }
 
     public function index()
@@ -25,6 +25,6 @@ class Setting extends Controller
     public function rate()
     {
         $this->pageTitle = "Rate Settings";
-        SettingsManager::setContext('Aeroparks.General', 'aeroparks.rate');
+        SettingsManager::setContext('Bookrr.General', 'bookrr.rate');
     }
 }

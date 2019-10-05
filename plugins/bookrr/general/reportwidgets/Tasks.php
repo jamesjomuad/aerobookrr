@@ -4,7 +4,7 @@ use Backend\Classes\ReportWidgetBase;
 
 class Tasks extends ReportWidgetBase
 {
-    protected $defaultAlias = 'aeroparks_general_tasks';
+    protected $defaultAlias = 'bookrr_general_tasks';
 
     public function render()
     {

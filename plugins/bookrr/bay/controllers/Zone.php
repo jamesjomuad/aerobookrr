@@ -22,6 +22,6 @@ class Zone extends Controller
         parent::__construct();
 
         BackendMenu::setContext('October.System', 'system', 'setting');
-        SettingsManager::setContext('Aeroparks.Zone', 'aeroparks.zone');
+        SettingsManager::setContext('Bookrr.Zone', 'bookrr.zone');
     }
 }

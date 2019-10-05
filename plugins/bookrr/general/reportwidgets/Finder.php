@@ -10,7 +10,7 @@ use Flash;
 class Finder extends ReportWidgetBase
 {
 
-    protected $defaultAlias = 'aeroparks_general_finder';
+    protected $defaultAlias = 'bookrr_general_finder';
 
     public function render()
     {
