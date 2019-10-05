@@ -11,7 +11,6 @@ class SeedAllTables extends Seeder
         $this->seedRoles();
     }
 
-
     private function seedRoles() {
         UserRole::firstOrCreate([
             'name'        => 'Staff',
@@ -22,6 +21,11 @@ class SeedAllTables extends Seeder
             'name'        => 'Customer',
             'code'        => 'customer',
             'description' => 'Manage customer ability for the system.',
+        ]);
+        UserRole::firstOrCreate([
+            'name'        => 'Demo',
+            'code'        => 'demo',
+            'description' => 'Allow user to explore in demo mode.',
         ]);
         UserRole::firstOrCreate([
             'name'        => 'Frontend',
