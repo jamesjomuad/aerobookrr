@@ -115,28 +115,13 @@ class Plugin extends PluginBase
         ];
     }
 
-    public function registerNavigation()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'general' => [
-                'label'       => 'general',
-                'url'         => Backend::url('bookrr/general/mycontroller'),
-                'icon'        => 'icon-leaf',
-                'permissions' => ['bookrr.general.*'],
-                'order'       => 500,
-            ],
-        ];
-    }
-
     public function registerSettings()
     {
         return [
             'bookrr.setting' => [
                 'label'       => 'Settings',
                 'description' => 'Manage System Settings.',
-                'category'    => 'Bookrr',
+                'category'    => 'Booking',
                 'icon'        => 'icon-gear',
                 'url'         => Backend::url('bookrr/general/setting'),
                 'order'       => 1000,
@@ -146,7 +131,7 @@ class Plugin extends PluginBase
             'bookrr.documentation' => [
                 'label'       => 'Documentation',
                 'description' => 'Tips and Tricks.',
-                'category'    => 'Bookrr',
+                'category'    => 'Booking',
                 'icon'        => 'icon-book',
                 'url'         => Backend::url('bookrr/general/general/documentation'),
                 'order'       => 1000,
