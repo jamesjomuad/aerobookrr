@@ -74,7 +74,7 @@ class Plugin extends PluginBase
             'move_key' => [
                 'label'       => 'Move Key',
                 'url'         => Backend::url('bookrr/booking/movement'),
-                'icon'        => 'fa fa-key',
+                'icon'        => 'icon-key',
                 'permissions' => ['bookrr.movement'],
                 'order'       => 904,
                 'roles'       => ['staff']
