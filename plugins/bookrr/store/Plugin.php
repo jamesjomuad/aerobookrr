@@ -6,7 +6,6 @@ use BackendAuth;
 
 class Plugin extends PluginBase
 {
-
     public function pluginDetails()
     {
         return [

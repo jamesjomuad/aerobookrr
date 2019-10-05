@@ -27,10 +27,10 @@ class Plugin extends PluginBase
 
     public function boot()
     {
+        
         # Middleware
         $this->app['Illuminate\Contracts\Http\Kernel']
         ->pushMiddleware('Bookrr\User\Middleware\FrontendMiddleware');
-        // ->pushMiddleware('Bookrr\User\Middleware\CustomerMiddleware');
 
 
         # Overide backend user model
@@ -131,11 +131,11 @@ class Plugin extends PluginBase
                 $user->aeroUser->save();
             }
         });
-
+        
         Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
             if(BackendAuth::getUser() && BackendAuth::getUser()->isCustomer())
             {
-                $controller->addCss('/plugins/bookrr/user/assets/css/user.css',str_random(5));  
+                $controller->addCss('/plugins/bookrr/user/assets/css/user.css');  
             }
         });
     }
