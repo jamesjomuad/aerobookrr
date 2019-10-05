@@ -25,7 +25,7 @@ class Plugin extends PluginBase
             'pxpay.settings' => [
                 'label'       => 'Payment Gateway',
                 'description' => 'PxPay2 Payment gateway.',
-                'category'    => 'Bookrr',
+                'category'    => 'Bookrr Park',
                 'icon'        => 'icon-usd',
                 'url'         => Backend::url('bookrr/pxpay/settings'),
                 'order'       => 900,

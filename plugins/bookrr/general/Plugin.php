@@ -121,7 +121,7 @@ class Plugin extends PluginBase
             'bookrr.setting' => [
                 'label'       => 'Settings',
                 'description' => 'Manage System Settings.',
-                'category'    => 'Booking',
+                'category'    => 'Bookrr Park',
                 'icon'        => 'icon-gear',
                 'url'         => Backend::url('bookrr/general/setting'),
                 'order'       => 1000,
@@ -131,7 +131,7 @@ class Plugin extends PluginBase
             'bookrr.documentation' => [
                 'label'       => 'Documentation',
                 'description' => 'Tips and Tricks.',
-                'category'    => 'Booking',
+                'category'    => 'Bookrr Park',
                 'icon'        => 'icon-book',
                 'url'         => Backend::url('bookrr/general/general/documentation'),
                 'order'       => 1000,
