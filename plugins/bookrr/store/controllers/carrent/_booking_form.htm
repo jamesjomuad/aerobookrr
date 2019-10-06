@@ -10,7 +10,7 @@
 
     <!--Body-->
     <div class="modal-body">
-        <div class="fotorama" data-nav="thumbs" data-width="100%">
+        <div class="fotorama" data-nav="thumbs" data-width="100%" data-maxheight="450">
             <?php foreach($model->imageGallery as $image) : ?>
                 <img src="<?= $image ?>">
             <?php endforeach; ?>
