@@ -16,7 +16,7 @@ class CarBooking extends Model
 
     public $rules = [
         'passenger' => 'required',
-        'phone' => 'required|numeric|min:6',
+        'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:8',
     ];
 
     protected $guarded = ['*'];
