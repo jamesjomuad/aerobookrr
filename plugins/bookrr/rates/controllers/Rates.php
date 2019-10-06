@@ -14,6 +14,8 @@ class Rates extends Controller
 {
     use \Bookrr\General\Traits\Widgets;
 
+    public $requiredPermissions = ['bookrr.rates'];
+
     public $model;
 
     public $settings;

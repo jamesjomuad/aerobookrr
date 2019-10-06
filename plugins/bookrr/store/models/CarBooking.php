@@ -9,22 +9,20 @@ use Carbon\Carbon;
 class CarBooking extends Model
 {
     use \October\Rain\Database\Traits\SoftDelete;
+
+    use \October\Rain\Database\Traits\Validation;
     
     public $table = 'bookrr_carrental_booking';
 
-    /**
-     * @var array Guarded fields
-     */
+    public $rules = [
+        'passenger' => 'required',
+        'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:8',
+    ];
+
     protected $guarded = ['*'];
 
-    /**
-     * @var array Fillable fields
-     */
     protected $fillable = ['number','date_in', 'date_out'];
 
-    /**
-     * @var array Relations
-     */
     public $hasMany = [];
     public $belongsTo = [
         'car' => ['Bookrr\Store\Models\CarRent'],

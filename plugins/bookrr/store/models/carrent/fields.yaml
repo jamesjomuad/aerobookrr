@@ -8,7 +8,7 @@ fields:
             - preview
         type: text
     brand:
-        label: Brand
+        label: Make/Brand
         span: auto
         type: text
     model:

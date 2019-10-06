@@ -35,7 +35,7 @@ class Plugin extends PluginBase
             'bookrr.bay' => [
                 'label'       => 'Bays / Zones',
                 'description' => 'Manage parking Bays and Zones.',
-                'category'    => 'Bookrr',
+                'category'    => 'Bookrr Park',
                 'url'         => Backend::url('bookrr/bay/bay'),
                 'icon'        => 'icon-car',
                 'permissions' => ['bookrr.bay'],

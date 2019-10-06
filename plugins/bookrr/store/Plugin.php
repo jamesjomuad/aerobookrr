@@ -123,7 +123,7 @@ class Plugin extends PluginBase
                 'car-rental' => [
                     'label'       => 'Car Rental',
                     'url'         => Backend::url('bookrr/store/carrent'),
-                    'icon'        => 'fa fa-file-invoice',
+                    'icon'        => 'icon-car',
                     'permissions' => ['bookrr.store.car-rent'],
                     'order'       => 910,
                 ]
@@ -134,7 +134,7 @@ class Plugin extends PluginBase
             'store' => [
                 'label'       => 'Store',
                 'url'         => Backend::url('bookrr/store/carrent'),
-                'icon'        => 'fa fa-store-alt',
+                'icon'        => 'icon-cart-plus',
                 'permissions' => ['bookrr.store.*'],
                 'order'       => 910,
 
@@ -142,7 +142,7 @@ class Plugin extends PluginBase
                     'car-rental' => [
                         'label'       => 'Car Rental',
                         'url'         => Backend::url('bookrr/store/carrent'),
-                        'icon'        => 'fa fa-file-invoice',
+                        'icon'        => 'icon-car',
                         'permissions' => ['bookrr.store.car-rent'],
                     ],
                     'product' => [
@@ -160,7 +160,7 @@ class Plugin extends PluginBase
                     'invoice' => [
                         'label'       => 'Invoice',
                         'url'         => Backend::url('bookrr/store/invoice'),
-                        'icon'        => 'fa fa-file-invoice',
+                        'icon'        => 'icon-file-text-o',
                         'permissions' => ['bookrr.store.invoice'],
                     ],
                     'coupon' => [

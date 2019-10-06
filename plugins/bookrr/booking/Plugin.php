@@ -21,16 +21,12 @@ class Plugin extends PluginBase
     {
         return [
             'bookrr.booking.park' => [
-                'tab' => 'Bookrr Booking',
-                'label' => 'Manage Booking parks'
-            ],
-            'bookrr.booking.rent' => [
-                'tab' => 'Bookrr Booking',
-                'label' => 'Manage Booking rentals'
+                'tab' => 'Booking',
+                'label' => 'Manage Booking'
             ],
             'bookrr.movement' => [
-                'tab' => 'Bookrr Booking',
-                'label' => 'Manage Booking Key Movements'
+                'tab' => 'Booking',
+                'label' => 'Manage Key Movements'
             ],
         ];
     }
@@ -74,7 +70,7 @@ class Plugin extends PluginBase
             'move_key' => [
                 'label'       => 'Move Key',
                 'url'         => Backend::url('bookrr/booking/movement'),
-                'icon'        => 'fa fa-key',
+                'icon'        => 'icon-key',
                 'permissions' => ['bookrr.movement'],
                 'order'       => 904,
                 'roles'       => ['staff']

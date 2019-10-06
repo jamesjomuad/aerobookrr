@@ -2,10 +2,12 @@
 
 use Backend;
 use System\Classes\PluginBase;
+use BackendAuth;
 
 
 class Plugin extends PluginBase
 {
+    use \Bookrr\General\Traits\Tool;
 
     public function pluginDetails()
     {
@@ -20,21 +22,47 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'bookrr.report.*' => [
-                'tab' => 'Aeropark Reports',
-                'label' => 'Manage and process Reports'
+            'bookrr.report.bay' => [
+                'tab' => 'Reports',
+                'label' => 'Manage Bay',
+                'order' => 300
             ],
-            'bookrr.report.read' => [
-                'tab' => 'Aeropark Reports',
-                'label' => 'Can View reports',
-                'order' => 202,
+            'bookrr.report.insight' => [
+                'tab' => 'Reports',
+                'label' => 'Manage Insights',
+                'order' => 301
+            ],
+            'bookrr.report.revenue' => [
+                'tab' => 'Reports',
+                'label' => 'Manage Revenue',
+                'order' => 302
+            ],
+            'bookrr.report.manifest' => [
+                'tab' => 'Reports',
+                'label' => 'Manage Manifest',
+                'order' => 303
+            ],
+            'bookrr.report.booking' => [
+                'tab' => 'Reports',
+                'label' => 'Manage Booking',
+                'order' => 304
+            ],
+            'bookrr.report.user' => [
+                'tab' => 'Reports',
+                'label' => 'Manage User',
+                'order' => 305
+            ],
+            'bookrr.report.vehicle' => [
+                'tab' => 'Reports',
+                'label' => 'Manage Vehicle',
+                'order' => 306
             ]
         ];
     }
 
     public function registerNavigation()
     {
-        return [
+        $navs = [
             'report' => [
                 'label'       => 'Reports',
                 'url'         => Backend::url('bookrr/report/bay'),
@@ -46,53 +74,50 @@ class Plugin extends PluginBase
                     'bay' => [
                         'label'       => 'Bay',
                         'url'         => Backend::url('bookrr/report/bay'),
-                        'icon'        => 'fa fa-chart-area',
-                        'permissions' => ['bookrr.report.*'],
+                        'icon'        => 'icon-area-chart',
+                        'permissions' => ['bookrr.report.bay'],
                     ],
                     'insight' => [
                         'label'       => 'Insights',
                         'url'         => Backend::url('bookrr/report/insight'),
-                        'icon'        => 'fa fa-chart-pie',
-                        'permissions' => ['bookrr.report.*'],
+                        'icon'        => 'icon-line-chart',
+                        'permissions' => ['bookrr.report.insight'],
                     ],
                     'revenue' => [
                         'label'       => 'Revenue',
                         'url'         => Backend::url('bookrr/report/revenue'),
-                        'icon'        => 'fa fa-chart-bar',
-                        'permissions' => ['bookrr.report.*'],
+                        'icon'        => 'icon-area-chart',
+                        'permissions' => ['bookrr.report.revenue'],
                     ],
                     'driver' => [
                         'label'       => "Driver's Manifest",
                         'url'         => Backend::url('bookrr/report/driver'),
                         'icon'        => 'icon-bar-chart',
-                        'permissions' => ['bookrr.report.*'],
+                        'permissions' => ['bookrr.report.manifest'],
                     ],
                     'booking' => [
                         'label'       => 'Bookings',
                         'url'         => Backend::url('bookrr/report/booking'),
                         'icon'        => 'fa fa-chart-line',
-                        'permissions' => ['bookrr.report.*'],
+                        'permissions' => ['bookrr.report.booking'],
                     ],
-                    'customer' => [
-                        'label'       => 'Customers',
-                        'url'         => Backend::url('bookrr/report/customer'),
-                        'icon'        => 'fa fa-chart-bar',
-                        'permissions' => ['bookrr.report.*'],
+                    'user' => [
+                        'label'       => 'Users',
+                        'url'         => Backend::url('bookrr/report/user'),
+                        'icon'        => 'icon-users',
+                        'permissions' => ['bookrr.report.user'],
                     ],
                     'vehicle' => [
                         'label'       => 'Vehicles',
                         'url'         => Backend::url('bookrr/report/vehicle'),
                         'icon'        => 'fa fa-chart-area',
-                        'permissions' => ['bookrr.report.*'],
-                    ],
-                    'contact' => [
-                        'label'       => 'Contacts',
-                        'url'         => Backend::url('bookrr/report/contact'),
-                        'icon'        => 'icon-bar-chart',
-                        'permissions' => ['bookrr.report.*'],
-                    ],
+                        'permissions' => ['bookrr.report.vehicle'],
+                    ]
                 ]
             ],
         ];
+
+        return $this->setDefaultNav($navs,'bookrr.report');
     }
+
 }

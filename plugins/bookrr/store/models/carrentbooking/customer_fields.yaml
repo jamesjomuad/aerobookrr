@@ -3,7 +3,7 @@ fields:
         label: 'Number of passenger'
         type: number
         span: auto
-    _contact:
+    phone:
         label: 'Phone Number'
         type: text
         span: auto

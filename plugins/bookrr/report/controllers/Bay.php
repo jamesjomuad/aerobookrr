@@ -12,8 +12,10 @@ use DB;
 
 class Bay extends BaseController
 {
+    public $requiredPermissions = ['bookrr.report.bay'];
 
     public $statistics;
+
     public $expired;
 
     public function __construct()

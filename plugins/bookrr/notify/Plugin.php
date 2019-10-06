@@ -27,8 +27,8 @@ class Plugin extends PluginBase
             // Avoid redundant resources
             if(Request::isMethod('get'))
             {
-                $controller->addCss('/plugins/bookrr/notify/assets/notify.css',str_random(5));
-                $controller->addJs('/plugins/bookrr/notify/assets/notify.js',str_random(5));
+                $controller->addCss('/plugins/bookrr/notify/assets/notify.css');
+                $controller->addJs('/plugins/bookrr/notify/assets/notify.js');
             }
         });
     }

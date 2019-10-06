@@ -9,11 +9,7 @@ use Validator;
  */
 class Plugin extends PluginBase
 {
-    /**
-     * Returns information about this plugin.
-     *
-     * @return array
-     */
+
     public function pluginDetails()
     {
         return [
@@ -24,55 +20,28 @@ class Plugin extends PluginBase
         ];
     }
 
-
-    /**
-     * Registers any front-end components implemented in this plugin.
-     *
-     * @return array
-     */
-    public function registerComponents()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'Bookrr\Rates\Components\MyComponent' => 'myComponent',
-        ];
-    }
-
-    /**
-     * Registers any back-end permissions used by this plugin.
-     *
-     * @return array
-     */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
-
         return [
-            'bookrr.rates.some_permission' => [
-                'tab' => 'rates',
-                'label' => 'Some permission'
+            'bookrr.rates' => [
+                'tab' => 'Bookrr',
+                'label' => 'Manage Rates'
             ],
         ];
     }
 
-    /**
-     * Registers back-end navigation items for this plugin.
-     *
-     * @return array
-     */
     public function registerSettings()
     {
         return [
             'rates' => [
                 'label'       => 'Rates',
                 'description' => 'Manage Aeroparks Settings.',
-                'category'    => 'Bookrr',
+                'category'    => 'Bookrr Park',
                 'icon'        => 'icon-usd',
                 'url'         => Backend::url('bookrr/rates/rates'),
                 'order'       => 900,
                 'keywords'    => 'aeropark setting',
-                'permissions' => ['bookrr.rates.*']
+                'permissions' => ['bookrr.rates']
             ]
         ];
     }

@@ -12,8 +12,8 @@ use Bookrr\Booking\Models\Parking;
 
 class BaseController extends Controller
 {
-
     public $pdfTemplate = 'bookrr::reports';
+    
     public $models;
 
     
