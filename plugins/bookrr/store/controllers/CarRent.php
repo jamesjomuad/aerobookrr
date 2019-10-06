@@ -14,7 +14,7 @@ use \Carbon\Carbon;
 class CarRent extends Controller
 {
 
-    use \Bookrr\Store\Traits\Widgets;
+    use \Bookrr\General\Traits\Widgets;
 
     public $implement = [
         'Backend.Behaviors.FormController',
@@ -51,8 +51,6 @@ class CarRent extends Controller
         $this->addCss('/plugins/bookrr/store/assets/style.css');
         $this->addJs('/plugins/bookrr/store/assets/fotorama.js');
         $this->addJs('/plugins/bookrr/store/assets/script.js');
-
-        
     }
 
     public function index()
@@ -78,7 +76,7 @@ class CarRent extends Controller
 
     public function onRentForm()    
     {
-        $this->bookFormWidget = $this->createFormWidget([
+        $this->bookFormWidget = $this->FormWidget([
             'alias'     => 'rentForm',
             'arrayName' => 'Rental',
             'model'     => new Car,
