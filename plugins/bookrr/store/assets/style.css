@@ -8,3 +8,34 @@
 .car_rent .card .list-group-item i{margin:0 5px}
 .flex-wrap{flex-wrap:wrap}
 .car_rent .card-text{min-height:80px;overflow-y:auto;max-height:80px}
+.card-stats{
+    padding: 20px;
+    border: 1px solid #c2a782;
+    border-radius: 4px;
+    margin: 70px 0 0;
+    display: inline-block;
+    min-height: 260px;
+    background: #ffb05f;
+    width: 100%;
+}
+.card-stats .card-icon{
+    position: relative;
+    padding: 15px;
+    color: #fff;
+    background: #ff5100;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(28, 28, 28, 0.4);
+    float: left;
+    margin-top: -60px;
+    margin-right: 15px;
+}
+.card-stats .card-title{
+    text-align: right;
+    margin: 0;
+    font-weight: 600;
+}
+.card-stats .count-up{
+    font-size: 60px;
+    text-align: center;
+    display: inherit;
+}

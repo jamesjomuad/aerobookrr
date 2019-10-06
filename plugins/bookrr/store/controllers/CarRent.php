@@ -63,6 +63,8 @@ class CarRent extends Controller
         
         $this->vars['overview']['available'] = $this->getAvailableCars();
 
+        $this->addCss('/plugins/bookrr/store/assets/css/fontawesome.min.css');
+
         $this->asExtension('ListController')->index();
     }
 

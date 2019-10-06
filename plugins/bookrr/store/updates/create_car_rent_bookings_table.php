@@ -8,7 +8,7 @@ class CreateCarBookingsTable extends Migration
 {
     public function up()
     {
-        Schema::create('bookrr_carrental_booking', function(Blueprint $table) {
+        Schema::create('bookrr_carrental_booking', function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
@@ -18,7 +18,7 @@ class CreateCarBookingsTable extends Migration
             $table->timestamp('date_in')->nullable();
             $table->timestamp('date_out')->nullable();
             $table->integer('passenger')->nullable();
-            $table->integer('phone')->nullable();
+            $table->string('phone')->nullable();
             $table->decimal('amount', 10, 2)->nullable();
             $table->timestamps();
         });
