@@ -22,11 +22,11 @@ class Plugin extends PluginBase
         return [
             'bookrr.booking.park' => [
                 'tab' => 'Booking',
-                'label' => 'Manage Booking parks'
+                'label' => 'Manage Booking'
             ],
             'bookrr.movement' => [
                 'tab' => 'Booking',
-                'label' => 'Manage Booking Key Movements'
+                'label' => 'Manage Key Movements'
             ],
         ];
     }

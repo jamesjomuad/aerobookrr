@@ -190,12 +190,6 @@ class Plugin extends PluginBase
                     //     'url'         => Backend::url('bookrr/user/affiliate'),
                     //     'icon'        => 'icon-user-plus',
                     //     'permissions' => ['bookrr.user.*'],
-                    // ],
-                    // 'loyalty' => [
-                    //     'label'       => 'Loyalty',
-                    //     'url'         => Backend::url('bookrr/user/loyalty'),
-                    //     'icon'        => 'icon-star',
-                    //     'permissions' => ['bookrr.user.*'],
                     // ]
                 ]
             ]

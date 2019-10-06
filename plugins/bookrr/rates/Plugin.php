@@ -24,7 +24,7 @@ class Plugin extends PluginBase
     {
         return [
             'bookrr.rates' => [
-                'tab' => 'Rates',
+                'tab' => 'Bookrr',
                 'label' => 'Manage Rates'
             ],
         ];
