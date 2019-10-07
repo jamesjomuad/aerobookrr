@@ -50,7 +50,9 @@ class Staff extends Controller
 
         $data['type'] = 'staff';
 
-        $data['age'] = Carbon::parse($data['birthdate'])->age;
+        $data['birthdate'] = Carbon::parse($data['birthdate']);
+
+        $data['age'] = $data['birthdate']->age;
 
         $data['backendUser']['role_id'] = StaffModel::roleID();
 
