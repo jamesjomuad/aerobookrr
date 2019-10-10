@@ -1,0 +1,1260 @@
+title = "Book Now"
+url = "/book-now"
+layout = "default"
+is_hidden = 0
+==
+<section class="container" id="book-now-form">
+    <div class="row form-group mt-5">
+        <div class="col-md-12">
+            <ul class="setup-panel nav text-center justify-content-between">
+                <li class="nav-item">
+                    <a id="step1" class="nav-link active" href="#step-1">
+                        <div class="icon-circle">
+                            <i class="icon-calendar"></i>
+                            <h5 class="list-group-item-heading">Step 1</h5>
+                        </div>
+                        <p class="list-group-item-text">Login</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a id="step2" class="nav-link disabled" href="#step-2">
+                        <div class="icon-circle">
+                            <i class="icon-user"></i>
+                            <h5 class="list-group-item-heading">Step 2</h5>
+                        </div>
+                        <p class="list-group-item-text">Your Details</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a id="step3" class="nav-link disabled" href="#step-3">
+                        <div class="icon-circle">
+                            <i class="icon-plus-circle"></i>
+                            <h5 class="list-group-item-heading">Step 3</h5>
+                        </div>
+                        <p class="list-group-item-text">Extras</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a id="step4" class="nav-link disabled" href="#step-4">
+                        <div class="icon-circle">
+                            <i class="icon-credit-card"></i>
+                            <h5 class="list-group-item-heading">Step 4</h5>
+                        </div>
+                        <p class="list-group-item-text">Confirm Details</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a id="step5" class="nav-link disabled" href="#step-5">
+                        <div class="icon-circle">
+                            <i class="icon-checkmark"></i>
+                            <h5 class="list-group-item-heading">Step 5</h5>
+                        </div>
+                        <p class="list-group-item-text">Finished</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div id="tab-content" class="mb-5">
+        <div class="row setup-content" id="step-1">
+            <div class="col-md-12 text-center">
+                <h2>BOOK AUCKLAND AIRPORT PARKING</h2><br>
+                <button class="btn btn-primary btn-sm p-2 pl-5 pr-5 mt-0 ml-3 mr-3" data-toggle="collapse" href="#form-login">I am an EXISTING <br>Aeroparks Customer</button>
+                <button id="newcustomer" class="btn btn-primary btn-sm p-2 pl-5 pr-5 mt-0 ml-3 mr-3" onclick="$.wizard('#step-2')">I am a NEW! <br>Aeroparks Customer</button>
+                
+                <form class="collapse" id="form-login">
+                    <hr>
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input name="" type="email" id="inputEmail" class="form-control" placeholder="" required="" autofocus="">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input name="" type="password" id="inputPassword" class="form-control" placeholder="" required="">
+                    <div class="checkbox mb-3">
+                        <label>
+                        <input name="" type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                </form>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-2">
+            <div class="col-md-12">
+                <h2 class="text-center">Sign Up</h2>
+                <form id="signUp" data-request-url="register/">
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Login & Contact Details</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Email address</label>
+                                                <input name="email" type="email" class="form-control" placeholder="">
+                                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input name="password" type="password" id="password" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Confirm Password</label>
+                                                <input name="confirm_pass" type="password" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>First Name</label>
+                                                <input id="fname" name="fname" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Last Name</label>
+                                                <input id="lname" name="lname" type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Phone Number</label>
+                                                <input id="phone" name="phone" type="text" class="form-control" placeholder="000-0000/xxxx-xxx-xxxx">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>How did you learn about Aeroparks?</label>
+                                                <select name="referer" class="form-control">
+                                                    <option>Select</option>
+                                                    <option>Internet</option>
+                                                    <option>Yellow Pages</option>
+                                                    <option>Newspaper</option>
+                                                    <option>Television</option>
+                                                    <option>Other</option>
+                                                    <option>Radio</option>
+                                                    <option>Friend/Family</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Other</label>
+                                                <input name="other" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12">
+                            <legend>Main Contact Details</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label>Title</label>
+                                            <select name="title" class="form-control">
+                                                <option value="">-</option>
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Ms">Ms</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>First Name</label>
+                                            <input name="mainFname" id="mainFname" type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>Last Name</label>
+                                            <input name="mainLname" id="mainLname" type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Mobile Number</label>
+                                                <input name="mainPhone" id="mainPhone" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group form-check">
+                                                <input name="txtNotification" id="txtme" type="checkbox" value="1" class="form-check-input">
+                                                <label class="form-check-label" for="txtme">When my flight lands please TXT me details of the transfer bus</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <legend>Car Details</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group mt-2">
+                                                <label>Vehicle Size</label>
+                                                <select name="vehicle[0][size]" class="form-control">
+                                                    <option value="">Select Vehicle Size</option>
+                                                    <option value="Standard">Standard</option>
+                                                    <option value="Car + Trailer">Car + Trailer</option>
+                                                    <option value="Campervan/Motorhome (Bigger than 4m)">Campervan/Motorhome (Bigger than 4m)</option>
+                                                    <option value="Truck (Bigger than 4m)">Truck (Bigger than 4m)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Plate Number</label>
+                                                <input name="vehicle[0][plate]" id="plate" type="text" class="form-control search-query" placeholder="">
+                                                <div class="loader" style="display:none;"><img src="{{ 'assets/img/loader.gif'|theme }}" alt=""></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="mypanel"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-0">
+                                                <label for="othercar">Do You Have Other Car?</label>
+                                                <div class="form-check-inline mt-0 mb-0 ml-3 mr-0">
+                                                    <input id="car_yes" class="form-check-input" type="radio" name="othercar" value="yes" data-toggle="collapse" data-target="#carin-if-yes" aria-expanded="false" aria-controls="carin-if-yes">
+                                                    <label class="form-check-label" for="carin-if-yes">YES</label>
+                                                </div>
+                                                <div class="form-check-inline mt-0 mb-0 ml-3 mr-0">
+                                                    <input id="car_no" class="form-check-input" type="radio" name="othercar" value="no" data-toggle="collapse" data-target="#carin-if-no" aria-expanded="true" aria-controls="carin-if-no" checked>
+                                                    <label class="form-check-label" for="carin-if-no">NO</label>
+                                                </div>
+                                            </div>
+                                            <section id="othercar_details">
+                                                <div id="carin-if-yes" class="m-0 col-md-12 row collapse m-0 p-0" data-parent="#othercar_details">
+                                                    <div class="form-group col-md-12 p-0">
+                                                        <label>Vehicle Size</label>
+                                                        <select name="vehicle[1][size]" class="form-control">
+                                                            <option value="">Select Vehicle Size</option>
+                                                            <option value="Standard">Standard</option>
+                                                            <option value="Car + Trailer">Car + Trailer</option>
+                                                            <option value="Campervan/Motorhome (Bigger than 4m)">Campervan/Motorhome (Bigger than 4m)</option>
+                                                            <option value="Truck (Bigger than 4m)">Truck (Bigger than 4m)</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-12 p-0">
+                                                        <label>Plate Number</label>
+                                                        <input name="vehicle[1][plate]" id="othercarplate" type="text" class="form-control search-query" placeholder="">
+                                                        <div class="loader2" style="display:none;"><img src="{{ 'assets/img/loader.gif'|theme }}" alt=""></div>
+                                                    </div>
+                                                    <div class="form-group col-md-12 p-0">
+                                                        <div class="othermypanel"></div>
+                                                    </div>
+                                                </div>
+                                                <div id="carin-if-no" class="m-0 col-md-12 row collapse show" data-parent="#othercar_details"></div>
+                                            </section>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Passengers</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <p>So we can ensure you all get on the airport transfer bus please provide the details of those travelling in total.</p>
+                                    <h5>Going To Airport</h5>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="adult-children" class="col-form-label">Adults/Children (7 & Over)</label>
+                                            <select name="adultsGoing" class="form-control">
+                                                <option value="">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>                                        
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="adult-children" class="col-form-label">Children (Under 7)</label>
+                                            <select name="childrenGoing" class="form-control">
+                                                <option value="">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <h5>Returning From Airport</h5>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="adult-children" class="col-form-label">Adults/Children (7 & Over)</label>
+                                            <select name="adultsReturning" class="form-control">
+                                                <option value="">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="adult-children" class="col-form-label">Children (Under 7)</label>
+                                            <select name="childrenReturning" class="form-control">
+                                                <option value="">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-check">
+                                            <input name="disabledPerson" id="disabled-pass" type="checkbox" value="1" class="form-check-input">
+                                            <label class="form-check-label" for="disabled-pass">One or more of my passengers requires disabled access</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-check">
+                                            <input name="carSeat" id="child-seat" type="checkbox" value="1" class="form-check-input">
+                                            <label class="form-check-label" for="child-seat">I understand that if my child requires a carseat I will provide one to safely transport my child to and from the airport</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <legend>Entering Aeroparks</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="">Do You Require Transport to Airport?</label>
+                                            <div class="form-check-inline m-3">
+                                                <input id="tran_yes" class="form-check-input" type="radio" name="transpoTo" value="yes" data-toggle="collapse" data-target="#in-if-yes" aria-expanded="true" aria-controls="in-if-yes" checked>
+                                                <label class="form-check-label" for="tran_yes">YES</label>
+                                            </div>
+                                            <div class="form-check-inline m-3">
+                                                <input id="tran_no" class="form-check-input collapsed" type="radio" name="transpoTo" value="no" data-toggle="collapse" data-target="#in-if-no" aria-expanded="false" aria-controls="in-if-no">
+                                                <label class="form-check-label" for="tran_no">NO</label>
+                                            </div>
+                                        </div>
+                                        <section id="enter_port_trans" class="col-md-12">
+                                            <div id="in-if-yes" class="my-4 col-md-12 row collapse show m-0 p-0" data-parent="#enter_port_trans">
+                                                <div class="form-group col-md-12">
+                                                    <label>Purpose of Trip</label>
+                                                    <select name="tripPurposeTo" class="form-control">
+                                                        <option>-</option>
+                                                        <option value="1">Catching a flight</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Departing Flight Number</label>
+                                                    <input name="flightNumberDepart" type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Entering Aeroparks</label>
+                                                    <input name="dateTimeIn" type="text" class="form-control datetime-default datepicker" placeholder="Date & Time">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Take me to</label>
+                                                    <select name="destination" class="form-control">
+                                                        <option>Please Select</option>
+                                                        <option value="international">International</option>
+                                                        <option value="air_new_zealand">Domestic - Air New Zealand</option>
+                                                        <option value="jetstar">Domestic - Jetstar</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div id="in-if-no" class="my-4 col-md-12 row collapse" data-parent="#enter_port_trans">
+                                                <div class="form-group col-md-12">
+                                                    <label>Entering Aeroparks</label>
+                                                    <input name="dateTimeInOnly" type="text" class="form-control datetime-default datepicker" placeholder="Date & Time">
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+
+                        <div class="col-sm-12 col-md-6">
+                            <legend>Exiting Aeroparks</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="">Do You Require Transport from the Airport?</label>
+                                            <div class="form-check-inline m-3">
+                                                <input id="exit_tran_yes" class="form-check-input" type="radio" name="transpoFrom" value="yes" data-toggle="collapse" data-target="#out-if-yes" aria-expanded="true" aria-controls="out-if-yes" checked>
+                                                <label class="form-check-label" for="exit_tran_yes">YES</label>
+                                            </div>
+                                            <div class="form-check-inline m-3">
+                                                <input id="exit_tran_no" class="form-check-input collapsed" type="radio" name="transpoFrom" value="no" data-toggle="collapse" data-target="#out-if-no" aria-expanded="false" aria-controls="out-if-no">
+                                                <label class="form-check-label" for="exit_tran_no">NO</label>
+                                            </div>
+                                        </div>
+                                        <section id="exit_port_trans" class="col-md-12">
+                                            <div id="out-if-yes" class="my-4 col-md-12 row collapse show m-0 p-0" data-parent="#exit_port_trans">
+                                                <div class="form-group col-md-12">
+                                                    <label>Purpose of Trip</label>
+                                                    <select name="tripPurposeFrom" class="form-control">
+                                                        <option>-</option>
+                                                        <option value="1">Returning on flight</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Arriving Flight Number</label>
+                                                    <input name="flightNumberArrive" type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Exiting Aeroparks</label>
+                                                    <input name="dateTimeOut" type="text" class="form-control datetime-default datepicker" placeholder="Date and Time">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Pick Me Up From</label>
+                                                    <select name="pickupLocation" class="form-control">
+                                                        <option>Please Select</option>
+                                                        <option value="international">International</option>
+                                                        <option value="air_new_zealand">Domestic - Air New Zealand</option>
+                                                        <option value="jetstar">Domestic - Jetstar</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div id="out-if-no" class="my-4 col-md-12 row collapse" data-parent="#exit_port_trans">
+                                                <div class="form-group col-md-12">
+                                                    <label>Exiting Aeroparks</label>
+                                                    <input name="dateTimeOutOnly" type="text" class="form-control datetime-default datepicker" placeholder="Date and Time">
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-md-6">
+                            <legend>Purpose of Trip</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label>Purpose of Trip?</label>
+                                            <select name="purpose" class="form-control valid" aria-invalid="false">
+                                                <option value="">Please Select</option>
+                                                <option value="Personal">Personal</option>
+                                                <option value="Business">Business</option>
+                                            </select>
+                                            <small class="form-text text-muted">&nbsp;</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <legend>Travel Agent</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label>Travel Agent Reference No.</label>
+                                            <input name="agentReference" type="text" class="form-control" placeholder="">
+                                            <small class="form-text text-muted">(Travel Agents Only Please)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="{{ 'assets/img/offer.png'|theme }}" alt="">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group form-check">
+                                        <input name="promo" type="checkbox" value="1" class="form-check-input" id="exclusiveoffer">
+                                        <label class="form-check-label" for="exclusiveoffer"><b>Enjoy exclusive airport parking offers</b> From time to time we will send you exclusive airport offers, from great discounts on parking to airport related deals. Please tick this box if you would like to receive them.</label>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input name="termsAndCondition" type="checkbox" value="1" class="form-check-input" id="terms-conditions">
+                                        <label class="form-check-label" for="terms-conditions"><b>I accept the Aeroparks's <a href="#" data-toggle="modal" data-target="#termsandcondition">Terms and Conditions</a> </b></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+
+                <div class="my-4">
+                    <button onclick="$.wizard('#step-1')" type="button" class="btn btn-primary">BACK</button>
+                    <button onclick="$.wizard('#step-3')" type="button" class="btn btn-primary float-right">NEXT</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-3">
+            <div class="col-md-12">
+                <div class="my-4">
+                    <h2 class="text-center">TRAVEL EXTRAS</h2>
+                    <p>Would you like to add any extras to your booking?</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- Tab Menu -->
+                        <ul id="services" class="row nav nav-tabs border-0">
+                            <li class="nav-item col-6 m-0 p-2">
+                                <a class="nav-link btn btn-block btn-info py-3 show active" data-toggle="tab" href="#car_groom">
+                                    <i class="fa fa-broom fa-3x m-0 d-inline-block align-middle"></i> <h4 class="ml-3 m-0 d-inline-block align-middle">CAR GROOMING SERVICES</h4>
+                                </a>
+                            </li>
+                            <li class="nav-item col-6 m-0 p-2">
+                                <a class="nav-link btn btn-block btn-info py-3 show" data-toggle="tab" href="#car_maintain">
+                                    <i class="fa fa-oil-can fa-3x m-0 d-inline-block align-middle"></i><h4 class="ml-3 m-0 d-inline-block align-middle">CAR MAINTENANCE</h4>
+                                </a>
+                            </li>
+                          </ul>
+                        <div class="card my-4">
+                            <div class="card-body">
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <!---Car Groom-->
+                                    <div class="tab-pane fade active show" id="car_groom" role="tabpanel">
+                                      <h3 class="mt-4 mb-4">CAR GROOMING SERVICES</h3>
+                                      <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="text-center align-middle">CAR <br>GROOMING</th>
+                                                    <th scope="col" class="text-center align-middle">Description</th>
+                                                    <th scope="col" class="text-center align-middle">Large</th>
+                                                    <th scope="col" class="text-center align-middle">Medium</th>
+                                                    <th scope="col" class="text-center align-middle">Small</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" class="text-center">
+                                                        <i class="fa fa-car fa-3x"></i>
+                                                        <br> Standard Car Valet
+                                                    </th>
+                                                    <td>
+                                                        Standard Car Valet: Wash and dry exterior, vacuum, clean windows and paint tyres.
+                                                        <a data-toggle="collapse" href="#more-standard" class="collapsed" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('swl')" type="button" class="btn btn-info btn-sm btn-block">$79.95</button>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('swm')" type="button" class="btn btn-info btn-sm btn-block">$69.95</button>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('sws')" type="button" class="btn btn-info btn-sm btn-block">$59.95</button>
+                                                    </td>
+                                                </tr>
+                                                <tr class="collapse" id="more-standard" style="">
+                                                    <td colspan="5">
+                                                        <div class="card card-body border-0">
+                                                            <h5>STANDARD CAR VALET FROM $59.95 WASH AND DRY EXTERIOR</h5>
+                                                            <ul class="p-0 ml-4">
+                                                                <li>Clean door jambs</li>
+                                                                <li>Remove litter</li>
+                                                                <li>Clean Ashtrays</li>
+                                                                <li>Dust Dashboard</li>
+                                                                <li>Clean windows</li>
+                                                                <li>Clean mirrors</li>
+                                                                <li>Vacuum Seats and carpets</li>
+                                                                <li>Clean wheels</li>
+                                                                <li>Paint tyres</li>
+                                                                <li>Please note, whilst we do our best to remove all pet hair, we cannot guarantee 100% removal.</li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="text-center">
+                                                        <i class="fa fa-car fa-3x"></i>
+                                                        <br> Deluxe Car Valet
+                                                    </th>
+                                                    <td>
+                                                        Deluxe: Wash and dry exterior, vacuum, clean and paint tyres, hand polish exterior
+                                                        <a data-toggle="collapse" href="#more-deluxe" class="collapsed" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('dwl')" type="button" class="btn btn-info btn-sm btn-block">$139.95</button>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('dwm')" type="button" class="btn btn-info btn-sm btn-block">$119.95</button>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('dws')" type="button" class="btn btn-info btn-sm btn-block">$99.95</button>
+                                                    </td>
+                                                </tr>
+                                                <tr class="collapse" id="more-deluxe">
+                                                    <td colspan="5">
+                                                        <div class="card card-body border-0">
+                                                            <h5>DELUXE CAR VALET FROM $99.95</h5>
+                                                            <ul class="p-0 ml-4">
+                                                                <li>Wash and dry exterior</li>
+                                                                <li>Clean door jambs</li>
+                                                                <li>Remove litter</li>
+                                                                <li>Clean Ashtrays</li>
+                                                                <li>Dust Dashboard</li>
+                                                                <li>Clean windows</li>
+                                                                <li>Clean mirrors</li>
+                                                                <li>Vacuum Seats and carpets</li>
+                                                                <li>Clean wheels</li>
+                                                                <li>Paint tyres</li>
+                                                                <li>Polish by hand</li>
+                                                                <li>Please note, whilst we do our best to remove all pet hair, we cannot guarantee 100% removal.</li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="text-center">
+                                                        <i class="fa fa-car fa-3x"></i>
+                                                        <br> Exterior Wash
+                                                    </th>
+                                                    <td>
+                                                        Exterior Wash <a data-toggle="collapse" href="#more-exterior" class="collapsed" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('ewl')" type="button" class="btn btn-info btn-sm btn-block">$34.95</button>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('ewm')" type="button" class="btn btn-info btn-sm btn-block">$29.95</button>
+                                                    </td>
+                                                    <td>
+                                                        <button onclick="Casher.add('ews')" type="button" class="btn btn-info btn-sm btn-block">$24.95</button>
+                                                    </td>
+                                                </tr>
+                                                <tr class="collapse" id="more-exterior">
+                                                    <td colspan="5">
+                                                        <div class="card card-body border-0">
+                                                            <h5>EXTERIOR WASH, FROM $24.95</h5>
+                                                            <p>Includes exterior wash, dry, clean alloys, and tyres dressed.</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    <!-- Maintenance -->
+                                    <div class="tab-pane fade" id="car_maintain" role="tabpanel">
+                                        <h4>CAR MAINTENANCE</h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="maintain_top">
+                                                                <h5 class="float-left p-1 m-0">Hi-Care Car Service <a data-toggle="collapse" href="#hicare_service" class="collapsed ml-3" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i></a></h5>
+                                                                <button onclick="Casher.add('hiCareCS')" type="button" class="btn btn-info float-right">$199</button>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                            <div class="maintain_content">
+                                                                <div class="col-12">
+                                                                    <div class="card card-body border-0 p-0 collapse" id="hicare_service" style="">
+                                                                        <ul class="p-3 m-0">
+                                                                            <li>Service and oil change with up to 5 litres of premium semi synthetic oil</li>
+                                                                            <li>Premium oil filter</li>
+                                                                            <li>Airfilter check and clean</li>
+                                                                            <li>Coolant check</li>
+                                                                            <li>Electronic battery condition check</li>
+                                                                            <li>Tyre rotation and inspection and check brakes</li>
+                                                                            <li>Vehicle inspection</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="maintain_top">
+                                                                <h5 class="float-left p-1 m-0">Major Car Service <a data-toggle="collapse" href="#maintain-major" class="collapsed ml-3" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i></a></h5>
+                                                                <button onclick="Casher.add('majorCS')" type="button" class="btn btn-info float-right">$249</button>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                            <div class="maintain_content">
+                                                                <div class="col-12">
+                                                                    <div class="card card-body p-0 border-0 collapse" id="maintain-major" style="">
+                                                                        <ul class="p-3 m-0">
+                                                                            <li>Service and oil change with up to 5 litres of premium semi synthetic oil</li>
+                                                                            <li>Premium oil filter</li>
+                                                                            <li>Clean air filter</li>
+                                                                            <li>Coolant check</li>
+                                                                            <li>Bars bugs</li>
+                                                                            <li>Check brakes, clean, adjust rear brakes</li>
+                                                                            <li>Electronic battery condition check</li>
+                                                                            <li>Tyre rotation and inspection and check pressures</li>
+                                                                            <li>Inspect ignition, plugs, leads and connections</li>
+                                                                            <li>New wiper blades</li>
+                                                                            <li>Vehicle inspection</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="maintain_top">
+                                                                <h5 class="float-left p-1 m-0">Minor Car Service <a data-toggle="collapse" href="#maintain-minor" class="collapsed ml-3" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i></a></h5>
+                                                                 <button onclick="Casher.add('minorCS')" type="button" class="btn btn-info float-right">$129</button>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                            <div class="maintain_content">
+                                                                <div class="col-12">
+                                                                    <div class="card card-body p-0 border-0 collapse" id="maintain-minor" style="">
+                                                                        <ul class="p-3 m-0">
+                                                                            <li>Service and oil change with up to 5 litres of premium semi synthetic oil</li>
+                                                                            <li>Premium oil filter</li>
+                                                                            <li>Electronic battery condition check</li>
+                                                                            <li>Vehicle inspection</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="maintain_top">
+                                                                <h5 class="float-left p-1 m-0">Diesel / 4X4 Service <a data-toggle="collapse" href="#maintain-diesel" class="collapsed ml-3" aria-expanded="false"><i class="fa fa-plus" aria-hidden="true"></i></a></h5>
+                                                                <button onclick="Casher.add('dieselCS')" type="button" class="btn btn-info float-right">$299</button>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                            <div class="maintain_content">
+                                                                <div class="col-12">
+                                                                    <div class="card card-body p-0 border-0 collapse" id="maintain-diesel" style="">
+                                                                        <ul class="p-3 m-0">
+                                                                            <li>Service and oil change with up to 7 litres of premium semi synthetic oil</li>
+                                                                            <li>Premium oil filter</li>
+                                                                            <li>Clean air filter</li>
+                                                                            <li>Coolant check</li>
+                                                                            <li>Bars bugs</li>
+                                                                            <li>Check brakes, clean, adjust rear brakes</li>
+                                                                            <li>Electronic battery condition check</li>
+                                                                            <li>Tyre rotation and inspection and check pressures</li>
+                                                                            <li>Inspect ignition, plugs, leads and connections</li>
+                                                                            <li>New wiper blades</li>
+                                                                            <li>Vehicle inspection</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="sticky-top">
+                            <div id="casher" class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Order Summary</h5>
+                                    <!-- <h6 class="card-subtitle mb-2 text-muted">Parking</h6> -->
+                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                    <hr>
+                                    <div id="cart-items">
+                                        <ul class="cart-item-list" class="list-group mb-3" style="max-height:495px; overflow-y: auto;">
+                                            <li class="list-group-item item">
+                                                <div class="d-flex justify-content-between lh-condensed ">
+                                                    <div>
+                                                        <h6 class="my-0 name">Product name</h6>
+                                                        <small class="text-muted description">Brief description</small>
+                                                    </div>
+                                                    <span class="text-muted price">$12</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul class="list-group my-4">
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <strong class="text-info">Total (USD)</strong>
+                                                <strong class="text-info total">$20</strong>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-4">
+                    <button onclick="$.wizard('#step-2')" class="btn btn-primary ">BACK</button>
+                    <button onclick="$.wizard('#step-4')" class="btn btn-primary float-right">NEXT STEP</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-4">
+            <div class="col-md-12">
+                <h2 class="text-center">REVIEW & CONFIRM</h2>
+                <form id="review" class="bs-component">
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Personal Details</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body mb-4">
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="review-fname" class="col-form-label text-right">Full Name:</label>
+                                            <input class="form-control" id="review-fname" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="review-email" class="col-form-label text-right">Email:</label>
+                                            <input class="form-control" id="review-email" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="review-phone" class="col-form-label text-right">Mobile Number:</label>
+                                            <input class="form-control" id="review-phone" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group form-check col-md-12">
+                                            <input name="review-txtNotification" type="checkbox" class="form-check-input ml-0" disabled>
+                                            <label class="form-check-label ml-3">When my flight lands please TXT me details of the transfer bus</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Car Details</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="review-plate" class="col-form-label text-right">Plate Number:</label>
+                                            <input class="form-control" id="review-plate" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="review-vsize" class="col-form-label text-right">Vehicle Size:</label>
+                                            <input class="form-control" id="review-vsize" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="review-make" class="col-form-label text-right">Vehicle Brand:</label>
+                                            <input class="form-control" id="review-make" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="review-model" class="col-form-label text-right">Vehicle Model:</label>
+                                            <input class="form-control" id="review-model" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="review-color" class="col-form-label text-right">Vehicle Color:</label>
+                                            <input class="form-control" id="review-color" type="text" placeholder="" readonly="">
+                                        </div>
+                                    </div>
+                                    <div id="othercardetails" class="row">
+                                        <h5 class="mt-3 col-md-12">Other Car</h5>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="review-otherplate" class="col-form-label text-right">Plate Number:</label>
+                                            <input class="form-control" id="review-otherplate" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="review-othervsize" class="col-form-label text-right">Vehicle Size:</label>
+                                            <input class="form-control" id="review-othervsize" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="review-othermake float-left" class="col-form-label text-right">Vehicle Brand:</label>
+                                            <input class="form-control" id="review-othermake" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="review-othermodel" class="col-form-label text-right">Vehicle Model:</label>
+                                            <input class="form-control" id="review-othermodel" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="review-othercolor" class="col-form-label text-right">Vehicle Color:</label>
+                                            <input class="form-control" id="review-othercolor" type="text" placeholder="" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Passengers</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <h5>Going To Airport</h5>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="review-adults-to" class="col-form-label text-right">Adults:</label>
+                                            <input class="form-control" id="review-adults-to" type="text" placeholder="0" readonly="">
+                                        </div>                                        
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="review-children" class="col-md-4 col-form-label text-right">Children:</label>
+                                            <input class="form-control" id="review-children" type="text" placeholder="0" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="review-num-to-port" class="col-form-label text-right">Number Travelling To Airport:</label>
+                                            <input class="form-control" id="review-num-to-port" type="text" placeholder="0" readonly="">
+                                        </div>
+                                    </div>
+                                    <h5>Returning From Airport</h5>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="review-adults-from" class="col-form-label text-right">Adults:</label>
+                                            <input class="form-control" id="review-adults-from" type="text" placeholder="0" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="review-child-from" class="col-form-label text-right">Children:</label>
+                                            <input class="form-control" id="review-child-from" type="text" placeholder="0" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="review-num-from-port" class="col-form-label text-right">Number Travelling From Airport:</label>
+                                            <input class="form-control" id="review-num-from-port" type="text" placeholder="0" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 form-check">
+                                        <input name="review-disabledAccess" id="disabled-access" type="checkbox" class="form-check-input">
+                                        <label class="form-check-label" for="disabled-access">One or more of my passengers requires disabled access </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Aeroparks</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <h5>Entering Aeroparks</h5>
+                                            <label for="review-entry-details" class="col-form-label text-right">Details:</label>
+                                            <input class="form-control datetime-default datepicker" id="review-entry-details" type="text" value="" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <h5>Exiting Aeroparks</h5>
+                                            <label for="review-exit-details" class="col-form-label text-right">Details:</label>
+                                            <input class="form-control datetime-default datepicker" id="review-exit-details" type="text" value="" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <h5>Purpose of the Trip</h5>
+                                            <label for="review-purpose" class="col-form-label text-right">Purpose:</label>
+                                            <input class="form-control" id="review-purpose" type="text" value="Personal" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Payment Information</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <h5>Order Summary</h5>
+                                            <section id="review-order"></section>
+                                        </div>      
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label>Payment Method</label>
+                                            <select name="" class="form-control">
+                                                <option>Select</option>
+                                                <option>Cash</option>
+                                                <option>Credit/Debit Card</option>
+                                                <option>Check</option>
+                                                <option>Bitcoin</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="lastName">Promo Code</label>
+                                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                                            <div class="invalid-feedback">
+                                                Valid last name is required.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    
+                </form>
+                <div class="my-4">
+                    <button onclick="$.wizard('#step-3')" class="btn btn-primary">BACK</button>
+                    <button id="checkoutbtn" onclick="$.wizard('#step-5');register();" class="btn btn-primary float-right">CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-5">
+            <div class="col-md-12">
+
+                <h2 class="text-center">FINISHED</h2>
+                <form id="finish" class="bs-component">
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>BOOKING #M65683975 FINALISED</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                           <h6 class="card-subtitle mb-2 text-muted">Thank you for booking at Aeroparks</h6>
+                                            <p class="card-text">A confirmation Email has been sent to: <b>Gwen_Erdman2@yahoo.com</b></p>
+                                            <p>Please download and print your PTicket.</p>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                           <a href="#" class="btn btn-primary float-right">Download</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <h5>Entering Date/Time</h5>
+                                            <input class="form-control datetime-default datepicker" id="finish-entry-details" type="text" value="" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <h5>Exiting Date/Time</h5>
+                                            <input class="form-control datetime-default datepicker" id="finish-exit-details" type="text" value="" readonly="">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12748.666704263609!2d174.77112339999996!3d-36.98195450000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d45625172ee93%3A0xa962a66f26d0de72!2s112+Pavilion+Dr!5e0!3m2!1sen!2s!4v1395896649176" frameborder="0" height="450" width="100%"></iframe>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Order Summary</legend>
+                            <div class="card-body p-0 mb-5">
+                                <div id="finish-order"></div> 
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Personal Details</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body mb-4">
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="final-fname" class="col-form-label">Full Name:</label>
+                                            <input class="form-control" id="final-fname" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="final-email" class="col-form-label">Email:</label>
+                                            <input class="form-control" id="final-email" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="final-phone" class="col-form-label">Mobile Number:</label>
+                                            <input class="form-control" id="final-phone" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group form-check col-md-12">
+                                            <input name="final-txtNotification" type="checkbox" class="form-check-input ml-0" disabled>
+                                            <label class="form-check-label ml-3">When my flight lands please TXT me details of the transfer bus</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Car Details</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="final-plate" class="col-form-label text-right">Plate Number:</label>
+                                            <input class="form-control" id="review-plate" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="final-vsize" class="col-form-label text-right">Vehicle Size:</label>
+                                            <input class="form-control" id="review-vsize" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="final-make" class="col-form-label text-right">Vehicle Brand:</label>
+                                            <input class="form-control" id="review-make" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="final-model" class="col-form-label text-right">Vehicle Model:</label>
+                                            <input class="form-control" id="review-model" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="final-color" class="col-form-label text-right">Vehicle Color:</label>
+                                            <input class="form-control" id="review-color" type="text" placeholder="" readonly="">
+                                        </div>
+                                    </div>
+                                    <div id="final_othercardetails" class="row">
+                                        <h5 class="mt-3 col-md-12">Other Car</h5>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="final-otherplate" class="col-form-label text-right">Plate Number:</label>
+                                            <input class="form-control" id="review-otherplate" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="final-othervsize" class="col-form-label text-right">Vehicle Size:</label>
+                                            <input class="form-control" id="review-othervsize" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="final-othermake" class="col-form-label text-right">Vehicle Brand:</label>
+                                            <input class="form-control" id="review-othermake" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="final-othermodel" class="col-form-label text-right">Vehicle Model:</label>
+                                            <input class="form-control" id="review-othermodel" type="text" placeholder="" readonly="">
+                                        </div>
+                                        <div class="form-group col-md-4 float-left">
+                                            <label for="final-othercolor" class="col-form-label text-right">Vehicle Color:</label>
+                                            <input class="form-control" id="review-othercolor" type="text" placeholder="" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            
+                        </div>
+                    </section>
+
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Passengers</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <h5>Going To Airport</h5>
+                                    <div class="form-group row mb-4">
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="final-adults-to" class="col-form-label text-right">Adults:</label>
+                                            <input class="form-control" id="final-adults-to" type="text" placeholder="0" readonly="">
+                                        </div>                                        
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="final-children" class="col-md-4 col-form-label text-right">Children:</label>
+                                            <input class="form-control" id="final-children" type="text" placeholder="0" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="final-num-to-port" class="col-form-label text-right">Number Travelling To Airport:</label>
+                                            <input class="form-control" id="final-num-to-port" type="text" placeholder="0" readonly="">
+                                        </div>
+                                    </div>
+                                    <h5>Returning From Airport</h5>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="final-adults-from" class="col-form-label text-right">Adults:</label>
+                                            <input class="form-control" id="final-adults-from" type="text" placeholder="0" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="final-child-from" class="col-form-label text-right">Children:</label>
+                                            <input class="form-control" id="final-child-from" type="text" placeholder="0" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="final-num-from-port" class="col-form-label text-right">Number Travelling From Airport:</label>
+                                            <input class="form-control" id="final-num-from-port" type="text" placeholder="0" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input name="final-disabledAccess" id="disabled-access" type="checkbox" class="form-check-input">
+                                        <label class="form-check-label" for="disabled-access">One or more of my passengers requires disabled access </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <legend>Aeroparks</legend>
+                            <fieldset class="card mb-5">
+                                <div class="card-body">
+                                    <div class="form-group row mb-4">
+                                        <div class="col-sm-12 col-md-6">
+                                            <h5>Entering Aeroparks</h5>
+                                            <label for="review-entry-details" class="col-form-label text-right">Details:</label>
+                                            <input class="form-control" id="review-entry-details" type="text" value="Sun, 17 Feb 2019 10:10" readonly="">
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <h5>Exiting Aeroparks</h5>
+                                            <label for="review-exit-details" class="col-form-label text-right">Details:</label>
+                                            <input class="form-control" id="review-exit-details" type="text" value="Sun, 17 Feb 2019 10:10" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <h5>Purpose of the Trip</h5>
+                                            <label for="final-purpose" class="col-form-label text-right">Purpose:</label>
+                                            <input class="form-control" id="final-purpose" type="text" value="Personal" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </section>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

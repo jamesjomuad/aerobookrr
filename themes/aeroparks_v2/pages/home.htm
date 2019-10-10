@@ -1,0 +1,714 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[Register]
+
+[Login]
+isLoginPage = "no"
+loginPage = "signin"
+redirectPage = 0
+==
+<div class="forcelogin_wrap">
+  <div class="force_login">
+    <div class="flogin_wrap">
+      <h4>Welcome to Parking Space</h4>
+      <hr/>
+      <a href="#fname" id="signup_quotebtn">Get a Quote Login</a><br>
+      <div class="signup_here">Not registered? <br><a href="/" id="login_back">Sign up here</a></div>
+      <hr/>
+      <!-- <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+      <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
+    </div>
+  </div>
+</div>
+<section id="main" class="homebanner_wrapper fill">
+  <div id="homebanner" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="fill" style="background-image:url('{{ 'assets/img/banner1.jpg'|theme }}');">
+          <div class="container">
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="fill" style="background-image:url('{{ 'assets/img/banner2.jpg'|theme }}');">
+          <div class="container">
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item familycar">
+        <div class="fill" style="background-image:url('{{ 'assets/img/banner3.jpg'|theme }}');">
+          <div class="container">
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item familycar">
+        <div class="fill" style="background-image:url('{{ 'assets/img/banner4.jpg'|theme }}');">
+          <div class="container">
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="fill" style="background-image:url('{{ 'assets/img/banner5.jpg'|theme }}');">
+          <div class="container">
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item bottom30">
+        <div class="fill" style="background-image:url('{{ 'assets/img/banner6.jpg'|theme }}');">
+          <div class="container">
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item bottom80">
+        <div class="fill" style="background-image:url('{{ 'assets/img/banner7.jpg'|theme }}');">
+          <div class="container">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#homebanner" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#homebanner" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="m_home_header form-header text-sm-center">
+    <h2 class="text-center">BOOK AUCKLAND AIRPORT PARKING</h2>
+  </div>
+</section>
+<div class="maincontent_wrapper">
+  <div class="d_home_header form-header text-sm-center">
+    <h2 class="text-center">BOOK AUCKLAND AIRPORT PARKING</h2>
+  </div>
+
+  <div id="quote_mainwrap" class="quote_mainwrap">
+    <div id="step_quote">
+      <div class="quote_wrapper">
+        <h4>Parking from <span class="txtorange">$5 PER DAY</span> <span id="quickquoteresult"></span></h4>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div class="form-group dateIn_wrapper">
+            <label>Flight Departure Date</label>
+            <input id="dateIn" name="dateIn" type="text" class="form-control datetime-default datepicker"
+              placeholder="Date">
+            <label class="error"></label>
+          </div>
+        </div>
+        <!-- <div class="col-sm-6 col-md-6">
+          <div class="form-group">
+            <label>Flight Departure Time</label>
+            <input id="TimeIn" name="TimeIn" type="text" class="form-control datetime-default timepicker"
+              placeholder="Time">
+          </div>
+        </div> -->
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div class="form-group dateOut_wrapper">
+            <label>Flight Arrival Date</label>
+            <input id="dateOut" name="dateOut" type="text" class="form-control datetime-default datepicker"
+              placeholder="Date"/>
+            <label class="error"></label>
+          </div>
+        </div>
+        <!-- <div class="col-sm-6 col-md-6">
+          <div class="form-group">
+            <label>Flight Arrival Time</label>
+            <input id="TimeOut" name="TimeOut" type="text" class="form-control datetime-default timepicker"
+              placeholder="Time">
+          </div>
+        </div> -->
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="quote_signup">Not registered? <br><button id="login_back" onclick="signup_here()">Sign up here</button></div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <button id="quotebtn" type="button" class="btn btn-primary float-right">Quote Now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="content_wrap" class="content_wrap">
+    <div class="booking-form_content">
+      <form id="signUp" onkeypress="return event.keyCode != 13;">
+
+      
+        <div id="step_1">
+          
+          <!-- <hr> -->
+          <div class="row">
+            <div class="col-sm-4 col-md-4">
+              <div class="form-group">
+                <label>First Name</label>
+                <input id="fname" name="first_name" type="text" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input id="lname" name="last_name" type="text" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input id="phone" name="phone" type="text" class="form-control" placeholder="000-0000/xxxx-xxx-xxxx">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-md-4">
+              <div class="form-group">
+                <label>Email address</label>
+                <input name="email" type="email" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+              <div class="form-group">
+                <label>Password</label>
+                <input name="password" type="password" id="password" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+              <div class="form-group">
+                <label>Confirm Password</label>
+                <input name="password_confirmation" type="password" class="form-control" placeholder="">
+              </div>
+            </div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Flight Departure Number</label>
+                <input id="flight_depnum" name="flight_depnum" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Flight Departure Date</label>
+                <input id="dateIn" name="dateIn" type="text" class="form-control datetime-default datepicker"
+                  placeholder="Date">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Flight Departure Time</label>
+                <input id="TimeIn" name="TimeIn" type="text" class="form-control datetime-default timepicker"
+                  placeholder="Time">
+              </div>
+            </div>
+            <!-- <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Take me to</label>
+                <select name="destinationIn" class="form-control">
+                  <option>Please Select</option>
+                  <option value="domestic">Domestic</option>
+                  <option value="international">International</option>
+                </select>
+              </div>
+            </div> -->
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Passengers/Children</label>
+                <select id="guest" name="guest_out" class="guest form-control">
+                  <option value="0">Please Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Flight Arrival Number</label>
+                <input id="flight_arrivenum" name="flight_arrivenum" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Flight Arrival Date</label>
+                <input id="dateOut" name="dateOut" type="text" class="form-control datetime-default datepicker"
+                  placeholder="Date">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Flight Arrival Time</label>
+                <input id="TimeOut" name="TimeOut" type="text" class="form-control datetime-default timepicker"
+                  placeholder="Time">
+              </div>
+            </div>
+            <!-- <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Take me to</label>
+                <select name="destinationOut" class="form-control">
+                  <option>Please Select</option>
+                  <option value="domestic">Domestic</option>
+                  <option value="international">International</option>
+                </select>
+              </div>
+            </div> -->
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Returning Passengers</label>
+                <select id="returnguest" name="guest_in" class="returnguest form-control">
+                  <option value="0">Please Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="form-group col-sm-6 col-md-3">
+              <label>Plate Number</label>
+              <input name="vehicle[plate]" id="plate" type="text" class="form-control search-query" placeholder="">
+              <div class="loader" style="display:none;">
+                <img src="{{ 'assets/img/loader.gif'|theme }}" alt="">
+              </div>
+              <div class="mypanel_error"></div>
+            </div>
+            <div class="form-group col-sm-6 col-md-3 vehicle_panel">
+              <label>Make:</label>
+              <input id="make_data" name="vehicle[brand]" type="text" class="form-control" placeholder="" value="">
+            </div>
+            <div class="form-group col-sm-6 col-md-3 vehicle_panel">
+              <label>Model:</label>
+              <input id="model_data" name="vehicle[model]" type="text" class="form-control" placeholder="" value="">
+            </div>
+            <div class="form-group col-sm-6 col-md-3 vehicle_panel">
+              <label>Color:</label>
+              <input id="color_data" name="vehicle[color]" type="text" class="form-control" placeholder="" value="">
+            </div>
+            <div class="form-group col-sm-6 col-md-3">
+              <label>Vehicle Size</label>
+              <select name="vehicle[size]" class="form-control">
+                <option value="">Select Vehicle Size</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+          </div>
+          <hr>
+
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <!-- <h5 class="float-left">We do not provide baby seat.</h5> -->
+              <button onclick="$.wizard('#travel_extra')" type="button"
+                class="btn btn-primary float-right">Next</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="travel_extra" class="travel_extra">
+          <h4 class="text-center">TRAVEL EXTRAS</h4>
+          <p>Would you like to add any extras to your booking?</p>
+          <div class="row">
+            <div class="col-md-8">
+              <!-- Tab Menu -->
+              <ul id="services" class="row nav nav-tabs border-0">
+                <li class="nav-item col-6 m-0 pr-0">
+                  <a class="nav-link btn btn-block btn-info show active" data-toggle="tab" href="#car_groom">
+                    <h5>CAR GROOMING </h5>
+                  </a>
+                </li>
+                <li class="nav-item col-6 m-0 pl-0">
+                  <a class="nav-link btn btn-block btn-info show" data-toggle="tab" href="#car_maintain">
+                    <h5>CAR MAINTENANCE</h5>
+                  </a>
+                </li>
+              </ul>
+              <div class="card">
+                <div class="card-body pb-0">
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <!---Car Groom-->
+                    <div class="tab-pane fade active show" id="car_groom" role="tabpanel">
+                      <h5>CAR GROOMING SERVICES</h5>
+                      <div class="table-responsive">
+                        <table class="table mb-0">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="text-center align-middle">GROOMING</th>
+                              <th scope="col" class="text-center align-middle">Description</th>
+                              <th scope="col" class="text-center align-middle">Large</th>
+                              <th scope="col" class="text-center align-middle">Medium</th>
+                              <th scope="col" class="text-center align-middle">Small</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row" class="text-center">
+                                <i class="fa fa-car fa-3x"></i>
+                                <br> Standard Car Valet
+                              </th>
+                              <td>
+                                Standard Car Valet: Wash and dry exterior, vacuum, clean windows and paint tyres.
+                                <a data-toggle="collapse" href="#more-standard" class="collapsed" aria-expanded="false">
+                                  <i class="fa fa-plus" aria-hidden="true"></i>
+                                </a>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('swl')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$79.95</button>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('swm')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$69.95</button>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('sws')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$59.95</button>
+                              </td>
+                            </tr>
+                            <tr class="collapse" id="more-standard" style="">
+                              <td colspan="5">
+                                <div class="card card-body border-0">
+                                  <h5>STANDARD CAR VALET FROM $59.95 WASH AND DRY EXTERIOR</h5>
+                                  <ul class="p-0 ml-4">
+                                    <li>Clean door jambs</li>
+                                    <li>Remove litter</li>
+                                    <li>Clean Ashtrays</li>
+                                    <li>Dust Dashboard</li>
+                                    <li>Clean windows</li>
+                                    <li>Clean mirrors</li>
+                                    <li>Vacuum Seats and carpets</li>
+                                    <li>Clean wheels</li>
+                                    <li>Paint tyres</li>
+                                    <li>Please note, whilst we do our best to remove all pet hair, we cannot guarantee
+                                      100% removal.</li>
+                                  </ul>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="text-center">
+                                <i class="fa fa-car fa-3x"></i>
+                                <br> Deluxe Car Valet
+                              </th>
+                              <td>
+                                Deluxe: Wash and dry exterior, vacuum, clean and paint tyres, hand polish exterior
+                                <a data-toggle="collapse" href="#more-deluxe" class="collapsed" aria-expanded="false">
+                                  <i class="fa fa-plus" aria-hidden="true"></i>
+                                </a>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('dwl')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$139.95</button>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('dwm')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$119.95</button>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('dws')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$99.95</button>
+                              </td>
+                            </tr>
+                            <tr class="collapse" id="more-deluxe">
+                              <td colspan="5">
+                                <div class="card card-body border-0">
+                                  <h5>DELUXE CAR VALET FROM $99.95</h5>
+                                  <ul class="p-0 ml-4">
+                                    <li>Wash and dry exterior</li>
+                                    <li>Clean door jambs</li>
+                                    <li>Remove litter</li>
+                                    <li>Clean Ashtrays</li>
+                                    <li>Dust Dashboard</li>
+                                    <li>Clean windows</li>
+                                    <li>Clean mirrors</li>
+                                    <li>Vacuum Seats and carpets</li>
+                                    <li>Clean wheels</li>
+                                    <li>Paint tyres</li>
+                                    <li>Polish by hand</li>
+                                    <li>Please note, whilst we do our best to remove all pet hair, we cannot guarantee
+                                      100% removal.</li>
+                                  </ul>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="text-center">
+                                <i class="fa fa-car fa-3x"></i>
+                                <br> Exterior Wash
+                              </th>
+                              <td>
+                                Exterior Wash
+                                <a data-toggle="collapse" href="#more-exterior" class="collapsed" aria-expanded="false">
+                                  <i class="fa fa-plus" aria-hidden="true"></i>
+                                </a>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('ewl')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$34.95</button>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('ewm')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$29.95</button>
+                              </td>
+                              <td>
+                                <button onclick="Casher.add('ews')" type="button"
+                                  class="btn btn-info btn-sm btn-block">$24.95</button>
+                              </td>
+                            </tr>
+                            <tr class="collapse" id="more-exterior">
+                              <td colspan="5">
+                                <div class="card card-body border-0">
+                                  <h5>EXTERIOR WASH, FROM $24.95</h5>
+                                  <p>Includes exterior wash, dry, clean alloys, and tyres dressed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- Maintenance -->
+                    <div class="tab-pane fade" id="car_maintain" role="tabpanel">
+                      <h4>CAR MAINTENANCE</h4>
+                      <div class="table-responsive">
+                        <table class="table mb-0">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <div class="maintain_top">
+                                  <h5 class="float-left p-1 m-0">Hi-Care Car Service
+                                    <a data-toggle="collapse" href="#hicare_service" class="collapsed ml-3"
+                                      aria-expanded="false">
+                                      <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                  </h5>
+                                  <button onclick="Casher.add('hiCareCS')" type="button"
+                                    class="btn btn-info float-right">$199</button>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="maintain_content">
+                                  <div class="col-12">
+                                    <div class="card card-body border-0 p-0 collapse" id="hicare_service" style="">
+                                      <ul class="p-3 m-0">
+                                        <li>Service and oil change with up to 5 litres of premium semi synthetic oil
+                                        </li>
+                                        <li>Premium oil filter</li>
+                                        <li>Airfilter check and clean</li>
+                                        <li>Coolant check</li>
+                                        <li>Electronic battery condition check</li>
+                                        <li>Tyre rotation and inspection and check brakes</li>
+                                        <li>Vehicle inspection</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="maintain_top">
+                                  <h5 class="float-left p-1 m-0">Major Car Service
+                                    <a data-toggle="collapse" href="#maintain-major" class="collapsed ml-3"
+                                      aria-expanded="false">
+                                      <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                  </h5>
+                                  <button onclick="Casher.add('majorCS')" type="button"
+                                    class="btn btn-info float-right">$249</button>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="maintain_content">
+                                  <div class="col-12">
+                                    <div class="card card-body p-0 border-0 collapse" id="maintain-major" style="">
+                                      <ul class="p-3 m-0">
+                                        <li>Service and oil change with up to 5 litres of premium semi synthetic oil
+                                        </li>
+                                        <li>Premium oil filter</li>
+                                        <li>Clean air filter</li>
+                                        <li>Coolant check</li>
+                                        <li>Bars bugs</li>
+                                        <li>Check brakes, clean, adjust rear brakes</li>
+                                        <li>Electronic battery condition check</li>
+                                        <li>Tyre rotation and inspection and check pressures</li>
+                                        <li>Inspect ignition, plugs, leads and connections</li>
+                                        <li>New wiper blades</li>
+                                        <li>Vehicle inspection</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="maintain_top">
+                                  <h5 class="float-left p-1 m-0">Minor Car Service
+                                    <a data-toggle="collapse" href="#maintain-minor" class="collapsed ml-3"
+                                      aria-expanded="false">
+                                      <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                  </h5>
+                                  <button onclick="Casher.add('minorCS')" type="button"
+                                    class="btn btn-info float-right">$129</button>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="maintain_content">
+                                  <div class="col-12">
+                                    <div class="card card-body p-0 border-0 collapse" id="maintain-minor" style="">
+                                      <ul class="p-3 m-0">
+                                        <li>Service and oil change with up to 5 litres of premium semi synthetic oil
+                                        </li>
+                                        <li>Premium oil filter</li>
+                                        <li>Electronic battery condition check</li>
+                                        <li>Vehicle inspection</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="maintain_top">
+                                  <h5 class="float-left p-1 m-0">Diesel / 4X4 Service
+                                    <a data-toggle="collapse" href="#maintain-diesel" class="collapsed ml-3"
+                                      aria-expanded="false">
+                                      <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                  </h5>
+                                  <button onclick="Casher.add('dieselCS')" type="button"
+                                    class="btn btn-info float-right">$299</button>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="maintain_content">
+                                  <div class="col-12">
+                                    <div class="card card-body p-0 border-0 collapse" id="maintain-diesel" style="">
+                                      <ul class="p-3 m-0">
+                                        <li>Service and oil change with up to 7 litres of premium semi synthetic oil
+                                        </li>
+                                        <li>Premium oil filter</li>
+                                        <li>Clean air filter</li>
+                                        <li>Coolant check</li>
+                                        <li>Bars bugs</li>
+                                        <li>Check brakes, clean, adjust rear brakes</li>
+                                        <li>Electronic battery condition check</li>
+                                        <li>Tyre rotation and inspection and check pressures</li>
+                                        <li>Inspect ignition, plugs, leads and connections</li>
+                                        <li>New wiper blades</li>
+                                        <li>Vehicle inspection</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="sticky-top">
+                <div id="casher" class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Order Summary</h5>
+                    <!-- <h6 class="card-subtitle mb-2 text-muted">Parking</h6> -->
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                    <hr>
+                    <div id="cart-items">
+                      <ul class="cart-item-list" class="list-group mb-3" style="max-height:495px; overflow-y: auto;">
+                        <li class="list-group-item item">
+                          <div class="d-flex justify-content-between lh-condensed ">
+                            <div>
+                              <h6 class="my-0 name">Product name</h6>
+                              <small class="text-muted description">Brief description</small>
+                            </div>
+                            <span class="text-muted price">$12</span>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="list-group my-4">
+                        <li class="list-group-item d-flex justify-content-between">
+                          <strong class="text-info">Total (NZD)</strong>
+                          <strong class="text-info total">$20</strong>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-4">
+            <button onclick="$.wizard('#step_1')" type="button" class="btn btn-primary ">BACK</button>
+            <button type="submit" class="btn btn-primary float-right">CHECKOUT</button>
+          </div>
+        </div>
+
+        <div id="register-finish" class="bs-component">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <legend>
+                BOOKING <strong id="booking-number">#000-000-000</strong>
+              </legend>
+              <h5 class="card-subtitle mt-3 mb-2">Thank you for booking at Aeroparks</h5>
+              <p class="card-text">A confirmation Email has been sent to:
+                <b id="booking-email">Gwen_Erdman2@yahoo.com</b>
+              </p>
+              <p>Please download and print your PTicket.</p>
+              <a id="pticket" href="#" class="btn btn-primary text-center">Download</a>
+            </div>
+            <div class="form-group col-md-6">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12748.666704263609!2d174.77112339999996!3d-36.98195450000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d45625172ee93%3A0xa962a66f26d0de72!2s112+Pavilion+Dr!5e0!3m2!1sen!2s!4v1395896649176"
+                frameborder="0" height="230" width="100%"></iframe>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

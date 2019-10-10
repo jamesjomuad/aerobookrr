@@ -1,0 +1,25 @@
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+        <div class="container">
+            <!-- Content -->
+            {% page %}
+        </div>
+        
+
+        <!-- Flash Messages -->
+        <div id="layout-flash-messages"></div>
+
+        <!-- Scripts -->
+        {% partial 'site/scripts' %}
+        {% framework extras %}
+    </body>
+</html>

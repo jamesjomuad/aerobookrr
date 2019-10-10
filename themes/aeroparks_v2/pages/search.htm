@@ -1,0 +1,68 @@
+title = "Search"
+url = "/search"
+layout = "singular"
+description = "Search parking."
+is_hidden = 0
+==
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 mt-5">
+        <div class="booking-form mt-5">
+            <form method="GET">
+                <div class="form-group">
+                    <strong class="form-label">Your Destination</strong>
+                    <input class="form-control" type="text" placeholder="Enter a destination or hotel name">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <strong class="form-label">Check In</strong>
+                            <input class="form-control" type="date" required="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <strong class="form-label">Check out</strong>
+                            <input class="form-control" type="date" required="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <strong class="form-label">Adults</strong>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <strong class="form-label">Children</strong>
+                            <select class="form-control">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                            </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-btn">
+                    <button class="btn btn-primary btn-block" type="submit">Check availability</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<style>
+body{
+    background: #f46b45;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eea849, #f46b45);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eea849, #f46b45); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+</style>

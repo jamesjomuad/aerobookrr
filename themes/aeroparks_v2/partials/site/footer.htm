@@ -1,0 +1,116 @@
+<div id="sidebar" class="desktop_view">
+    <div class="sidebar-inside">
+
+
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="{{ 'home'|page }}" target="_self">
+                    <img src="{{ 'assets/img/aeroparks_logo.png'|theme }}" alt="">
+                </a>
+                <button class="navbar-toggler third-button" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="animated-icon3"><span></span><span></span><span></span></div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="nav navbar-nav mx-auto">
+                        <li {% if this.page.id == 'home' %}class="nav-item active" {% endif %}>
+                            <a class="nav-link" href="{{ 'home'|page }}" target="_self">Home</a>
+                        </li>
+                        <li {% if this.page.id == 'services' %}class="nav-item active" {% endif %}>
+                            <a class="nav-link" href="{{ 'services'|page }}" target="_self">Services</a>
+                        </li>
+                        <li {% if this.page.id == 'about-us' %}class="nav-item active" {% endif %}>
+                            <a class="nav-link" href="{{ 'about-us'|page }}" target="_self">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--Navbar-->
+        </header>
+
+        <div id="main-mobile">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="signbtn_wrap">
+                            <a href="{{ url('/') }}/backend" class="btn btn-signin" target="_self">Current SignIn</a>
+                        </div>
+                        <div class="loyaltybtn_wrap">
+                            <a href="#" class="btn btn-signin" target="_self">Join Loyalty Program</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="desktop_footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-sm-center social_wrap_desktop">
+                        <ul class="list-inline footer-social mb-0">
+                            <li class="list-inline-item"><a href="https://www.facebook.com/Aeroparks/"
+                                    target="_blank"><i class="icon-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com/aeroparks_auckland_airport/"
+                                    target="_blank"><i class="icon-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-4  col-lg-12 contact_wrap">
+                        <h6 class="footer-title">Contact Info</h6>
+                        <ul class="list-unstyled footer-address">
+                            <li><a href="https://goo.gl/maps/68CSpoKMGKz" target="_blank"><i
+                                        class="icon-map-marker pr-2"></i> 112
+                                    Pavilion Drive, Airport Oaks, Auckland Airport</a></li>
+                            <li><a href="tel:0800237672" target="_blank"><i class=" icon-telephone114 pr-2"></i> 0800
+                                    237 672</a>
+                            </li>
+                            <li><a href="tel:+6492572724" target="_blank"><i class=" icon-telephone114 pr-2"></i> +64 9
+                                    257
+                                    2724</a>
+                            </li>
+                            <li><a href="mailto:info@aeroparks.co.nz" target="_blank"><i
+                                        class=" icon-envelope pr-2"></i>
+                                    info@aeroparks.co.nz</a></li>
+                        </ul>
+                    </div>
+                    <div id="instafeed" class="col-12  col-md-4 col-lg-12">
+                        <h6 class="footer-title">Instagram Gallery</h6>
+                    </div>
+                    <div class="col-12 promocode_wrapper  col-md-4 col-lg-12">
+                        <h6 class="footer-title">Promo Code</h6>
+                        <form action="" method="post">
+                            <div class="input-group">
+                                <input id="promocode" name="promocode" class="form-control" type="text"
+                                    placeholder="Code Here" value="">
+                                <div class="input-group-append">
+                                    <button class="btn btn-btn btn-light btn--round" id="btnPromoCode"
+                                        type="button"><img src="{{ 'assets/img/send.svg'|theme }}" /></button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="social_wrap_mobile">
+                            <ul class="list-inline footer-social mb-0">
+                                <li class="list-inline-item"><a href="https://www.facebook.com/Aeroparks/"
+                                        target="_blank"><i class="icon-facebook"></i></a></li>
+                                <li class="list-inline-item"><a
+                                        href="https://www.instagram.com/aeroparks_auckland_airport/" target="_blank"><i
+                                            class="icon-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 copyright_wrapper text-md-center">
+                        <span class="copyright">Copyright © 2019 Powered By <a href="https://www.aeroparks.co.nz/"
+                                target="_blank">AeroParks</a> All
+                            Rights Reserved.</span>
+
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+
+
+    </div>
+</div>
