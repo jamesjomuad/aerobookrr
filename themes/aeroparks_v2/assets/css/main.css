@@ -1466,9 +1466,13 @@ input.error {
 }
 
 .copyright_wrapper span {
-    font-size: 12px;
+    font-size: 10px;
     margin-top: 15px;
     display: inline-block;
+}
+
+.poweredby img{
+    height: 50px;
 }
 
 .signbtn_wrap, .loyaltybtn_wrap {
