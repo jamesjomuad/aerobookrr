@@ -50,8 +50,8 @@ class Rate extends Model
         $from   = Carbon::parse($this->date_start);
         $to     = Carbon::parse($this->date_end);
         $query  = $this->whereBetween('date_start', [$from,$to]);
-
-        if($query->get()->count())
+        
+        if($query->get()->count() AND $this->name!=$query->first()->name)
         {
             $name = $query->first()->name;
             throw new \ValidationException(['date_start' => 'Date Range overlapped with '.$name.'!']);
