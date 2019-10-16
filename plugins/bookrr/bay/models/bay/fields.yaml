@@ -3,9 +3,6 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
     name:
         label: Name
         span: left
@@ -16,3 +13,8 @@ fields:
         descriptionFrom: description
         span: auto
         type: relation
+    status:
+        label: Active
+        span: left
+        type: switch
+        default: 1

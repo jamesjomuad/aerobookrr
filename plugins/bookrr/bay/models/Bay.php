@@ -3,9 +3,7 @@
 use Model;
 use \Carbon\Carbon;
 
-/**
- * Bay Model
- */
+
 class Bay extends Model
 {
     public $table = 'bookrr_bay';
@@ -26,12 +24,6 @@ class Bay extends Model
     public $belongsTo = [
         'zone' => \Bookrr\Bay\Models\Zone::class
     ];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
-    public $belongsToMany = [];
 
 
     /*
@@ -44,10 +36,19 @@ class Bay extends Model
 
     public function getStatusAttribute($value)
     {
-        if(empty($value))
-        return 'Available';
+        if($value=='0')
+        return false;
 
-        return ucfirst($value);
+        if(empty($value) OR $value)
+        return true;
+    }
+
+    public function getAvailabilityAttribute()
+    {
+        if($this->status)
+            return "Available";
+        else
+            return "Not Available";
     }
 
 
