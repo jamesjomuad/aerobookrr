@@ -7,9 +7,7 @@ use Bookrr\Rates\Models\Settings as dbSettings;
 use Bookrr\Rates\Models\Rate as RateModel;
 use Carbon\Carbon;
 
-/**
- * Rates Back-end Controller
- */
+
 class Rates extends Controller
 {
     use \Bookrr\General\Traits\Widgets;
