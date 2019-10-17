@@ -9,7 +9,7 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         Schema::table('bookrr_user', function(Blueprint $table) {
-            $table->string('code',50)->nullable()->unique();
+            $table->string('code',50)->after('user_id')->nullable()->unique();
         });
     }
 

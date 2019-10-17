@@ -1,9 +1,12 @@
 fields:
-    # 'backendUser[code]':
-    #     label: 'Code'
-    #     span: 'full'
-    #     type: text
-    #     disabled: true
+    login:
+        label: 'Username'
+        span: auto
+        type: text
+    code:
+        label: 'Code'
+        span: auto
+        type: text
     'backendUser[first_name]':
         label: 'First Name'
         span: left

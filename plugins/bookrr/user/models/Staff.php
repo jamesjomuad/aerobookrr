@@ -1,8 +1,6 @@
 <?php namespace Bookrr\User\Models;
 
 use Model;
-use Backend\Models\User;
-use Backend\Models\UserRole;
 use \Carbon\Carbon;
 
 
@@ -22,26 +20,30 @@ class Staff extends Model
     protected $fillable = ['role_id'];
 
     public $belongsTo = [
-        // 'backendUser' => User::class,
-        'backendUser' => ['Bookrr\User\Models\BaseUser','key' => 'user_id'],
-        'role' => UserRole::class
+        'user' => [
+            \Backend\Models\User::class,
+            'key'    => 'user_id',
+            'delete' => true
+        ],
+        'role' => \Backend\Models\UserRole::class
     ];
 
     public $titles = ['Mr.','Mrs.','Ms.','Dr.','Eng.','Atty.'];
 
-    /*
-    *   Set Default Query
-    */
+    #
+    #   Set Default Query
+    #
     public function newQuery($excludeDeleted = true)
     {
-        return parent::newQuery($excludeDeleted)
-            ->where('type', '=', 'staff');
+        $query = parent::newQuery($excludeDeleted);
+        $query->isStaff();
+        return $query;
     }
 
 
-    /*
-    *   SCOPE
-    */
+    #
+    #  SCOPE
+    #
     public function scopeRoleID()
     {
         if($role = $this->role()->where('code','staff')->orWhere('name','Staff')->first())
@@ -50,10 +52,18 @@ class Staff extends Model
             return false;
     }
 
+    public function scopeIsStaff($query)
+    {
+        return $query->with('user')
+        ->whereHas('user.role',function($q){
+            $q->where('code','staff');
+        });
+    }
 
-    /*
-    *   ATTRIBUTES
-    */
+
+    #
+    #  ATTRIBUTES
+    #
     public function getCreatedAtAttribute($value)
     {
         if($value)
@@ -64,7 +74,7 @@ class Staff extends Model
 
     public function getNameAttribute($value)
     {
-        return $this->backendUser->first_name . ' ' . $this->backendUser->last_name;
+        return $this->profile->first_name . ' ' . $this->profile->last_name;
     }
 
 

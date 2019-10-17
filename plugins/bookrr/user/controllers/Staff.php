@@ -48,15 +48,11 @@ class Staff extends Controller
     {
         $data = post();
 
-        $data['type'] = 'staff';
-
         $data['birthdate'] = Carbon::parse($data['birthdate']);
-
-        $data['age'] = $data['birthdate']->age;
 
         $data['backendUser']['role_id'] = StaffModel::roleID();
 
-        $data['backendUser']['login'] = post('backendUser.first_name').post('backendUser.last_name');
+        $data['backendUser']['login'] = post('login');
 
         $validation = Validator::make($data, [
             'backendUser.first_name'    => 'required',
@@ -111,4 +107,5 @@ class Staff extends Controller
         }
         return null;
     }
+
 }

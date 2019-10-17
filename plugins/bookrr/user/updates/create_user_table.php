@@ -12,7 +12,6 @@ class CreateUsersTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
-            $table->string('type')->nullable();
             $table->string('phone')->nullable();
             $table->string('title')->nullable();
             $table->string('company')->nullable();

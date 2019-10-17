@@ -2,9 +2,8 @@
 
 use Model;
 use \Carbon\Carbon;
-use Bookrr\User\Models\User;
-use Backend\Models\User as BackendUser;
-use Backend\Models\UserRole;
+
+
 
 class Customer extends User
 {
@@ -21,8 +20,12 @@ class Customer extends User
     protected $fillable = ['role_id'];
 
     public $belongsTo = [
-        'backendUser' => ['Bookrr\User\Models\BaseUser','key' => 'user_id'],
-        'role' => UserRole::class
+        'user' => [
+            \Backend\Models\User::class,
+            'key'    => 'user_id',
+            'delete' => true
+        ],
+        'role' => \Backend\Models\UserRole::class
     ];
 
     public $hasMany = [
@@ -32,26 +35,35 @@ class Customer extends User
     ];
     
 
-    /*
-    *   Set Default Query
-    */
+    #
+    #   Set Default Query
+    #
     public function newQuery($excludeDeleted = true)
     {
-        return parent::newQuery($excludeDeleted)
-            ->where('type', '=', 'customer');
+        $query = parent::newQuery($excludeDeleted);
+        $query->isCustomer();
+        return $query;
     }
 
-    /*
-    *   Scopes
-    */
+    #
+    #  Scopes
+    #
+    public function scopeIsCustomer($query)
+    {
+        return $query->with('user')
+        ->whereHas('user.role',function($q){
+            $q->where('code','customer');
+        });
+    }
+
     public function scopeRoleRelation()
     {
-        return $this->backendUser->role();
+        return $this->profile->role();
     }
 
     public function scopeUserRelation()
     {
-        return $this->backendUser();
+        return $this->profile();
     }
 
     public function scopeRoleID()
@@ -62,9 +74,9 @@ class Customer extends User
             return false;
     }
 
-    /*
-    *   ATTRIBUTES
-    */
+    #
+    #  ATTRIBUTES
+    #
     public function getCreatedAtAttribute($value)
     {
         if($value)
@@ -75,12 +87,12 @@ class Customer extends User
 
     public function getFullNameAttribute()
     {
-        return $this->backendUser->first_name.' '.$this->backendUser->last_name;
+        return $this->profile->first_name.' '.$this->profile->last_name;
     }
 
     public function getIDFullNameAttribute()
     {
-        return $this->backendUser->id.' - '.$this->backendUser->first_name.' '.$this->backendUser->last_name;
+        return $this->profile->id.' - '.$this->profile->first_name.' '.$this->profile->last_name;
     }
 
 }
