@@ -403,4 +403,12 @@ class Customer extends Controller
         return ['#contactList' => $this->makePartial('contact_list')];
     }
 
+    public function listOverrideColumnValue($record, $column)
+    {
+        if($column=='last_login' AND $record->user->last_login)
+        {
+            return $record->user->last_login->diffForHumans();
+        }
+    }
+
 }
