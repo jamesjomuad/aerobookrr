@@ -51,11 +51,6 @@ tabs:
             span: auto
             type: text
             tab: General
-        age:
-            label: Age
-            span: auto
-            type: text
-            tab: General
         birthdate:
             label: 'Birth Date'
             mode: date

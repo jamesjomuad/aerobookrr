@@ -27,11 +27,6 @@ class SeedAllTables extends Seeder
             'code'        => 'demo',
             'description' => 'Allow user to explore in demo mode.',
         ]);
-        UserRole::firstOrCreate([
-            'name'        => 'Frontend',
-            'code'        => 'frontend',
-            'description' => 'Frontend authentication.',
-        ]);
     }
 
 } 
