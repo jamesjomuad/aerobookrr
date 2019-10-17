@@ -8,7 +8,7 @@ use Model;
 class Ticket extends Model
 {
 
-    public $table = 'bookrr_ticket';
+    public $table = 'bookrr_booking_tickets';
 
     protected $guarded = ['*'];
 
