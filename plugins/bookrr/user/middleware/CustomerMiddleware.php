@@ -16,7 +16,7 @@ class CustomerMiddleware
 
         if(BackendAuth::check() && strtolower(BackendAuth::getUser()->role->name)=="customer")
         {
-            // Check if user is an Aeropark
+            // Check if user is auth
             if(BaseUser::auth()==false)
             {
                 abort(403, 'Access denied');

@@ -61,7 +61,7 @@ class Register extends ComponentBase
             $backendUser->role_id = Customer::roleID();
             $backendUser->save();
 
-            // Create Aeroparks user
+            // Create user
             $user = User::create(array_add($data, 'type', 'customer'));
 
             // Create Booking
@@ -79,7 +79,7 @@ class Register extends ComponentBase
 
             $booking->vehicle()->associate($vehicle)->save();
 
-            $backendUser->aeroUser()->save($user);
+            $backendUser->profile()->save($user);
 
             $user->contacts()->save($contact);
 

@@ -1,12 +1,12 @@
 1.0.1: First version of user
 1.0.2: 
-  - 'Create Aero User table'
+  - 'Create User table'
   - create_user_table.php
 1.0.3: 
   - 'Create Agent table'
   - create_agent_table.php
 1.0.4:
-  - 'Add Aeroparks User Roles'
+  - 'Add User Roles'
   - seed.php
 1.0.5:
   - 'Create Contact Table'
@@ -18,5 +18,5 @@
   - 'Create Vehicle Table'
   - create_vehicles_table.php
 1.0.8:
-  - 'Update Aero User Table'
+  - 'Update User Table'
   - update_user_table.php

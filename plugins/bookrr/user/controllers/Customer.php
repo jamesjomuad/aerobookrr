@@ -104,12 +104,12 @@ class Customer extends Controller
 
         $backendUser->save();
 
-        $backendUser->aeroUser()->save(User::create($data));
+        $backendUser->profile()->save(User::create($data));
 
         if(post('close'))
         return \Redirect::to('/backend/bookrr/user/customer');
 
-        return \Redirect::to('/backend/bookrr/user/customer/update/'.$backendUser->aeroUser->id);
+        return \Redirect::to('/backend/bookrr/user/customer/update/'.$backendUser->profile->id);
 
         \Flash::success('User Successfully Created!');
     }

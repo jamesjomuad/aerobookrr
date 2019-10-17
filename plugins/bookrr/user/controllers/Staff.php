@@ -76,7 +76,7 @@ class Staff extends Controller
 
         $backendUser->save();
 
-        $backendUser->aeroUser()->save(User::create($data));
+        $backendUser->profile()->save(User::create($data));
 
         if(post('close'))
         return \Redirect::to('/backend/bookrr/user/staff');

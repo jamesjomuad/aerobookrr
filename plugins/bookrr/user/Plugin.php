@@ -39,56 +39,56 @@ class Plugin extends PluginBase
         UserModel::extend(function($model){
             // Relation
             $model->hasOne = [
-                'aeroUser'  => ['Bookrr\User\Models\User'],
+                'profile'  => ['Bookrr\User\Models\User'],
                 'points'    => ['Bookrr\User\Models\Loyalty']
             ];
 
             // isCustomer method
             $model->addDynamicMethod('isCustomer',function() use($model) {
-                $user = $model->aeroUser;
-                return ($model->aeroUser && strtolower($user->type)=='customer') ? true : false;
+                $user = $model->profile;
+                return ($model->profile && strtolower($user->type)=='customer') ? true : false;
             });
 
             // isActive method
             $model->addDynamicMethod('isActive',function() use($model) {
-                return (@$model->aeroUser->is_active) ? true : false;
+                return (@$model->profile->is_active) ? true : false;
             });
         });
 
         UserController::extendFormFields(function($form, $model, $context){
 
-            if(!$model->aeroUser){
+            if(!$model->profile){
                 return;
             }
 
             $form->addTabFields([
-                'aeroUser[title]' => [
+                'profile[title]' => [
                     'label' => 'Title',
                     'span'  => 'auto',
                     'tab'   => 'Profile'
                 ],
-                'aeroUser[phone]' => [
+                'profile[phone]' => [
                     'label' => 'Phone Number',
                     'span'  => 'auto',
                     'tab'   => 'Profile'
                 ],
-                'aeroUser[company]' => [
+                'profile[company]' => [
                     'label' => 'Company',
                     'span'  => 'auto',
                     'tab'   => 'Profile'
                 ],
-                'aeroUser[age]' => [
+                'profile[age]' => [
                     'label' => 'Age',
                     'type'  => 'number',
                     'span'  => 'auto',
                     'tab'   => 'Profile'
                 ],
-                'aeroUser[gender]' => [
+                'profile[gender]' => [
                     'label' => 'Gender',
                     'span'  => 'auto',
                     'tab'   => 'Profile'
                 ],
-                'aeroUser[birthdate]' => [
+                'profile[birthdate]' => [
                     'label' => 'Birthdate',
                     'type'  => 'datetimepicker',
                     'mode'  => 'date',
@@ -118,19 +118,19 @@ class Plugin extends PluginBase
 
         # Set User as Active
         Event::listen('backend.user.login', function ($user) {
-            if($user->aeroUser)
+            if($user->profile)
             {
-                $user->aeroUser->is_active = true;
-                $user->aeroUser->save();
+                $user->profile->is_active = true;
+                $user->profile->save();
             }
         });
 
         #Set User as not Active
         Event::listen('backend.user.logout', function ($user) {
-            if($user->aeroUser)
+            if($user->profile)
             {
-                $user->aeroUser->is_active = false;
-                $user->aeroUser->save();
+                $user->profile->is_active = false;
+                $user->profile->save();
             }
         });
         
