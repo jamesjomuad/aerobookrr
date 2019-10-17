@@ -48,7 +48,7 @@ class Plugin extends PluginBase
                         'permissions' => ['bookrr.booking.park'],
                     ],
                     'parking-calendar' => [
-                        'label'       => 'Parking Calendar',
+                        'label'       => 'Calendar View',
                         'url'         => Backend::url('bookrr/booking/parkingcalendar'),
                         'icon'        => 'icon-calendar',
                         'permissions' => ['bookrr.booking.park'],

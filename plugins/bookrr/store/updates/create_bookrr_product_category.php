@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class CreateAeroparksProductCategory extends Migration
+class CreateBookrrProductCategory extends Migration
 {
     public function up()
     {
