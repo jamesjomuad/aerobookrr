@@ -16,6 +16,8 @@ use BackendAuth;
 
 class Staff extends Controller
 {
+    public $requiredPermissions = ['bookrr.users.staff'];
+
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController'

@@ -20,6 +20,8 @@ class Customer extends Controller
     use \Bookrr\User\Traits\formatter;
     use \Bookrr\General\Traits\fflash;
 
+    public $requiredPermissions = ['bookrr.users.customer'];
+
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController'
@@ -78,11 +80,9 @@ class Customer extends Controller
     {
         $data = post();
 
-        $data['type'] = 'customer';
-
         $data['backendUser']['role_id'] = CustomerModel::roleID();
         
-        $data['backendUser']['login']   = post('backendUser.first_name').post('backendUser.last_name');
+        $data['backendUser']['login']   = post('login');
 
         $data['birthdate'] = Carbon::parse(post('birthdate'));
 

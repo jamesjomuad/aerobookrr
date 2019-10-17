@@ -1,28 +1,23 @@
 fields:
-    # id:
-    #     label: ID
-    #     span: full
-    #     disabled: 1
-    #     context:
-    #         - update
-    #         - preview
-    #     type: text
-    # 'backendUser[login]':
-    #     label: Login/Username
-    #     span: full
-    #     required: 1
-    #     type: text
-    'backendUser[first_name]':
+    user[login]:
+        label: 'Username'
+        span: auto
+        type: text
+    code:
+        label: 'Code'
+        span: auto
+        type: text
+    'user[first_name]':
         label: 'First Name'
         span: left
         required: 1
         type: text
-    'backendUser[last_name]':
+    'user[last_name]':
         label: 'Last Name'
         span: right
         required: 1
         type: text
-    'backendUser[email]':
+    'user[email]':
         label: Email
         span: full
         type: text
@@ -31,11 +26,11 @@ fields:
         span: full
         type: checkbox
         comment: 'Sends a welcome message containing login and password information.'
-    'backendUser[password]':
+    'user[password]':
         label: Password
         span: left
         type: password
-    'backendUser[password_confirmation]':
+    'user[password_confirmation]':
         label: 'Confirm Password'
         span: right
         type: password
