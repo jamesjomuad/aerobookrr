@@ -87,12 +87,12 @@ class Customer extends User
 
     public function getFullNameAttribute()
     {
-        return $this->profile->first_name.' '.$this->profile->last_name;
+        return $this->user->first_name.' '.$this->user->last_name;
     }
 
     public function getIDFullNameAttribute()
     {
-        return $this->profile->id.' - '.$this->profile->first_name.' '.$this->profile->last_name;
+        return $this->user->id.' - '.$this->user->first_name.' '.$this->user->last_name;
     }
 
 }

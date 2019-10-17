@@ -32,7 +32,7 @@ fields:
         list: $/bookrr/booking/models/parking/columns_bay.yaml
         type: recordfinder
         disabled: false
-        # conditions: status IS NULL
+        scope: isAvailable
     status:
         label: Status
         options:

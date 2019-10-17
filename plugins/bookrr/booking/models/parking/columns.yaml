@@ -50,12 +50,12 @@ columns:
         type: text
         searchable: true
         invisible: true
-    _ticket: 
-        label: 'Ticket'
-        relation: ticket
-        valueFrom: barcode
-        select: barcode
-        searchable: true
+    # _ticket: 
+    #     label: 'Ticket'
+    #     relation: ticket
+    #     valueFrom: barcode
+    #     select: barcode
+    #     searchable: true
     paid:
         label: Paid
         type: partial

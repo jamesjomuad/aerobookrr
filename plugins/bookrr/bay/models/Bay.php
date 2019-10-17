@@ -14,9 +14,7 @@ class Bay extends Model
 
     protected $hidden = ['created_at','updated_at','deleted_at'];
 
-    /**
-     * @var array Relations
-     */
+
     public $hasOne = [];
     public $hasMany = [
         'parking' => \Bookrr\Booking\Models\Parking::class
@@ -26,9 +24,9 @@ class Bay extends Model
     ];
 
 
-    /*
-    *   Attributes
-    */
+    #
+    #  Attributes
+    #
     public function getCreatedatAttribute($date)
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y');
@@ -52,9 +50,9 @@ class Bay extends Model
     }
 
 
-    /*
-    *   Scopes
-    */
+    #
+    #  Scopes
+    #
     public function scopeSetOccupied()
     {
         $this->status = 'occupied';
@@ -67,10 +65,17 @@ class Bay extends Model
         return $this->save();
     }
 
+    public function scopeIsAvailable($query)
+    {
+        $query->where('status',1);
+        
+        return $query;
+    }
 
-    /*
-    *   Helpers
-    */
+
+    #
+    #  Helpers
+    #
     public static function getBay($id)
     {
         return self::with('parking')->where('id',$id)->first()->toArray();

@@ -7,7 +7,7 @@ use \Carbon\Carbon;
 use BackendAuth;
 use Bookrr\User\Models\BaseUser as AeroUser;
 use Bookrr\Store\Models\Product;
-use Jomuad\Pxpay\Models\Transaction;
+use Bookrr\Pxpay\Models\Transaction;
 
 
 class Parking extends Model
