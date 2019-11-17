@@ -14,15 +14,10 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'user',
-            'description' => 'No description provided yet...',
+            'description' => 'Bookrr extended user fields.',
             'author'      => 'bookrr',
             'icon'        => 'icon-leaf'
         ];
-    }
-
-    public function register()
-    {
-
     }
 
     public function boot()
@@ -41,19 +36,11 @@ class Plugin extends PluginBase
 
             # Extend Mehod
             $model->addDynamicMethod('isCustomer',function() use($model) {
-                $user = $model->aeroUser;
-                return ($model->aeroUser && strtolower($user->type)=='customer') ? true : false;
+                return $model->role->code=='customer' ? true : false;
             });
+
+            return $model;
         });
-    }
-
-    public function registerComponents()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'Bookrr\User\Components\MyComponent' => 'myComponent',
-        ];
     }
 
     public function registerPermissions()
@@ -68,24 +55,9 @@ class Plugin extends PluginBase
         ];
     }
 
-    // public function registerNavigation()
-    // {
-    //     return []; // Remove this line to activate
-
-    //     return [
-    //         'user' => [
-    //             'label'       => 'user',
-    //             'url'         => Backend::url('bookrr/user/mycontroller'),
-    //             'icon'        => 'icon-leaf',
-    //             'permissions' => ['bookrr.user.*'],
-    //             'order'       => 500,
-    //         ],
-    //     ];
-    // }
-
     public function registerNavigation()
     {
-        if(BackendAuth::getUser()->isCustomer())
+        if(BackendAuth::getUser()->role->code=='customer')
         {
             return [
                 'loyalty' => [
