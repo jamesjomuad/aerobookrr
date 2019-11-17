@@ -14,6 +14,13 @@ class Plugin extends PluginBase
             // dd($manager);
             // $manager->removeMainMenuItem('renatio.dynamicpdf', 'dynamicpdf');
         });
+
+        Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
+            if(request()->is('backend') OR request()->is('backend/*'))
+            {
+                $controller->addCss('/plugins/bookrr/general/assets/css/style.css');  
+            }
+        });
     }
 
     public function pluginDetails()
