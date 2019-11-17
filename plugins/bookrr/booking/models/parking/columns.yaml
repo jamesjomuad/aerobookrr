@@ -19,10 +19,10 @@ columns:
         valueFrom: name
         searchable: true
         select: name
-    user:
+    customer:
         label: Phone
         type: text
-        relation: user
+        relation: customer
         select: phone
         sortable: false
         searchable: true

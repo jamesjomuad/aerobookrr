@@ -17,3 +17,6 @@
 1.0.7:
     - 'Update Booking table: new column ref_num'
     - update_booking_8_25_19.php
+1.0.8:
+    - 'Create Vehicle table'
+    - create_vehicles_table.php
