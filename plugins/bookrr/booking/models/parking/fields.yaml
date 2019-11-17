@@ -238,36 +238,11 @@ tabs:
             span: full
             type: textarea
             tab: Notes
-        # items:
-        #     tab: Addons
-        #     type: basket
-        #     title: 'Products/Services'
-        #     list: $/bookrr/booking/models/parking/columns_product.yaml
-        #     nameFrom: name
-        #     prompt: "%s Add Products or Services"
-        #     useRelation: false
-        #     modelClass: \Bookrr\Store\Models\Product
-        # products:
-        #     tab: Cart
-        #     nameFrom: name
-        #     descriptionFrom: description
-        #     span: auto
-        #     type: relation
         products:
             tab: Cart
             span: full
             type: partial
             path: $/bookrr/store/controllers/cart/_cart.htm
-            
-        
-        # _payment:
-        #     label: 'Payment Method'
-        #     span: full
-        #     tab: 'Payment Method'
-        #     type: text
-        #     context:
-        #         - update
-        #         - preview
         # destination_out:
         #     label: 'Departure Destination'
         #     options:

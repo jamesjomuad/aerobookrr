@@ -45,6 +45,12 @@
             </button>
             <?php endif; ?>
             <button tabindex="-1"
+                class="btn btn-warning oc-icon-shopping-basket"
+                data-handler="onCart"
+                data-request-data="id:<?= $formModel->id ?>"
+                data-control="popup">Purchases
+            </button>
+            <button tabindex="-1"
                 class="btn btn-warning oc-icon-credit-card"
                 data-handler="onPay"
                 data-request-data="id:<?= $formModel->id ?>"
