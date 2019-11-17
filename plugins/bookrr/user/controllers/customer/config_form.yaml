@@ -9,7 +9,7 @@ name: Customer
 form: $/bookrr/user/models/customer/fields.yaml
 
 # Model Class name
-modelClass: Bookrr\User\Models\Customer
+modelClass: Bookrr\User\Models\Customers
 
 # Default redirect location
 defaultRedirect: bookrr/user/customer

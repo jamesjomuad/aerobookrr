@@ -1,19 +1,4 @@
 1.0.1: First version of user
-1.0.2: 
-  - 'Create User table'
-  - create_user_table.php
-1.0.3: 
-  - 'Create Contact Table'
-  - create_contacts_table.php
-1.0.4:
-  - 'Create Loyalty Table'
-  - create_loyalty_table.php  
-1.0.5:
-  - 'Create Vehicle Table'
-  - create_vehicles_table.php
-1.0.6:
-  - 'Update User Table'
-  - update_user_table.php
-1.0.7:
-  - 'Run Seeder'
-  - seed.php
+1.0.2:
+ - Create Bookrr extended Users table
+ - create_users_table.php

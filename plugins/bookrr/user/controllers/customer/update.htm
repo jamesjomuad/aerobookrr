@@ -5,22 +5,9 @@
     </ul>
 <?php Block::endPut() ?>
 
-
-
 <?php if (!$this->fatalError): ?>
 
     <?= Form::open(['class' => 'layout']) ?>
-
-        <div class="mb-5" data-control="toolbar">
-            <a href="javascript:;" class="btn btn-secondary oc-icon-plus" 
-                data-control="popup" 
-                data-handler="onLoadCreateBookingForm" 
-                data-size="huge">
-                New Booking
-            </a>
-        </div>
-
-        <input type="hidden" name="id" value="<?= $formModel->id ?>">
 
         <div class="layout-row">
             <?= $this->formRender() ?>

@@ -12,19 +12,19 @@ form: $/bookrr/user/models/user/fields.yaml
 modelClass: Bookrr\User\Models\User
 
 # Default redirect location
-defaultRedirect: bookrr/user/user
+defaultRedirect: bookrr/user/users
 
 # Create page
 create:
     title: Create User
-    redirect: bookrr/user/user/update/:id
-    redirectClose: bookrr/user/user
+    redirect: bookrr/user/users/update/:id
+    redirectClose: bookrr/user/users
 
 # Update page
 update:
     title: Edit User
-    redirect: bookrr/user/user
-    redirectClose: bookrr/user/user
+    redirect: bookrr/user/users
+    redirectClose: bookrr/user/users
 
 # Preview page
 preview:

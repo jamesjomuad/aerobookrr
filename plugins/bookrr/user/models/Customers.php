@@ -3,9 +3,9 @@
 use Model;
 
 /**
- * Staff Model
+ * Customers Model
  */
-class Staff extends Model
+class Customers extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 

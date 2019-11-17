@@ -4,9 +4,9 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Agent Back-end Controller
+ * Users Back-end Controller
  */
-class Agent extends Controller
+class Users extends Controller
 {
     public $implement = [
         'Backend.Behaviors.FormController',
@@ -20,6 +20,6 @@ class Agent extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Bookrr.User', 'user', 'agent');
+        BackendMenu::setContext('Bookrr.User', 'user', 'users');
     }
 }

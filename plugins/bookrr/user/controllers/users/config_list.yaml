@@ -12,7 +12,7 @@ modelClass: Bookrr\User\Models\User
 title: Manage Users
 
 # Link URL for each record
-recordUrl: bookrr/user/user/update/:id
+recordUrl: bookrr/user/users/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
