@@ -117,18 +117,18 @@ class Plugin extends PluginBase
 
     public function registerNavigation()
     {
-        if(BackendAuth::getUser()->isCustomer())
-        {
-            return [
-                'car-rental' => [
-                    'label'       => 'Car Rental',
-                    'url'         => Backend::url('bookrr/store/carrent'),
-                    'icon'        => 'icon-car',
-                    'permissions' => ['bookrr.store.car-rent'],
-                    'order'       => 910,
-                ]
-            ];
-        }
+        // if(BackendAuth::getUser()->isCustomer())
+        // {
+        //     return [
+        //         'car-rental' => [
+        //             'label'       => 'Car Rental',
+        //             'url'         => Backend::url('bookrr/store/carrent'),
+        //             'icon'        => 'icon-car',
+        //             'permissions' => ['bookrr.store.car-rent'],
+        //             'order'       => 910,
+        //         ]
+        //     ];
+        // }
 
         return [
             'store' => [

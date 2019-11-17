@@ -18,3 +18,5 @@ sftp-config.json
 .ftpconfig
 selenium.php
 composer.lock
+plugins/
+!plugins/bookrr
