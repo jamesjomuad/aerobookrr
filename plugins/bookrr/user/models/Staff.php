@@ -13,6 +13,8 @@ class Staff extends Model
 
     public $table = 'bookrr_user';
 
+    protected $jsonable = ['options'];
+
     public $rules = [
         'phone'     => 'required|regex:/^([-a-z0-9_ ])+$/i|min:6'
     ];
@@ -38,18 +40,18 @@ class Staff extends Model
     public function newQuery($excludeDeleted = true)
     {
         $query = parent::newQuery($excludeDeleted);
-        $query->isCustomer();
+        $query->isStaff();
         return $query;
     }
 
     #
     #   Scopes
     #
-    public function scopeIsCustomer($query)
+    public function scopeIsStaff($query)
     {
         return $query->with('user')
         ->whereHas('user.role',function($q){
-            $q->where('code','customer');
+            $q->where('code','staff');
         });
     }
 

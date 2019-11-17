@@ -1,8 +1,49 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
-fields:
-    id:
-        label: ID
-        disabled: true
+tabs:
+    fields:
+        user[login]:
+            label: Username
+            span: full
+            type: text
+            tab: Profile
+        user[first_name]:
+            label: 'First Name'
+            span: auto
+            type: text
+            tab: Profile
+        user[last_name]:
+            label: 'Last Name'
+            span: auto
+            type: text
+            tab: Profile
+        options[position]:
+            label: Position/Job Title
+            span: auto
+            type: text
+            tab: Profile
+        user[email]:
+            label: Email
+            span: auto
+            type: text
+            tab: Profile
+        phone:
+            label: Phone
+            span: auto
+            type: text
+            tab: Profile
+        birth:
+            label: 'Date of Birth'
+            span: auto
+            type: datepicker
+            mode: date
+            tab: Profile
+        user[password]:
+            label: Password
+            span: auto
+            type: password
+            tab: Profile
+        user[password_confirmation]:
+            label: Confirm Password
+            span: auto
+            type: password
+            tab: Profile
+        

@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('status')->nullable();
             $table->decimal('balance', 5, 2)->nullable();
-            $table->date('birth_date')->nullable();
+            $table->date('birth')->nullable();
+            $table->text('options')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
