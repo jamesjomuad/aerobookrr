@@ -53,6 +53,12 @@ class Bay extends Model
     #
     #  Scopes
     #
+    public function scopeSetReserve()
+    {
+        $this->status = 'reserve';
+        return $this->save();
+    }
+
     public function scopeSetOccupied()
     {
         $this->status = 'occupied';
@@ -67,8 +73,7 @@ class Bay extends Model
 
     public function scopeIsAvailable($query)
     {
-        $query->where('status',1);
-        
+        $query->where('status',null);
         return $query;
     }
 

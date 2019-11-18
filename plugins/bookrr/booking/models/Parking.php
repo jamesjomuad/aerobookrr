@@ -262,11 +262,15 @@ class Parking extends Model
     {
         if(!empty($this->bay))
         {
-            $this->bay->setOccupied();
+            $this->bay->setReserve();
         }
         if($this->status=="checkout")
         {
             $this->bay->setAvailable();
+        }
+        if($this->status=='parked')
+        {
+            $this->bay->setOccupied();
         }
     }
 
