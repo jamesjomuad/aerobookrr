@@ -6,7 +6,7 @@ use Request;
 use Backend\Classes\Controller;
 use \Carbon\Carbon;
 use Bookrr\User\Models\BaseUser as AeroUser;
-use Bookrr\User\Models\Customer;
+use Bookrr\User\Models\Customers;
 use Bookrr\User\Models\Vehicle;
 use Bookrr\Booking\Models\Parking as ParkingModel;
 use Bookrr\Store\Models\Product;
@@ -232,7 +232,7 @@ class Parking extends CartController
         #
         if($custID = post('Parking.customer'))
         {
-            $vehicle = Customer::find($custID)->vehicles->where('primary',1)->first();
+            $vehicle = Customers::find($custID)->vehicles->where('primary',1)->first();
             $model->vehicle()->associate($vehicle);
         }
         else if(@$this->isCustomer())

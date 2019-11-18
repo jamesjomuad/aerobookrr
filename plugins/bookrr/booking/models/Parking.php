@@ -65,9 +65,8 @@ class Parking extends Model
     ];
 
     public $belongsTo = [
-        'user'      => ['Backend\Models\User','key' => 'user_id'],
         'customer'  => ['Bookrr\User\Models\Customers','key' => 'user_id'],
-        'vehicle'   => ['Bookrr\Booking\Models\Vehicle'],
+        'vehicle'   => ['Bookrr\User\Models\Vehicle'],
         'bay'       => \Bookrr\Bay\Models\Bay::class,
         'ticket'    => \Bookrr\Booking\Models\Ticket::class
     ];

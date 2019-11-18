@@ -15,9 +15,10 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('status')->nullable();
-            $table->decimal('balance', 5, 2)->nullable();
+            $table->string('gender',30)->nullable();
             $table->date('birth')->nullable();
             $table->text('options')->nullable();
+            $table->decimal('balance', 5, 2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

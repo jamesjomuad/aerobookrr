@@ -14,7 +14,7 @@ class Customers extends Model
     public $table = 'bookrr_user';
 
     public $rules = [
-        'phone'     => 'required|regex:/^([-a-z0-9_ ])+$/i|min:6'
+        'phone' => 'required|regex:/^([-a-z0-9_ ])+$/i|min:6'
     ];
 
     protected $guarded = ['*'];
@@ -30,6 +30,11 @@ class Customers extends Model
             'key'    => 'user_id',
             'delete' => true
         ]
+    ];
+    public $hasMany = [
+        'bookings' => ['Bookrr\Booking\Models\Parking','key' => 'user_id','delete' => true],
+        'vehicles' => ['Bookrr\User\Models\Vehicle','key' => 'user_id','delete' => true],
+        'contacts' => ['Bookrr\User\Models\Contact','key' => 'user_id','delete' => true]
     ];
 
     #
@@ -59,5 +64,10 @@ class Customers extends Model
     public function afterDelete()
     {
         $this->user()->delete();
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->user->first_name.' '.$this->user->last_name;
     }
 }

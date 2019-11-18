@@ -28,17 +28,15 @@ columns:
         searchable: true
     date_in:
         label: 'Date In'
-        type: partial
+        type: humandate
         width: 170px
         align: center
-        path: ~/plugins/bookrr/booking/controllers/parking/_dateIn.htm
         searchable: true
     date_out:
         label: 'Date Out'
-        type: partial
+        type: humandate
         width: 170px
         align: center
-        path: ~/plugins/bookrr/booking/controllers/parking/_dateOut.htm
         searchable: true
     status:
         label: 'Status'

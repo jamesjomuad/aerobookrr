@@ -4,6 +4,7 @@ use Backend;
 use Event;
 use System\Classes\PluginBase;
 use Backend\Models\User as UserModel;
+use \Carbon\Carbon;
 
 
 class Plugin extends PluginBase
@@ -18,7 +19,7 @@ class Plugin extends PluginBase
         Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
             if(request()->is('backend') OR request()->is('backend/*'))
             {
-                $controller->addCss('/plugins/bookrr/general/assets/css/style.css');  
+                $controller->addCss('/plugins/bookrr/general/assets/css/style.css','v1.0');  
             }
         });
     }
@@ -157,4 +158,51 @@ class Plugin extends PluginBase
             // ]
         ];
     }
+
+    public function registerListColumnTypes()
+    {
+        return [
+            'humandate' => [$this, 'humanDateListColumn'],
+            'color' => [$this, 'colorListColumn'],
+            'dot' => [$this, 'dotListColumn']
+        ];
+    }
+
+    public function humanDateListColumn($value, $column, $record)
+    {
+        $formatDate = function($value){
+            $dateTime   = (new Carbon())->parse($value)->format('d/m/y (h:i A)');
+            $diffHuman  = (new Carbon($value))->diffForHumans();
+            $class      = str_contains($diffHuman,'ago') ? 'default' : 'primary';
+            return [
+                $dateTime,
+                $diffHuman,
+                $class
+            ];
+        };
+
+        $format = $formatDate($value);
+
+        return implode("",[
+            $format[0],
+            '<br>',
+            '<button type="button" class="btn btn-'.$format[2].' btn-xs btn-block text-center" style="text-align:center;">',
+            $format[1],
+            '</button>'
+        ]);
+    }
+
+    public function colorListColumn($value, $column, $record)
+    {
+        return '<span style="background:'.$value.';width: 30px;height: 30px;display: block;">&nbsp;</span>';
+    }
+
+    public function dotListColumn($value, $column, $record)
+    {
+        if($value)
+            return '<i class="icon-circle" style="color: lime;"></i>';
+        else
+            return '<i class="icon-circle-o"></i>';
+    }
+
 }

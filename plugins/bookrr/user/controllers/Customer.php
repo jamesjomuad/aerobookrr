@@ -4,6 +4,7 @@ use BackendMenu;
 use Backend\Classes\Controller;
 use Backend\Models\User;
 use Backend\Models\UserRole;
+use \Carbon\Carbon;
 
 
 
@@ -11,11 +12,13 @@ class Customer extends Controller
 {
     public $implement = [
         'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController'
+        'Backend.Behaviors.ListController',
+        'Backend.Behaviors.RelationController'
     ];
 
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
+    public $relationConfig = 'config_relation.yaml';
 
     public function __construct()
     {
@@ -34,5 +37,17 @@ class Customer extends Controller
             $model->user->role()->add(UserRole::where('code','customer')->first());
         }
         return $model;
+    }
+
+    public function listFormatDate($value)
+    {   
+        $dateTime   = (new Carbon())->parse($value)->format('d/m/y (h:i A)');
+        $diffHuman  = (new Carbon($value))->diffForHumans();
+        $class      = str_contains($diffHuman,'ago') ? 'default' : 'primary';
+        return [
+            $dateTime,
+            $diffHuman,
+            $class
+        ];
     }
 }

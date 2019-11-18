@@ -4,47 +4,64 @@ tabs:
             label: Username
             span: full
             type: text
+            required: true
             tab: Profile
-                
         user[email]:
             label: Email
             span: auto
             type: text
+            required: true
             tab: Profile
-
         phone:
             label: Phone
             span: auto
             type: text
             tab: Profile
-                
         user[password]:
             label: Password
             span: auto
             type: password
+            required: true
             tab: Profile
-                
         user[password_confirmation]:
             label: Confirm Password
             span: auto
             type: password
+            required: true
             tab: Profile
-                
         user[first_name]:
             label: 'First Name'
             span: auto
             type: text
+            required: true
             tab: Profile
-                
         user[last_name]:
             label: 'Last Name'
             span: auto
             type: text
+            required: true
             tab: Profile
-        
-        # birth_date:
-        #     label: 'Birth Date'
-        #     span: auto
-        #     type: datepicker
-        #     mode: date
-        #     tab: Profile
+        birth:
+            label: 'Birth Date'
+            span: auto
+            type: datepicker
+            mode: date
+            tab: Profile
+
+        bookings:
+            span: full
+            path: bookings
+            type: partial
+            tab: Bookings
+            context:
+                - update
+                - preview
+
+        vehicles:
+            span: full
+            path: vehicles
+            type: partial
+            tab: Vehicles
+            context:
+                - update
+                - preview

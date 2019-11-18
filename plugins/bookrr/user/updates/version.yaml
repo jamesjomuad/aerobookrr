@@ -1,4 +1,10 @@
 1.0.1: First version of user
 1.0.2:
- - Create Bookrr extended Users table
- - create_users_table.php
+  - Create Bookrr extended Users table
+  - create_users_table.php
+1.0.3:
+  - Create Bookrr User Vehicle table
+  - create_vehicles_table.php
+1.0.4:
+  - Create Bookrr User Contact table
+  - create_contacts_table.php
