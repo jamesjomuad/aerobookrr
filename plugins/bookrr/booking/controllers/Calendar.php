@@ -3,6 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Bookrr\Booking\Models\Parking;
+use Carbon\Carbon;
 
 /**
  * Calendar Back-end Controller
@@ -24,35 +25,34 @@ class Calendar extends Controller
         $this->addCss($this->assetsPath.'/css/fullcalendar.css');
         $this->addCss($this->assetsPath.'/css/style.css');
         $this->addJs($this->assetsPath.'/js/fullcalendar.min.js');
-        $this->addJs($this->assetsPath.'/js/script.js','v1.5');
+        $this->addJs($this->assetsPath.'/js/script.js','v1.6');
     }
 
     public function bookings()
     {
+        $timestamp = Carbon::createFromTimestamp(input('time'));
 
-        if($this->user->isCustomer() AND (bool) $this->user->aeroUser->bookings)
+        if($this->user->isCustomer() AND (bool) $this->user->customer)
         {
-            $Booking = $this->user->aeroUser->bookings;
+            $Booking = $this->user->customer->bookings;
         }
         else
         {
-            $Booking = Parking::getBookings()->get();
+            $Booking = Parking::monthOf($timestamp);
         }
 
-        $result = $Booking
-        ->map(function($model){
-            if($model->user)
+        $result = $Booking->get()->map(function($model){
+            if($model->customer)
             return [
-                'title' => '('.$model->id.') '.$model->user->backendUser->first_name.' '.$model->user->backendUser->last_name,
+                'title' => '('.$model->id.') '.$model->customer->user->first_name.' '.$model->customer->user->last_name,
                 'start' => $model->date_in,
-                // 'end'   => $model->date_out,
                 'url'   => '/backend/bookrr/booking/parking/update/'.$model->id,
                 'backgroundColor' => '#ff6600',
                 'borderColor' => '#ff5500'
             ];
-        })->toArray();
+        });
 
-        return \Response::json($result);
+        return response()->json($result->toArray());
     }
     
 }

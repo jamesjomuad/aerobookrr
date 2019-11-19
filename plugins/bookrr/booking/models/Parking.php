@@ -284,9 +284,24 @@ class Parking extends Model
     /*
     *   SCOPES
     */
+    public function scopeMonthOf($query,$timestamp)
+    {
+        $query
+            ->whereMonth('date_in',$timestamp->month)
+            ->whereYear('date_in',$timestamp->year)
+        ;
+
+        $query->orWhere(function($nest) use($timestamp) {
+            $nest->whereMonth('date_out',$timestamp->month)
+                ->whereYear('date_in',$timestamp->year)
+            ;
+        });
+        return $query;
+    }
+
     public function scopeGetBookings()
     {
-        return $this->has('user.backendUser');
+        return $this->has('customer.user');
     }
 
     public function scopeVehicles()

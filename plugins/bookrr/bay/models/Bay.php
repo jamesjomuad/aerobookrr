@@ -58,6 +58,10 @@ class Bay extends Model
         {
             return "Reserved";
         }
+        elseif($this->status=='occupied')
+        {
+            return "Occupied";
+        }
         else
         {
             return "Not Available";

@@ -48,22 +48,10 @@ class Plugin extends PluginBase
                     ],
                     'parking-calendar' => [
                         'label'       => 'Calendar',
-                        'url'         => Backend::url('bookrr/booking/parkingcalendar'),
+                        'url'         => Backend::url('bookrr/booking/calendar'),
                         'icon'        => 'icon-calendar',
                         'permissions' => ['bookrr.booking.park'],
-                    ],
-                    // 'rental' => [
-                    //     'label'       => 'Rental List',
-                    //     'url'         => Backend::url('bookrr/booking/rental'),
-                    //     'icon'        => 'icon-car',
-                    //     'permissions' => ['bookrr.booking.rent'],
-                    // ],
-                    // 'rental-calendar' => [
-                    //     'label'       => 'Rental Calendar',
-                    //     'url'         => Backend::url('bookrr/booking/rental'),
-                    //     'icon'        => 'icon-calendar',
-                    //     'permissions' => ['bookrr.booking.rent'],
-                    // ],
+                    ]
                 ]
             ],
             'move_key' => [

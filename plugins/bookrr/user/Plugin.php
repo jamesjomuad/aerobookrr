@@ -26,11 +26,11 @@ class Plugin extends PluginBase
         UserModel::extend(function($model){
             # Extend Relations
             $model->hasOne['customer']  = [
-                'Bookrr\User\Models\Customer',
+                '\Bookrr\User\Models\Customers',
                 'delete' => true
             ];
             $model->hasOne['staff']  = [
-                'Bookrr\Keeprr\Models\Staff',
+                '\Bookrr\Keeprr\Models\Staff',
                 'delete' => true
             ];
 
