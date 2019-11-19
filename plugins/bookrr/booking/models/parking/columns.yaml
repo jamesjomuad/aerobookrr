@@ -3,11 +3,13 @@ columns:
         label: ID
         type: text
         searchable: true
+    name:
+        label: Name
     number:
         label: Number
         type: text
         searchable: true
-    plate: 
+    plate:
         label: 'Plate'
         relation: vehicle
         valueFrom: plate

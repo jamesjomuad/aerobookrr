@@ -150,12 +150,10 @@ class Parking extends Model
     }
 
     public function getNameAttribute()
-    {
-        if($this->user)
-        {
-            $user = $this->user->backendUser;
-            return $user->first_name.' '.$user->last_name;
-        }
+    {   
+        $user = $this->customer()->first()->user;
+        
+        return $user->first_name .' '. $user->last_name;
     }
 
     public function getDateInAttribute($value)
@@ -183,13 +181,14 @@ class Parking extends Model
         }
     }
 
-    public function getFullNameAttribute($value)
+    public function getFullNameAttribute()
     {
-        if($this->customer)
+        if($this->customer AND @$this->customer->user)
         {
             $customer = $this->customer->user;
             return $customer->first_name.' '.$customer->last_name;  
         }
+        return null;
     }
 
     public function getVehiclePlateAttribute($value)

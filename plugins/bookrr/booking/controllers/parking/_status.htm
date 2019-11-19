@@ -1,5 +1,5 @@
 <?php
-    $dateTime = $this->carbon()->parse($record->date_in);
+    $dateTime = \Carbon\Carbon::parse($record->date_in);
     $isToday = !$dateTime->isYesterday() && $dateTime->isToday() ;
     $class = $isToday ? 'flasher' : '' ; 
 ?>

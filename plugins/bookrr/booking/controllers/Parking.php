@@ -6,7 +6,6 @@ use Request;
 use Backend\Classes\Controller;
 use October\Rain\Exception\ApplicationException;
 use \Carbon\Carbon;
-use Bookrr\User\Models\BaseUser as AeroUser;
 use Bookrr\User\Models\Customers;
 use Bookrr\User\Models\Vehicle;
 use Bookrr\Booking\Models\Parking as ParkingModel;
@@ -65,7 +64,9 @@ class Parking extends CartController
     {
         dd(
             $this->model->find($id)
-            ->bay
+            ->customer
+            ->user
+            ->first_name
         );
     }
 
@@ -283,17 +284,17 @@ class Parking extends CartController
     public function listExtendQuery($query)
     {
         // List customer record
-        if($this->user->isCustomer())
-        {
-            if($this->user->aeroUser)
-            {
-                $query->where('user_id',$this->user->aeroUser->id);
-            }
-            else
-            {
-                $query->where('user_id',0);
-            }
-        }
+        // if($this->user->isCustomer())
+        // {
+        //     if($this->user->aeroUser)
+        //     {
+        //         $query->where('user_id',$this->user->aeroUser->id);
+        //     }
+        //     else
+        //     {
+        //         $query->where('user_id',0);
+        //     }
+        // }
 
         return $query;
     }
@@ -312,11 +313,6 @@ class Parking extends CartController
             $diffHuman,
             $class
         ];
-    }
-
-    public function carbon()
-    {
-        return new Carbon();
     }
 
     /*
