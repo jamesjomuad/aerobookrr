@@ -61,6 +61,14 @@ class Parking extends CartController
         $this->ProductToolbarWidget = $this->ToolbarWidget($this->ProductListWidget,'config_list_product.yaml');
     }
 
+    public function test($id)
+    {
+        dd(
+            $this->model->find($id)
+            ->bay
+        );
+    }
+
     public function index()
     {
         $this->addCss($this->assetPath.'css/parking.css');

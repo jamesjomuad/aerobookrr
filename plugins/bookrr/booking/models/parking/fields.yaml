@@ -93,11 +93,11 @@ tabs:
         _customer:
             span: full
             path: customer
+            type: partial
+            tab: Details
             context:
                 - update
                 - preview
-            type: partial
-            tab: Details
         guest_in:
             label: 'Number of Passengers Arrive'
             options:

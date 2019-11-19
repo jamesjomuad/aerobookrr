@@ -2,9 +2,9 @@
 
 
 use Model;
-use Bookrr\User\Models\User;
 use \Carbon\Carbon;
 use BackendAuth;
+use Bookrr\User\Models\User;
 use Bookrr\User\Models\BaseUser as AeroUser;
 use Bookrr\Store\Models\Product;
 use Bookrr\Pxpay\Models\Transaction;
@@ -185,10 +185,10 @@ class Parking extends Model
 
     public function getFullNameAttribute($value)
     {
-        if($this->user)
+        if($this->customer)
         {
-            $user = $this->user->backendUser;
-            return $user->first_name.' '.$user->last_name;  
+            $customer = $this->customer->user;
+            return $customer->first_name.' '.$customer->last_name;  
         }
     }
 
@@ -276,7 +276,7 @@ class Parking extends Model
 
     public function beforeDelete()
     {
-        if($this->bay->getOriginal('status')=='occupied')
+        if($this->bay AND $this->bay->getOriginal('status')=='occupied')
         {
             $this->bay->setAvailable();
         }
