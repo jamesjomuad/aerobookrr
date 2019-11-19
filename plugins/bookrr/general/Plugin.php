@@ -19,7 +19,7 @@ class Plugin extends PluginBase
         Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
             if(request()->is('backend') OR request()->is('backend/*'))
             {
-                $controller->addCss('/plugins/bookrr/general/assets/css/style.css','v1.0');  
+                $controller->addCss('/plugins/bookrr/general/assets/css/style.css','v1.1');  
             }
         });
     }

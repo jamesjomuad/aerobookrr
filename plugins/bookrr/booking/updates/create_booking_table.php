@@ -13,6 +13,7 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->integer('vehicle_id')->nullable();
+            $table->integer('bay_id')->nullable();
             $table->string('slot')->nullable();
             $table->string('number')->unique()->nullable();
             $table->string('status')->nullable();
@@ -30,6 +31,8 @@ class CreateBookingsTable extends Migration
             $table->string('agent_reference')->nullable();
             $table->string('promo_code')->nullable();
             $table->text('note')->nullable();
+            $table->longText('items')->nullable();
+            $table->string('ref_num')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -41,13 +41,13 @@ class Plugin extends PluginBase
                 'order'       => 905,
                 'sideMenu'    => [
                     'parking' => [
-                        'label'       => 'Parking List',
+                        'label'       => 'List',
                         'url'         => Backend::url('bookrr/booking/parking'),
                         'icon'        => 'icon-car',
                         'permissions' => ['bookrr.booking.park'],
                     ],
                     'parking-calendar' => [
-                        'label'       => 'Calendar View',
+                        'label'       => 'Calendar',
                         'url'         => Backend::url('bookrr/booking/parkingcalendar'),
                         'icon'        => 'icon-calendar',
                         'permissions' => ['bookrr.booking.park'],

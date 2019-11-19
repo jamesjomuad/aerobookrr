@@ -4,6 +4,7 @@ use BackendMenu;
 use BackendAuth as Auth;
 use Request;
 use Backend\Classes\Controller;
+use October\Rain\Exception\ApplicationException;
 use \Carbon\Carbon;
 use Bookrr\User\Models\BaseUser as AeroUser;
 use Bookrr\User\Models\Customers;
@@ -12,6 +13,7 @@ use Bookrr\Booking\Models\Parking as ParkingModel;
 use Bookrr\Store\Models\Product;
 use Bookrr\Bay\Models\Bay;
 use Bookrr\Store\Controllers\Cart as CartController;
+
 
 
 
@@ -230,12 +232,18 @@ class Parking extends CartController
         #
         # Attach the primary vehicle
         #
-        if($custID = post('Parking.customer'))
+        if($customer = Customers::find(post('Parking.customer')))
         {
-            $vehicle = Customers::find($custID)->vehicles->where('primary',1)->first();
-            $model->vehicle()->associate($vehicle);
+            if(!$customer->vehicles()->hasDefault())
+            {
+                throw new ApplicationException('No default vehicle for Customer!');
+            }
+            
+            $model->vehicle()->associate(
+                $customer->vehicles->where('primary',1)->first()
+            );
         }
-        else if(@$this->isCustomer())
+        else if($this->isCustomer())
         {
             $model->rules = [];
             $vehicle = $this->getCustomer()->vehicles->where('primary',1)->first();

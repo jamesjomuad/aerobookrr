@@ -8,3 +8,6 @@
 1.0.4:
   - Create Bookrr User Contact table
   - create_contacts_table.php
+1.0.5:
+ - 'Seed Table'
+ - seed.php

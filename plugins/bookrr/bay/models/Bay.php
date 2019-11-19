@@ -32,21 +32,36 @@ class Bay extends Model
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y');
     }
 
-    public function getStatusAttribute($value)
+    public function getStatusColorAttribute($value)
     {
-        if($value=='0')
-        return false;
-
-        if(empty($value) OR $value)
-        return true;
+        if($this->status==NULL)
+        {
+            return "btn-primary";
+        }
+        elseif($this->status=='reserve')
+        {
+            return "btn-default bg-p";
+        }
+        else
+        {
+            return "br-a";
+        }
     }
 
     public function getAvailabilityAttribute()
     {
-        if($this->status)
+        if($this->status==NULL)
+        {
             return "Available";
+        }
+        elseif($this->status=='reserve')
+        {
+            return "Reserved";
+        }
         else
+        {
             return "Not Available";
+        }
     }
 
 

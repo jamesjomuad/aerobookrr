@@ -5,6 +5,7 @@ use Backend\Classes\Controller;
 use Backend\Models\User;
 use Backend\Models\UserRole;
 use \Carbon\Carbon;
+use October\Rain\Exception\ApplicationException;
 
 
 
@@ -29,9 +30,12 @@ class Customer extends Controller
 
     public function formExtendModel($model)
     {
-        /*
-         * Init proxy field model if we are creating the model
-         */
+        if(UserRole::where('code','customer')->first()==NULL)
+        {
+            throw new ApplicationException('Customer Role not found! Please Create it!');
+        }
+
+        # Init proxy field model if we are creating the model
         if ($this->action == 'create') {
             $model->user = new User;
             $model->user->role()->add(UserRole::where('code','customer')->first());
