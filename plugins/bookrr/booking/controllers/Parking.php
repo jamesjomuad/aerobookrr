@@ -12,6 +12,7 @@ use Bookrr\Booking\Models\Parking as ParkingModel;
 use Bookrr\Store\Models\Product;
 use Bookrr\Bay\Models\Bay;
 use Bookrr\Store\Controllers\Cart as CartController;
+use Bookrr\Rates\Models\Rate;
 
 
 
@@ -125,15 +126,17 @@ class Parking extends CartController
                     return \Redirect::to('/backend/bookrr/booking/parking/update/'.$id);
                 }
             }
-            
         }
         elseif($model->status == 'parked')
         {
             \Flash::warning('Already Check In!...');
         }
 
+        $this->initForm($model);
+
         return [
-            '#toolbar' => $this->makePartial('update_toolbar',$this->vars)
+            '#toolbar' => $this->makePartial('update_toolbar',$this->vars),
+            '#Form-field-Parking-status-group' => $this->formGetWidget()->renderField('status',['useContainer' => true])
         ];
     }
 
