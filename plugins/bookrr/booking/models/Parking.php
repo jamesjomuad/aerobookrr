@@ -18,6 +18,8 @@ class Parking extends Model
 
     public $table = 'bookrr_booking';
 
+    public $dates = ['park_in'];
+
     public $rules = [
         'customer' => 'required',
     ];
@@ -69,16 +71,6 @@ class Parking extends Model
         'vehicle'   => ['Bookrr\User\Models\Vehicle'],
         'bay'       => \Bookrr\Bay\Models\Bay::class,
         'ticket'    => \Bookrr\Booking\Models\Ticket::class
-    ];
-
-    public $belongsToMany = [
-        'products' => [
-            'Bookrr\Store\Models\Product',
-            'table' => 'bookrr_cart_product',
-            'order' => 'name',
-            'key' => 'cart_id',
-            'otherKey' => 'product_id'
-        ]
     ];
 
     protected $statusOption = [

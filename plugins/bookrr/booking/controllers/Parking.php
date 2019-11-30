@@ -61,16 +61,6 @@ class Parking extends CartController
         $this->ProductToolbarWidget = $this->ToolbarWidget($this->ProductListWidget,'config_list_product.yaml');
     }
 
-    public function test($id)
-    {
-        dd(
-            $this->model->find($id)
-            ->customer
-            ->user
-            ->first_name
-        );
-    }
-
     public function index()
     {
         $this->addCss($this->assetPath.'css/parking.css');
@@ -176,14 +166,24 @@ class Parking extends CartController
 
     public function onPay()
     {
+        if(!Rate::amount())
+        {
+            throw new \ApplicationException('No rate is set!');
+        }
+
         $orders = $this->getOrders(post('id'));
+
+        $hourlyRate = Rate::amount();
+        $start = ParkingModel::find(post('id'))->park_in;
+        $hours = Carbon::now()->diffInSeconds($start)/3600;
+        $rate = $hours * $hourlyRate;
 
         $orders->prepend((object)[
             "name"      => "Parking",
             "quantity"  => 1,
-            "price"     => Rate::amount()
+            "price"     => round($rate,2)
         ]);
-        
+
         $this->vars['currency'] = \PxPay\PxPay::getSettings()->symbol;
         
         $this->vars['orders'] = $orders;
@@ -195,6 +195,11 @@ class Parking extends CartController
 
     public function onPxpay()
     {
+        if(\Bookrr\Pxpay\Models\Settings::instance()->toJson()==="[]")
+        {
+            throw new \ApplicationException('Need to configure payment gateway!');
+        }
+
         $PxPay = new \PxPay\PxPay();
 
         $refNum = crc32(uniqid()).time();
@@ -210,6 +215,11 @@ class Parking extends CartController
             "reference" => $refNum
         ]);
 
+        if(!$PxPay->Url)
+        {
+            throw new \ApplicationException('Gateway Error!');
+        }
+
         $this->vars['PxPay'] = $PxPay;
 
         return $this->makePartial('pxpay');
@@ -217,9 +227,7 @@ class Parking extends CartController
 
     public function getOrders($id)
     {
-        $orderIds = ParkingModel::find($id)->items;
-
-        return Product::findMany($orderIds);
+        return ($cart = ParkingModel::find($id)->cart) ? $cart->products : collect();
     }
 
     /*
