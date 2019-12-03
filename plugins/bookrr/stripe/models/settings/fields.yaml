@@ -1,0 +1,93 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        mode:
+            label: Sandbox/Live (Mode)
+            type: switch
+            comment: Flick this switch On for live accounts else Off for sandbox testing.
+            tab: Accounts
+        _sandbox:
+            label: Sandbox/Test Account
+            type: section
+            comment: Credentials for testing pxpay Gateway.
+            tab: Accounts
+        sandbox_pubkey:
+            label: Publishable Key
+            span: left
+            tab: Accounts
+        sandbox_key:
+            label: Secret Key
+            span: right
+            tab: Accounts
+        _live:
+            label: Live Account
+            type: section
+            comment: Credentials for live.
+            tab: Accounts
+        pubkey:
+            label: Publishable Key
+            span: left
+            tab: Accounts
+        key:
+            label: Secret Key
+            span: right
+            tab: Accounts
+        currency:
+            label: Currency
+            type: dropdown
+            options:
+                'NZD_$': "New Zealand Dollar - NZD"
+                'AUD_$': "Ustralian Dollar - AUD"
+                'BRL_R$': "Razilian Real - BRL" 
+                'CAD_$': "Canadian Dollar - CAD"
+                'CZK_Kč': "Zech Koruna - CZK"
+                'DKK_kr': "Anish Krone - DKK"
+                'EUR_€': "Euro - EUR"
+                'HKD_$': "Ong Kong Dollar - HKD"
+                'HUF_ft': "Ungarian Forint - HUF"
+                'ILS_₪': "Sraeli New Sheqel - ILS"
+                'JPY_¥': "Japanese Yen - JPY"
+                'MYR_RM': "Malaysian Ringgit - MYR"
+                'MXN_$': "Mexican Peso - MXN"
+                'NOK_kr': "Norwegian Krone - NOK"
+                'NZD_$': "New Zealand Dollar - NZD"
+                'PHP_₱': "Philippine Peso - PHP"
+                'PLN_zł': "Polish Zloty - PLN"
+                'GBP_£': "Pound Sterling - GBP"
+                'RUB_₽': "Russian Ruble - RUB"
+                'SGD_$': "Singapore Dollar - SGD"
+                'SEK_kr': "Swedish Krona - SEK"
+                'CHF_CHF': "Swiss Franc - CHF"
+                'THB_฿': "Thai Baht - THB"
+                'TRY_₺': "Turkish Lira - TRY"
+                'USD_$': "U.S. Dollar - USD"
+            tab: Language
+        language :
+            label: Language
+            disabled: true
+            type: dropdown
+            options: 
+                1: "Danish"
+                2: "Dutch"
+                3: "English"
+                2: "English - UK"
+                4: "French"
+                5: "German"
+                6: "Hebrew"
+                7: "Italian"
+                8: "Japanese"
+                9: "Norwgian"
+                1: ">Polish"
+                1: "Portuguese"
+                1: "Russian"
+                1: "Spanish"
+                1: "Swedish"
+                1: "Simplified Chinese -China only"
+                1: "Traditional Chinese - Hong Kong only"
+                1: "Traditional Chinese - Taiwan only"
+                1: "Turkish"
+                1: "Thai"
+            tab: Language
