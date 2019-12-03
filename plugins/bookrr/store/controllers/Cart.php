@@ -32,7 +32,7 @@ class Cart extends Controller
 
         $this->model = new CartModel;
 
-        $this->currency = \PxPay\PxPay::getSettings()->symbol;
+        $this->currency = '$';
     }
 
     public function formBeforeSave($model)

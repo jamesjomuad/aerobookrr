@@ -48,11 +48,7 @@ class Parking extends CartController
 
         $this->model = new ParkingModel;
 
-        $this->addCss($this->assetPath.'css/pxpay.css');
-
         $this->addCss($this->assetPath.'css/parking.css');
-
-        $this->addJs($this->assetPath.'js/pxpay.js');
         
         $this->addJs($this->assetPath.'js/parking.js');
 
@@ -175,7 +171,7 @@ class Parking extends CartController
 
         $orders = $this->getOrders(post('id'));
 
-        $this->vars['currency'] = \PxPay\PxPay::getSettings()->symbol;
+        $this->vars['currency'] = '$';
         
         $this->vars['orders'] = $orders;
 
@@ -204,38 +200,6 @@ class Parking extends CartController
         ]);
 
         return $this->makePartial('stripe');
-    }
-
-    public function onPxpay()
-    {
-        if(\Bookrr\Pxpay\Models\Settings::instance()->toJson()==="[]")
-        {
-            throw new \ApplicationException('Need to configure payment gateway!');
-        }
-
-        $PxPay = new \PxPay\PxPay();
-
-        $refNum = crc32(uniqid()).time();
-
-        $PxPay->UrlFail = "{$PxPay->UrlFail}?param=refnum::".$refNum.",amount::".post('amount');
-
-        $PxPay->UrlSuccess = "{$PxPay->UrlSuccess}?param=refnum::".$refNum.",amount::".post('amount');
-
-        ParkingModel::findOrFail(post('id'))->update(['ref_num' => $refNum]);
-
-        $PxPay->request([
-            "amount"    => post('amount'),
-            "reference" => $refNum
-        ]);
-
-        if(!$PxPay->Url)
-        {
-            throw new \ApplicationException('Gateway Error!');
-        }
-
-        $this->vars['PxPay'] = $PxPay;
-
-        return $this->makePartial('pxpay');
     }
 
     public function getOrders($id)

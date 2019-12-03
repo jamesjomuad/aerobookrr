@@ -9,6 +9,8 @@ use \Carbon\Carbon;
 
 class Plugin extends PluginBase
 {
+    public $elevated = true;
+
     public function boot()
     {
         \Event::listen('backend.menu.extendItems', function($manager) {
@@ -63,9 +65,6 @@ class Plugin extends PluginBase
             '\Bookrr\General\ReportWidgets\Finder' => [
                 'label'   => 'Bookrr - Finder',
                 'context' => 'dashboard',
-                'permissions' => [
-                    'bookrr.widget.booker',
-                ],
             ],
             '\Bookrr\General\ReportWidgets\ParkingFeed' => [
                 'label'   => 'Bookrr - Aero Feed',

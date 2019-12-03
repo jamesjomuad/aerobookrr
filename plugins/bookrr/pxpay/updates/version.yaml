@@ -1,4 +1,0 @@
-1.0.1: First version of PxPay
-1.0.2:
-    - 'Create Transaction table'
-    - create_transactions_table.php

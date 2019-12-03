@@ -7,7 +7,6 @@ use BackendAuth;
 use Bookrr\User\Models\User;
 use Bookrr\User\Models\BaseUser as AeroUser;
 use Bookrr\Store\Models\Product;
-use Bookrr\Pxpay\Models\Transaction;
 
 
 class Parking extends Model
@@ -211,15 +210,15 @@ class Parking extends Model
         return $value;
     }
 
-    public function getIsPaidAttribute($value)
-    {
-        return Transaction::isPaid($this->ref_num);
-    }
+    // public function getIsPaidAttribute($value)
+    // {
+    //     return Transaction::isPaid($this->ref_num);
+    // }
 
-    public function getIsFailAttribute($value)
-    {
-        return Transaction::isFail($this->ref_num);
-    }
+    // public function getIsFailAttribute($value)
+    // {
+    //     return Transaction::isFail($this->ref_num);
+    // }
 
 
     /*
