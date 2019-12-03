@@ -166,6 +166,8 @@ class Parking extends CartController
 
     public function onPay()
     {
+        $customer = $this->model->find(input('id'))->customer;
+
         if(!Rate::amount())
         {
             throw new \ApplicationException('No rate is set!');
@@ -173,24 +175,35 @@ class Parking extends CartController
 
         $orders = $this->getOrders(post('id'));
 
-        $hourlyRate = Rate::amount();
-        $start = ParkingModel::find(post('id'))->park_in;
-        $hours = Carbon::now()->diffInSeconds($start)/3600;
-        $rate = $hours * $hourlyRate;
-
-        $orders->prepend((object)[
-            "name"      => "Parking",
-            "quantity"  => 1,
-            "price"     => round($rate,2)
-        ]);
-
         $this->vars['currency'] = \PxPay\PxPay::getSettings()->symbol;
         
         $this->vars['orders'] = $orders;
 
-        $this->vars['total'] = number_format($orders->pluck('price')->sum(),2);
+        $this->vars['email'] = $customer->user->email;
+
+        $this->vars['total'] = number_format($orders->pluck('total')->sum(), 2, '.', ''); 
 
         return $this->makePartial('payment');
+    }
+
+    public function onCharge()
+    {
+        $this->addCss('/plugins/bookrr/stripe/assets/css/style.css');
+
+        return $this->makePartial('charge');
+    }
+
+    public function onStripe()
+    {
+        \Stripe\Stripe::setApiKey('sk_test_pfyvRhOEAjBZuxpqn6CJ7OFx009cqGVxay');
+
+        $this->vars['charge'] = \Stripe\Charge::create([
+            'amount'    => input('amount'),
+            'currency'  => 'usd',
+            'source'    => input('stripeToken')
+        ]);
+
+        return $this->makePartial('stripe');
     }
 
     public function onPxpay()
@@ -227,7 +240,40 @@ class Parking extends CartController
 
     public function getOrders($id)
     {
-        return ($cart = ParkingModel::find($id)->cart) ? $cart->products : collect();
+        $model = ParkingModel::find($id);
+
+        $orders = ($cart = $model->cart) ? 
+            collect($cart->products->toArray()) : 
+            collect()
+        ;
+
+        $filtered = $orders->map(function ($item, $key) {
+            return [
+                "name" => $item['name'],
+                "description" => $item['description'],
+                "quantity" => $item['pivot']['quantity'],
+                "price" => $item['price'],
+                "total" => round($item['pivot']['quantity']*$item['price'],2)
+            ];
+        });
+
+        $hourlyRate = Rate::amount();
+        $start = $model->park_in;
+        $hours = round((Carbon::now()->diffInSeconds($start))/3600,2);
+
+        $filtered->prepend([
+            "name"      => "Parking",
+            "quantity"  => $hours,
+            "price"     => round($hourlyRate,2),
+            "total"     => round( $hours*round($hourlyRate,2) ,2)
+        ]);
+
+        return $filtered;
+    }
+
+    public function total($qty,$price)
+    {
+        return round($qty*$price,2);
     }
 
     /*
