@@ -163,22 +163,20 @@ class Parking extends CartController
 
     public function onPay()
     {
-        $customer = $this->model->find(input('id'))->customer;
-
         if(!Rate::amount())
         {
             throw new \ApplicationException('No rate is set!');
         }
 
-        $orders = $this->getOrders(post('id'));
+        $orders = $this->getOrders(input('id'));
 
-        $this->vars['currency'] = '$';
+        $this->vars['symbol'] = $orders['symbol'];
         
-        $this->vars['orders'] = $orders;
+        $this->vars['orders'] = $orders['orders'];
 
-        $this->vars['email'] = $customer->user->email;
+        $this->vars['email'] = $orders['email'];
 
-        $this->vars['total'] = number_format($orders->pluck('total')->sum(), 2, '.', ''); 
+        $this->vars['total'] = $orders['total']; 
 
         return $this->makePartial('payment');
     }
@@ -187,7 +185,9 @@ class Parking extends CartController
     {
         $this->addCss('/plugins/bookrr/stripe/assets/css/style.css','v1.3');
         $this->addJs('https://js.stripe.com/v3/','v1.1');
-        $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.4');
+        $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.5');
+
+        $this->vars['cart'] = (object)$this->getOrders(input('id'));
 
         return $this->makePartial('stripe/stripe');
     }
@@ -200,15 +200,17 @@ class Parking extends CartController
 
     public function onStripe()
     {
+        $orders = $this->getOrders(input('id'));
+
         \Stripe\Stripe::setApiKey(Stripe::getSettings()->key);
 
-        $this->vars['charge'] = \Stripe\Charge::create([
-            'amount'    => input('amount'),
-            'currency'  => 'usd',
-            'source'    => input('stripeToken')
+        $result = \Stripe\Charge::create([
+            'amount'   => $orders['total'],
+            'currency' => $orders['currency'],
+            'source'   => input('stripeToken')
         ]);
 
-        return $this->makePartial('stripe');
+        trace_log($result);
     }
 
     
@@ -318,6 +320,8 @@ class Parking extends CartController
 
     public function getOrders($id)
     {
+        $gateway = Stripe::getSettings();
+
         $model = $this->model->find($id);
 
         $orders = ($model->cart) ? $model->cart->basket() : collect();
@@ -333,7 +337,14 @@ class Parking extends CartController
             "total"     => number_format( $hours*round($rate,2) ,2)
         ]);
 
-        return $orders;
+        return [
+            "orders"    => $orders,
+            "currency"  => $gateway->currency,
+            "symbol"    => $gateway->symbol,
+            "name"      => $model->customer->user->first_name.' '.$model->customer->user->last_name,
+            "email"     => $model->customer->user->email,
+            "total"     => round(number_format($orders->pluck('total')->sum(), 2, '.', ''))
+        ];
     }
 
     private function getTotal()

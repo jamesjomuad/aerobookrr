@@ -16,13 +16,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $orders->each(function ($item, $key) use($currency) { ?>
+                    <?php $orders->each(function ($item, $key) use($symbol) { ?>
                         <tr>
                             <th scope="row"><?= ++$key ?></th>
                             <td><?= $item['name'] ?></td>
                             <td><?= $item['quantity'] ?></td>
-                            <td><?= $currency ?><?= $item['price'] ?></td>
-                            <td><?= $currency ?><?= $item['total'] ?></td>
+                            <td><?= $symbol ?><?= $item['price'] ?></td>
+                            <td><?= $symbol ?><?= $item['total'] ?></td>
                             <td></td>
                         </tr>
                     <?php }); ?>
@@ -33,7 +33,7 @@
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
                         <th>Subtotal:</th>
-                        <th><?= $currency ?><?= $total ?></th>
+                        <th><?= $symbol ?><?= $total ?></th>
                         <td></td>
                     </tr>
                 </tfoot>
@@ -45,7 +45,7 @@
                 data-handler="onCard" 
                 data-size="medium" 
                 data-control="popup"
-                data-request-data="id:<?= input('id') ?>,amount:'<?= $total ?>'"
+                data-request-data="id:<?= input('id') ?>"
             >Card</button>
             <button type="button" class="btn btn-primary" 
                 data-handler="onCash" 

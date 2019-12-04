@@ -184,7 +184,12 @@ bookrr = {
                     stripeTokenHandler(result.token);
                     formWrap.classList.add('submitted');
 
-                    $('#payment-form').request('onStripe');
+                    $('#payment-form').request('onStripe',{
+                        success: function(res){
+                            $('.modal').modal('hide');
+                            // console.log(res)
+                        }
+                    });
                 } else {
                     // Otherwise, un-disable inputs.
                     enableInputs();
@@ -194,6 +199,11 @@ bookrr = {
             return this;
         }
     
+        document.querySelector('#stripeSubmit').addEventListener('click', function(){
+            bookrr.submit();
+            return this;
+        });
+
         resetButton.addEventListener('click', function (e) {
             e.preventDefault();
             // Resetting the form (instead of setting the value to `''` for each input)
