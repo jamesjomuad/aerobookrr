@@ -2,19 +2,11 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Bookrr\Stripe\Models\Settings;
 
-/**
- * Cashier Back-end Controller
- */
+
 class Cashier extends Controller
 {
-    public $implement = [
-        'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController'
-    ];
-
-    public $formConfig = 'config_form.yaml';
-    public $listConfig = 'config_list.yaml';
 
     public function __construct()
     {
@@ -23,17 +15,15 @@ class Cashier extends Controller
         BackendMenu::setContext('Bookrr.Stripe', 'stripe', 'cashier');
     }
 
-    public static function onPay()
+    public function onStripeElements()
     {
-        \Stripe\Stripe::setApiKey('sk_test_pfyvRhOEAjBZuxpqn6CJ7OFx009cqGVxay');
-
-        $this->vars['charge'] = \Stripe\Charge::create([
-            'amount'    => input('amount'),
-            'currency'  => 'usd',
-            'source'    => input('stripeToken')
-        ]);
-
-        return $this->makePartial('stripe');
+        $this->addCss('/plugins/bookrr/stripe/assets/css/style.css','v1.3');
+        $this->addJs('https://js.stripe.com/v3/','v1.1');
+        $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.7');
     }
 
+    public static function config()
+    {
+        return Settings::getSettings();
+    }
 }

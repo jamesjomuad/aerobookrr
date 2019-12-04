@@ -13,7 +13,7 @@ use Bookrr\Store\Models\Product;
 use Bookrr\Bay\Models\Bay;
 use Bookrr\Store\Controllers\Cart as CartController;
 use Bookrr\Rates\Models\Rate;
-use Bookrr\Stripe\Models\Settings as Stripe;
+use Bookrr\Stripe\Controllers\Cashier;
 
 
 
@@ -329,7 +329,7 @@ class Parking extends CartController
 
     public function getOrders($id)
     {
-        $gateway = Stripe::getSettings();
+        $gateway = Cashier::config();
 
         $model = $this->model->find($id);
 

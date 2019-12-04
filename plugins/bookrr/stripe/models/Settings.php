@@ -31,10 +31,10 @@ class Settings extends Model
         }
 
         if($settings AND $settings->mode==0){
-            $setting->pubkey = $settings->sandbox_pubkey;
+            $setting->pubKey = $settings->sandbox_pubkey;
             $setting->key    = $settings->sandbox_key;
         }else if($settings){
-            $setting->pubkey = $settings->pubkey;
+            $setting->pubKey = $settings->pubkey;
             $setting->key    = $settings->key;
         }
 
