@@ -4,11 +4,6 @@
 
 tabs:
     fields:
-        mode:
-            label: Sandbox/Live (Mode)
-            type: switch
-            comment: Flick this switch On for live accounts else Off for sandbox testing.
-            tab: Accounts
         _sandbox:
             label: Sandbox/Test Account
             type: section
@@ -91,3 +86,14 @@ tabs:
                 1: "Turkish"
                 1: "Thai"
             tab: Language
+        mode:
+            label: Sandbox/Live (Mode)
+            type: switch
+            comment: Flick this switch On for live accounts else Off for sandbox testing.
+            on: Live
+            off: dev
+            tab: Options
+        receipt_email:
+                label: Email Receipt
+                type: switch
+                tab: Options

@@ -1,13 +1,15 @@
 bookrr = {
     stripe:{
-        pubKey: "pk_test_jTd0mdB3Hj60NsjDmlh5ZlUh00WHZBygCv"
+        pubKey: ""
     }
 };
 
 (function(bookrr){
-    var stripe = Stripe(bookrr.stripe.pubKey);
+    var stripe;
 
     bookrr.stripeInit = function(){
+        stripe = Stripe(bookrr.stripe.pubKey);
+
         var elements = stripe.elements({
             fonts: [{
                 cssSrc: 'https://fonts.googleapis.com/css?family=Roboto',
@@ -159,11 +161,11 @@ bookrr = {
             disableInputs();
 
             // Gather additional customer data we may have collected in our form.
-            var name        = form.querySelector(wrapper + '-name');
-            var address1    = form.querySelector(wrapper + '-address');
-            var city        = form.querySelector(wrapper + '-city');
-            var state       = form.querySelector(wrapper + '-state');
-            var zip         = form.querySelector(wrapper + '-zip');
+            var name     = form.querySelector('stripe-name');
+            var address1 = form.querySelector('stripe-address');
+            var city     = form.querySelector('stripe-city');
+            var state    = form.querySelector('stripe-state');
+            var zip      = form.querySelector('stripe-zip');
             var additionalData = {
                 name: name ? name.value : undefined,
                 address_line1: address1 ? address1.value : undefined,

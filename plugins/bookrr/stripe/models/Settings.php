@@ -43,6 +43,8 @@ class Settings extends Model
         $setting->currency = $currency[0] ? : 'NZD';
 
         $setting->symbol = $currency[1] ? : '$';
+
+        $setting->receipt_email = $settings->receipt_email;
         
         return $setting;
     }

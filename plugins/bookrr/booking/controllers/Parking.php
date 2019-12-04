@@ -185,7 +185,7 @@ class Parking extends CartController
     {
         $this->addCss('/plugins/bookrr/stripe/assets/css/style.css','v1.3');
         $this->addJs('https://js.stripe.com/v3/','v1.1');
-        $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.5');
+        $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.7');
 
         $this->vars['cart'] = (object)$this->getOrders(input('id'));
 
@@ -200,20 +200,29 @@ class Parking extends CartController
 
     public function onStripe()
     {
+        $config = Stripe::getSettings();
+
         $orders = $this->getOrders(input('id'));
 
-        \Stripe\Stripe::setApiKey(Stripe::getSettings()->key);
+        \Stripe\Stripe::setApiKey($config->key);
 
-        $result = \Stripe\Charge::create([
+        $options = [
+            'source'   => input('stripeToken'),
             'amount'   => $orders['total'],
             'currency' => $orders['currency'],
-            'source'   => input('stripeToken')
-        ]);
+            'receipt_email' => $orders['email'],
+        ];
+
+        if($config->receipt_email)
+        {
+            $options['receipt_email'] = input('email');
+        }
+
+        $result = \Stripe\Charge::create($options);
 
         trace_log($result);
     }
 
-    
 
     
 
