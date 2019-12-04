@@ -41,24 +41,18 @@
         </div>
 
         <div class="modal-footer text-center p-5">
-            <script
-                src="https://checkout.stripe.com/checkout.js" 
-                class="stripe-button"
-                data-key="pk_test_jTd0mdB3Hj60NsjDmlh5ZlUh00WHZBygCv"
-                data-amount="<?= ceil($total)*100 ?>"
-                data-name="Aeroparks"
-                data-email="<?= @$email ?>"
-                data-description="Widget"
-                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                data-locale="auto"
-                data-currency="nzd">
-            </script>
-            <!-- <button type="button" class="btn btn-primary" 
-                data-handler="onCharge" 
+            <button type="button" class="btn btn-primary" 
+                data-handler="onCard" 
                 data-size="medium" 
                 data-control="popup"
-                data-request-data="id:<?= input('id') ?>,amount:'<?= ceil($total)*100 ?>'"
-            >Charge</button> -->
+                data-request-data="id:<?= input('id') ?>,amount:'<?= $total ?>'"
+            >Card</button>
+            <button type="button" class="btn btn-primary" 
+                data-handler="onCash" 
+                data-size="medium" 
+                data-control="popup"
+                data-request-data="id:<?= input('id') ?>,amount:'<?= $total ?>'"
+            >Cash</button>
             <button type="button" class="btn btn-default" data-dismiss="popup">Cancel</button>
         </div>
 <?= Form::close() ?>

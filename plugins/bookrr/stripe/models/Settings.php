@@ -16,4 +16,35 @@ class Settings extends Model
     // Reference to field configuration
     public $settingsFields = 'fields.yaml';
 
+    public static function getSettings()
+    {
+        $settings = json_decode(self::instance()->toJSON());
+        $setting = (object)[];
+
+        # Default
+        if(!$settings)
+        {
+            return (object)[
+                'currency' => 'USD',
+                'symbol' => '$'
+            ];
+        }
+
+        if($settings AND $settings->mode==0){
+            $setting->pubkey = $settings->sandbox_pubkey;
+            $setting->key    = $settings->sandbox_key;
+        }else if($settings){
+            $setting->pubkey = $settings->pubkey;
+            $setting->key    = $settings->key;
+        }
+
+        $currency = explode('_',$settings->currency);
+
+        $setting->currency = $currency[0] ? : 'NZD';
+
+        $setting->symbol = $currency[1] ? : '$';
+        
+        return $setting;
+    }
+
 }

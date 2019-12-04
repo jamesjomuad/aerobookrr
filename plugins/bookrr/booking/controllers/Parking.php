@@ -13,6 +13,7 @@ use Bookrr\Store\Models\Product;
 use Bookrr\Bay\Models\Bay;
 use Bookrr\Store\Controllers\Cart as CartController;
 use Bookrr\Rates\Models\Rate;
+use Bookrr\Stripe\Models\Settings as Stripe;
 
 
 
@@ -182,16 +183,24 @@ class Parking extends CartController
         return $this->makePartial('payment');
     }
 
-    public function onCharge()
+    public function onCard()
     {
-        $this->addCss('/plugins/bookrr/stripe/assets/css/style.css');
+        $this->addCss('/plugins/bookrr/stripe/assets/css/style.css','v1.3');
+        $this->addJs('https://js.stripe.com/v3/','v1.1');
+        $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.4');
 
-        return $this->makePartial('charge');
+        return $this->makePartial('stripe/stripe');
+    }
+
+    public function onCash()
+    {
+        
+        return $this->makePartial('cash');
     }
 
     public function onStripe()
     {
-        \Stripe\Stripe::setApiKey('sk_test_pfyvRhOEAjBZuxpqn6CJ7OFx009cqGVxay');
+        \Stripe\Stripe::setApiKey(Stripe::getSettings()->key);
 
         $this->vars['charge'] = \Stripe\Charge::create([
             'amount'    => input('amount'),
@@ -202,43 +211,9 @@ class Parking extends CartController
         return $this->makePartial('stripe');
     }
 
-    public function getOrders($id)
-    {
-        $model = ParkingModel::find($id);
+    
 
-        $orders = ($cart = $model->cart) ? 
-            collect($cart->products->toArray()) : 
-            collect()
-        ;
-
-        $filtered = $orders->map(function ($item, $key) {
-            return [
-                "name" => $item['name'],
-                "description" => $item['description'],
-                "quantity" => $item['pivot']['quantity'],
-                "price" => $item['price'],
-                "total" => round($item['pivot']['quantity']*$item['price'],2)
-            ];
-        });
-
-        $hourlyRate = Rate::amount();
-        $start = $model->park_in;
-        $hours = round((Carbon::now()->diffInSeconds($start))/3600,2);
-
-        $filtered->prepend([
-            "name"      => "Parking",
-            "quantity"  => $hours,
-            "price"     => round($hourlyRate,2),
-            "total"     => round( $hours*round($hourlyRate,2) ,2)
-        ]);
-
-        return $filtered;
-    }
-
-    public function total($qty,$price)
-    {
-        return round($qty*$price,2);
-    }
+    
 
     /*
     *   Overiders
@@ -334,6 +309,36 @@ class Parking extends CartController
             $diffHuman,
             $class
         ];
+    }
+
+    public function total($qty,$price)
+    {
+        return round($qty*$price,2);
+    }
+
+    public function getOrders($id)
+    {
+        $model = $this->model->find($id);
+
+        $orders = ($model->cart) ? $model->cart->basket() : collect();
+
+        $rate = Rate::amount();
+        $start = $model->park_in;
+        $hours = round( (Carbon::now()->diffInSeconds($start))/3600,2 );
+
+        $orders->prepend([
+            "name"      => "Parking",
+            "quantity"  => $hours."/Hrs",
+            "price"     => number_format($rate,2),
+            "total"     => number_format( $hours*round($rate,2) ,2)
+        ]);
+
+        return $orders;
+    }
+
+    private function getTotal()
+    {
+
     }
 
     /*

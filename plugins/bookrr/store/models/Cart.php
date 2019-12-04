@@ -37,4 +37,17 @@ class Cart extends Model
         $this->products->sum('pivot.quantity');
     }
 
+    public function scopeBasket($query)
+    {
+        return $this->products->map(function ($item, $key) {
+            return [
+                "name"          => $item['name'],
+                "description"   => $item['description'],
+                "quantity"      => $item['pivot']['quantity'],
+                "price"         => $item['price'],
+                "total"         => round($item['pivot']['quantity']*$item['price'],2)
+            ];
+        });
+    }
+
 }
