@@ -58,6 +58,16 @@ class Parking extends CartController
         $this->ProductToolbarWidget = $this->ToolbarWidget($this->ProductListWidget,'config_list_product.yaml');
     }
 
+    public function test()
+    {
+        dump(
+            \Bookrr\Store\Models\Cart::find(1)->parking->id
+            // $this->model->find(5)->cart
+        );
+
+        exit;
+    }
+
     public function index()
     {
         $this->addCss($this->assetPath.'css/parking.css');
@@ -174,22 +184,13 @@ class Parking extends CartController
         
         $this->vars['orders'] = $orders['orders'];
 
+        $this->vars['name'] = $orders['name'];
+
         $this->vars['email'] = $orders['email'];
 
         $this->vars['total'] = $orders['total']; 
 
         return $this->makePartial('payment');
-    }
-
-    public function onCard()
-    {
-        $this->addCss('/plugins/bookrr/stripe/assets/css/style.css','v1.3');
-        $this->addJs('https://js.stripe.com/v3/','v1.1');
-        $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.7');
-
-        $this->vars['cart'] = (object)$this->getOrders(input('id'));
-
-        return $this->makePartial('stripe/stripe');
     }
 
     public function onCash()
@@ -198,32 +199,7 @@ class Parking extends CartController
         return $this->makePartial('cash');
     }
 
-    public function onStripe()
-    {
-        $config = Stripe::getSettings();
-
-        $orders = $this->getOrders(input('id'));
-
-        \Stripe\Stripe::setApiKey($config->key);
-
-        $options = [
-            'source'   => input('stripeToken'),
-            'amount'   => $orders['total'],
-            'currency' => $orders['currency'],
-            'receipt_email' => $orders['email'],
-        ];
-
-        if($config->receipt_email)
-        {
-            $options['receipt_email'] = input('email');
-        }
-
-        $result = \Stripe\Charge::create($options);
-
-        trace_log($result);
-    }
-
-
+    
     
 
     /*

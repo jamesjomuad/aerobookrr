@@ -50,18 +50,18 @@ bookrr = {
         registerElements([card], '#stripe');
     }
     
-    bookrr.charge = function() {
-        stripe.createToken(card).then(function (result) {
-            if (result.error) {
-                // Inform the user if there was an error
-                var errorElement = document.getElementById('card-errors');
-                errorElement.textContent = result.error.message;
-            } else {
-                stripeTokenHandler(result.token);
-                $('#payment-form').request('onStripe');
-            }
-        });
-    }
+    // bookrr.charge = function() {
+    //     stripe.createToken(card).then(function (result) {
+    //         if (result.error) {
+    //             // Inform the user if there was an error
+    //             var errorElement = document.getElementById('card-errors');
+    //             errorElement.textContent = result.error.message;
+    //         } else {
+    //             stripeTokenHandler(result.token);
+    //             $('#payment-form').request('onCreate');
+    //         }
+    //     });
+    // }
 
     
     function registerElements(elements, wrapper) {
@@ -186,10 +186,9 @@ bookrr = {
                     stripeTokenHandler(result.token);
                     formWrap.classList.add('submitted');
 
-                    $('#payment-form').request('onStripe',{
+                    $('#payment-form').request('onCreate',{
                         success: function(res){
                             $('.modal').modal('hide');
-                            // console.log(res)
                         }
                     });
                 } else {

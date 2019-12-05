@@ -2,23 +2,24 @@
 
 use Model;
 
-/**
- * Cart Model
- */
+
+
 class Cart extends Model
 {
     public $table = 'bookrr_carts';
 
     protected $guarded = ['*'];
 
-    public $hasMany = [
-        'items_count' => ['Bookrr\Store\Models\CartItem', 'count' => true]
-    ];
+    // public $hasMany = [
+    //     'items_count' => ['Bookrr\Store\Models\CartItem', 'count' => true]
+    // ];
+
     public $belongsTo = [
-        'parking' => 'Bookrr\Booking\Models\Parking'
+        'parking' => ['Bookrr\Booking\Models\Parking','key'=>'book_id']
     ];
+
     public $belongsToMany = [
-        'products' => [
+        'products' => [ 
             'Bookrr\Store\Models\Product',
             'table' => 'bookrr_cart_product',
             'pivot' => ['quantity']
@@ -37,6 +38,9 @@ class Cart extends Model
         $this->products->sum('pivot.quantity');
     }
 
+    /*
+    *   Scopes
+    */
     public function scopeBasket($query)
     {
         return $this->products->map(function ($item, $key) {
@@ -48,6 +52,27 @@ class Cart extends Model
                 "total"         => round($item['pivot']['quantity']*$item['price'],2)
             ];
         });
+    }
+
+    public function scopeIsPaid()
+    {
+        return [
+            $this->status,
+            $this->ref_num
+        ];
+    }
+
+    public function scopeSetPaid($refnum)
+    {
+        if($refnum)
+        {
+            $this->status = "paid";
+            $this->ref_num = $refnum;
+            $this->save();
+            return $this;
+        }
+
+        return null;
     }
 
 }
