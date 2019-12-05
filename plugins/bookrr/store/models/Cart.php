@@ -52,17 +52,20 @@ class Cart extends Model
 
     public function scopeIsPaid()
     {
-        return [
-            $this->status,
-            $this->ref_num
-        ];
+        if($this->status=='paid' AND $this->ref_num)
+        {
+           return true; 
+        }
+        
+        return false;
     }
 
-    public function scopeSetPaid($refnum)
+    public function scopeSetPaid($query,$refnum,$total)
     {
         if($refnum)
         {
             $this->status = "paid";
+            $this->subtotal = $total;
             $this->ref_num = $refnum;
             $this->save();
             return $this;

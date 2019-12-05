@@ -58,16 +58,6 @@ class Parking extends CartController
         $this->ProductToolbarWidget = $this->ToolbarWidget($this->ProductListWidget,'config_list_product.yaml');
     }
 
-    public function test()
-    {
-        dump(
-            \Bookrr\Store\Models\Cart::find(1)->parking->id
-            // $this->model->find(5)->cart
-        );
-
-        exit;
-    }
-
     public function index()
     {
         $this->addCss($this->assetPath.'css/parking.css');
@@ -87,6 +77,8 @@ class Parking extends CartController
     public function update($recordId, $context = null)
     {
         $this->addJs($this->assetPath.'js/parking.js');
+
+        $this->model = $this->model->find($recordId);
 
         return $this->asExtension('FormController')->update($recordId, $context);
     }
@@ -264,23 +256,6 @@ class Parking extends CartController
         return $model;
     }
 
-    public function listExtendQuery($query)
-    {
-        // List customer record
-        // if($this->user->isCustomer())
-        // {
-        //     if($this->user->aeroUser)
-        //     {
-        //         $query->where('user_id',$this->user->aeroUser->id);
-        //     }
-        //     else
-        //     {
-        //         $query->where('user_id',0);
-        //     }
-        // }
-
-        return $query;
-    }
 
     
     /*
@@ -332,9 +307,13 @@ class Parking extends CartController
         ];
     }
 
-    private function getTotal()
+    public function isPaid($model=null)
     {
+        if(!$model){
+            $model = $this->model;
+        }
 
+        return $model->cart ? $model->cart->isPaid() : false;
     }
 
     /*

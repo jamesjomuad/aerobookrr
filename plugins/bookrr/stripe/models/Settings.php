@@ -38,6 +38,8 @@ class Settings extends Model
             $setting->key    = $settings->key;
         }
 
+        $setting->isLive = ($settings->mode==1) ? true : false;
+
         $currency = explode('_',$settings->currency);
 
         $setting->currency = $currency[0] ? : 'NZD';

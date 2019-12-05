@@ -17,8 +17,10 @@ class Cashier extends Controller
 
     public function index()
     {
-
-        // return false;
+        dd(
+            \Bookrr\Booking\Models\Parking::find(5)->cart->isPaid()
+        );
+        return false;   
     }
 
     public function onStripe()
@@ -52,7 +54,11 @@ class Cashier extends Controller
 
         $result = \Stripe\Charge::create($options);
 
-        trace_log($result);
+        \Bookrr\Booking\Models\Parking::find(input('id'))->cart->setPaid($result->id,input('amount'));
+
+        if(!$config->isLive){
+            trace_log($result);
+        }
 
         return true;
     }

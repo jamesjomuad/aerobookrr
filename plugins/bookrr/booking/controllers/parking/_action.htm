@@ -1,4 +1,4 @@
-<?php if($record->isPaid!='YES'): ?>
+<?php if(!$this->isPaid($record)): ?>
 <a tabindex="-1" 
     href="#" 
     class="btn btn-xs btn-warning oc-icon-credit-card"

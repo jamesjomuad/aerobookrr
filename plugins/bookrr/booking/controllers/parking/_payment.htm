@@ -45,7 +45,7 @@
             data-handler="onStripe" 
             data-size="medium" 
             data-control="popup"
-            data-request-data="name:'<?= $name ?>',email:'<?= $email ?>',amount:'<?= $total ?>'"
+            data-request-data="id:'<?= input('id') ?>',name:'<?= $name ?>',email:'<?= $email ?>',amount:'<?= $total ?>'"
         >Card</button>
         <button type="button" class="btn btn-primary" 
             data-handler="onCash" 
