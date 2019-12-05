@@ -10,10 +10,6 @@ class Cart extends Model
 
     protected $guarded = ['*'];
 
-    // public $hasMany = [
-    //     'items_count' => ['Bookrr\Store\Models\CartItem', 'count' => true]
-    // ];
-
     public $belongsTo = [
         'parking' => ['Bookrr\Booking\Models\Parking','key'=>'book_id']
     ];
