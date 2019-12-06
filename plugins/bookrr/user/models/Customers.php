@@ -33,7 +33,7 @@ class Customers extends Model
     ];
     public $hasMany = [
         'bookings' => ['Bookrr\Booking\Models\Parking','key' => 'user_id','delete' => true],
-        'vehicles' => ['Bookrr\User\Models\Vehicle','key' => 'user_id','delete' => true],
+        'vehicles' => ['Bookrr\User\Models\Vehicle','key' => 'user_id','delete' => true,'count'=>true],
         'contacts' => ['Bookrr\User\Models\Contact','key' => 'user_id','delete' => true]
     ];
 

@@ -54,4 +54,13 @@ class Customer extends Controller
             $class
         ];
     }
+
+    public function formBeforeUpdate($model)
+    {
+        if($model->vehicles()->hasDefault())
+        {
+            throw new ApplicationException('No default vehicle created!');
+        }
+        return $model;
+    }
 }

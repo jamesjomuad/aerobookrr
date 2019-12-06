@@ -32,4 +32,8 @@ columns:
         select: email
     phone:
         label: Contact
+    vehicles:
+        label: Vehicles
+        relation: vehicles
+        valueFrom: count
     

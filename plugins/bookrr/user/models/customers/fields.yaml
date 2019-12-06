@@ -47,21 +47,19 @@ tabs:
             type: datepicker
             mode: date
             tab: Profile
-
-        bookings:
-            span: full
-            path: bookings
-            type: partial
-            tab: Bookings
-            context:
-                - update
-                - preview
-
         vehicles:
             span: full
             path: vehicles
             type: partial
             tab: Vehicles
+            context:
+                - update
+                - preview
+        bookings:
+            span: full
+            path: bookings
+            type: partial
+            tab: Bookings
             context:
                 - update
                 - preview
