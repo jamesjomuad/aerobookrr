@@ -260,11 +260,6 @@ class Parking extends CartController
 
     public function formBeforeSave($model)
     {
-        if($model->cart==null)
-        {
-            $model->cart()->add(new Cart);
-        }
-
         return $model;
     }
 
