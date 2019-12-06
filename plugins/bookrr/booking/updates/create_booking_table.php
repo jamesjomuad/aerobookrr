@@ -31,8 +31,6 @@ class CreateBookingsTable extends Migration
             $table->string('agent_reference')->nullable();
             $table->string('promo_code')->nullable();
             $table->text('note')->nullable();
-            $table->longText('items')->nullable();
-            $table->string('ref_num')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

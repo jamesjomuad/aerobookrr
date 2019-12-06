@@ -58,6 +58,13 @@ class Parking extends CartController
         $this->ProductToolbarWidget = $this->ToolbarWidget($this->ProductListWidget,'config_list_product.yaml');
     }
 
+    public function test()
+    {
+        dd(
+            \Bookrr\Booking\Models\Parking::find(2)->cart
+        );
+    }
+
     public function index()
     {
         $this->addCss($this->assetPath.'css/parking.css');
