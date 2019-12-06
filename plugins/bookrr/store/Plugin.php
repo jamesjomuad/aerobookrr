@@ -146,7 +146,7 @@ class Plugin extends PluginBase
                         'permissions' => ['bookrr.store.car-rent'],
                     ],
                     'product' => [
-                        'label'       => 'Product / Service',
+                        'label'       => 'Products',
                         'url'         => Backend::url('bookrr/store/product'),
                         'icon'        => 'icon-shopping-basket',
                         'permissions' => ['bookrr.product.read'],

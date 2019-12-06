@@ -36,7 +36,5 @@ fields:
         type: fileupload
     category:
         label: Category
-        nameFrom: name
-        descriptionFrom: description
         span: auto
-        type: relation
+        type: dropdown

@@ -40,7 +40,7 @@ class Product extends BaseModel
 
     public function getCategoryOptions($value)
     {
-        return ['Service','Lorem','Ipsum'];
+        return \Bookrr\Store\Models\Category::all()->pluck('name')->toArray();
     }
 
     public function getDescriptionAttribute($value)

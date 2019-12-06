@@ -10,6 +10,8 @@ class Cart extends Model
 
     protected $guarded = ['*'];
 
+    protected $fillable = ['name','status','subtotal','note'];
+
     public $belongsTo = [
         'parking' => ['Bookrr\Booking\Models\Parking','key'=>'book_id']
     ];

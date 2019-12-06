@@ -1,9 +1,4 @@
 fields:
-    id:
-        label: ID
-        span: full
-        disabled: true
-        type: text
     name:
         label: 'Category Name'
         span: left

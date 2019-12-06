@@ -15,8 +15,12 @@ class UpdateCarrentalTable9219 extends Migration
 
     public function down()
     {
-        Schema::table('bookrr_carrental_booking', function(Blueprint $table){
-            $table->dropColumn('deleted_at');
-        });
+        if(Schema::hasTable('bookrr_carrental_booking'))
+        {
+            Schema::table('bookrr_carrental_booking', function(Blueprint $table){
+                $table->dropColumn('deleted_at');
+            });
+        }
+        
     }
 }
