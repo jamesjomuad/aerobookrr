@@ -3,6 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Bookrr\Stripe\Models\Settings;
+use Bookrr\Booking\Models\Parking;
 
 
 class Cashier extends Controller
@@ -17,9 +18,6 @@ class Cashier extends Controller
 
     public function index()
     {
-        dd(
-            \Bookrr\Booking\Models\Parking::find(5)->cart->isPaid()
-        );
         return false;   
     }
 
@@ -54,11 +52,17 @@ class Cashier extends Controller
 
         $result = \Stripe\Charge::create($options);
 
-        \Bookrr\Booking\Models\Parking::find(input('id'))->cart->setPaid($result->id,input('amount'));
-
         if(!$config->isLive){
             trace_log($result);
         }
+
+        $parking = Parking::find(input('id'));
+
+        if($parking->cart)
+        {
+            $parking->cart->setPaid($result->id,input('amount'));
+        }
+        
 
         return true;
     }
