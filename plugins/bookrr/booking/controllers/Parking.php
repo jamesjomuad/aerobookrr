@@ -12,6 +12,7 @@ use Bookrr\Booking\Models\Parking as ParkingModel;
 use Bookrr\Store\Models\Product;
 use Bookrr\Bay\Models\Bay;
 use Bookrr\Store\Controllers\Cart as CartController;
+use Bookrr\Store\Models\Cart;
 use Bookrr\Rates\Models\Rate;
 use Bookrr\Stripe\Controllers\Cashier;
 
@@ -61,8 +62,16 @@ class Parking extends CartController
     public function test()
     {
         dd(
-            \Bookrr\Booking\Models\Parking::find(2)->cart
+            // $this->model->find(5)->cart->isPaid()
+            $this->model->find(5)->cart->toArray()
         );
+    }
+
+    public function onMoveKey()
+    {     
+        $this->asExtension('FormController')->update(post('record_id'));
+        $this->vars['recordId'] = post('record_id');
+        return $this->makePartial('update_form');
     }
 
     public function index()
@@ -259,6 +268,9 @@ class Parking extends CartController
             $model->user_id = $this->getCustomerId();
             $model->save();
         }
+
+        #   Add Cart for Payments and Products
+        $model->cart()->add(new Cart);
 
         return $model;
     }

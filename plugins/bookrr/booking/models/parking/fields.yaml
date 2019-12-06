@@ -64,7 +64,7 @@ fields:
         type: datetimepicker
         default: now
     park_in:
-        label: 'Check In'
+        label: 'Park In'
         span: left
         type: text
         disabled: 1
@@ -72,7 +72,7 @@ fields:
             - update
             - preview
     park_out:
-        label: 'Check Out'
+        label: 'Park Out'
         span: right
         type: text
         disabled: 1

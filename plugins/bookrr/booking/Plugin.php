@@ -51,16 +51,15 @@ class Plugin extends PluginBase
                         'url'         => Backend::url('bookrr/booking/calendar'),
                         'icon'        => 'icon-calendar',
                         'permissions' => ['bookrr.booking.park'],
+                    ],
+                    'move_key' => [
+                        'label'       => 'Move Key',
+                        'url'         => Backend::url('bookrr/booking/movement'),
+                        'icon'        => 'icon-key',
+                        'permissions' => ['bookrr.booking.movement'],
+                        'roles'       => ['staff']
                     ]
                 ]
-            ],
-            'move_key' => [
-                'label'       => 'Move Key',
-                'url'         => Backend::url('bookrr/booking/movement'),
-                'icon'        => 'icon-key',
-                'permissions' => ['bookrr.movement'],
-                'order'       => 904,
-                'roles'       => ['staff']
             ]
         ];
     }

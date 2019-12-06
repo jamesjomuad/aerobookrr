@@ -9,12 +9,12 @@ columns:
         valueFrom: barcode
         searchable: true
         select: barcode
-    code: 
-        label: 'Staff Bcode'
-        relation: staff
-        valueFrom: code
-        searchable: true
-        select: code
+    # code: 
+    #     label: 'Staff Bcode'
+    #     relation: staff
+    #     valueFrom: code
+    #     searchable: true
+    #     select: code
     slot: 
         label: 'Parking Bay'
         relation: booking

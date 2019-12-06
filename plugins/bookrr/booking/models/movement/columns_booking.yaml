@@ -11,10 +11,10 @@ columns:
         label: Parking Bay
         type: text
         searchable: true
-    user:
+    customer:
         label: Phone
         type: text
-        relation: user
+        relation: customer
         select: phone
         sortable: false
         searchable: true
