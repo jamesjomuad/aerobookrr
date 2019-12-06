@@ -225,13 +225,13 @@ tabs:
             context:
                 - update
                 - preview
-        _terminal:
-            tab: Terminals
-            type: dropdown
-            emptyOption: " "
-            options:
-                international: 'International'
-                domestic: 'Domestic'
+        # _terminal:
+        #     tab: Terminals
+        #     type: dropdown
+        #     emptyOption: " "
+        #     options:
+        #         international: 'International'
+        #         domestic: 'Domestic'
         note:
             label: Notes
             size: large

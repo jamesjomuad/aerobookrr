@@ -63,7 +63,7 @@ class Parking extends CartController
     {
         dd(
             // $this->model->find(5)->cart->isPaid()
-            $this->model->find(5)->cart->toArray()
+            $this->model->find(1)->cart->toArray()
         );
     }
 
@@ -95,6 +95,11 @@ class Parking extends CartController
         $this->addJs($this->assetPath.'js/parking.js');
 
         $this->model = $this->model->find($recordId);
+
+        if($this->model->vehicle==NULL)
+        {
+            $this->fatalError = 'No Vehicle associated';
+        }
 
         return $this->asExtension('FormController')->update($recordId, $context);
     }
@@ -223,7 +228,7 @@ class Parking extends CartController
             $form->removeField('status');
             $form->removeField('_movement');
         }
-        
+
         $form->fields['barcode']['disabled'] = true;
     }
 
@@ -255,6 +260,11 @@ class Parking extends CartController
 
     public function formBeforeSave($model)
     {
+        if($model->cart==null)
+        {
+            $model->cart()->add(new Cart);
+        }
+
         return $model;
     }
 
@@ -276,7 +286,7 @@ class Parking extends CartController
     }
 
 
-    
+
     /*
     *   Helper
     */
@@ -322,7 +332,7 @@ class Parking extends CartController
             "symbol"    => $gateway->symbol,
             "name"      => $model->customer->user->first_name.' '.$model->customer->user->last_name,
             "email"     => $model->customer->user->email,
-            "total"     => round(number_format($orders->pluck('total')->sum(), 2, '.', ''))
+            "total"     => number_format($orders->pluck('total')->sum(), 2, '.', '')
         ];
     }
 
