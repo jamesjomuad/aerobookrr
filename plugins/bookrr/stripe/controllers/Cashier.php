@@ -79,12 +79,12 @@ class Cashier extends Controller
     public function test()
     {
         try {
-            $charge = Stripe_Charge::create(array(
-                "amount" => $clientPriceStripe, // amount in cents
+            $charge = Stripe_Charge::create([
+                "amount" => $clientPriceStripe,
                 "currency" => "usd",
                 "customer" => $customer->id,
-                "description" => $description));
-            $success = 1;
+                "description" => $description
+            ]);
             $paymentProcessor = "Credit card (www.stripe.com)";
         } catch (Stripe_CardError $e) {
             $error1 = $e ->getMessage();
