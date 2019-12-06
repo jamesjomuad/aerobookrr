@@ -36,12 +36,14 @@ class Cashier extends Controller
     {
         $config = Cashier::config();
 
+        $cart = Parking::find(input('id'))->cart;
+
         Cashier::stripe()->setApiKey($config->key);
 
         $options = [
-            'source'   => input('stripeToken'),
-            'amount'   => input('amount'),
-            'currency' => $config->currency,
+            'source'        => input('stripeToken'),
+            'amount'        => input('amount')*100,
+            'currency'      => $config->currency,
             'receipt_email' => input('email'),
         ];
 
@@ -56,14 +58,11 @@ class Cashier extends Controller
             trace_log($result);
         }
 
-        $parking = Parking::find(input('id'));
-
-        if($parking->cart)
+        if($cart)
         {
-            $parking->cart->setPaid($result->id,input('amount'));
+            $cart->setPaid($result);
         }
         
-
         return true;
     }
 
@@ -75,5 +74,36 @@ class Cashier extends Controller
     public static function config()
     {
         return Settings::getSettings();
+    }
+
+    public function test()
+    {
+        try {
+            $charge = Stripe_Charge::create(array(
+                "amount" => $clientPriceStripe, // amount in cents
+                "currency" => "usd",
+                "customer" => $customer->id,
+                "description" => $description));
+            $success = 1;
+            $paymentProcessor = "Credit card (www.stripe.com)";
+        } catch (Stripe_CardError $e) {
+            $error1 = $e ->getMessage();
+        } catch (Stripe_InvalidRequestError $e) {
+            // Invalid parameters were supplied to Stripe's API
+            $error2 = $e ->getMessage();
+        } catch (Stripe_AuthenticationError $e) {
+            // Authentication with Stripe's API failed
+            $error3 = $e ->getMessage();
+        } catch (Stripe_ApiConnectionError $e) {
+            // Network communication with Stripe failed
+            $error4 = $e ->getMessage();
+        } catch (Stripe_Error $e) {
+            // Display a very generic error to the user, and maybe send
+            // yourself an email
+            $error5 = $e ->getMessage();
+        } catch (Exception $e) {
+            // Something else happened, completely unrelated to Stripe
+            $error6 = $e ->getMessage();
+        }
     }
 }

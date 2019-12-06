@@ -189,6 +189,7 @@ bookrr = {
                     $('#payment-form').request('onCreate',{
                         success: function(res){
                             $('.modal').modal('hide');
+                            $.request('onRefresh');
                         }
                     });
                 } else {
