@@ -54,7 +54,7 @@ class Cart extends Model
 
     public function scopeIsPaid()
     {
-        if($this->paymentId)
+        if($this->status=='paid' AND $this->paymentId)
         {
            return true;
         }
@@ -67,7 +67,7 @@ class Cart extends Model
         if($stripe)
         {
             $this->status       = "paid";
-            $this->subtotal     = $stripe->amount;
+            $this->subtotal     = ($stripe->amount)/100;
             $this->paymentId    = $stripe->id;
             $this->receiptUrl   = $stripe->receipt_url;
             $this->save();
