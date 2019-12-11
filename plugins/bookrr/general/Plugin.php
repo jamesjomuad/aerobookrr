@@ -36,15 +36,6 @@ class Plugin extends PluginBase
         ];
     }
 
-    public function registerComponents()
-    {
-        return [
-            'Bookrr\User\Components\Register' => 'Register',
-            'Bookrr\User\Components\Login' => 'Login',
-            'Bookrr\Store\Components\Product' => 'Product'
-        ];
-    }
-
     public function registerPermissions()
     {
         return [

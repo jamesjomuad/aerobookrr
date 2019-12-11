@@ -5,6 +5,7 @@ use System\Classes\PluginBase;
 use Backend\Models\User as UserModel;
 use Backend\Controllers\Users as UserController;
 use BackendAuth;
+use Event;
 
 
 class Plugin extends PluginBase
@@ -13,7 +14,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'user',
+            'name'        => 'Bookrr User',
             'description' => 'Bookrr extended user fields.',
             'author'      => 'bookrr',
             'icon'        => 'icon-leaf'
@@ -41,6 +42,14 @@ class Plugin extends PluginBase
 
             return $model;
         });
+    }
+
+    public function registerComponents()
+    {
+        return [
+            'Bookrr\User\Components\Register' => 'Register',
+            'Bookrr\User\Components\Login'    => 'Login'
+        ];
     }
 
     public function registerPermissions()
