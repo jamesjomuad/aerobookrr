@@ -62,8 +62,7 @@ class Parking extends CartController
     public function test()
     {
         dd(
-            $this->user
-            ->parking
+            $this->user->customer->getVehicle()
         );
     }
 
@@ -229,15 +228,25 @@ class Parking extends CartController
         return $query;
     }
 
+    public function listExtendColumns($list)
+    {
+        if($this->user->isCustomer())
+        {
+            $list->removeColumn('name');
+        }
+    }
+
     public function formExtendFields($form)
     {
         # Field limitation for customer
         if($this->user->isCustomer())
         {
+            $form->removeField('bay');
             $form->removeField('customer');
             $form->removeField('barcode');
             $form->removeField('status');
             $form->removeField('_movement');
+            $form->removeField('products');
         }
 
         $form->fields['barcode']['disabled'] = true;
@@ -245,25 +254,33 @@ class Parking extends CartController
 
     public function formBeforeCreate($model)
     {
+        $alert = function(){
+            throw new ApplicationException('No default vehicle for Customer!');
+        };
+
         #
         # Attach the primary vehicle
         #
-        if($customer = Customers::find(post('Parking.customer')))
+        if(!$this->user->isCustomer() AND $customer = Customers::find(post('Parking.customer')))
         {
             if(!$customer->vehicles()->hasDefault())
             {
-                throw new ApplicationException('No default vehicle for Customer!');
+                $alert();
             }
             
             $model->vehicle()->associate(
-                $customer->vehicles->where('primary',1)->first()
+                $customer->getVehicle()
             );
         }
         else if($this->user->isCustomer())
         {
+            if(!$this->user->vehicles()->hasDefault())
+            {
+                $alert();
+            }
+
             $model->rules = [];
-            $vehicle = $this->getCustomer()->vehicles->where('primary',1)->first();
-            $model->vehicle()->associate($vehicle);
+            $model->vehicle()->associate($this->user->customer->getVehicle());
         }
 
         return $model;
@@ -281,12 +298,12 @@ class Parking extends CartController
         #
         if($this->user->isCustomer())
         {
-            $model->user_id = $this->getCustomerId();
+            $model->user_id = $this->user->id;
             $model->save();
         }
 
         #   Add Cart for Payments and Products
-        $model->cart()->add(new Cart);
+        $model->cart()->save(new Cart);
 
         return $model;
     }
@@ -349,24 +366,5 @@ class Parking extends CartController
         }
 
         return $model->cart ? $model->cart->isPaid() : false;
-    }
-
-    /*
-    *   PROTECTED
-    */
-    protected function getCustomer()
-    {
-        if($this->user->isCustomer())
-            return AeroUser::auth()->user;
-
-        return null;
-    }
-
-    protected function getCustomerId()
-    {
-        if($this->user->isCustomer())
-            return $this->getCustomer()->id;
-
-        return null;
     }
 }

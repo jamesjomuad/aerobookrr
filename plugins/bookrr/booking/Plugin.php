@@ -7,6 +7,8 @@ use Backend\Models\User as UserModel;
 
 class Plugin extends PluginBase
 {
+    // public $elevated = true;
+
     public function pluginDetails()
     {
         return [

@@ -32,16 +32,16 @@ class Calendar extends Controller
     {
         $timestamp = Carbon::createFromTimestamp(input('time'));
 
-        if($this->user->isCustomer() AND (bool) $this->user->customer)
+        if($this->user->isCustomer())
         {
-            $Booking = $this->user->customer->bookings;
+            $Booking = $this->user->customer->parkings;
         }
         else
         {
-            $Booking = Parking::monthOf($timestamp);
+            $Booking = Parking::monthOf($timestamp)->get();
         }
 
-        $result = $Booking->get()->map(function($model){
+        $result = $Booking->map(function($model){
             if($model->customer)
             return [
                 'title' => '('.$model->id.') '.$model->customer->user->first_name.' '.$model->customer->user->last_name,

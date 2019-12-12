@@ -66,7 +66,7 @@ class Parking extends Model
     ];
 
     public $belongsTo = [
-        'customer'  => ['Bookrr\User\Models\Customers','key' => 'user_id'],
+        'customer'  => ['Bookrr\User\Models\Customers','key' => 'user_id','otherKey'=>'user_id'],
         'vehicle'   => ['Bookrr\User\Models\Vehicle'],
         'bay'       => \Bookrr\Bay\Models\Bay::class,
         'ticket'    => \Bookrr\Booking\Models\Ticket::class
@@ -80,28 +80,6 @@ class Parking extends Model
         'canceled',
         'expired'
     ];
-
-
-    /*
-    *   Set Default Query
-    */
-    // public function listExtendQuery($query)
-    // {
-    //     // List customer record
-    //     if(strtolower($this->user->role->name)=='customer')
-    //     {
-    //         if(@BaseUser::auth()->id)
-    //         {
-    //             $query->where('user_id',BaseUser::auth()->id);
-    //         }
-    //         else
-    //         {
-    //             $query->where('user_id',0);
-    //         }
-    //     }
- 
-    //     return $query;
-    // }
 
 
     /*
@@ -141,7 +119,7 @@ class Parking extends Model
     }
 
     public function getNameAttribute()
-    {   
+    {
         if($user = $this->customer()->first())
         {
             $user = $this->customer()->first()->user;
