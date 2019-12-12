@@ -42,6 +42,55 @@ class Plugin extends PluginBase
 
             return $model;
         });
+
+        # Extend User fields
+        UserController::extendFormFields(function($form, $model, $context){
+
+            if(BackendAuth::getUser()->isCustomer())
+            {
+                $form->addTabFields([
+                    'customer[phone]' => [
+                        'label' => 'Phone Number',
+                        'span'  => 'auto',
+                        'tab'   => 'Profile'
+                    ],
+                    'customer[address]' => [
+                        'label' => 'Company',
+                        'span'  => 'auto',
+                        'tab'   => 'Profile'
+                    ],
+                    'customer[gender]' => [
+                        'label' => 'Gender',
+                        'type'  => 'dropdown',
+                        'span'  => 'auto',
+                        'tab'   => 'Profile',
+                        'emptyOption' => 'None',
+                        'options'=> [
+                            'male' => 'Male',
+                            'female' => 'Female'
+                        ]
+                    ],
+                    'customer[birth]' => [
+                        'label' => 'Birthdate',
+                        'type'  => 'datetimepicker',
+                        'mode'  => 'date',
+                        'span'  => 'auto',
+                        'tab'   => 'Profile'
+                    ]
+                ]);
+            }
+            
+        });
+        
+        # Event
+        Event::listen('backend.page.beforeDisplay', function($controller, $action, $params) {
+
+            if(BackendAuth::getUser()->isCustomer())
+            {
+                $controller->addCss('/plugins/bookrr/user/assets/css/customer.css');
+            }
+
+        });
     }
 
     public function registerComponents()
@@ -66,16 +115,16 @@ class Plugin extends PluginBase
 
     public function registerNavigation()
     {
-        if(BackendAuth::getUser()->role->code=='customer')
+        if(BackendAuth::getUser()->isCustomer())
         {
-            return [
-                'loyalty' => [
-                    'label' => 'Rewards',
-                    'url'   => Backend::url('bookrr/user/loyalty'),
-                    'icon'  => 'icon-star',
-                    'order' => 1000
-                ]
-            ];
+            // return [
+            //     'loyalty' => [
+            //         'label' => 'Rewards',
+            //         'url'   => Backend::url('bookrr/user/loyalty'),
+            //         'icon'  => 'icon-star',
+            //         'order' => 1000
+            //     ]
+            // ];
         }
 
         return [
