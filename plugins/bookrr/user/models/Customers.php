@@ -33,7 +33,7 @@ class Customers extends Model
     ];
     public $hasMany = [
         'parkings' => ['Bookrr\Booking\Models\Parking','key' => 'user_id','otherKey'=>'user_id','delete' => true],
-        'vehicles' => ['Bookrr\User\Models\Vehicle','key' => 'user_id','delete' => true,'count'=>true],
+        'vehicles' => ['Bookrr\User\Models\Vehicle','key' => 'user_id','otherKey'=>'user_id','delete' => true],
         'contacts' => ['Bookrr\User\Models\Contact','key' => 'user_id','delete' => true]
     ];
 
@@ -56,6 +56,16 @@ class Customers extends Model
         ->whereHas('user.role',function($q){
             $q->where('code','customer');
         });
+    }
+
+    public function getVehicle()
+    {
+        return $this->vehicles()->where('primary',1)->first();
+    }
+
+    public function hasVehicle()
+    {
+        return $this->vehicles->isEmpty() ? !true : !false;
     }
 
     #

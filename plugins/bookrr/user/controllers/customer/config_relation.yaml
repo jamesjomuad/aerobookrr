@@ -1,4 +1,4 @@
-bookings:
+parkings:
     label: Bookings    
     deferredBinding: true
     view:

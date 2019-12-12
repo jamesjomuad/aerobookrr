@@ -3,6 +3,8 @@
 # ===================================
 
 columns:
+    id:
+        label: ID
     plate:
         label: Plate
         searchable: true
@@ -16,9 +18,9 @@ columns:
     model:
         label: Model
         searchable: true
-    size:
+    size_name:
         label: Size
-        searchable: true
+        searchable: false
     color:
         label: Color
         type: color

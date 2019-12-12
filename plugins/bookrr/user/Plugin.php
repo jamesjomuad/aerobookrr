@@ -31,7 +31,11 @@ class Plugin extends PluginBase
                 'delete' => true
             ];
             $model->hasOne['staff']  = [
-                '\Bookrr\Keeprr\Models\Staff',
+                '\Bookrr\User\Models\Staff',
+                'delete' => true
+            ];
+            $model->hasMany['vehicles']  = [
+                '\Bookrr\User\Models\Vehicle',
                 'delete' => true
             ];
 
@@ -117,14 +121,14 @@ class Plugin extends PluginBase
     {
         if(BackendAuth::getUser()->isCustomer())
         {
-            // return [
-            //     'loyalty' => [
-            //         'label' => 'Rewards',
-            //         'url'   => Backend::url('bookrr/user/loyalty'),
-            //         'icon'  => 'icon-star',
-            //         'order' => 1000
-            //     ]
-            // ];
+            return [
+                'user' => [
+                    'label' => 'Vehicles',
+                    'url'   => Backend::url('bookrr/user/vehicle'),
+                    'icon'  => 'fa fa-car',
+                    'order' => 1000
+                ]
+            ];
         }
 
         return [

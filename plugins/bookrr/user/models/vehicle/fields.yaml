@@ -15,7 +15,8 @@ fields:
         label: Make
         span: auto
         required: 1
-        type: text
+        type: dropdown
+        emptyOption: "Please select"
     model:
         label: Model
         span: auto
@@ -25,18 +26,7 @@ fields:
         label: Size
         span: auto
         type: dropdown
-        options:
-            0: Mini Cars
-            1: Small Car
-            2: Mid-Sized
-            3: Full-Sized
-            4: Small SUV
-            5: Large SUV
-            6: Small Pickup
-            7: Large Pickup
-            8: Bus
-            9: Trailer Trucks
-            10: Unclassified Vehicle
+        emptyOption: "Please select"
     primary:
         label: Default
         span: full
