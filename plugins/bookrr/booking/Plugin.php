@@ -2,6 +2,7 @@
 
 use Backend;
 use System\Classes\PluginBase;
+use Backend\Models\User as UserModel;
 
 
 class Plugin extends PluginBase
@@ -14,6 +15,20 @@ class Plugin extends PluginBase
             'author'      => 'Jomuad',
             'icon'        => 'icon-car'
         ];
+    }
+
+    public function boot()
+    {
+        # Extend User
+        UserModel::extend(function($model){
+            # Extend Relations
+            $model->hasMany['parking']  = [
+                'Bookrr\Booking\Models\Parking',
+                'delete' => true
+            ];
+
+            return $model;
+        });
     }
 
     public function registerPermissions()

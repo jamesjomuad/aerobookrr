@@ -62,8 +62,8 @@ class Parking extends CartController
     public function test()
     {
         dd(
-            // $this->model->find(5)->cart->isPaid()
-            $this->model->find(1)->cart->toArray()
+            $this->user
+            ->parking
         );
     }
 
@@ -218,10 +218,21 @@ class Parking extends CartController
     /*
     *   Overiders
     */
+    public function listExtendQuery($query)
+    {
+        // List customer record
+        if($this->user->isCustomer())
+        {
+            $query->where('user_id',$this->user->id);
+        }
+ 
+        return $query;
+    }
+
     public function formExtendFields($form)
     {
         # Field limitation for customer
-        if($this->isCustomer())
+        if($this->user->isCustomer())
         {
             $form->removeField('customer');
             $form->removeField('barcode');
@@ -248,7 +259,7 @@ class Parking extends CartController
                 $customer->vehicles->where('primary',1)->first()
             );
         }
-        else if($this->isCustomer())
+        else if($this->user->isCustomer())
         {
             $model->rules = [];
             $vehicle = $this->getCustomer()->vehicles->where('primary',1)->first();
@@ -268,7 +279,7 @@ class Parking extends CartController
         #
         #   Booking should belongs to customer
         #
-        if($this->isCustomer())
+        if($this->user->isCustomer())
         {
             $model->user_id = $this->getCustomerId();
             $model->save();
@@ -345,20 +356,15 @@ class Parking extends CartController
     */
     protected function getCustomer()
     {
-        if($this->isCustomer())
+        if($this->user->isCustomer())
             return AeroUser::auth()->user;
 
         return null;
     }
 
-    protected function isCustomer()
-    {
-        return strtolower($this->user->role->name)=='customer';
-    }
-
     protected function getCustomerId()
     {
-        if($this->isCustomer())
+        if($this->user->isCustomer())
             return $this->getCustomer()->id;
 
         return null;

@@ -85,23 +85,23 @@ class Parking extends Model
     /*
     *   Set Default Query
     */
-    public function listExtendQuery($query)
-    {
-        // List customer record
-        if(strtolower($this->user->role->name)=='customer')
-        {
-            if(@BaseUser::auth()->id)
-            {
-                $query->where('user_id',BaseUser::auth()->id);
-            }
-            else
-            {
-                $query->where('user_id',0);
-            }
-        }
+    // public function listExtendQuery($query)
+    // {
+    //     // List customer record
+    //     if(strtolower($this->user->role->name)=='customer')
+    //     {
+    //         if(@BaseUser::auth()->id)
+    //         {
+    //             $query->where('user_id',BaseUser::auth()->id);
+    //         }
+    //         else
+    //         {
+    //             $query->where('user_id',0);
+    //         }
+    //     }
  
-        return $query;
-    }
+    //     return $query;
+    // }
 
 
     /*
@@ -142,9 +142,14 @@ class Parking extends Model
 
     public function getNameAttribute()
     {   
-        $user = $this->customer()->first()->user;
+        if($user = $this->customer()->first())
+        {
+            $user = $this->customer()->first()->user;
         
-        return $user->first_name .' '. $user->last_name;
+            return $user->first_name .' '. $user->last_name;
+        }
+
+        return null;
     }
 
     public function getDateInAttribute($value)
