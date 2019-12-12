@@ -1,0 +1,49 @@
+fields:
+    id:
+        label: ID
+        span: full
+        context:
+            - update
+            - preview
+        type: text
+    plate:
+        label: 'Plate Number'
+        span: auto
+        required: 1
+        type: text
+    brand:
+        label: Make
+        span: auto
+        required: 1
+        type: text
+    model:
+        label: Model
+        span: auto
+        required: 1
+        type: text
+    size:
+        label: Size
+        span: auto
+        type: dropdown
+        options:
+            0: Mini Cars
+            1: Small Car
+            2: Mid-Sized
+            3: Full-Sized
+            4: Small SUV
+            5: Large SUV
+            6: Small Pickup
+            7: Large Pickup
+            8: Bus
+            9: Trailer Trucks
+            10: Unclassified Vehicle
+    primary:
+        label: Default
+        span: full
+        type: checkbox
+        comment: 'Set this vehicle as your primary.'
+    color:
+        label: Color
+        span: full
+        type: colorpicker
+        availableColors: ['#000000', '#ffffff', '#D90123','#D8D9DB']

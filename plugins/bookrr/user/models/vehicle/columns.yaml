@@ -1,0 +1,27 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    plate:
+        label: Plate
+        searchable: true
+    primary:
+        label: Primary
+        type: dot
+        align: center
+    brand:
+        label: Make
+        searchable: true
+    model:
+        label: Model
+        searchable: true
+    size:
+        label: Size
+        searchable: true
+    color:
+        label: Color
+        type: color
+        searchable: true
+    
+        type: color

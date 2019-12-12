@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Vehicle
+
+# Model Form Field configuration
+form: $/bookrr/user/models/vehicle/fields.yaml
+
+# Model Class name
+modelClass: Bookrr\User\Models\Vehicle
+
+# Default redirect location
+defaultRedirect: bookrr/user/vehicle
+
+# Create page
+create:
+    title: Create Vehicle
+    redirect: bookrr/user/vehicle/update/:id
+    redirectClose: bookrr/user/vehicle
+
+# Update page
+update:
+    title: Edit Vehicle
+    redirect: bookrr/user/vehicle
+    redirectClose: bookrr/user/vehicle
+
+# Preview page
+preview:
+    title: Preview Vehicle

@@ -1,0 +1,51 @@
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginTitleForm" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="loginTitleForm" style="width:100%;">Login</h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    data-disable-on-ajax-start
+                    data-enable-on-ajax-always
+                    aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" 
+                    data-request="onLogin" 
+                    data-request-success="if(data.X_OCTOBER_FLASH_MESSAGES.success){$('.modal#loginModal').modal('hide')}"
+                >
+                    <div class="form-group">
+                        <label for="loginField">Username or Email</label>
+                        <input type="text" name="login" class="form-control" id="login"  placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordField">Password</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                    data-disable-on-ajax-start
+                    data-enable-on-ajax-always>
+                    Close
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="$('#loginForm').submit();"
+                    data-disable-on-ajax-start
+                    data-enable-on-ajax-always>
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
