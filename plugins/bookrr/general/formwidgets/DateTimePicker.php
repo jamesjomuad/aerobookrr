@@ -57,7 +57,7 @@ class DateTimePicker extends FormWidgetBase
 
     public function loadAssets()
     {
-        $this->addCss('css/datetimepicker.css', 'widget-datetimepicker');
+        $this->addCss('css/datetimepicker.css', 'widget-datetimepicker','v1.2');
         $this->addJs('js/datetimepicker.js', 'widget-datetimepicker');
     }
 
@@ -104,7 +104,7 @@ class DateTimePicker extends FormWidgetBase
     public function getDependsOnID($suffix=null)
     {
         if($this->dependsOn==null){return null;}
-        // return $this->formField;
+
         return "#"
         . (new \ReflectionClass($this))->getShortName() 
         . '-' 
