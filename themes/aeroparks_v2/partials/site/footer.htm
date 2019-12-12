@@ -36,10 +36,11 @@
                     <div class="col-sm-12">
                         <div class="signbtn_wrap">
                             <!-- <a href="{{ url('/') }}/backend" class="btn btn-signin" target="_self">Current SignIn</a> -->
-                            {% component login %}
+                            {% component 'Login' %}
                         </div>
                         <div class="loyaltybtn_wrap">
-                            <a href="#" class="btn btn-signin" target="_self">Join Loyalty Program</a>
+                            <!-- <a href="#" class="btn btn-signin" target="_self">Join Loyalty Program</a> -->
+                            {% component 'Register' %}
                         </div>
                     </div>
                 </div>
@@ -51,10 +52,8 @@
                 <div class="row">
                     <div class="col-12 text-sm-center social_wrap_desktop">
                         <ul class="list-inline footer-social mb-0">
-                            <li class="list-inline-item"><a href="https://www.facebook.com/Aeroparks/"
-                                    target="_blank"><i class="icon-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.instagram.com/aeroparks_auckland_airport/"
-                                    target="_blank"><i class="icon-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.facebook.com/Aeroparks/" target="_blank"><i class="icon-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com/aeroparks_auckland_airport/" target="_blank"><i class="icon-instagram"></i></a></li>
                         </ul>
                     </div>
                     <div class="col-12 col-md-4  col-lg-12 contact_wrap">
