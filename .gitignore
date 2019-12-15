@@ -18,8 +18,6 @@ sftp-config.json
 .ftpconfig
 selenium.php
 composer.lock
-plugins/
-!plugins/bookrr
 artisan
 index.php
 server.php
