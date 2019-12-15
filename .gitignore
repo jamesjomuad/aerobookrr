@@ -18,6 +18,5 @@ sftp-config.json
 .ftpconfig
 selenium.php
 composer.lock
-artisan
 index.php
 server.php
