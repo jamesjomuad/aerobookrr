@@ -2,6 +2,8 @@ title = "Home"
 url = "/"
 layout = "default"
 is_hidden = 0
+
+[Quoter]
 ==
 <div class="forcelogin_wrap">
   <div class="force_login">
@@ -89,57 +91,13 @@ is_hidden = 0
     <h2 class="text-center">BOOK AUCKLAND AIRPORT PARKING</h2>
   </div>
 
+
+
   <div id="quote_mainwrap" class="quote_mainwrap">
+    
+
     <div id="step_quote">
-      <div class="quote_wrapper">
-        <h4>Parking from <span class="txtorange">$5 PER DAY</span> <span id="quickquoteresult"></span></h4>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-sm-12 col-md-12">
-          <div class="form-group dateIn_wrapper">
-            <label>Flight Departure Date</label>
-            <input id="dateIn" name="dateIn" type="text" class="form-control datetime-default datepicker"
-              placeholder="Date">
-            <label class="error"></label>
-          </div>
-        </div>
-        <!-- <div class="col-sm-6 col-md-6">
-          <div class="form-group">
-            <label>Flight Departure Time</label>
-            <input id="TimeIn" name="TimeIn" type="text" class="form-control datetime-default timepicker"
-              placeholder="Time">
-          </div>
-        </div> -->
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12 col-md-12">
-          <div class="form-group dateOut_wrapper">
-            <label>Flight Arrival Date</label>
-            <input id="dateOut" name="dateOut" type="text" class="form-control datetime-default datepicker"
-              placeholder="Date"/>
-            <label class="error"></label>
-          </div>
-        </div>
-        <!-- <div class="col-sm-6 col-md-6">
-          <div class="form-group">
-            <label>Flight Arrival Time</label>
-            <input id="TimeOut" name="TimeOut" type="text" class="form-control datetime-default timepicker"
-              placeholder="Time">
-          </div>
-        </div> -->
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <div class="quote_signup">Not registered? <br><button id="login_back" onclick="signup_here()">Sign up here</button></div>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <button id="quotebtn" type="button" class="btn btn-primary float-right">Quote Now</button>
-        </div>
-      </div>
-
+      {% component 'Quoter' %}
     </div>
   </div>
 
