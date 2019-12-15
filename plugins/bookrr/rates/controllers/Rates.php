@@ -6,6 +6,7 @@ use System\Classes\SettingsManager;
 use Bookrr\Rates\Models\Settings as dbSettings;
 use Bookrr\Rates\Models\Rate as RateModel;
 use Carbon\Carbon;
+use Bookrr\Stripe\Models\Settings as Stripe;
 
 
 class Rates extends Controller
@@ -18,7 +19,7 @@ class Rates extends Controller
 
     public $settings;
 
-    public $pxpay;
+    public $gateway;
 
     public $implement = [
         'Backend.Behaviors.FormController',
@@ -40,7 +41,7 @@ class Rates extends Controller
 
         $this->model = new RateModel;
 
-        $this->pxpay = \PxPay\PxPay::getSettings();
+        $this->gateway = Stripe::getSettings();
     }
 
     public function test()
@@ -65,7 +66,7 @@ class Rates extends Controller
             'config'    => '$/bookrr/rates/models/settings/fields.yaml'
         ]);
 
-        $this->vars['rateToday'] = $this->pxpay->symbol.$this->model->amount();
+        $this->vars['rateToday'] = $this->gateway->symbol.$this->model->amount();
 
         $this->asExtension('ListController')->index();
     }
@@ -95,7 +96,7 @@ class Rates extends Controller
     {
         $this->settings::set(post('Rates'));
 
-        $this->vars['rateToday'] = $this->pxpay->symbol.$this->model->amount();
+        $this->vars['rateToday'] = $this->gateway->symbol.$this->model->amount();
     }
 
     public function onCreate()
@@ -124,7 +125,7 @@ class Rates extends Controller
     {
         if($columnName=="rate")
         {
-            return $this->pxpay->symbol . $record->rate;
+            return $this->gateway->symbol . $record->rate;
         }
     }
 

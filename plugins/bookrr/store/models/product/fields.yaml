@@ -2,7 +2,7 @@ fields:
     price:
         label: Price
         span: auto
-        type: text
+        type: number
     sku:
         label: SKU
         span: right
@@ -14,8 +14,8 @@ fields:
     type:
         label: Type
         options:
-            product: Product
             service: Service
+            product: Product
         span: auto
         type: dropdown
     description:
@@ -36,7 +36,6 @@ fields:
         type: fileupload
     category:
         label: Category
-        nameFrom: name
-        descriptionFrom: description
         span: auto
-        type: relation
+        type: dropdown
+        emptyOption: None

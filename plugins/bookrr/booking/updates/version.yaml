@@ -11,9 +11,3 @@
 1.0.5:
     - 'Create Ticket table'
     - create_ticket_table.php
-1.0.6:
-    - 'Update Booking table: new column items'
-    - update_booking_7_21_19.php
-1.0.7:
-    - 'Update Booking table: new column ref_num'
-    - update_booking_8_25_19.php

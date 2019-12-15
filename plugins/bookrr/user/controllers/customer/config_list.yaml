@@ -3,10 +3,10 @@
 # ===================================
 
 # Model List Column configuration
-list: $/bookrr/user/models/customer/columns.yaml
+list: $/bookrr/user/models/customers/columns.yaml
 
 # Model Class name
-modelClass: Bookrr\User\Models\Customer
+modelClass: Bookrr\User\Models\Customers
 
 # List Title
 title: Manage Customers

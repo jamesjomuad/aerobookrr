@@ -9,7 +9,12 @@ columns:
     book_id:
         label: ID
         searchable: true
-    items_count:
-        label: Items
-        relation: items_count
-        useRelationCount: true
+    status:
+        label: Status
+    ref_num:
+        label: Reference Number
+    subtotal:
+        label: Sub Total
+    # pivot[quantity]: 
+    #     label: Quantity 
+    #     type: number 

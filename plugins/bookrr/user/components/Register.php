@@ -1,104 +1,106 @@
 <?php namespace Bookrr\User\Components;
 
 use Cms\Classes\ComponentBase;
-use BackendAuth;
-use Validator;
 use ValidationException;
+use Validator;
+use BackendAuth;
 use Flash;
 use Redirect;
-use DB;
-use Bookrr\Booking\Models\Parking;
-use Bookrr\Booking\Models\Ticket;
-use Bookrr\User\Models\Vehicle;
-use Bookrr\User\Models\User;
-use Bookrr\User\Models\Contact;
-use Bookrr\User\Models\Customer;
-use Bookrr\Booking\Controllers\Ticket as TicketController;
+use Backend\Models\UserRole;
+use Bookrr\User\Models\Customers;
 
 
 
 class Register extends ComponentBase
 {
-    use \Bookrr\User\Traits\formatter;
-
     public function componentDetails()
     {
         return [
-            'name'        => 'Backend User Registration',
-            'description' => 'User signup'
+            'name'        => 'Register Component',
+            'description' => 'Customer registration.'
+        ];
+    }
+
+    public function defineProperties()
+    {
+        return [
+            'btnLabel' => [
+                'title'       => 'Button Label',
+                'description' => 'Button label.',
+                'default'     => 'Register',
+                'type'        => 'string',
+            ]
+        ];
+    }
+
+    public function onRun()
+    {
+        $this->addJs('/plugins/bookrr/user/assets/js/ajaxUtils.js');
+        $this->addJs('/plugins/bookrr/user/assets/js/ajaxPopup.js');
+        $this->addJs('/plugins/bookrr/user/assets/js/comp.register.js');
+
+        $this->page['isLogin'] = BackendAuth::check();
+    }
+
+    public function onRegisterForm()
+    {
+        return [
+            'popup' => $this->renderPartial('@register-form.htm')
         ];
     }
 
     public function onRegister()
     {
-        $finish = null;
-
-        $data = post();
-
-        $data['login'] = post('first_name').post('last_name');
-
-        $validator = Validator::make($data, [
-            'first_name'    => 'required',
-            'last_name'     => 'required',
-            'login'         => 'required',
-            'email'         => 'required|email'
+        // Validate
+        $validator = Validator::make(input(), [
+            'email'     => 'required|email|unique:backend_users',
+            'phone'     => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7',
+            'login'     => 'required|between:2,255|unique:backend_users',
+            'firstname' => 'required',
+            'lastname'  => 'required',
+            'password'  => 'required|between:4,255',
+            'confirmpassword'  => 'required|same:password'
+        ],
+        // Custom Message
+        [
+            'login.unique' => 'Username is already taken!',
+            'confirmpassword.required' => 'Password Confirmation is required!',
+            'confirmpassword.same' => 'Password Confirmation should match the Password',
         ]);
-
+        
+        // Check point
         if ($validator->fails()) {
+            foreach ($validator->messages()->all() as $message) {
+                Flash::error($message);
+            }
             throw new ValidationException($validator);
         }
 
-        \Db::transaction(function() use($data,&$finish){
-            // Create Backend user
-            $backendUser = BackendAuth::register([
-                'first_name'        => $data['first_name'],
-                'last_name'         => $data['last_name'],
-                'login'             => $data['login'],
-                'email'             => $data['email'],
-                'password'          => $data['password'],
-                'password_confirmation' => $data['password_confirmation']
-            ]);
-            $backendUser->role_id = Customer::roleID();
-            $backendUser->save();
+        $user = BackendAuth::register([
+            'email'      => input('email'),
+            'login'      => input('login'),
+            'first_name' => input('firstname'),
+            'last_name'  => input('lastname'),
+            'password'   => input('password'),
+            'password_confirmation' => input('confirmpassword')
+        ]);
 
-            // Create Aeroparks user
-            $user = User::create(array_add($data, 'type', 'customer'));
+        // Assign role
+        $user->role()->add(UserRole::where('code','customer')->first());
 
-            // Create Booking
-            $booking = new Parking;
-            $booking
-                ->clearRules()
-                ->fill($this->formatBooking())
-            ;
+        // Add to bookrr user as customer
+        $user->customer()->save( new Customers(input()) );
 
-            // Create Vehicles
-            $vehicle = Vehicle::create(array_add($data['vehicle'],'primary',1));
+        // Sign in as a specific user
+        BackendAuth::login($user);
 
-            // Create Contact
-            $contact = new Contact($this->formatContact());
+        if(BackendAuth::check())
+        {
+            Flash::success('Login Successful!');
+            return Redirect::to('/backend');;
+        }
 
-            $booking->vehicle()->associate($vehicle)->save();
-
-            $backendUser->aeroUser()->save($user);
-
-            $user->contacts()->save($contact);
-
-            $user->vehicles()->save($vehicle);
-
-            $user->bookings()->save($booking);
-
-            $finish = [
-                'number' => $booking->number,
-                'email'  => $backendUser->email,
-                'ticket' => TicketController::generate($booking)
-            ];
-
-        });
-        /* end transaction */
-
-        Flash::success('Account created successfully!');
-
-        return ['booking' => $finish];
+        Flash::error('Login Failed!');
     }
 
 }

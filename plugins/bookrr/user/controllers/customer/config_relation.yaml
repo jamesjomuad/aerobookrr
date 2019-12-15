@@ -1,8 +1,19 @@
-booking:
-    label: Booking
+parkings:
+    label: Bookings    
+    deferredBinding: true
     view:
-        list: $/bookrr/booking/models/booking/columns.yaml
+        list: $/bookrr/user/models/customers/booking_columns.yaml
+        toolbarButtons: false
+    manage:
+        form: $/bookrr/user/models/customers/booking_fields.yaml
+        recordsPerPage: 10
+
+vehicles:
+    label: Vehicles    
+    deferredBinding: true
+    view:
+        list: $/bookrr/user/models/vehicle/columns.yaml
         toolbarButtons: create|delete
     manage:
-        form: $/bookrr/booking/models/booking/fields.yaml
-        list: $/bookrr/booking/models/booking/columns.yaml
+        form: $/bookrr/user/models/vehicle/fields.yaml
+        recordsPerPage: 10

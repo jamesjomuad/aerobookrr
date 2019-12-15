@@ -17,3 +17,5 @@ columns:
         label: Status
         searchable: true
         align: center
+        type: partial
+        path: ~/plugins/bookrr/bay/controllers/bay/_status.htm

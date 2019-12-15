@@ -25,7 +25,19 @@ $(function () {
 				console.log(this)
 			});  
         },
-        events: 'calendar/bookings',
+        events: function(start, end, timezone, callback){
+            var timestamp = this.el.fullCalendar('getDate').unix();
+            $.ajax({
+                url: 'calendar/bookings',
+                dataType: 'json',
+                data:{
+                    time: timestamp
+                },
+                success: function(json){
+                    callback(json);
+                }
+            });
+        },
         eventClick:function( event, jsEvent, view ) {
             location.href = event.url;
             return false;

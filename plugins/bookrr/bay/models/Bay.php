@@ -14,9 +14,7 @@ class Bay extends Model
 
     protected $hidden = ['created_at','updated_at','deleted_at'];
 
-    /**
-     * @var array Relations
-     */
+
     public $hasOne = [];
     public $hasMany = [
         'parking' => \Bookrr\Booking\Models\Parking::class
@@ -26,35 +24,60 @@ class Bay extends Model
     ];
 
 
-    /*
-    *   Attributes
-    */
+    #
+    #  Attributes
+    #
     public function getCreatedatAttribute($date)
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y');
     }
 
-    public function getStatusAttribute($value)
+    public function getStatusColorAttribute($value)
     {
-        if($value=='0')
-        return false;
-
-        if(empty($value) OR $value)
-        return true;
+        if($this->status==NULL)
+        {
+            return "btn-primary";
+        }
+        elseif($this->status=='reserve')
+        {
+            return "btn-default bg-p";
+        }
+        else
+        {
+            return "br-a";
+        }
     }
 
     public function getAvailabilityAttribute()
     {
-        if($this->status)
+        if($this->status==NULL)
+        {
             return "Available";
+        }
+        elseif($this->status=='reserve')
+        {
+            return "Reserved";
+        }
+        elseif($this->status=='occupied')
+        {
+            return "Occupied";
+        }
         else
+        {
             return "Not Available";
+        }
     }
 
 
-    /*
-    *   Scopes
-    */
+    #
+    #  Scopes
+    #
+    public function scopeSetReserve()
+    {
+        $this->status = 'reserve';
+        return $this->save();
+    }
+
     public function scopeSetOccupied()
     {
         $this->status = 'occupied';
@@ -67,10 +90,16 @@ class Bay extends Model
         return $this->save();
     }
 
+    public function scopeIsAvailable($query)
+    {
+        $query->where('status',null);
+        return $query;
+    }
 
-    /*
-    *   Helpers
-    */
+
+    #
+    #  Helpers
+    #
     public static function getBay($id)
     {
         return self::with('parking')->where('id',$id)->first()->toArray();

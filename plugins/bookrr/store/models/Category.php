@@ -38,4 +38,9 @@ class Category extends Model
             'Bookrr\Store\Models\Product'
         ]
     ];
+
+    public function filterFields($fields, $context = null)
+    {
+        $fields->slug->value = str_slug($fields->name->value);
+    }
 }

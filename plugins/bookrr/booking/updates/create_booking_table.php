@@ -13,6 +13,7 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->integer('vehicle_id')->nullable();
+            $table->integer('bay_id')->nullable();
             $table->string('slot')->nullable();
             $table->string('number')->unique()->nullable();
             $table->string('status')->nullable();

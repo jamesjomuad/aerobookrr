@@ -1,76 +1,49 @@
-fields:
-    # 'backendUser[code]':
-    #     label: 'Code'
-    #     span: 'full'
-    #     type: text
-    #     disabled: true
-    'backendUser[first_name]':
-        label: 'First Name'
-        span: left
-        type: text
-    'backendUser[last_name]':
-        label: 'Last Name'
-        span: right
-        type: text
-    'backendUser[email]':
-        label: Email
-        span: full
-        type: text
-    _email_invite:
-        label: 'Send invitation by Email'
-        span: full
-        type: checkbox
-        comment: 'Sends a welcome message containing login and password information.'
-    'backendUser[password]':
-        label: Password
-        span: left
-        type: password
-    'backendUser[password_confirmation]':
-        label: 'Confirm Password'
-        span: right
-        type: password
 tabs:
     fields:
-        title:
-            tab: General
-            label: Title
-            span: left
-            type: dropdown
-        # company:
-        #     label: Company
-        #     span: auto
-        #     type: text
-        #     tab: General
-        # age:
-        #     label: Age
-        #     span: auto
-        #     type: text
-        #     tab: General
-        birthdate:
-            label: 'Date of Birth'
-            mode: date
+        user[login]:
+            label: Username
+            span: full
+            type: text
+            tab: Profile
+        user[first_name]:
+            label: 'First Name'
             span: auto
-            type: datetimepicker
-            tab: General
+            type: text
+            tab: Profile
+        user[last_name]:
+            label: 'Last Name'
+            span: auto
+            type: text
+            tab: Profile
+        options[position]:
+            label: Position/Job Title
+            span: auto
+            type: text
+            tab: Profile
+        user[email]:
+            label: Email
+            span: auto
+            type: text
+            tab: Profile
         phone:
             label: Phone
             span: auto
             type: text
-            tab: General
-        gender:
-            label: Gender
-            options:
-                0: Male
-                1: Female
-                3: Other
+            tab: Profile
+        birth:
+            label: 'Date of Birth'
             span: auto
-            type: dropdown
-            tab: General
-        _key_movements:
-            span: full
-            path: key_movements
-            type: partial
-            tab: 'Key Movements'
-            context: 
-                - update
-                - preview
+            type: datepicker
+            mode: date
+            tab: Profile
+        user[password]:
+            label: Password
+            span: auto
+            type: password
+            tab: Profile
+        user[password_confirmation]:
+            label: Confirm Password
+            span: auto
+            type: password
+            tab: Profile
+        

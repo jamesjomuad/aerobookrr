@@ -13,7 +13,7 @@ class CreateBaysTable extends Migration
             $table->increments('id');
             $table->integer('zone_id')->nullable();
             $table->string('name');
-            $table->string('status')->nullable();
+            $table->string('status',50)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

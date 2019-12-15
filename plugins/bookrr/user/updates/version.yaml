@@ -1,22 +1,13 @@
 1.0.1: First version of user
-1.0.2: 
-  - 'Create Aero User table'
-  - create_user_table.php
-1.0.3: 
-  - 'Create Agent table'
-  - create_agent_table.php
-1.0.4:
-  - 'Add Aeroparks User Roles'
-  - seed.php
-1.0.5:
-  - 'Create Contact Table'
-  - create_contacts_table.php
-1.0.6:
-  - 'Create Loyalty Table'
-  - create_loyalty_table.php
-1.0.7:
-  - 'Create Vehicle Table'
+1.0.2:
+  - Create Bookrr extended Users table
+  - create_users_table.php
+1.0.3:
+  - Create Bookrr User Vehicle table
   - create_vehicles_table.php
-1.0.8:
-  - 'Update Aero User Table'
-  - update_user_table.php
+1.0.4:
+  - Create Bookrr User Contact table
+  - create_contacts_table.php
+1.0.5:
+ - 'Seed Table'
+ - seed.php

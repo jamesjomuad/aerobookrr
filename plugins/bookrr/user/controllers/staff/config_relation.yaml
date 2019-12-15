@@ -1,5 +1,0 @@
-BaseUser:
-  label: backendUser
-  manage:
-    form: $/bookrr/user/models/user/fields.yaml
-    showCheckboxes: true

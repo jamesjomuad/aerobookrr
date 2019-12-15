@@ -30,4 +30,4 @@
     - create_carts_table.php
 2.0.1:
     - 'Create Pivot Cart Item table'
-    - create_pivot_cart_item_table.php
+    - create_cart_product_table.php

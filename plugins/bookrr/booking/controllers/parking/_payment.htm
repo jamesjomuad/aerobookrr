@@ -1,54 +1,58 @@
 <?= Form::open() ?>
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3 class="modal-title text-center text-info">Order Details</h3>
-        </div>
-
-        <div class="modal-body p-4">
-            <table class="table">
-                <thead>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title text-center text-info">Order Details</h3>
+    </div>
+    <div class="modal-body p-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $orders->each(function ($item, $key) use($symbol) { ?>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $orders->each(function ($item, $key) use($currency) { ?>
-                        <tr>
-                            <th scope="row"><?= ++$key ?></th>
-                            <td><?= $item->name ?></td>
-                            <td>1</td>
-                            <td><?= $currency ?><?= $item->price ?></td>
-                            <td><?= $currency ?><?= $item->price ?></td>
-                            <td></td>
-                        </tr>
-                    <?php }); ?>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                        <th>Subtotal:</th>
-                        <th><?= $currency ?><?= $total ?></th>
+                        <th scope="row"><?= ++$key ?></th>
+                        <td><?= $item['name'] ?></td>
+                        <td><?= $item['quantity'] ?></td>
+                        <td><?= $symbol ?><?= $item['price'] ?></td>
+                        <td><?= $symbol ?><?= $item['total'] ?></td>
                         <td></td>
                     </tr>
-                </tfoot>
-            </table>
-        </div>
-
-        <div class="modal-footer text-center p-5">
-            <button type="button" class="btn btn-primary" 
-                data-handler="onPxpay" 
-                data-size="medium pxpay" 
-                data-control="popup"
-                data-dismiss="popup"
-                data-request-data="id:<?= post('id') ?>,amount:<?= $total ?>"
-            >Checkout</button>
-            <button type="button" class="btn btn-default" data-dismiss="popup">Cancel</button>
-        </div>
+                <?php }); ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>Subtotal:</th>
+                    <th><?= $symbol ?><?= $total ?></th>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="modal-footer text-center p-5">
+        <button type="button" class="btn btn-primary" 
+            data-request-url="/backend/bookrr/stripe/cashier" 
+            data-handler="onStripe" 
+            data-size="medium" 
+            data-control="popup"
+            data-request-data="id:'<?= input('id') ?>',name:'<?= $name ?>',email:'<?= $email ?>',amount:'<?= $total ?>'"
+        >Card</button>
+        <button type="button" class="btn btn-primary" 
+            data-handler="onCash" 
+            data-size="medium" 
+            data-control="popup"
+            data-request-data="id:<?= input('id') ?>,amount:'<?= $total ?>'"
+        >Cash</button>
+        <button type="button" class="btn btn-default" data-dismiss="popup">Cancel</button>
+    </div>
 <?= Form::close() ?>

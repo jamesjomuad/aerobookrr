@@ -1,9 +1,4 @@
 fields:
-    id:
-        label: ID
-        span: full
-        disabled: true
-        type: text
     name:
         label: 'Category Name'
         span: left
@@ -12,6 +7,7 @@ fields:
         label: Slug
         span: auto
         type: text
+        dependsOn: name
     description:
         label: Description
         size: large

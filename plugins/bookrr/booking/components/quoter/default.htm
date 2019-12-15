@@ -1,0 +1,45 @@
+<form id="{{__SELF__.id}}" class="quoteForm" 
+    data-request="{{__SELF__}}::onGetQuote" 
+    data-request-success="$.oc.stripeLoadIndicator.hide();"
+>
+    <h4>Parking from <span class="txtorange">{{rate}} PER DAY</span></h4>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>{{__SELF__.property('departLabel')}}</label>
+                <input id="dateIn" name="dateIn" type="text" class="form-control datetimepicker"
+                    placeholder="Date">
+                <label class="error"></label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>{{__SELF__.property('arrivalLabel')}}</label>
+                <input id="dateOut" name="dateOut" type="text" class="form-control datetimepicker"
+                    placeholder="Date" />
+                <label class="error"></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3 id="qresult" class="text-center"></h3>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <button type="button" 
+            class="btn btn-primary float-right"
+            onclick="$('#{{__SELF__.id}}').submit();"
+            data-disable-on-ajax-start
+            data-enable-on-ajax-always>Quote Now</button>
+        </div>
+    </div>
+</form>

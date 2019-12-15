@@ -2,12 +2,11 @@
 
 
 use Model;
-use Bookrr\User\Models\User;
 use \Carbon\Carbon;
 use BackendAuth;
+use Bookrr\User\Models\User;
 use Bookrr\User\Models\BaseUser as AeroUser;
 use Bookrr\Store\Models\Product;
-use Jomuad\Pxpay\Models\Transaction;
 
 
 class Parking extends Model
@@ -17,6 +16,8 @@ class Parking extends Model
     use \October\Rain\Database\Traits\SoftDelete;
 
     public $table = 'bookrr_booking';
+
+    public $dates = ['park_in'];
 
     public $rules = [
         'customer' => 'required',
@@ -65,21 +66,10 @@ class Parking extends Model
     ];
 
     public $belongsTo = [
-        'user'      => ['Bookrr\User\Models\User','key' => 'user_id'],
-        'customer'  => ['Bookrr\User\Models\Customer','key' => 'user_id'],
+        'customer'  => ['Bookrr\User\Models\Customers','key' => 'user_id','otherKey'=>'user_id'],
         'vehicle'   => ['Bookrr\User\Models\Vehicle'],
         'bay'       => \Bookrr\Bay\Models\Bay::class,
         'ticket'    => \Bookrr\Booking\Models\Ticket::class
-    ];
-
-    public $belongsToMany = [
-        'products' => [
-            'Bookrr\Store\Models\Product',
-            'table' => 'bookrr_cart_product',
-            'order' => 'name',
-            'key' => 'cart_id',
-            'otherKey' => 'product_id'
-        ]
     ];
 
     protected $statusOption = [
@@ -90,28 +80,6 @@ class Parking extends Model
         'canceled',
         'expired'
     ];
-
-
-    /*
-    *   Set Default Query
-    */
-    public function listExtendQuery($query)
-    {
-        // List customer record
-        if(strtolower($this->user->role->name)=='customer')
-        {
-            if(@BaseUser::auth()->id)
-            {
-                $query->where('user_id',BaseUser::auth()->id);
-            }
-            else
-            {
-                $query->where('user_id',0);
-            }
-        }
- 
-        return $query;
-    }
 
 
     /*
@@ -152,11 +120,14 @@ class Parking extends Model
 
     public function getNameAttribute()
     {
-        if($this->user)
+        if($user = $this->customer()->first())
         {
-            $user = $this->user->backendUser;
-            return $user->first_name.' '.$user->last_name;
+            $user = $this->customer()->first()->user;
+        
+            return $user->first_name .' '. $user->last_name;
         }
+
+        return null;
     }
 
     public function getDateInAttribute($value)
@@ -184,13 +155,14 @@ class Parking extends Model
         }
     }
 
-    public function getFullNameAttribute($value)
+    public function getFullNameAttribute()
     {
-        if($this->user)
+        if($this->customer AND @$this->customer->user)
         {
-            $user = $this->user->backendUser;
-            return $user->first_name.' '.$user->last_name;  
+            $customer = $this->customer->user;
+            return $customer->first_name.' '.$customer->last_name;  
         }
+        return null;
     }
 
     public function getVehiclePlateAttribute($value)
@@ -221,15 +193,15 @@ class Parking extends Model
         return $value;
     }
 
-    public function getIsPaidAttribute($value)
-    {
-        return Transaction::isPaid($this->ref_num);
-    }
+    // public function getIsPaidAttribute($value)
+    // {
+    //     return Transaction::isPaid($this->ref_num);
+    // }
 
-    public function getIsFailAttribute($value)
-    {
-        return Transaction::isFail($this->ref_num);
-    }
+    // public function getIsFailAttribute($value)
+    // {
+    //     return Transaction::isFail($this->ref_num);
+    // }
 
 
     /*
@@ -263,17 +235,21 @@ class Parking extends Model
     {
         if(!empty($this->bay))
         {
-            $this->bay->setOccupied();
+            $this->bay->setReserve();
         }
         if($this->status=="checkout")
         {
             $this->bay->setAvailable();
         }
+        if($this->status=='parked')
+        {
+            $this->bay->setOccupied();
+        }
     }
 
     public function beforeDelete()
     {
-        if($this->bay->getOriginal('status')=='occupied')
+        if($this->bay AND $this->bay->getOriginal('status')=='occupied')
         {
             $this->bay->setAvailable();
         }
@@ -282,9 +258,24 @@ class Parking extends Model
     /*
     *   SCOPES
     */
+    public function scopeMonthOf($query,$timestamp)
+    {
+        $query
+            ->whereMonth('date_in',$timestamp->month)
+            ->whereYear('date_in',$timestamp->year)
+        ;
+
+        $query->orWhere(function($nest) use($timestamp) {
+            $nest->whereMonth('date_out',$timestamp->month)
+                ->whereYear('date_in',$timestamp->year)
+            ;
+        });
+        return $query;
+    }
+
     public function scopeGetBookings()
     {
-        return $this->has('user.backendUser');
+        return $this->has('customer.user');
     }
 
     public function scopeVehicles()

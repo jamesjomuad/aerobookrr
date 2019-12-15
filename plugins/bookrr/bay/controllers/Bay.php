@@ -43,12 +43,5 @@ class Bay extends Controller
     {   
         $this->asExtension('ListController')->index();
     }
-
-    public function test()
-    {
-        dd(
-            $this->model->where('status','occupied')->update(['status'=>null])
-        );
-    }
  
 }

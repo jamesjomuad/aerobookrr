@@ -3,11 +3,13 @@ columns:
         label: ID
         type: text
         searchable: true
+    name:
+        label: Name
     number:
         label: Number
         type: text
         searchable: true
-    plate: 
+    plate:
         label: 'Plate'
         relation: vehicle
         valueFrom: plate
@@ -19,26 +21,24 @@ columns:
         valueFrom: name
         searchable: true
         select: name
-    user:
+    customer:
         label: Phone
         type: text
-        relation: user
+        relation: customer
         select: phone
         sortable: false
         searchable: true
     date_in:
         label: 'Date In'
-        type: partial
+        type: humandate
         width: 170px
         align: center
-        path: ~/plugins/bookrr/booking/controllers/parking/_dateIn.htm
         searchable: true
     date_out:
         label: 'Date Out'
-        type: partial
+        type: humandate
         width: 170px
         align: center
-        path: ~/plugins/bookrr/booking/controllers/parking/_dateOut.htm
         searchable: true
     status:
         label: 'Status'
@@ -50,12 +50,12 @@ columns:
         type: text
         searchable: true
         invisible: true
-    _ticket: 
-        label: 'Ticket'
-        relation: ticket
-        valueFrom: barcode
-        select: barcode
-        searchable: true
+    # _ticket: 
+    #     label: 'Ticket'
+    #     relation: ticket
+    #     valueFrom: barcode
+    #     select: barcode
+    #     searchable: true
     paid:
         label: Paid
         type: partial

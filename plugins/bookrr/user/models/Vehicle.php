@@ -1,111 +1,90 @@
 <?php namespace Bookrr\User\Models;
 
 use Model;
-use Backend\Models\User;
+use \Bookrr\User\Models\Customers;
+use Config;
 
-
+/**
+ * Vehicle Model
+ */
 class Vehicle extends Model
 {
-    use \October\Rain\Database\Traits\Validation;
-    
-    use \October\Rain\Database\Traits\SoftDelete;
 
-    public $table = 'bookrr_vehicle';
+    public $table = 'bookrr_user_vehicles';
 
-    protected $dates = ['deleted_at'];
-
-    protected $fillable = ['primary','name', 'plate', 'brand', 'model', 'color', 'size'];
-
-    public $rules = [];
-
-    public $hasOne = [
-        'parking' => ['Bookrr\Booking\Models\Parking']
-    ];
+    protected $guarded = ['*'];
 
     public $belongsTo = [
-        'customer'  => ['Bookrr\User\Models\Customer','key' => 'user_id'],
-        'user'      => ['Bookrr\User\Models\User','key' => 'user_id']
+        'customer' => [
+            \Bookrr\User\Models\Customers::class,
+            'key' => 'user_id',
+            'delete' => true
+        ]
     ];
 
+    public $hasOne = [];
+    public $hasMany = [];
+    public $belongsToMany = [];
+    public $morphTo = [];
+    public $morphOne = [];
+    public $morphMany = [];
+    public $attachOne = [];
+    public $attachMany = [];
 
-    /*
-    *   OPTIONS
-    */
-    public function getBrandOptions()
+    public function getPrimaryAttribute($value)
     {
-        $options = Vehicle::select('brand')
-            ->get()
-            ->unique('brand')
-            ->pluck('brand')
-            ->filter()
-            ->toArray();
-
-        $tmp = [];
-
-        foreach($options as $option)
+        if(input('id') && Customers::find(input('id'))->vehicles->count()==0)
         {
-            $tmp[$option] = $option;
+            return 1;
         }
 
-        return $tmp;
+        return $value;
     }
 
-    public function getModelOptions()
+    public function getSizeNameAttribute()
     {
-        $options = Vehicle::select('model')
-            ->get()
-            ->unique('model')
-            ->pluck('model')
-            ->filter()
-            ->toArray();
+        if(!$this->size){ return; }
+        return $this->getSizeOptions()[$this->size];
+    }
 
-        $tmp = [];
-
-        foreach($options as $option)
+    public function beforeSave()
+    {
+        if($this->primary==1)
         {
-            $tmp[$option] = $option;
+            $this->where('primary',1)->update(['primary' => 0]);
         }
+    }
 
-        return $tmp;
+    #
+    #   Scopes
+    #
+    public function scopeHasDefault($query)
+    {
+        return $query->where('primary',1)->get()->isNotEmpty();
+    }
+
+    #
+    #   Options
+    #
+    public function getBrandOptions()
+    {
+        return Config::get('bookrr.user::make-v1');
     }
 
     public function getSizeOptions()
     {
-        $options = Vehicle::select('size')
-            ->get()
-            ->unique('size')
-            ->pluck('size')
-            ->filter()
-            ->toArray();
-
-        $tmp = [];
-
-        foreach($options as $option)
-        {
-            $tmp[$option] = $option;
-        }
-
-        return $tmp;
+        return [
+            0 => 'Mini Cars',
+            1 => 'Small Car',
+            2 => 'Mid-Sized',
+            3 => 'Full-Sized',
+            4 => 'Small SUV',
+            5 => 'Large SUV',
+            6 => 'Small Pickup',
+            7 => 'Large Pickup',
+            8 => 'Bus',
+            9 => 'Trailer Trucks',
+            10 => 'Unclassified Vehicle'
+        ];
     }
-
-
-    /*
-    *   SCOPES
-    */
-    public function scopeApplyBrandFilter($query, $filtered)
-    {
-        return $query->whereHas('roles', function($q) use ($filtered) {
-            $q->whereIn('id', $filtered);
-        });
-    }
-
-    /*
-    *   EVENTS
-    */
-    public function beforeCreate()
-    {
-        
-    }
-
-
 }

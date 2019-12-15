@@ -1,128 +1,94 @@
 <?php namespace Bookrr\User\Components;
 
 use Cms\Classes\ComponentBase;
-use Cms\Classes\Page;
+use Flash;
 use BackendAuth;
-use Response;
-use View;
 use Backend\Models\User;
+use Redirect;
+use Session;
 
 
 class Login extends ComponentBase
 {
+    public $name;
+
     public function componentDetails()
     {
         return [
-            'name'        => 'Authenticate Page',
-            'description' => 'Login screen for backend user.'
+            'name'        => 'Login Component',
+            'description' => 'Bookrr login form.'
         ];
     }
 
     public function defineProperties()
     {
         return [
-            'isLoginPage' => [
-                'title'     => 'Set page as Login?',
-                'type'      => 'dropdown',
-                'default'   => 'no',
-                'options'   => ['no'=>'No', 'yes'=>'Yes']
+            'loginLabel' => [
+                'title'       => 'Login Label',
+                'description' => 'Button label.',
+                'default'     => 'Login',
+                'type'        => 'string',
             ],
-            'loginPage' => [
-                'title'     => 'Login page.',
-                'type'      => 'dropdown',
-                'default'   => null,
-                'depends'   => ['isLoginPage']
-            ],
-            'redirectPage' => [
-                'title'     => 'Redirect when Logged in.',
-                'type'      => 'dropdown',
-                'default'   => '/',
-                'depends'   => ['isLoginPage']
-            ],
+            'logoutLabel' => [
+                'title'       => 'Logout Label',
+                'description' => 'Button label.',
+                'default'     => 'Logout',
+                'type'        => 'string',
+            ]
         ];
-    }
-
-    public function getLoginPageOptions()
-    {
-        if(post('isLoginPage')=="yes")
-        {
-            return null;
-        }
-        
-        $array = Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
-        array_unshift($array, 'none');
-        return $array;
-    }
-
-    public function getRedirectPageOptions()
-    {   
-        if(post('isLoginPage')=="yes")
-        {
-            return null;
-        }
-        $array = Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
-        array_unshift($array, 'none');
-        return $array;
-    }
-
-    public function getUrlLogoutOptions()
-    {
-        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
     public function onRun()
     {
-        if($this->property('isLoginPage')=='yes' AND !BackendAuth::check())
-        {
-            $this->prepareAssets();
-            return;
-        }
-        else if($this->property('isLoginPage')=='yes' AND BackendAuth::check())
-        {
-            return redirect()->to(url($this->property('redirectPage')));
-        }
-        else if(BackendAuth::check())
-        {
-            return;
-        }
-        else if(!BackendAuth::check() AND $this->property('isLoginPage')=='no')
-        {
-            return redirect()->to(url($this->property('loginPage')));
-        }
-        else if($this->property('loginPage') == '/')
-        {
-            $this->prepareAssets();
-            return;
-        }
-        
-        return response()->make('Access denied!', 403);
+        $this->addJs('/plugins/bookrr/user/assets/js/ajaxUtils.js');
+        $this->addJs('/plugins/bookrr/user/assets/js/ajaxPopup.js');
+
+        $this->page['isLogin'] = BackendAuth::check();
     }
 
-    public function prepareAssets()
+    public function onLoginForm()
     {
-        $this->addCss('/plugins/bookrr/user/assets/css/login-comp.css');
-        $this->addCss('//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
-        $this->addJs('//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js');
+        if(BackendAuth::check())
+        {
+            Flash::success('Currently login.');
+            return;
+        }
+
+        return [
+            'popup' => $this->renderPartial('@modal-form.htm')
+        ];
     }
 
-    public function onSignin()
+    public function onLogin()
     {
-        $login = @User::where('email',post('username'))->first()->login ? : post('username');
-        
+        if(BackendAuth::check())
+        {
+            Flash::success('Currently login.');
+            return;
+        }
+
+        // Authenticate user by credentials
         $user = BackendAuth::authenticate([
-            'login' => $login,
-            'password' => post('password')
+            'login'     => @User::where('email',post('login'))->first()->login ?? post('login'),
+            'password'  => post('password')
         ]);
+
+        // Sign in as a specific user
+        BackendAuth::login($user);
 
         if(BackendAuth::check())
         {
-            return redirect()->to(url($this->property('redirectPage')));
+            Flash::success('Login Successful!');
+            return Redirect::to('/backend');;
         }
+
+        Flash::error('Login Failed!');
     }
 
-    public function loginForm()
+    public function onLogout()
     {
-        $content = $this->renderPartial('default.htm');
-        return Response::make($content)->header('Content-Type', 'text/xml');
+        \BackendAuth::logout();
+        \Session::flush();
+        return \Redirect::to('/');
     }
 }

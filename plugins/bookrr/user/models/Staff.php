@@ -1,78 +1,65 @@
 <?php namespace Bookrr\User\Models;
 
 use Model;
-use Backend\Models\User;
-use Backend\Models\UserRole;
-use \Carbon\Carbon;
 
-
-
+/**
+ * Staff Model
+ */
 class Staff extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+
     use \October\Rain\Database\Traits\SoftDelete;
 
     public $table = 'bookrr_user';
 
-    protected $rules=[];
+    protected $jsonable = ['options'];
+
+    public $rules = [
+        'phone'     => 'required|regex:/^([-a-z0-9_ ])+$/i|min:6'
+    ];
 
     protected $guarded = ['*'];
 
-    protected $fillable = ['role_id'];
+    protected $fillable = ['address','phone','birth_date'];
 
+    #
+    #   Relation
+    #
     public $belongsTo = [
-        // 'backendUser' => User::class,
-        'backendUser' => ['Bookrr\User\Models\BaseUser','key' => 'user_id'],
-        'role' => UserRole::class
+        'user' => [
+            \Backend\Models\User::class,
+            'key'    => 'user_id',
+            'delete' => true
+        ]
     ];
 
-    public $titles = ['Mr.','Mrs.','Ms.','Dr.','Eng.','Atty.'];
-
-    /*
-    *   Set Default Query
-    */
+    #
+    #   Set Default Query
+    #
     public function newQuery($excludeDeleted = true)
     {
-        return parent::newQuery($excludeDeleted)
-            ->where('type', '=', 'staff');
+        $query = parent::newQuery($excludeDeleted);
+        $query->isStaff();
+        return $query;
     }
 
-
-    /*
-    *   SCOPE
-    */
-    public function scopeRoleID()
+    #
+    #   Scopes
+    #
+    public function scopeIsStaff($query)
     {
-        if($role = $this->role()->where('code','staff')->orWhere('name','Staff')->first())
-            return $role->id;
-        else
-            return false;
+        return $query->with('user')
+        ->whereHas('user.role',function($q){
+            $q->where('code','staff');
+        });
     }
 
-
-    /*
-    *   ATTRIBUTES
-    */
-    public function getCreatedAtAttribute($value)
+    #
+    #   Events
+    #
+    public function afterDelete()
     {
-        if($value)
-            return (new Carbon($value))->diffForHumans();
-        else
-            return $value;
+        $this->user()->delete();
     }
-
-    public function getNameAttribute($value)
-    {
-        return $this->backendUser->first_name . ' ' . $this->backendUser->last_name;
-    }
-
-
-    public function getTitleOptions()
-    {
-        return $this->titles;
-    }
-
-
 }
-

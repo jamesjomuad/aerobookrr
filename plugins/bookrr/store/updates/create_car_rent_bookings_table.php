@@ -26,6 +26,9 @@ class CreateCarBookingsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('bookrr_carrental_booking');
+        if(Schema::hasTable('bookrr_carrental_booking'))
+        {
+            Schema::dropIfExists('bookrr_carrental_booking');
+        }
     }
 }

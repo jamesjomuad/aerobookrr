@@ -11,14 +11,15 @@ class CreateCouponsTable extends Migration
         Schema::create('bookrr_product_coupon', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
-            $table->string('discount')->nullable();
+            $table->string('name')->nullable();
             $table->string('code')->nullable();
-            $table->string('qr_code')->nullable();
-            $table->timestamp('promo_start')->nullable();
-            $table->timestamp('promo_end')->nullable();
+            $table->integer('savings')->nullable();
+            $table->char('unit',10)->nullable();
+            $table->integer('min_cost')->nullable();
+            $table->integer('num_usage')->nullable();
+            $table->timestamp('expiration')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -1,0 +1,61 @@
+columns:
+    id:
+        label: ID
+        type: text
+        searchable: true
+    number:
+        label: Number
+        type: text
+        searchable: true
+    plate: 
+        label: 'Plate'
+        relation: vehicle
+        valueFrom: plate
+        select: plate
+        searchable: true
+    name:
+        label: Parking Bay
+        relation: bay
+        valueFrom: name
+        searchable: true
+        select: name
+    customer:
+        label: Phone
+        type: text
+        relation: customer
+        select: phone
+        sortable: false
+        searchable: true
+    date_in:
+        label: 'Date In'
+        type: humandate
+        width: 170px
+        align: center
+        searchable: true
+    date_out:
+        label: 'Date Out'
+        type: humandate
+        width: 170px
+        align: center
+        searchable: true
+    status:
+        label: 'Status'
+        type: partial
+        path: status
+        searchable: true
+    barcode:
+        label: Barcode
+        type: text
+        searchable: true
+        invisible: true
+    paid:
+        label: Paid
+        type: partial
+        default: 'NO'
+        align: center
+        path: paid
+        sortable: false
+    created_at:
+        label: Created
+        searchable: true
+        sortable: true

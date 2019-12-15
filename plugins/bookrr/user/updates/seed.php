@@ -1,37 +1,22 @@
-<?php namespace Bookrr\User\Updates;
+<?php namespace Bookrr\Keeprr\Updates;
 
 
 use October\Rain\Database\Updates\Seeder;
 use Backend\Models\UserRole;
 
-class SeedAllTables extends Seeder
+class SeedKeeprrTables extends Seeder
 {
-
     public function run(){
-        $this->seedRoles();
-    }
-
-    private function seedRoles() {
-        UserRole::firstOrCreate([
-            'name'        => 'Staff',
-            'code'        => 'staff',
-            'description' => 'Manage business system workflow.',
-        ]);
-        UserRole::firstOrCreate([
+        UserRole::updateOrCreate([
             'name'        => 'Customer',
             'code'        => 'customer',
-            'description' => 'Manage customer ability for the system.',
+            'description' => 'User as customer.',
         ]);
-        UserRole::firstOrCreate([
-            'name'        => 'Demo',
-            'code'        => 'demo',
-            'description' => 'Allow user to explore in demo mode.',
-        ]);
-        UserRole::firstOrCreate([
-            'name'        => 'Frontend',
-            'code'        => 'frontend',
-            'description' => 'Frontend authentication.',
+
+        UserRole::updateOrCreate([
+            'name'        => 'Staff',
+            'code'        => 'staff',
+            'description' => 'User as staff.',
         ]);
     }
-
-} 
+}

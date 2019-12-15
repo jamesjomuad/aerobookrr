@@ -5,4 +5,25 @@
 columns:
     id:
         label: ID
+    plate:
+        label: Plate
         searchable: true
+    primary:
+        label: Primary
+        type: dot
+        align: center
+    brand:
+        label: Make
+        searchable: true
+    model:
+        label: Model
+        searchable: true
+    size_name:
+        label: Size
+        searchable: false
+    color:
+        label: Color
+        type: color
+        searchable: true
+    
+        type: color

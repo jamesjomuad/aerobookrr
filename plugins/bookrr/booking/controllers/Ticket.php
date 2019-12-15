@@ -9,9 +9,7 @@ use Milon\Barcode\DNS2D;
 use Faker\Factory as Faker;
 
 
-/**
- * Ticket Back-end Controller
- */
+
 class Ticket extends Controller
 {
     public $implement = [

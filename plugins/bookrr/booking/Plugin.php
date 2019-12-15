@@ -2,18 +2,41 @@
 
 use Backend;
 use System\Classes\PluginBase;
+use Backend\Models\User as UserModel;
 
 
 class Plugin extends PluginBase
 {
- 
+    // public $elevated = true;
+
     public function pluginDetails()
     {
         return [
-            'name'        => 'Aero Booker',
+            'name'        => 'Bookrr Park',
             'description' => 'Control page for parkings',
             'author'      => 'Jomuad',
             'icon'        => 'icon-car'
+        ];
+    }
+
+    public function boot()
+    {
+        # Extend User
+        UserModel::extend(function($model){
+            # Extend Relations
+            $model->hasMany['parking']  = [
+                'Bookrr\Booking\Models\Parking',
+                'delete' => true
+            ];
+
+            return $model;
+        });
+    }
+
+    public function registerComponents()
+    {
+        return [
+            'Bookrr\Booking\Components\Quoter' => 'Quoter'
         ];
     }
 
@@ -42,39 +65,27 @@ class Plugin extends PluginBase
                 'order'       => 905,
                 'sideMenu'    => [
                     'parking' => [
-                        'label'       => 'Parking List',
+                        'label'       => 'List',
                         'url'         => Backend::url('bookrr/booking/parking'),
                         'icon'        => 'icon-car',
                         'permissions' => ['bookrr.booking.park'],
                     ],
                     'parking-calendar' => [
-                        'label'       => 'Calendar View',
-                        'url'         => Backend::url('bookrr/booking/parkingcalendar'),
+                        'label'       => 'Calendar',
+                        'url'         => Backend::url('bookrr/booking/calendar'),
                         'icon'        => 'icon-calendar',
                         'permissions' => ['bookrr.booking.park'],
                     ],
-                    // 'rental' => [
-                    //     'label'       => 'Rental List',
-                    //     'url'         => Backend::url('bookrr/booking/rental'),
-                    //     'icon'        => 'icon-car',
-                    //     'permissions' => ['bookrr.booking.rent'],
-                    // ],
-                    // 'rental-calendar' => [
-                    //     'label'       => 'Rental Calendar',
-                    //     'url'         => Backend::url('bookrr/booking/rental'),
-                    //     'icon'        => 'icon-calendar',
-                    //     'permissions' => ['bookrr.booking.rent'],
-                    // ],
+                    'move_key' => [
+                        'label'       => 'Move Key',
+                        'url'         => Backend::url('bookrr/booking/movement'),
+                        'icon'        => 'icon-key',
+                        'permissions' => ['bookrr.booking.movement'],
+                        'roles'       => ['staff']
+                    ]
                 ]
-            ],
-            'move_key' => [
-                'label'       => 'Move Key',
-                'url'         => Backend::url('bookrr/booking/movement'),
-                'icon'        => 'icon-key',
-                'permissions' => ['bookrr.movement'],
-                'order'       => 904,
-                'roles'       => ['staff']
             ]
         ];
     }
+
 }

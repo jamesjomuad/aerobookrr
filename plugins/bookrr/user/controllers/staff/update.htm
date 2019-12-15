@@ -8,14 +8,6 @@
 <?php if (!$this->fatalError): ?>
 
     <?= Form::open(['class' => 'layout']) ?>
-        <div class="mb-5" data-control="toolbar">
-            <a href="javascript:;" class="btn btn-info oc-icon-barcode" 
-                data-control="popup" 
-                data-handler="onAssignCodeForm" 
-                data-size="huge">
-                Tag
-            </a>
-        </div>
 
         <div class="layout-row">
             <?= $this->formRender() ?>

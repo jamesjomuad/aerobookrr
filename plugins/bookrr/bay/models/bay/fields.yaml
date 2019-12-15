@@ -5,16 +5,15 @@
 fields:
     name:
         label: Name
-        span: left
+        span: full
         type: text
     zone:
         label: Zone
         nameFrom: name
         descriptionFrom: description
-        span: auto
+        span: full
         type: relation
     status:
         label: Active
-        span: left
+        span: full
         type: switch
-        default: 1

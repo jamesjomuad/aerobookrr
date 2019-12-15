@@ -6,10 +6,10 @@
 name: Customer
 
 # Model Form Field configuration
-form: $/bookrr/user/models/customer/fields.yaml
+form: $/bookrr/user/models/customers/fields.yaml
 
 # Model Class name
-modelClass: Bookrr\User\Models\Customer
+modelClass: Bookrr\User\Models\Customers
 
 # Default redirect location
 defaultRedirect: bookrr/user/customer

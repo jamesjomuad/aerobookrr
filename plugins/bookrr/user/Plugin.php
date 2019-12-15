@@ -1,169 +1,142 @@
 <?php namespace Bookrr\User;
 
 use Backend;
-use Event;
 use System\Classes\PluginBase;
 use Backend\Models\User as UserModel;
 use Backend\Controllers\Users as UserController;
 use BackendAuth;
-use Bookrr\User\Models\User;
-use Bookrr\User\Models\Loyalty;
-
+use Event;
 
 
 class Plugin extends PluginBase
 {
-    use \Bookrr\General\Traits\Tool;
-
-    public $elevated = true;
 
     public function pluginDetails()
     {
         return [
-            'name'        => 'Aero User',
-            'description' => 'Manage Aeroparks Users',
-            'author'      => 'Jomuad',
-            'icon'        => 'icon-car'
+            'name'        => 'Bookrr User',
+            'description' => 'Bookrr extended user fields.',
+            'author'      => 'bookrr',
+            'icon'        => 'icon-leaf'
         ];
     }
 
     public function boot()
     {
-        
-        # Middleware
-        $this->app['Illuminate\Contracts\Http\Kernel']
-        ->pushMiddleware('Bookrr\User\Middleware\FrontendMiddleware');
-
-
-        # Overide backend user model
+        # Extend User
         UserModel::extend(function($model){
-            // Relation
-            $model->hasOne = [
-                'aeroUser'  => ['Bookrr\User\Models\User'],
-                'points'    => ['Bookrr\User\Models\Loyalty']
+            # Extend Relations
+            $model->hasOne['customer']  = [
+                '\Bookrr\User\Models\Customers',
+                'delete' => true
+            ];
+            $model->hasOne['staff']  = [
+                '\Bookrr\User\Models\Staff',
+                'delete' => true
+            ];
+            $model->hasMany['vehicles']  = [
+                '\Bookrr\User\Models\Vehicle',
+                'delete' => true
             ];
 
-            // isCustomer method
+            # Extend Mehod
             $model->addDynamicMethod('isCustomer',function() use($model) {
-                $user = $model->aeroUser;
-                return ($model->aeroUser && strtolower($user->type)=='customer') ? true : false;
+                return $model->role->code=='customer' ? true : false;
             });
 
-            // isActive method
-            $model->addDynamicMethod('isActive',function() use($model) {
-                return (@$model->aeroUser->is_active) ? true : false;
-            });
+            return $model;
         });
 
+        # Extend User fields
         UserController::extendFormFields(function($form, $model, $context){
 
-            if(!$model->aeroUser){
-                return;
-            }
-
-            $form->addTabFields([
-                'aeroUser[title]' => [
-                    'label' => 'Title',
-                    'span'  => 'auto',
-                    'tab'   => 'Profile'
-                ],
-                'aeroUser[phone]' => [
-                    'label' => 'Phone Number',
-                    'span'  => 'auto',
-                    'tab'   => 'Profile'
-                ],
-                'aeroUser[company]' => [
-                    'label' => 'Company',
-                    'span'  => 'auto',
-                    'tab'   => 'Profile'
-                ],
-                'aeroUser[age]' => [
-                    'label' => 'Age',
-                    'type'  => 'number',
-                    'span'  => 'auto',
-                    'tab'   => 'Profile'
-                ],
-                'aeroUser[gender]' => [
-                    'label' => 'Gender',
-                    'span'  => 'auto',
-                    'tab'   => 'Profile'
-                ],
-                'aeroUser[birthdate]' => [
-                    'label' => 'Birthdate',
-                    'type'  => 'datetimepicker',
-                    'mode'  => 'date',
-                    'span'  => 'auto',
-                    'tab'   => 'Profile'
-                ]
-            ]);
-        });
-
-        # Create/Update Loyalty Reward for customer
-        Event::listen('backend.user.login', function ($user) {
             if(BackendAuth::getUser()->isCustomer())
             {
-                if($user->points)
-                {
-                    $plusPoints = Loyalty::$loginPoints;
-                    $user->points->points += $plusPoints;
-                    $user->points->save();
-                }
-                else
-                {
-                    $loyalty = Loyalty::create(['points' => Loyalty::$loginPoints]);
-                    $user->points()->save($loyalty);
-                }
+                $form->addTabFields([
+                    'customer[phone]' => [
+                        'label' => 'Phone Number',
+                        'span'  => 'auto',
+                        'tab'   => 'Profile'
+                    ],
+                    'customer[address]' => [
+                        'label' => 'Company',
+                        'span'  => 'auto',
+                        'tab'   => 'Profile'
+                    ],
+                    'customer[gender]' => [
+                        'label' => 'Gender',
+                        'type'  => 'dropdown',
+                        'span'  => 'auto',
+                        'tab'   => 'Profile',
+                        'emptyOption' => 'None',
+                        'options'=> [
+                            'male' => 'Male',
+                            'female' => 'Female'
+                        ]
+                    ],
+                    'customer[birth]' => [
+                        'label' => 'Birthdate',
+                        'type'  => 'datetimepicker',
+                        'mode'  => 'date',
+                        'span'  => 'auto',
+                        'tab'   => 'Profile'
+                    ]
+                ]);
             }
-        });
-
-        # Set User as Active
-        Event::listen('backend.user.login', function ($user) {
-            if($user->aeroUser)
-            {
-                $user->aeroUser->is_active = true;
-                $user->aeroUser->save();
-            }
-        });
-
-        #Set User as not Active
-        Event::listen('backend.user.logout', function ($user) {
-            if($user->aeroUser)
-            {
-                $user->aeroUser->is_active = false;
-                $user->aeroUser->save();
-            }
+            
         });
         
-        Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
-            if(BackendAuth::getUser() && BackendAuth::getUser()->isCustomer())
+        # Event
+        Event::listen('backend.page.beforeDisplay', function($controller, $action, $params) {
+
+            if(BackendAuth::getUser()->isCustomer())
             {
-                $controller->addCss('/plugins/bookrr/user/assets/css/user.css');  
+                $controller->addCss('/plugins/bookrr/user/assets/css/customer.css');
             }
+
         });
+    }
+
+    public function registerComponents()
+    {
+        return [
+            'Bookrr\User\Components\Register' => 'Register',
+            'Bookrr\User\Components\Login'    => 'Login'
+        ];
     }
 
     public function registerPermissions()
     {
+        return []; // Remove this line to activate
+
         return [
-            'bookrr.users.customer' => [
-                'tab' => 'Bookrr Users',
-                'label' => 'Can Manage Customer.'
-            ],
-            'bookrr.users.staff' => [
-                'tab' => 'Bookrr Users',
-                'label' => 'Can Manage Staff.'
+            'bookrr.user.some_permission' => [
+                'tab' => 'user',
+                'label' => 'Some permission'
             ],
         ];
     }
 
     public function registerNavigation()
     {
-        $navs = [
+        if(BackendAuth::getUser()->isCustomer())
+        {
+            return [
+                'user' => [
+                    'label' => 'Vehicles',
+                    'url'   => Backend::url('bookrr/user/vehicle'),
+                    'icon'  => 'fa fa-car',
+                    'order' => 1000
+                ]
+            ];
+        }
+
+        return [
             'user' => [
                 'label'       => 'Users',
                 'url'         => Backend::url('bookrr/user/customer'),
                 'icon'        => 'icon-users',
-                'permissions' => ['bookrr.users.*'],
+                'permissions' => ['bookrr.user.*'],
                 'order'       => 920,
 
                 'sideMenu' => [
@@ -171,30 +144,16 @@ class Plugin extends PluginBase
                         'label'       => 'Customers',
                         'url'         => Backend::url('bookrr/user/customer'),
                         'icon'        => 'icon-user-circle-o',
-                        'permissions' => ['bookrr.users.customer'],
+                        'permissions' => ['bookrr.user.*'],
                     ],
                     'staff' => [
                         'label'       => 'Staff',
                         'url'         => Backend::url('bookrr/user/staff'),
                         'icon'        => 'icon-user-secret',
-                        'permissions' => ['bookrr.users.staff'],
-                    ],
-                    // 'agent' => [
-                    //     'label'       => 'Agents',
-                    //     'url'         => Backend::url('bookrr/user/agent'),
-                    //     'icon'        => 'icon-handshake-o',
-                    //     'permissions' => ['bookrr.user.*'],
-                    // ],
-                    // 'affiliate' => [
-                    //     'label'       => 'Affiliate',
-                    //     'url'         => Backend::url('bookrr/user/affiliate'),
-                    //     'icon'        => 'icon-user-plus',
-                    //     'permissions' => ['bookrr.user.*'],
-                    // ]
+                        'permissions' => ['bookrr.user.*'],
+                    ]
                 ]
             ]
         ];
-
-        return $this->setDefaultNav($navs,'bookrr.users');
     }
 }

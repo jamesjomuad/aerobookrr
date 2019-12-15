@@ -9,12 +9,16 @@
     <td><?= $product->name ?></td>
     <td><?= $product->description ?></td>
     <td width="50">
+        <?php if(!$this->isPaid()) : ?>
         <input type="text" name="Cart[qty][<?=$product->id?>]" class="form-control qty" 
             value="<?= $product->quantity() ?>"
             data-request="onUpdateQty"
             data-request-data="pid:<?=$product->id?>"
             data-track-input="100"
         />
+        <?php else: ?>
+        <input class="form-control qty" type="text" value="<?= $product->quantity() ?>" disabled>
+        <?php endif; ?>
     </td>
     <td class="list-cell-align-center">x</td>
     <td><?= $this->currency ?><?= $product->price ?></td>

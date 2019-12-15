@@ -1,5 +1,7 @@
-<div class="container">
-    <div id="login">
-        {% partial 'Login::form' %}
-    </div>
-</div><!-- /container -->
+{% if isLogin == false %}
+    <a href="javascript:;" class="btn btn-primary" data-show-popup data-handler="onLoginForm">{{__SELF__.property('loginLabel')}}</a>
+{% endif %}
+
+{% if isLogin == true %}
+    <a href="/backend/backend/auth/signout" class="btn btn-primary" target="_self">{{__SELF__.property('logoutLabel')}}</a>
+{% endif %}

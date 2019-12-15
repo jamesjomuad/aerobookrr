@@ -8,8 +8,7 @@ class CreateVehiclesTable extends Migration
 {
     public function up()
     {
-        Schema::create('bookrr_vehicle', function($table)
-        {
+        Schema::create('bookrr_user_vehicles', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
@@ -19,14 +18,13 @@ class CreateVehiclesTable extends Migration
             $table->string('model', 50)->nullable();
             $table->string('color', 50)->nullable();
             $table->string('size', 50)->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
-    
+
     public function down()
     {
-        Schema::dropIfExists('bookrr_vehicle');
+        Schema::dropIfExists('bookrr_user_vehicles');
     }
 }
