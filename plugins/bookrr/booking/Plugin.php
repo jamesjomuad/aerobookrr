@@ -12,7 +12,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Aero Booker',
+            'name'        => 'Bookrr Park',
             'description' => 'Control page for parkings',
             'author'      => 'Jomuad',
             'icon'        => 'icon-car'
@@ -31,6 +31,13 @@ class Plugin extends PluginBase
 
             return $model;
         });
+    }
+
+    public function registerComponents()
+    {
+        return [
+            'Bookrr\Booking\Components\Quoter' => 'Quoter'
+        ];
     }
 
     public function registerPermissions()
@@ -80,4 +87,5 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
 }

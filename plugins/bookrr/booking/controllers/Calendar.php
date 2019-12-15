@@ -41,6 +41,7 @@ class Calendar extends Controller
             $Booking = Parking::monthOf($timestamp)->get();
         }
 
+        // Needs improvements here
         $result = $Booking->map(function($model){
             if($model->customer)
             return [
@@ -50,8 +51,9 @@ class Calendar extends Controller
                 'backgroundColor' => '#ff6600',
                 'borderColor' => '#ff5500'
             ];
+            return;
         });
-
+        
         return response()->json($result->toArray());
     }
     

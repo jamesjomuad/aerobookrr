@@ -38,6 +38,8 @@ class Register extends ComponentBase
         $this->addJs('/plugins/bookrr/user/assets/js/ajaxUtils.js');
         $this->addJs('/plugins/bookrr/user/assets/js/ajaxPopup.js');
         $this->addJs('/plugins/bookrr/user/assets/js/comp.register.js');
+
+        $this->page['isLogin'] = BackendAuth::check();
     }
 
     public function onRegisterForm()

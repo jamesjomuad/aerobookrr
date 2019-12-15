@@ -35,11 +35,14 @@ class Parking extends CartController
 
     public $implement = [
         'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController'
+        'Backend.Behaviors.ListController',
+        // 'Backend.Behaviors.RelationController'
     ];
 
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
+    public $relationConfig = 'config_relation.yaml';
+
     public $assetPath = '/plugins/bookrr/booking/assets/';
 
     public function __construct()
@@ -57,13 +60,6 @@ class Parking extends CartController
         $this->ProductListWidget = $this->ListWidget('config_list_product.yaml');
 
         $this->ProductToolbarWidget = $this->ToolbarWidget($this->ProductListWidget,'config_list_product.yaml');
-    }
-
-    public function test()
-    {
-        dd(
-            $this->user->customer->getVehicle()
-        );
     }
 
     public function onMoveKey()
@@ -101,6 +97,12 @@ class Parking extends CartController
         }
 
         return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
+    public function onAddVehicleForm()
+    {
+        $this->asExtension('FormController')->update_onSave(post('record_id'));
+        return $this->listRefresh();
     }
 
     public function onCheckIn($id=null)
@@ -254,8 +256,8 @@ class Parking extends CartController
 
     public function formBeforeCreate($model)
     {
-        $alert = function(){
-            throw new ApplicationException('No default vehicle for Customer!');
+        $alert = function($message=false){
+            throw new ApplicationException($message ?  $message : 'No default vehicle for Customer!');
         };
 
         #
@@ -276,7 +278,7 @@ class Parking extends CartController
         {
             if(!$this->user->vehicles()->hasDefault())
             {
-                $alert();
+                $alert("Please add a Vehicle first!");
             }
 
             $model->rules = [];
