@@ -1,5 +1,5 @@
 <div id="RegisterModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="RegisterTitleForm" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-center" id="RegisterTitleForm" style="width:100%;">Register</h5>
@@ -14,63 +14,21 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="RegisterForm" 
-                    data-request="onRegister" 
-                    data-request-success="if(data.X_OCTOBER_FLASH_MESSAGES.success){$('.modal#RegisterModal').modal('hide')}"
-                >
-                    <div class="form-group">
-                        <label for="email" class="cols-sm-2 control-label">Your Email</label>
-                        <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone" class="cols-sm-2 control-label">Your Phone</label>
-                        <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="login" class="cols-sm-2 control-label">Username</label>
-                        <input type="text" class="form-control" name="login" id="login"  placeholder="Enter your Username"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="firstname" class="cols-sm-2 control-label">Your First name</label>
-                        <input type="text" class="form-control" name="firstname" id="firstname"  placeholder="first name"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastname" class="cols-sm-2 control-label">Your Last name</label>
-                        <input type="text" class="form-control" name="lastname" id="lastname"  placeholder="last name"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password" class="cols-sm-2 control-label">Password</label>
-                        <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-                        <input type="password" class="form-control" name="confirmpassword" id="confirm"  placeholder="Confirm your Password"/>
-                    </div>
-                </form>                
-            </div>
-            <div class="modal-footer">
-                <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                    data-disable-on-ajax-start
-                    data-enable-on-ajax-always>
-                    Close
-                </button>
-                <button
-                    type="button"
-                    class="btn btn-primary"
-                    onclick="$('#RegisterForm').submit();"
-                    data-disable-on-ajax-start
-                    data-enable-on-ajax-always>
-                    Register
-                </button>
+                <nav class="nav nav-pills nav-justified">
+                    <a class="disabled nav-item nav-link active" data-toggle="tab" href="#step1">Step 1</a>
+                    <a class="disabled nav-item nav-link" data-toggle="tab" href="#step2">Step 2</a>
+                    <a class="disabled nav-item nav-link" data-toggle="tab" href="#step3">Booked</a>
+                </nav>
+                <div class="tab-content">
+                    <form id="RegisterForm" 
+                        data-request="{{__SELF__}}::onNext" 
+                        data-request-success="if(data.X_OCTOBER_FLASH_MESSAGES.success){$('.modal#RegisterModal').modal('hide')}"
+                    >
+                        {% partial '@step1' %}
+                        {% partial '@step2' %}
+                        {% partial '@step3' %}
+                    </form>
+                </div>
             </div>
         </div>
     </div>

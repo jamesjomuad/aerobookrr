@@ -49,3 +49,23 @@ $(function() {
     new ajaxUtils()
 
 });
+
+$(document).on('ajaxSetup', function (event, context) {
+	context.options.flash = true;
+
+	context.options.loading = $.oc.stripeLoadIndicator;
+
+	context.options.handleErrorMessage = function (message) {
+		$.oc.flashMsg({
+			text: message,
+			class: 'error'
+		});
+	};
+
+	context.options.handleFlashMessage = function (message, type) {
+		$.oc.flashMsg({
+			text: message,
+			class: type
+		});
+	};
+});

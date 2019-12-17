@@ -37,7 +37,9 @@ class Register extends ComponentBase
     {
         $this->addJs('/plugins/bookrr/user/assets/js/ajaxUtils.js');
         $this->addJs('/plugins/bookrr/user/assets/js/ajaxPopup.js');
+        $this->addJs('/plugins/bookrr/user/assets/js/bootstrap-autocomplete.min.js');
         $this->addJs('/plugins/bookrr/user/assets/js/comp.register.js');
+        $this->addCss('/plugins/bookrr/user/assets/css/comp.register.css');
 
         $this->page['isLogin'] = BackendAuth::check();
     }
@@ -101,6 +103,59 @@ class Register extends ComponentBase
         }
 
         Flash::error('Login Failed!');
+    }
+
+    public function onStepOne()
+    {
+        // Validate
+        $validator = Validator::make(input(), [
+            'login'     => 'required|between:2,255|unique:backend_users',
+            'email'     => 'required|email|unique:backend_users',
+            'phone'     => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7',
+            'firstname' => 'required',
+            'lastname'  => 'required',
+            'password'  => 'required|between:4,255',
+            'confirmpassword'  => 'required|same:password'
+        ],
+        // Custom Message
+        [
+            'login.unique' => 'Username is already taken!',
+            'confirmpassword.required' => 'Password Confirmation is required!',
+            'confirmpassword.same' => 'Password Confirmation should match the Password',
+        ]);
+        
+        // Check point
+        if ($validator->fails()) {
+            foreach ($validator->messages()->all() as $message) {
+                Flash::error($message);
+            }
+            throw new ValidationException($validator);
+        }
+    }
+
+    public function onStepTwo()
+    {
+        // Validate
+        $validator = Validator::make(input(), [
+            'plate' => 'required',
+            'make'  => 'required',
+            'model' => 'required',
+        ]);
+        
+        // Check point
+        if ($validator->fails()) {
+            foreach ($validator->messages()->all() as $message) {
+                Flash::error($message);
+            }
+            throw new ValidationException($validator);
+        }
+    }
+
+    public function onSearchForm()
+    {
+        return [
+            'popup' => $this->renderPartial('@search.htm')
+        ];
     }
 
 }
