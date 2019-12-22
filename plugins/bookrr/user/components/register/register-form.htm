@@ -13,11 +13,12 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <nav class="nav nav-pills nav-justified">
+            <div class="modal-body p-0">
+                <nav class="nav nav-pills nav-justified mt-4 mb-5">
                     <a class="disabled nav-item nav-link active" data-toggle="tab" href="#step1">Step 1</a>
                     <a class="disabled nav-item nav-link" data-toggle="tab" href="#step2">Step 2</a>
-                    <a class="disabled nav-item nav-link" data-toggle="tab" href="#step3">Booked</a>
+                    <a class="disabled nav-item nav-link" data-toggle="tab" href="#step3">Booking</a>
+                    <a class="disabled nav-item nav-link" data-toggle="tab" href="#step4">Checkout</a>
                 </nav>
                 <div class="tab-content">
                     <form id="RegisterForm" 
@@ -27,6 +28,7 @@
                         {% partial '@step1' %}
                         {% partial '@step2' %}
                         {% partial '@step3' %}
+                        {% partial '@step4' %}
                     </form>
                 </div>
             </div>

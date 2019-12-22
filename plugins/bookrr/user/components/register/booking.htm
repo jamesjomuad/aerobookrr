@@ -1,0 +1,49 @@
+<div class="p-4">
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Going In</h5>
+                    <p class="card-text text-center">Choose a Check-In date</p>
+                    <input id="datetimepicker_in" type='text' class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Going Out</h5>
+                    <p class="card-text text-center">Choose a Check-Out date</p>
+                    <input id="datetimepicker_out" type='text' class="form-control" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Rate</th>
+                <th scope="col">Hours</th>
+                <th scope="col">Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr v-for="(item, index) in items" :key="index">
+                <td>{[item.description]}</td>
+                <td>{[item.price]}</td>
+            </tr> -->
+            <tr>
+                <td>{[rate.rate]}</td>
+                <td>{[rate.hours]}</td>
+                <td>{[rate.cost]}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-right"><b>Total</b></td>
+                <td>
+                    <b>{[getTotal()]}</b>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

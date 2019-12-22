@@ -8,6 +8,8 @@ use Flash;
 use Redirect;
 use Backend\Models\UserRole;
 use Bookrr\User\Models\Customers;
+use Bookrr\Rates\Models\Rate;
+use Bookrr\Stripe\Controllers\Cashier;
 
 
 
@@ -35,6 +37,7 @@ class Register extends ComponentBase
 
     public function onRun()
     {
+        $this->addJs('/plugins/bookrr/user/assets/js/vue.min.js');
         $this->addJs('/plugins/bookrr/user/assets/js/ajaxUtils.js');
         $this->addJs('/plugins/bookrr/user/assets/js/ajaxPopup.js');
         $this->addJs('/plugins/bookrr/user/assets/js/bootstrap-autocomplete.min.js');
@@ -109,7 +112,7 @@ class Register extends ComponentBase
     {
         // Validate
         $validator = Validator::make(input(), [
-            'login'     => 'required|between:2,255|unique:backend_users',
+            'login'     => 'required|between:4,20|unique:backend_users',
             'email'     => 'required|email|unique:backend_users',
             'phone'     => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7',
             'firstname' => 'required',
@@ -156,6 +159,22 @@ class Register extends ComponentBase
         return [
             'popup' => $this->renderPartial('@search.htm')
         ];
+    }
+
+    public function onBooking()
+    {
+        return [
+            'rate' => Cashier::config()->symbol.Rate::amount()
+        ];
+    }
+
+    public function onGetRate()
+    {
+        $rate = Rate::compute(input('dateIn'),input('dateOut'));
+
+        // return [
+        //     'bookrr' => $this->renderPartial('@booking.htm')
+        // ];
     }
 
 }

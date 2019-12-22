@@ -1,60 +1,63 @@
 <div id="step1" class="tab-pane fade in active show">
-    <div class="row">
-        <div class="well text-center p-4 my-4">
-            <h3 class="title my-4">Create Account</h3>
-        </div>
+    <div class="well text-center p-4 my-4">
+        <h3 class="title my-4">Create Account</h3>
     </div>
 
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label for="login" class="cols-sm-2 control-label">Username</label>
-            <input type="text" class="form-control" name="login" id="login"  placeholder="Enter your Username"/>
+    <div class="p-4">
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label for="login" class="cols-sm-2 control-label">Username</label>
+                <input type="text" class="form-control" name="login" id="login"  placeholder="Enter your Username"/>
+            </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label for="email" class="cols-sm-2 control-label">Your Email</label>
-            <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
-        </div>
-
-        <div class="form-group col-md-6">
-            <label for="phone" class="cols-sm-2 control-label">Your Phone</label>
-            <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone"/>
-        </div>
-    </div>
     
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label for="firstname" class="cols-sm-2 control-label">Your First name</label>
-            <input type="text" class="form-control" name="firstname" id="firstname"  placeholder="first name"/>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+            </div>
+    
+            <div class="form-group col-md-6">
+                <label for="phone" class="cols-sm-2 control-label">Your Phone</label>
+                <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone"/>
+            </div>
         </div>
-        <div class="form-group  col-md-6">
-            <label for="lastname" class="cols-sm-2 control-label">Your Last name</label>
-            <input type="text" class="form-control" name="lastname" id="lastname"  placeholder="last name"/>
+        
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="firstname" class="cols-sm-2 control-label">Your First name</label>
+                <input type="text" class="form-control" name="firstname" id="firstname"  placeholder="first name"/>
+            </div>
+            <div class="form-group  col-md-6">
+                <label for="lastname" class="cols-sm-2 control-label">Your Last name</label>
+                <input type="text" class="form-control" name="lastname" id="lastname"  placeholder="last name"/>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="password" class="cols-sm-2 control-label">Password</label>
+                <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+            </div>
+    
+            <div class="form-group col-md-6">
+                <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                <input type="password" class="form-control" name="confirmpassword" id="confirm"  placeholder="Confirm your Password"/>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label for="password" class="cols-sm-2 control-label">Password</label>
-            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-        </div>
 
-        <div class="form-group col-md-6">
-            <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-            <input type="password" class="form-control" name="confirmpassword" id="confirm"  placeholder="Confirm your Password"/>
+    <div class="well p-4 mt-4 rounded-bottom">
+        <div class="d-flex justify-content-between">
+            <button
+                type="button"
+                class="btn btn-primary ml-auto"
+                onclick="Register.onStepOne()"
+                data-disable-on-ajax-start
+                data-enable-on-ajax-always>
+                Next
+            </button>
         </div>
-    </div>
-
-    <div class="form-group text-center mt-4 mb-0">
-        <button
-            type="button"
-            class="btn btn-primary pull-right"
-            onclick="Register.onStepOne()"
-            data-disable-on-ajax-start
-            data-enable-on-ajax-always>
-            Next
-        </button>
     </div>
 </div>

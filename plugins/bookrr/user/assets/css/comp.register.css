@@ -23,21 +23,12 @@
 }
 
 #RegisterModal .btn {
-    margin: .375rem;
-    text-transform: uppercase;
-    word-wrap: break-word;
-    white-space: normal;
-    cursor: pointer;
-    border: 0;
-    border-radius: .125rem;
     -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
-    padding: .84rem 2.14rem;
-    font-size: .81rem;
 }
 
 #RegisterModal .fade:not(.show){display: none;}
@@ -51,3 +42,5 @@
 }
 
 #RegisterModal .well .title{color: #fff;}
+
+#RegisterModal [data-action="togglePicker"] i{background: #f6f2f2;}
