@@ -3,6 +3,7 @@
 use Model;
 use \Carbon\Carbon;
 use Bookrr\Rates\Models\Settings;
+use Bookrr\Stripe\Controllers\Cashier;
 
 class Rate extends Model
 {
@@ -119,6 +120,27 @@ class Rate extends Model
         $end    = Carbon::parse($this->date_end);
 
         return $start->lessThanOrEqualTo($today) AND $end->greaterThanOrEqualTo($today);
+    }
+
+    /*
+    *   Helpers
+    */
+    public static function compute($date_in,$date_out)
+    {
+        $rate   = Rate::amount();
+        $symbol = Cashier::config()->symbol;
+
+        $start  = (new \Carbon\Carbon())->parse($date_in);
+        $end    = (new \Carbon\Carbon())->parse($date_out);
+        $diff   = $start->diffInHours($end);
+
+        return [
+            'symbol'    => $symbol,
+            'cost'      => number_format($diff*$rate,2),
+            'total'     => $symbol.number_format($diff*$rate,2),
+            'rate'      => $rate,
+            'hours'     => $diff
+        ];
     }
 
 }
