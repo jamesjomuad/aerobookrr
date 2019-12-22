@@ -67,17 +67,14 @@ class Quoter extends ComponentBase
             throw new ValidationException($validator);
         }
 
-        $start = (new \Carbon\Carbon())->parse(input('dateIn'));
-        $end   = (new \Carbon\Carbon())->parse(input('dateOut'));
-        $diff  = $start->diffInHours($end);
-        $symbol = Cashier::config()->symbol;
-        $amount  = $symbol.number_format($diff*Rate::amount(),2);
-        
+        $computed = Rate::compute(input('dateIn'),input('dateOut'));
 
-        $this->page['amount'] = $amount;
+        $this->page['amount'] = $computed['total'];
 
         return [
             '#qresult' => $this->renderPartial('@result')
         ];
     }
+
+    
 }
