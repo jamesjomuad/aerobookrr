@@ -164,7 +164,8 @@ class Register extends ComponentBase
     public function onBooking()
     {
         return [
-            'rate' => Cashier::config()->symbol.Rate::amount()
+            'currency' => Cashier::config()->symbol,
+            'rate' => Rate::amount()
         ];
     }
 
