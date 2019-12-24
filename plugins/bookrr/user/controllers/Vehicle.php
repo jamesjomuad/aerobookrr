@@ -27,10 +27,6 @@ class Vehicle extends Controller
 
     public function create()
     {
-        // $client = new Client();
-        // $client->get('https://test.carjam.co.nz/a/vehicle:abcd?key=CE8130C5D3C82C035B493852F37BD96E6EA1E4EA&plate=asd');
-        // dd($client);
-
         return $this->asExtension('FormController')->create();
     }
 

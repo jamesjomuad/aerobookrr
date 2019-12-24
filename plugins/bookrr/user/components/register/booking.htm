@@ -29,19 +29,19 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <tr v-for="(item, index) in items" :key="index">
-                <td>{[item.description]}</td>
-                <td>{[item.price]}</td>
-            </tr> -->
             <tr>
                 <td>{[rateTxt]}</td>
-                <td>{[hourTxt]}</td>
+                <td>
+                    {[hourTxt]}
+                    <input type="hidden" name="Hours" v-model="hourTxt">
+                </td>
                 <td>{[cost]}</td>
             </tr>
             <tr>
                 <td colspan="2" class="text-right"><b>Total</b></td>
                 <td>
                     <b>{[total]}</b>
+                    <input type="hidden" name="totalCost" v-model="total">
                 </td>
             </tr>
         </tbody>

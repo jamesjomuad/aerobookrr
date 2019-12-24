@@ -6,8 +6,10 @@ use Validator;
 use BackendAuth;
 use Flash;
 use Redirect;
+use Backend\Models\User;
 use Backend\Models\UserRole;
 use Bookrr\User\Models\Customers;
+use Bookrr\User\Models\Vehicle;
 use Bookrr\Rates\Models\Rate;
 use Bookrr\Stripe\Controllers\Cashier;
 
@@ -56,32 +58,8 @@ class Register extends ComponentBase
 
     public function onRegister()
     {
-        // Validate
-        $validator = Validator::make(input(), [
-            'email'     => 'required|email|unique:backend_users',
-            'phone'     => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:7',
-            'login'     => 'required|between:2,255|unique:backend_users',
-            'firstname' => 'required',
-            'lastname'  => 'required',
-            'password'  => 'required|between:4,255',
-            'confirmpassword'  => 'required|same:password'
-        ],
-        // Custom Message
-        [
-            'login.unique' => 'Username is already taken!',
-            'confirmpassword.required' => 'Password Confirmation is required!',
-            'confirmpassword.same' => 'Password Confirmation should match the Password',
-        ]);
-        
-        // Check point
-        if ($validator->fails()) {
-            foreach ($validator->messages()->all() as $message) {
-                Flash::error($message);
-            }
-            throw new ValidationException($validator);
-        }
 
-        $user = BackendAuth::register([
+        $customer = BackendAuth::register([
             'email'      => input('email'),
             'login'      => input('login'),
             'first_name' => input('firstname'),
@@ -90,11 +68,26 @@ class Register extends ComponentBase
             'password_confirmation' => input('confirmpassword')
         ]);
 
+        $vehicle = Vehicle::create([
+            'plate' => input('plate'),
+            'brand' => input('make'),
+            'model' => input('model')
+        ]);
+
         // Assign role
-        $user->role()->add(UserRole::where('code','customer')->first());
+        $customer->role()->add(UserRole::where('code','customer')->first());
 
         // Add to bookrr user as customer
-        $user->customer()->save( new Customers(input()) );
+        $customer->customer()->save( new Customers(input()) );
+
+        // Add attach vehicle to customer
+        $customer->vehicles()->save($vehicle);
+
+        $vehicle->primary = 1;
+
+        $vehicle->save();
+
+        return $customer;
 
         // Sign in as a specific user
         BackendAuth::login($user);
@@ -102,7 +95,8 @@ class Register extends ComponentBase
         if(BackendAuth::check())
         {
             Flash::success('Login Successful!');
-            return Redirect::to('/backend');;
+            Redirect::to('/backend');
+            return;
         }
 
         Flash::error('Login Failed!');
@@ -169,13 +163,9 @@ class Register extends ComponentBase
         ];
     }
 
-    public function onGetRate()
+    public function onSave()
     {
         $rate = Rate::compute(input('dateIn'),input('dateOut'));
-
-        // return [
-        //     'bookrr' => $this->renderPartial('@booking.htm')
-        // ];
     }
 
 }

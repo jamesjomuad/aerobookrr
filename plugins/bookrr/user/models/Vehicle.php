@@ -13,6 +13,14 @@ class Vehicle extends Model
     public $table = 'bookrr_user_vehicles';
 
     protected $guarded = ['*'];
+    protected $fillable = [
+        'plate',
+        'brand',
+        'model',
+        'color',
+        'size',
+        'primary'
+    ];
 
     public $belongsTo = [
         'customer' => [

@@ -3,6 +3,24 @@ Register = {
     id: '#RegisterModal',
     el: function(target){
         return $(Register.id).find(target);
+    },
+    getArray: function () {
+        return $(Register.id).find('[name]').not('[name="password"],[name="confirmpassword"]').serializeArray();
+    },
+    getJSON: function () {
+        var o = {};
+        var a = this.getArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
     }
 };
 
@@ -15,11 +33,11 @@ Register.autoComplete = function(){
         events: {
             search: function (qry, callback) {
                 $spin.show()
+                var data;
+
                 $.ajax('https://test.carjam.co.nz/a/vehicle:abcd?key=CE8130C5D3C82C035B493852F37BD96E6EA1E4EA&plate='+qry)
                 .done(function (res) {
-                    var data;
-                    
-                    if(typeof res == "object"){
+                    if(res){
                         data = [
                             { 
                                 "value": 1, 
@@ -39,7 +57,10 @@ Register.autoComplete = function(){
                     callback(data)
                 })
                 .fail(function (jqXHR, status, err) {
-                    console.log(status)
+                    callback([{
+                        "value": 1,
+                        "text": "Not Found!"
+                    }])
                 })
                 .always(function (jqXHR, status) {
                     $spin.hide()
@@ -67,12 +88,12 @@ Register.next = function(){
     next.removeClass('disabled');
     next.tab('show');
     next.addClass('disabled');
+    return this;
 };
 
 Register.onStepOne = function(){
-    $('#RegisterModal #step1').request('onStepOne',{
+    Register.el('#step1').request('onStepOne',{
         success: function(data) {
-            console.log(data);
             return data;
         },
         complete: function(res){
@@ -87,21 +108,19 @@ Register.onStepOne = function(){
 }
 
 Register.onStepTwo = function(){
-    $('#RegisterModal #step2').request('onStepTwo',{
+    Register.el('#step2').request('onStepTwo',{
         success: function(data) {
-            console.log(data);
         },
         complete: function(res){
             if(res.status==200){
-                Register.next();
+                Register.initStepThree();
             }
         }
     });
 }
 
 Register.onStepThree = function(){
-
-    
+    this.next().initStepFour();
 }
 
 Register.book = function(response){
@@ -113,7 +132,7 @@ Register.book = function(response){
     self.compute = function(){
         var hours = moment.duration($dtp_out.data('DateTimePicker').date().diff($dtp_in.data('DateTimePicker').date())).asHours();
         if(dpSelected.in && dpSelected.out)
-        self.table.hours = hours;
+        Register.app3.table.hours = hours;
     }
 
     var $dtp_in = Register.el('#datetimepicker_in').datetimepicker({
@@ -151,7 +170,7 @@ Register.book = function(response){
     $dtp_in.data('DateTimePicker').maxDate($dtp_out.data('DateTimePicker').date());
 
     // Step3 Vue App
-    self.table = new Vue({
+    Register.app3.table = new Vue({
         el: '#booking-table',
         delimiters: ["{[","]}"],
         data: {
@@ -175,25 +194,87 @@ Register.book = function(response){
     });
 };
 
-Register.showStepThree = function(){
+Register.initStepThree = function(){
     var tab = $('#RegisterModal [href="#step3"]');
     tab.removeClass('disabled');
     tab.tab('show');
     tab.addClass('disabled');
 
-    new Vue({
+    Register.app3 = new Vue({
         el: '#bookrrApp',
         delimiters: ["{[","]}"],
         data: {
             isOpen: false
+        },
+        methods:{
+            destroyTable: function(){
+                this.isOpen = false;
+                Register.el('#bookrr').html('');
+            }
         }
     });
     
     return this;
 };
 
+Register.initStepFour = function(){
+    if(!Register.app4)
+    {
+        Register.app4 = new Vue({
+            el: "#app4",
+            delimiters: ["{[","]}"],
+            data:{
+                details: Register.getArray(),
+                headerTxt: "",
+                subText: "Hello",
+                labels: {
+                    login: "Login",
+                    email: "Email",
+                    phone: "Phone Number",
+                    firstname: "First Name",
+                    lastname: "Last Name",
+                    plate: "Plate",
+                    make: "Make",
+                    model: "Model",
+                    date_in	: "Date In",
+                    date_out: "Date Out" ,
+                    totalCost: "Parking Cost"
+                }
+            },
+            methods: {
+                label: function(k){
+                    return this.labels[k] ? this.labels[k] : k;
+                },
+                onBack: function(){
+                    Register.back();
+                },
+                onNext: function(){
+                    Register.el('#RegisterForm').request('Register::onRegister',{
+                        success: function(data){
+                            console.log(data)
+                        },
+                        complete: function(){
+
+                        },
+                        error: function(){
+
+                        }
+                    });
+                }
+            }
+        });
+    }else{
+        Register.app4.details = Register.getArray();
+    }
+
+    Register.app4.headerTxt = (Register.app3.isOpen) ? "Checkout" : "Review Details";
+}
+
+Register.onStepFour = function(){
+
+}
+
 Register.init = function(){
-    // Register.showStepThree(); // remove after
     Register.autoComplete();
     return this;
 };

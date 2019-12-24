@@ -11,15 +11,23 @@
                     v-on:click="isOpen = true">
                     Book Now
                 </button>
-                <button type="button" class="btn btn-primary ml-auto" v-show="isOpen" v-on:click="isOpen = false;Register.el('#bookrr').html('')">
+                <button type="button" class="btn btn-primary ml-auto" v-show="isOpen" v-on:click="destroyTable">
                     Cancel Book
-                </button>
-                <button type="button" class="btn btn-primary px-5 ml-4" onclick="Register.next()">
-                    Next
                 </button>
             </div>
         </div>
 
-        <section id="bookrr"></section>
+        <div id="bookrr"></div>
+
+        <div class="well p-4 mt-4 rounded-bottom">
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-primary" onclick="Register.back()">
+                    Back
+                </button>
+                <button type="button" class="btn btn-primary" onclick="Register.onStepThree()">
+                    Next
+                </button>
+            </div>
+        </div>
     </div>
 </div>

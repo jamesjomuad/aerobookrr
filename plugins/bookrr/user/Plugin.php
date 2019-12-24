@@ -11,6 +11,8 @@ use Event;
 class Plugin extends PluginBase
 {
 
+    public $elevated = true;
+
     public function pluginDetails()
     {
         return [

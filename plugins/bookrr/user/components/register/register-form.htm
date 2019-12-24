@@ -19,16 +19,18 @@
                     <a class="disabled nav-item nav-link" data-toggle="tab" href="#step2">Step 2</a>
                     <a class="disabled nav-item nav-link" data-toggle="tab" href="#step3">Booking</a>
                     <a class="disabled nav-item nav-link" data-toggle="tab" href="#step4">Checkout</a>
+                    <a class="disabled nav-item nav-link" data-toggle="tab" href="#step5">Complete</a>
                 </nav>
                 <div class="tab-content">
                     <form id="RegisterForm" 
-                        data-request="{{__SELF__}}::onNext" 
+                        data-request="{{__SELF__}}::onRegister" 
                         data-request-success="if(data.X_OCTOBER_FLASH_MESSAGES.success){$('.modal#RegisterModal').modal('hide')}"
                     >
                         {% partial '@step1' %}
                         {% partial '@step2' %}
                         {% partial '@step3' %}
                         {% partial '@step4' %}
+                        {% partial '@step5' %}
                     </form>
                 </div>
             </div>

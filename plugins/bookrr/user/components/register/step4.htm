@@ -1,10 +1,31 @@
 <div id="step4" class="tab-pane fade in">
-    <div class="well p-4 my-4">
-        <div class="d-flex justify-content-between">
-            <h3 class="title my-4">Checkout</h3>
-            <button type="button" class="btn btn-primary px-5 ml-4">
-                Next
-            </button>
+    <div id="app4">
+        <div class="well p-4 my-4">
+            <div class="d-flex justify-content-center">
+                <h3 class="title my-4">{[headerTxt]}</h3>
+            </div>
+        </div>
+        
+        <div class="col-md-12">
+            <table id="details" class="table table-bordered mt-4">
+                <tbody>
+                    <tr v-for="(detail, key) in details" :key="key">
+                        <td><b>{[label(detail.name)]}</b></td>
+                        <td>{[detail.value]}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="well p-4 mt-4 rounded-bottom">
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-primary" v-on:click="onBack">
+                    Back
+                </button>
+                <button type="button" class="btn btn-primary" v-on:click="onNext">
+                    Next
+                </button>
+            </div>
         </div>
     </div>
 </div>
