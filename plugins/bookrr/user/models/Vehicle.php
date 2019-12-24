@@ -57,7 +57,7 @@ class Vehicle extends Model
 
     public function beforeSave()
     {
-        if($this->primary==1)
+        if($this->primary==1 AND $this->customer)
         {
             $this->where('primary',1)->update(['primary' => 0]);
         }

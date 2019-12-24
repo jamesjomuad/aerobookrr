@@ -59,6 +59,7 @@ class Register extends ComponentBase
     public function onRegister()
     {
 
+        // Register customer
         $customer = BackendAuth::register([
             'email'      => input('email'),
             'login'      => input('login'),
@@ -74,7 +75,7 @@ class Register extends ComponentBase
             'model' => input('model')
         ]);
 
-        // Assign role
+        // Assign role as customer
         $customer->role()->add(UserRole::where('code','customer')->first());
 
         // Add to bookrr user as customer

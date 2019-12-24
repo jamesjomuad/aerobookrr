@@ -91,6 +91,14 @@ Register.next = function(){
     return this;
 };
 
+Register.show = function(num){
+    var next = $('#RegisterModal .nav [href="#step'+num+'"]');
+    next.removeClass('disabled');
+    next.tab('show');
+    next.addClass('disabled');
+    return this;
+};
+
 Register.onStepOne = function(){
     Register.el('#step1').request('onStepOne',{
         success: function(data) {
@@ -139,7 +147,7 @@ Register.book = function(response){
         minDate: new Date(),
         inline: false,
         sideBySide: false,
-        defaultDate: moment().add('days', 1)
+        defaultDate: moment()
     });
 
     var $dtp_out = Register.el('#datetimepicker_out').datetimepicker({
@@ -249,17 +257,7 @@ Register.initStepFour = function(){
                     Register.back();
                 },
                 onNext: function(){
-                    Register.el('#RegisterForm').request('Register::onRegister',{
-                        success: function(data){
-                            console.log(data)
-                        },
-                        complete: function(){
-
-                        },
-                        error: function(){
-
-                        }
-                    });
+                    Register.onStepFour();
                 }
             }
         });
@@ -271,10 +269,26 @@ Register.initStepFour = function(){
 }
 
 Register.onStepFour = function(){
+    Register.el('#RegisterForm').request('Register::onRegister',{
+        success: function(data){
+            console.log(data)
+        },
+        complete: function(){
 
+        },
+        error: function(){
+
+        }
+    });
 }
 
 Register.init = function(){
     Register.autoComplete();
+    $('#RegisterModal').on('hidden.bs.modal', function () {
+        if(Register.app4){
+            Register.app4.$destroy();
+            delete Register.app4;
+        }
+    });
     return this;
 };
