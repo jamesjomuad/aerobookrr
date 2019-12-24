@@ -130,9 +130,7 @@ class Rate extends Model
         $rate   = Rate::amount();
         $symbol = Cashier::config()->symbol;
 
-        $start  = (new \Carbon\Carbon())->parse($date_in);
-        $end    = (new \Carbon\Carbon())->parse($date_out);
-        $diff   = $start->diffInHours($end);
+        $diff = self::getHours($date_in,$date_out);
 
         return [
             'symbol'    => $symbol,
@@ -141,6 +139,13 @@ class Rate extends Model
             'rate'      => $rate,
             'hours'     => $diff
         ];
+    }
+
+    public static function getHours($in,$out)
+    {
+        $start  = (new \Carbon\Carbon())->parse($in);
+        $end    = (new \Carbon\Carbon())->parse($out);
+        return $start->diffInHours($end);
     }
 
 }
