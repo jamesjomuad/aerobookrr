@@ -131,77 +131,6 @@ Register.onStepThree = function(){
     this.next().initStepFour();
 }
 
-Register.book = function(response){
-    var self = this.book;
-    var dpSelected = {in:false,out:false};
-
-    self.isOpen = false;
-    
-    self.compute = function(){
-        var hours = moment.duration($dtp_out.data('DateTimePicker').date().diff($dtp_in.data('DateTimePicker').date())).asHours();
-        if(dpSelected.in && dpSelected.out)
-        Register.app3.table.hours = hours;
-    }
-
-    var $dtp_in = Register.el('#datetimepicker_in').datetimepicker({
-        minDate: new Date(),
-        inline: false,
-        sideBySide: false,
-        defaultDate: moment()
-    });
-
-    var $dtp_out = Register.el('#datetimepicker_out').datetimepicker({
-        minDate: new Date(),
-        inline: false,
-        sideBySide: false,
-        defaultDate: moment().add('days', 7)
-    });
-
-    $dtp_in.on('dp.change', function(event){
-        var date = event.date;
-        var dpOut = $dtp_out.data('DateTimePicker');
-        dpSelected.in = true;
-        Register.el('[name="datein"]').val(date.format('MM/DD/YYYY h:mm'));
-        dpOut.minDate(event.date);
-        self.compute();
-    });
-
-    $dtp_out.on('dp.change', function(event){
-        var date = event.date;
-        var dpIn = $dtp_in.data('DateTimePicker');
-        dpSelected.out = true;
-        Register.el('[name="dateout"]').val(date.format('MM/DD/YYYY h:mm'));
-        dpIn.maxDate(event.date);
-        self.compute();
-    });
-
-    $dtp_in.data('DateTimePicker').maxDate($dtp_out.data('DateTimePicker').date());
-
-    // Step3 Vue App
-    Register.app3.table = new Vue({
-        el: '#booking-table',
-        delimiters: ["{[","]}"],
-        data: {
-            isOpen: false,
-            currency: response.currency,
-            rateTxt: response.currency+response.rate,
-            rate: response.rate,
-            hours: 0
-        },
-        computed: {
-            hourTxt: function(){
-                return (this.hours==1) ? this.hours.toFixed(2)+" hr" : this.hours.toFixed(2)+"/hrs";
-            },
-            total: function(){
-                return this.currency+(this.rate*this.hours).toFixed(2);
-            },
-            cost: function(){
-                return this.currency+(this.rate*this.hours).toFixed(2);
-            }
-        }
-    });
-};
-
 Register.initStepThree = function(){
     var tab = $('#RegisterModal [href="#step3"]');
     tab.removeClass('disabled');
@@ -217,10 +146,85 @@ Register.initStepThree = function(){
         methods:{
             destroyTable: function(){
                 this.isOpen = false;
-                Register.el('#bookrr').html('');
+                Register.el('#bookrr').slideUp('slow',function(){
+                    Register.el('#bookrr').html('');
+                });
             }
         }
     });
+
+    Register.book = function(response){
+        Register.el('#bookrr').slideDown('slow');
+
+        var self = this.book;
+        var dpSelected = {in:false,out:false};
+    
+        self.isOpen = false;
+        
+        self.compute = function(){
+            var hours = moment.duration($dtp_out.data('DateTimePicker').date().diff($dtp_in.data('DateTimePicker').date())).asHours();
+            if(dpSelected.in && dpSelected.out)
+            Register.app3.table.hours = hours;
+        }
+    
+        var $dtp_in = Register.el('#datetimepicker_in').datetimepicker({
+            minDate: new Date(),
+            inline: false,
+            sideBySide: false,
+            defaultDate: moment()
+        });
+    
+        var $dtp_out = Register.el('#datetimepicker_out').datetimepicker({
+            minDate: new Date(),
+            inline: false,
+            sideBySide: false,
+            defaultDate: moment().add('days', 7)
+        });
+    
+        $dtp_in.on('dp.change', function(event){
+            var date = event.date;
+            var dpOut = $dtp_out.data('DateTimePicker');
+            dpSelected.in = true;
+            Register.el('[name="datein"]').val(date.format('MM/DD/YYYY h:mm'));
+            dpOut.minDate(event.date);
+            self.compute();
+        });
+    
+        $dtp_out.on('dp.change', function(event){
+            var date = event.date;
+            var dpIn = $dtp_in.data('DateTimePicker');
+            dpSelected.out = true;
+            Register.el('[name="dateout"]').val(date.format('MM/DD/YYYY h:mm'));
+            dpIn.maxDate(event.date);
+            self.compute();
+        });
+    
+        $dtp_in.data('DateTimePicker').maxDate($dtp_out.data('DateTimePicker').date());
+    
+        // Step3 Vue App
+        Register.app3.table = new Vue({
+            el: '#booking-table',
+            delimiters: ["{[","]}"],
+            data: {
+                isOpen: false,
+                currency: response.currency,
+                rateTxt: response.currency+response.rate,
+                rate: response.rate,
+                hours: 0
+            },
+            computed: {
+                hourTxt: function(){
+                    return (this.hours==1) ? this.hours.toFixed(2)+" hr" : this.hours.toFixed(2)+"/hrs";
+                },
+                total: function(){
+                    return this.currency+(this.rate*this.hours).toFixed(2);
+                },
+                cost: function(){
+                    return this.currency+(this.rate*this.hours).toFixed(2);
+                }
+            }
+        });
+    };
     
     return this;
 };

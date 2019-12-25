@@ -1,10 +1,10 @@
 <div id="step3" class="tab-pane fade in">
     <div id="bookrrApp">
-        <div class="well p-4 my-4">
+        <div class="well p-4 mt-4">
             <div class="d-flex justify-content-between">
                 <h3 class="title my-4">Book Now or Later</h3>
                 <button type="button" class="btn btn-primary ml-auto" 
-                    data-request="{{__SELF__}}::onBooking" 
+                    data-request="{{__SELF__}}::onBookingForm" 
                     data-request-update="'@booking': '#bookrr'"
                     data-request-success="setTimeout(Register.book(data),300)"
                     v-show="!isOpen"
@@ -17,9 +17,9 @@
             </div>
         </div>
 
-        <div id="bookrr"></div>
+        <div id="bookrr" style="display: none;"></div>
 
-        <div class="well p-4 mt-4 rounded-bottom">
+        <div class="well p-4 rounded-bottom">
             <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-primary" onclick="Register.back()">
                     Back

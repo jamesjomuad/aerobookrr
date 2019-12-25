@@ -11,6 +11,8 @@ use Backend\Models\UserRole;
 use Bookrr\User\Models\Customers;
 use Bookrr\User\Models\Vehicle;
 use Bookrr\Rates\Models\Rate;
+use Bookrr\Booking\Models\Parking;
+use Bookrr\Bay\Models\Bay;
 use Bookrr\Stripe\Controllers\Cashier;
 
 
@@ -58,9 +60,8 @@ class Register extends ComponentBase
 
     public function onRegister()
     {
-
-        // Register customer
-        $customer = BackendAuth::register([
+        // Register user
+        $user = BackendAuth::register([
             'email'      => input('email'),
             'login'      => input('login'),
             'first_name' => input('firstname'),
@@ -69,38 +70,50 @@ class Register extends ComponentBase
             'password_confirmation' => input('confirmpassword')
         ]);
 
-        $vehicle = Vehicle::create([
-            'plate' => input('plate'),
-            'brand' => input('make'),
-            'model' => input('model')
-        ]);
-
         // Assign role as customer
-        $customer->role()->add(UserRole::where('code','customer')->first());
+        $user->role()->add(UserRole::where('code','customer')->first());
 
         // Add to bookrr user as customer
-        $customer->customer()->save( new Customers(input()) );
+        $customer = new Customers();
+        $customer->phone = input('phone');
+        $customer->save();
+        $user->customer()->save($customer);
 
-        // Add attach vehicle to customer
-        $customer->vehicles()->save($vehicle);
-
+        $vehicle = new Vehicle;
+        $vehicle->plate = input('plate');
+        $vehicle->brand = input('make');
+        $vehicle->model = input('model');
         $vehicle->primary = 1;
-
         $vehicle->save();
 
-        return $customer;
+        // Add attach vehicle to customer
+        $user->vehicles()->save($vehicle);
 
-        // Sign in as a specific user
-        BackendAuth::login($user);
+        # Save all user data
+        $user->save();
 
-        if(BackendAuth::check())
+        // Create Booking when enabled
+        if(input('date_in') AND input('date_out'))
         {
-            Flash::success('Login Successful!');
-            Redirect::to('/backend');
-            return;
+            $booking = new Parking;
+            $booking->rules = [];
+            $booking->date_in = (new \Carbon\Carbon())->parse(input('date_in'));
+            $booking->date_out = (new \Carbon\Carbon())->parse(input('date_out'));
+            $booking->save();   
+
+            // Attach parking bay
+            $booking->bay()->add(Bay::getAvailable()->first());
+
+            // Attach booking to customer
+            $customer->parkings()->save($booking);
+
+            return [
+                $user,
+                $booking
+            ];
         }
 
-        Flash::error('Login Failed!');
+        return $user;
     }
 
     public function onStepOne()
@@ -156,7 +169,7 @@ class Register extends ComponentBase
         ];
     }
 
-    public function onBooking()
+    public function onBookingForm()
     {
         return [
             'currency' => Cashier::config()->symbol,
@@ -164,9 +177,21 @@ class Register extends ComponentBase
         ];
     }
 
-    public function onSave()
+    public function onTest()
     {
         $rate = Rate::compute(input('dateIn'),input('dateOut'));
+
+        // Sign in as a specific user
+        BackendAuth::login($user);
+
+        if(BackendAuth::check())
+        {
+            Flash::success('Login Successful!');
+            Redirect::to('/backend');
+            return;
+        }
+
+        Flash::error('Login Failed!');
     }
 
 }
