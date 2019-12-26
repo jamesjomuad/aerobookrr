@@ -74,6 +74,8 @@ Register.autoComplete = function(){
         $('#RegisterModal [name="make"]').val(item.make)
         $('#RegisterModal [name="model"]').val(item.model)
     });
+
+    return this;
 }
 
 Register.back = function(){
@@ -106,10 +108,7 @@ Register.onStepOne = function(){
         },
         complete: function(res){
             if(res.status==200){
-                var tab = $('#RegisterModal [href="#step2"]');
-                tab.removeClass('disabled');
-                tab.tab('show');
-                tab.addClass('disabled');
+                Register.next()
             }
         }
     });
@@ -275,15 +274,16 @@ Register.initStepFour = function(){
 Register.onStepFour = function(){
     Register.el('#RegisterForm').request('Register::onRegister',{
         success: function(data){
-            console.log(data)
-        },
-        complete: function(){
-
+            Register.initStepFive(data)
         },
         error: function(){
-
+            
         }
     });
+}
+
+Register.initStepFive = function(res){
+    this.next();
 }
 
 Register.init = function(){

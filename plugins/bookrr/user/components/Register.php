@@ -60,6 +60,8 @@ class Register extends ComponentBase
 
     public function onRegister()
     {
+        $return = [];
+
         // Register user
         $user = BackendAuth::register([
             'email'      => input('email'),
@@ -92,6 +94,12 @@ class Register extends ComponentBase
         # Save all user data
         $user->save();
 
+        $return['user'] = [
+            "name" => $user->first_name." ".$user->last_name,
+            "login" => $user->login,
+            "email" => $user->email
+        ];
+
         // Create Booking when enabled
         if(input('date_in') AND input('date_out'))
         {
@@ -99,7 +107,9 @@ class Register extends ComponentBase
             $booking->rules = [];
             $booking->date_in = (new \Carbon\Carbon())->parse(input('date_in'));
             $booking->date_out = (new \Carbon\Carbon())->parse(input('date_out'));
-            $booking->save();   
+
+            // Add Vehicle to booking
+            $booking->vehicle()->add($vehicle);
 
             // Attach parking bay
             $booking->bay()->add(Bay::getAvailable()->first());
@@ -107,13 +117,14 @@ class Register extends ComponentBase
             // Attach booking to customer
             $customer->parkings()->save($booking);
 
-            return [
-                $user,
-                $booking
+            $booking->save();
+
+            $return["booking"] = [
+                "number" => $booking->number
             ];
         }
 
-        return $user;
+        return $return;
     }
 
     public function onStepOne()
