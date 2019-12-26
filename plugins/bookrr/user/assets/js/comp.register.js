@@ -273,11 +273,12 @@ Register.initStepFour = function(){
 
 Register.onStepFour = function(){
     Register.el('#RegisterForm').request('Register::onRegister',{
-        success: function(data){
-            Register.initStepFive(data)
-        },
+        update: {'@thank-you': '#thanks'},
         error: function(){
-            
+            $.oc.flashMsg({text: 'Oops, Error!', 'class': 'error', 'interval': 50})
+        },
+        complete: function(res){
+            Register.initStepFive(res)
         }
     });
 }

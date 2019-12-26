@@ -60,7 +60,7 @@ class Register extends ComponentBase
 
     public function onRegister()
     {
-        $return = [];
+        $response = [];
 
         // Register user
         $user = BackendAuth::register([
@@ -94,12 +94,6 @@ class Register extends ComponentBase
         # Save all user data
         $user->save();
 
-        $return['user'] = [
-            "name" => $user->first_name." ".$user->last_name,
-            "login" => $user->login,
-            "email" => $user->email
-        ];
-
         // Create Booking when enabled
         if(input('date_in') AND input('date_out'))
         {
@@ -112,19 +106,24 @@ class Register extends ComponentBase
             $booking->vehicle()->add($vehicle);
 
             // Attach parking bay
-            $booking->bay()->add(Bay::getAvailable()->first());
+            // $booking->bay()->add(Bay::getAvailable()->first());
 
             // Attach booking to customer
             $customer->parkings()->save($booking);
 
             $booking->save();
 
-            $return["booking"] = [
-                "number" => $booking->number
-            ];
+            $response["booking_number"] = $booking->number;
         }
 
-        return $return;
+        return [
+            '@thank-you' => $this->renderPartial('@thank-you.htm',[
+                "name" => $user->first_name." ".$user->last_name,
+                "login" => $user->login,
+                "email" => $user->email,
+                "number" => @$response["booking_number"] ? : false
+            ])
+        ];
     }
 
     public function onStepOne()
@@ -171,13 +170,6 @@ class Register extends ComponentBase
             }
             throw new ValidationException($validator);
         }
-    }
-
-    public function onSearchForm()
-    {
-        return [
-            'popup' => $this->renderPartial('@search.htm')
-        ];
     }
 
     public function onBookingForm()

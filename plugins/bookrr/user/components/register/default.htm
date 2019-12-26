@@ -1,3 +1,10 @@
 {% if isLogin == false %}
-    <a href="javascript:;" class="btn btn-primary" data-show-popup data-handler="{{__SELF__}}::onRegisterForm" onclick="setTimeout(Register.init, 1000)">Register</a>
+    <a href="javascript:;" 
+        class="btn btn-primary" 
+        data-show-popup 
+        data-handler="{{__SELF__}}::onRegisterForm"
+        data-request-success="setTimeout(Register.init, 500)"
+    >
+        Register
+    </a>
 {% endif %}
