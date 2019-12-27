@@ -1,0 +1,49 @@
+<div class="px-4 pt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Going In</h5>
+                    <p class="card-text text-center">Choose a Check-In date</p>
+                    <input id="datetimepicker_in" type='text' class="form-control" name="date_in"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Going Out</h5>
+                    <p class="card-text text-center">Choose a Check-Out date</p>
+                    <input id="datetimepicker_out" type='text' class="form-control" name="date_out"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="booking-table" class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Rate</th>
+                <th scope="col">Hours</th>
+                <th scope="col">Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{[rateTxt]}</td>
+                <td>
+                    {[hourTxt]}
+                    <input type="hidden" name="Hours" v-model="hourTxt">
+                </td>
+                <td>{[cost]}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-right"><b>Total</b></td>
+                <td>
+                    <b>{[total]}</b>
+                    <input type="hidden" name="totalCost" v-model="total">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

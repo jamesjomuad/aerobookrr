@@ -96,6 +96,12 @@ class Bay extends Model
         return $query;
     }
 
+    public function scopeGetAvailable($query)
+    {
+        $query->where('status',null);
+        return $query;
+    }
+
 
     #
     #  Helpers

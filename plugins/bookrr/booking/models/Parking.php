@@ -12,7 +12,7 @@ use Bookrr\Store\Models\Product;
 class Parking extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    
+
     use \October\Rain\Database\Traits\SoftDelete;
 
     public $table = 'bookrr_booking';

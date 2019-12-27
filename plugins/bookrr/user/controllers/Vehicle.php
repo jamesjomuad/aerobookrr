@@ -3,6 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Config;
+use \GuzzleHttp\Client;
 
 /**
  * Vehicle Back-end Controller
@@ -22,6 +23,11 @@ class Vehicle extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Bookrr.User', 'user', 'vehicle');
+    }
+
+    public function create()
+    {
+        return $this->asExtension('FormController')->create();
     }
 
 

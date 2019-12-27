@@ -12,7 +12,8 @@ $(function() {
         }
 
         function showAjaxPopup(e) {
-            var handler = $(e.target).data('handler');
+            var $el = $(e.target)
+            var handler = $el.data('handler');
 
             $.oc.stripeLoadIndicator.show();
 
@@ -23,6 +24,14 @@ $(function() {
                         backdrop: 'static',
                         keyboard: true
                     });
+                    if($el.data('requestSuccess')){
+                        new Function($el.data('requestSuccess'))()
+                    }
+                },
+                error: function(){
+                    if($el.data('requestError')){
+                        new Function($el.data('requestSuccess'))()
+                    }
                 }
             }).always(function() {
                 $.oc.stripeLoadIndicator.hide();

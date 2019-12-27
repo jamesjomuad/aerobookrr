@@ -202,7 +202,7 @@ class Parking extends CartController
 
         $this->vars['email'] = $orders['email'];
 
-        $this->vars['total'] = $orders['total']; 
+        $this->vars['total'] = $orders['total'];
 
         return $this->makePartial('payment');
     }
@@ -213,8 +213,6 @@ class Parking extends CartController
         return $this->makePartial('cash');
     }
 
-    
-    
 
     /*
     *   Overiders
@@ -327,9 +325,31 @@ class Parking extends CartController
         ];
     }
 
-    public function total($qty,$price)
+    public function getParking($id)
     {
-        return round($qty*$price,2);
+        $book = $this->model->find($id);
+        $rate = Rate::amount();
+
+        if(!$book->date_in OR !$book->date_out)
+        {
+            throw new \ApplicationException('Date error!');
+        }
+
+        if($book->park_in AND $book->park_out)
+        {
+            $hours = Rate::getHours($book->park_in,$book->park_out);
+        }
+        else if($book->date_in AND $book->date_out)
+        {
+            $hours = Rate::getHours($book->date_in,$book->date_out);
+        }
+
+        return [
+            "name"      => "Parking",
+            "quantity"  => $hours."/Hrs",
+            "price"     => number_format($rate,2),
+            "total"     => number_format( $hours*round($rate,2) ,2)
+        ];
     }
 
     public function getOrders($id)
@@ -340,16 +360,8 @@ class Parking extends CartController
 
         $orders = ($model->cart) ? $model->cart->basket() : collect();
 
-        $rate = Rate::amount();
-        $start = $model->park_in;
-        $hours = round( (Carbon::now()->diffInSeconds($start))/3600,2 );
-
-        $orders->prepend([
-            "name"      => "Parking",
-            "quantity"  => $hours."/Hrs",
-            "price"     => number_format($rate,2),
-            "total"     => number_format( $hours*round($rate,2) ,2)
-        ]);
+        // Append Parking Hours:Rate
+        $orders->prepend( $this->getParking($id) );
 
         return [
             "orders"    => $orders,

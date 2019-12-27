@@ -11,6 +11,8 @@ use Event;
 class Plugin extends PluginBase
 {
 
+    public $elevated = true;
+
     public function pluginDetails()
     {
         return [
@@ -89,7 +91,7 @@ class Plugin extends PluginBase
         # Event
         Event::listen('backend.page.beforeDisplay', function($controller, $action, $params) {
 
-            if(BackendAuth::getUser()->isCustomer())
+            if(BackendAuth::check() AND BackendAuth::getUser()->isCustomer())
             {
                 $controller->addCss('/plugins/bookrr/user/assets/css/customer.css');
             }

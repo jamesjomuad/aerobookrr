@@ -3,5 +3,9 @@
 {% endif %}
 
 {% if isLogin == true %}
+    <a href="/backend" class="btn btn-primary" target="_self">Dashboard</a>
+{% endif %}
+
+{% if false %}
     <a href="/backend/backend/auth/signout" class="btn btn-primary" target="_self">{{__SELF__.property('logoutLabel')}}</a>
 {% endif %}
