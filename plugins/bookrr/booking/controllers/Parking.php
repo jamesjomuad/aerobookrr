@@ -213,6 +213,12 @@ class Parking extends CartController
         return $this->makePartial('cash');
     }
 
+    public function onCartForm($id)
+    {
+        $this->vars['formModel'] = $this->model->find($id);
+        return $this->makePartial('cart_form');
+    }
+
 
     /*
     *   Overiders

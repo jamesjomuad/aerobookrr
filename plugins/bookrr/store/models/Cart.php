@@ -66,10 +66,10 @@ class Cart extends Model
     {
         if($stripe)
         {
-            $this->status       = "paid";
-            $this->subtotal     = ($stripe->amount)/100;
-            $this->paymentId    = $stripe->id;
-            $this->receiptUrl   = $stripe->receipt_url;
+            $this->status     = "paid";
+            $this->subtotal   = ($stripe->amount)/100;
+            $this->paymentId  = $stripe->id;
+            $this->receiptUrl = $stripe->receipt_url;
             $this->save();
             return $this;
         }

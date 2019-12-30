@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Transaction
+
+# Model Form Field configuration
+form: $/bookrr/stripe/models/transaction/fields.yaml
+
+# Model Class name
+modelClass: Bookrr\Stripe\Models\Transaction
+
+# Default redirect location
+defaultRedirect: bookrr/stripe/transactions
+
+# Create page
+create:
+    title: Create Transaction
+    redirect: bookrr/stripe/transactions/update/:id
+    redirectClose: bookrr/stripe/transactions
+
+# Update page
+update:
+    title: Edit Transaction
+    redirect: bookrr/stripe/transactions
+    redirectClose: bookrr/stripe/transactions
+
+# Preview page
+preview:
+    title: Preview Transaction

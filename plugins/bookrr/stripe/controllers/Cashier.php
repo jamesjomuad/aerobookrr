@@ -4,6 +4,7 @@ use BackendMenu;
 use Backend\Classes\Controller;
 use Bookrr\Stripe\Models\Settings;
 use Bookrr\Booking\Models\Parking;
+use Bookrr\Stripe\Models\Transaction;
 
 
 class Cashier extends Controller
@@ -18,12 +19,30 @@ class Cashier extends Controller
 
     public function index()
     {
+
+        $cart = Parking::find(27)->cart;
+
+        $product = (new \Bookrr\Store\Models\Product([
+            'name' => 'Parking',
+            'description' => '120/Hrs',
+            'price' => 10.99 
+        ]));
+
+        $cart->products->add($product);
+
+        dd(
+            $cart->products
+        );
+
         return false;   
     }
 
     public function onStripe()
     {
+        // css
         $this->addCss('/plugins/bookrr/stripe/assets/css/style.css','v1.3');
+
+        // js
         $this->addJs('https://js.stripe.com/v3/','v1.1');
         $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.9');
 
@@ -40,6 +59,7 @@ class Cashier extends Controller
 
         Cashier::stripe()->setApiKey($config->key);
 
+        // Create options for Stripe
         $options = [
             'source'        => input('stripeToken'),
             'amount'        => input('amount')*100,
@@ -54,15 +74,27 @@ class Cashier extends Controller
 
         $result = \Stripe\Charge::create($options);
 
-        if(!$config->isLive){
-            trace_log($result);
-        }
+        $transaction = Transaction::create([
+            'amount'        => $result->amount ,
+            'email'         => $result->billing_details->email ,
+            'payment_method'=> $result->payment_method ,
+            'ref_id'        => $result->id ,
+            'refunded'      => $result->refunded ,
+            'amount_refunded'=> $result->amount_refunded ,
+            'receipt_url'   => $result->receipt_url ,
+            'status'        => $result->status ,
+            'response'      => $result
+        ]);
 
         if($cart)
         {
             $cart->setPaid($result);
         }
-        
+
+        if(!$config->isLive){
+            trace_log($result);
+        }
+
         return true;
     }
 

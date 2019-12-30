@@ -34,15 +34,13 @@ class Plugin extends PluginBase
 
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
         return [
             'stripe' => [
-                'label'       => 'stripe',
-                'url'         => Backend::url('bookrr/stripe/mycontroller'),
-                'icon'        => 'icon-leaf',
+                'label'       => 'Transactions',
+                'url'         => Backend::url('bookrr/stripe/transactions'),
+                'icon'        => 'icon-table',
                 'permissions' => ['bookrr.stripe.*'],
-                'order'       => 500,
+                'order'       => 914,
             ],
         ];
     }

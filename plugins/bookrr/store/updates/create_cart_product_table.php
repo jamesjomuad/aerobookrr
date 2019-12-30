@@ -14,7 +14,6 @@ class CreatePivotCartItemTable extends Migration
             $table->integer('product_id');
             $table->integer('quantity');
             $table->primary(['cart_id','product_id']);
-            $table->timestamps();
         });
     }
 
