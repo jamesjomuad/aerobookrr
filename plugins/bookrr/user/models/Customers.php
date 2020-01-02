@@ -81,4 +81,10 @@ class Customers extends Model
     {
         return $this->user->first_name.' '.$this->user->last_name;
     }
+
+    public function getActivePlateAttribute()
+    {
+        return $this->vehicles->where('primary',1)->first()->plate;
+    }
+
 }

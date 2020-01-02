@@ -30,15 +30,6 @@ class Vehicle extends Model
         ]
     ];
 
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
-
     public function getPrimaryAttribute($value)
     {
         if(input('id') && Customers::find(input('id'))->vehicles->count()==0)

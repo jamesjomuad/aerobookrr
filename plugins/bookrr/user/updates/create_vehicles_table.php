@@ -16,6 +16,7 @@ class CreateVehiclesTable extends Migration
             $table->string('plate', 10)->nullable();
             $table->string('brand', 50)->nullable();
             $table->string('model', 50)->nullable();
+            $table->string('vin', 30)->nullable();
             $table->string('color', 50)->nullable();
             $table->string('size', 50)->nullable();
             $table->timestamps();

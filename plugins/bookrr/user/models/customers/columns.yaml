@@ -36,4 +36,5 @@ columns:
         label: Vehicles
         relation: vehicle_count
         valueFrom: count
-    
+    active_plate:
+        label: Plate
