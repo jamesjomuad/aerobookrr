@@ -24,60 +24,6 @@ Register = {
     }
 };
 
-Register.autoComplete = function(){
-    var $input = $('#RegisterModal [name="plate"]');
-    var $spin = $input.next();
-
-    $input.autoComplete({
-        resolver: 'custom',
-        events: {
-            search: function (qry, callback) {
-                $spin.show()
-                var data;
-
-                $.ajax('https://test.carjam.co.nz/a/vehicle:abcd?key=CE8130C5D3C82C035B493852F37BD96E6EA1E4EA&plate='+qry)
-                .done(function (res) {
-                    if(res){
-                        data = [
-                            { 
-                                "value": 1, 
-                                "text": res.plate + ' - ' + res.make,
-                                "plate": res.plate,
-                                "make": res.make,
-                                "model": res.model
-                            },
-                        ] 
-                    }else{
-                        data = [{
-                            "value": 1,
-                            "text": "Not Found!"
-                        }]
-                    }
-                    
-                    callback(data)
-                })
-                .fail(function (jqXHR, status, err) {
-                    callback([{
-                        "value": 1,
-                        "text": "Not Found!"
-                    }])
-                })
-                .always(function (jqXHR, status) {
-                    $spin.hide()
-                });
-            }
-        }
-    });
-
-    $input.on('autocomplete.select', function(evt, item) {
-        $(this).val(item.plate)
-        $('#RegisterModal [name="make"]').val(item.make)
-        $('#RegisterModal [name="model"]').val(item.model)
-    });
-
-    return this;
-}
-
 Register.back = function(){
     var prev = $('#RegisterModal .nav .nav-item.active').prev();
     prev.removeClass('disabled');
@@ -108,10 +54,70 @@ Register.onStepOne = function(){
         },
         complete: function(res){
             if(res.status==200){
-                Register.next()
+                Register.initStepTwo()
             }
         }
     });
+}
+
+Register.initStepTwo = function(){
+    Register.next();
+
+    var $input = $('#RegisterModal [name="plate"]');
+    var $spin = $input.next();
+
+    $input.autoComplete({
+        resolver: 'custom',
+        events: {
+            search: function (qry, callback) {
+                $spin.show()
+                var data;
+
+                $.ajax('https://test.carjam.co.nz/a/vehicle:abcd?key=CE8130C5D3C82C035B493852F37BD96E6EA1E4EA&plate='+qry)
+                .done(function (res) {
+                    if(res){
+                        data = [
+                            { 
+                                "value": 1, 
+                                "text": res.plate + ' - ' + res.make,
+                                "plate": res.plate,
+                                "make": res.make,
+                                "model": res.model
+                            },
+                        ] 
+                    }else{
+                        data = [{
+                            "value": 1,
+                            "text": "Not Found!"
+                        }]
+                    }
+                    
+                    callback(data);
+                    setTimeout(function(){ 
+                        $input.next().find('a').on('click',function(e){e.preventDefault()}); 
+                    }, 500);
+                    
+                })
+                .fail(function (jqXHR, status, err) {
+                    callback([{
+                        "value": 1,
+                        "text": "Not Found!"
+                    }])
+                })
+                .always(function (jqXHR, status) {
+                    $spin.hide()
+                });
+            }
+        }
+    });
+
+    $input.on('autocomplete.select', function(event, item) {
+        $(this).val(item.plate)
+        $('#RegisterModal [name="make"]').val(item.make)
+        $('#RegisterModal [name="model"]').val(item.model)
+    });
+
+    return this;
 }
 
 Register.onStepTwo = function(){
@@ -124,10 +130,6 @@ Register.onStepTwo = function(){
             }
         }
     });
-}
-
-Register.onStepThree = function(){
-    this.next().initStepFour();
 }
 
 Register.initStepThree = function(){
@@ -228,6 +230,10 @@ Register.initStepThree = function(){
     return this;
 };
 
+Register.onStepThree = function(){
+    this.next().initStepFour();
+}
+
 Register.initStepFour = function(){
     if(!Register.app4)
     {
@@ -288,7 +294,6 @@ Register.initStepFive = function(res){
 }
 
 Register.init = function(){
-    Register.autoComplete();
     $('#RegisterModal').on('hidden.bs.modal', function () {
         if(Register.app4){
             Register.app4.$destroy();

@@ -50,10 +50,13 @@ class Register extends ComponentBase
         $this->addCss('/plugins/bookrr/user/assets/css/comp.register.css');
 
         $this->page['isLogin'] = BackendAuth::check();
+        
     }
 
     public function onRegisterForm()
     {
+        $this->page['rate'] = Rate::amount();
+
         return [
             'popup' => $this->renderPartial('@register-form.htm')
         ];

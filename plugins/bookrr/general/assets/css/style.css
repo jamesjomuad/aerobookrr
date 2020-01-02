@@ -4,6 +4,6 @@ nav#layout-mainmenu.navbar ul.nav.mainmenu-nav li{margin:0!important;padding: 10
 nav#layout-mainmenu.navbar ul li.mainmenu-preview{margin: 0 20px 0 0px;}
 nav#layout-mainmenu.navbar ul li.active{background:#ff8c3f;margin-left:0!important}
 nav#layout-mainmenu.navbar-mode-tile ul.mainmenu-toolbar li.mainmenu-account >a{height:auto;width:auto;display:block;padding:0}
-nav#layout-mainmenu ul.mainmenu-toolbar li.mainmenu-account img.account-avatar{width: 85px;margin-left: -1px;display:block;}
+nav#layout-mainmenu ul.mainmenu-toolbar li.mainmenu-account img.account-avatar{width: 85px;margin-left: -5px;height: 80px;display:block;}
 .layout-sidenav-container{width: 89px;}
 nav#layout-mainmenu {background-color: #ff5500;}
