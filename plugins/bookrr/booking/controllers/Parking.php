@@ -207,16 +207,25 @@ class Parking extends CartController
         return $this->makePartial('payment');
     }
 
-    public function onCash()
-    {
-        
-        return $this->makePartial('cash');
-    }
+    
 
     public function onCartForm($id)
     {
-        $this->vars['formModel'] = $this->model->find($id);
-        return $this->makePartial('cart_form');
+        $cart = $this->model->find($id)->cart;
+
+        $parking = (object)$this->getParking($id);
+
+        $product = (new \Bookrr\Store\Models\Product([
+            'name' => $parking->name,
+            'description' => $parking->quantity,
+            'price' => $parking->total
+        ]));
+
+        $cart->products->prepend($product);
+
+        $this->vars['cart'] = $cart;
+
+        return $this->makePartial('cart/cart');
     }
 
 

@@ -66,7 +66,9 @@ class Product extends BaseModel
 
     public function scopeQuantity($query)
     {
-        return $this->pivot->quantity;
+        if($this->pivot)
+            return $this->pivot->quantity;
+        return 1;
     }
 
     public function scopeTotalwithQty($query)

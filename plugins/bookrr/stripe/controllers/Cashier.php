@@ -51,6 +51,12 @@ class Cashier extends Controller
         return $this->makePartial('stripe');
     }
 
+    public function onCash()
+    {
+        
+        return $this->makePartial('cash');
+    }
+
     public function onCreate()
     {
         $config = Cashier::config();
