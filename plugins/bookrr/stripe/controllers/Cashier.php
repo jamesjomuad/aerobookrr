@@ -3,7 +3,6 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Bookrr\Stripe\Models\Settings;
-use Bookrr\Booking\Models\Parking;
 use Bookrr\Stripe\Models\Transaction;
 
 
@@ -45,6 +44,7 @@ class Cashier extends Controller
         // js
         $this->addJs('https://js.stripe.com/v3/','v1.1');
         $this->addJs('/plugins/bookrr/stripe/assets/js/charge.js','v1.9');
+        
 
         $this->vars['config'] = self::config();
 
@@ -53,6 +53,9 @@ class Cashier extends Controller
 
     public function onCash()
     {
+        $this->addCss('/plugins/bookrr/stripe/assets/css/bootstrap-grid.css');
+        $this->addJs('/plugins/bookrr/stripe/assets/js/vue.min.js');
+        $this->addJs('/plugins/bookrr/stripe/assets/js/cash.js');
         
         return $this->makePartial('cash');
     }
@@ -60,8 +63,6 @@ class Cashier extends Controller
     public function onCreate()
     {
         $config = Cashier::config();
-
-        $cart = Parking::find(input('id'))->cart;
 
         Cashier::stripe()->setApiKey($config->key);
 
@@ -81,21 +82,16 @@ class Cashier extends Controller
         $result = \Stripe\Charge::create($options);
 
         $transaction = Transaction::create([
-            'amount'        => $result->amount ,
-            'email'         => $result->billing_details->email ,
-            'payment_method'=> $result->payment_method ,
-            'ref_id'        => $result->id ,
-            'refunded'      => $result->refunded ,
-            'amount_refunded'=> $result->amount_refunded ,
-            'receipt_url'   => $result->receipt_url ,
-            'status'        => $result->status ,
+            'amount'        => $result->amount,
+            'email'         => $result->billing_details->email,
+            'payment_method'=> $result->payment_method,
+            'ref_id'        => $result->id,
+            'refunded'      => $result->refunded,
+            'amount_refunded'=> $result->amount_refunded,
+            'receipt_url'   => $result->receipt_url,
+            'status'        => $result->status,
             'response'      => $result
         ]);
-
-        if($cart)
-        {
-            $cart->setPaid($result);
-        }
 
         if(!$config->isLive){
             trace_log($result);

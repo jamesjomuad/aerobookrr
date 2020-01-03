@@ -192,6 +192,11 @@ class Parking extends CartController
             throw new \ApplicationException('No rate is set!');
         }
 
+        if(!$this->model->find(input('id'))->cart)
+        {
+            throw new \ApplicationException('No cart!');
+        }
+
         $orders = $this->getOrders(input('id'));
 
         $this->vars['symbol'] = $orders['symbol'];
@@ -363,7 +368,7 @@ class Parking extends CartController
             "name"      => "Parking",
             "quantity"  => $hours."/Hrs",
             "price"     => number_format($rate,2),
-            "total"     => number_format( $hours*round($rate,2) ,2)
+            "total"     => $hours*round($rate,2)
         ];
     }
 

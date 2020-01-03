@@ -15,12 +15,12 @@ class CreateTransactionsTable extends Migration
             $table->integer('booking_id')->unsigned()->index()->nullable();
             $table->integer('customer_id')->unsigned()->index()->nullable();
             $table->string('amount')->nullable();
-            $table->string('email');
-            $table->string('payment_method');
+            $table->string('email')->nullable();
+            $table->string('payment_method')->nullable();
             $table->string('ref_id')->nullable();
             $table->string('refunded')->nullable();
             $table->string('amount_refunded')->nullable();
-            $table->string('receipt_url',100)->nullable();
+            $table->string('receipt_url',250)->nullable();
             $table->string('status')->nullable();
             $table->json('response')->nullable();
             $table->timestamps();
