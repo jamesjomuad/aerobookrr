@@ -13,7 +13,7 @@ class Product extends BaseModel
 
     protected $hidden = ['status','hash','created_at','updated_at','deleted_at'];
 
-    protected $fillable = [];
+    protected $fillable = ['name','description','price','sku','barcode','status','hash','type'];
 
     public $hasOne = [];
     public $hasMany = [];
@@ -66,7 +66,9 @@ class Product extends BaseModel
 
     public function scopeQuantity($query)
     {
-        return $this->pivot->quantity;
+        if($this->pivot)
+            return $this->pivot->quantity;
+        return 1;
     }
 
     public function scopeTotalwithQty($query)

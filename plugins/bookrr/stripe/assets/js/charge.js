@@ -50,20 +50,6 @@ bookrr = {
         registerElements([card], '#stripe');
     }
     
-    // bookrr.charge = function() {
-    //     stripe.createToken(card).then(function (result) {
-    //         if (result.error) {
-    //             // Inform the user if there was an error
-    //             var errorElement = document.getElementById('card-errors');
-    //             errorElement.textContent = result.error.message;
-    //         } else {
-    //             stripeTokenHandler(result.token);
-    //             $('#payment-form').request('onCreate');
-    //         }
-    //     });
-    // }
-
-    
     function registerElements(elements, wrapper) {
         var formClass    = wrapper;
         var formWrap      = document.querySelector(formClass);

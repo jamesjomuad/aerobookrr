@@ -27,7 +27,7 @@
                     </tr>
                 <?php }); ?>
             </tbody>
-            <tfoot>
+            <tfoot style=" background: #ff8d00; ">
                 <tr>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
@@ -48,6 +48,7 @@
             data-request-data="id:'<?= input('id') ?>',name:'<?= $name ?>',email:'<?= $email ?>',amount:'<?= $total ?>'"
         >Card</button>
         <button type="button" class="btn btn-primary" 
+            data-request-url="/backend/bookrr/stripe/cashier" 
             data-handler="onCash" 
             data-size="medium" 
             data-control="popup"

@@ -13,6 +13,7 @@ use Bookrr\User\Models\Vehicle;
 use Bookrr\Rates\Models\Rate;
 use Bookrr\Booking\Models\Parking;
 use Bookrr\Bay\Models\Bay;
+use Bookrr\Store\Models\Cart;
 use Bookrr\Stripe\Controllers\Cashier;
 
 
@@ -108,11 +109,11 @@ class Register extends ComponentBase
             // Add Vehicle to booking
             $booking->vehicle()->add($vehicle);
 
-            // Attach parking bay
-            // $booking->bay()->add(Bay::getAvailable()->first());
-
             // Attach booking to customer
             $customer->parkings()->save($booking);
+
+            // Attach Cart
+            $booking->cart()->save(new Cart);
 
             $booking->save();
 

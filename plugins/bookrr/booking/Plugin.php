@@ -3,11 +3,12 @@
 use Backend;
 use System\Classes\PluginBase;
 use Backend\Models\User as UserModel;
+use Bookrr\Stripe\Models\Transaction;
 
 
 class Plugin extends PluginBase
 {
-    // public $elevated = true;
+    public $elevated = true;
 
     public function pluginDetails()
     {
@@ -24,10 +25,24 @@ class Plugin extends PluginBase
         # Extend User
         UserModel::extend(function($model){
             # Extend Relations
-            $model->hasMany['parking']  = [
+            $model->hasMany['parking'] = [
                 'Bookrr\Booking\Models\Parking',
                 'delete' => true
             ];
+
+            return $model;
+        });
+
+        # Extend Transaction from Stripe
+        Transaction::extend(function($model){
+
+            $model->bindEvent('model.afterCreate', function() use($model) {
+                if($cart = \Bookrr\Booking\Models\Parking::find(input('id'))->cart)
+                {
+                    trace_log($model->result);
+                    $cart->setPaid($model->result);
+                }
+            });
 
             return $model;
         });

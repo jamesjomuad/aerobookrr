@@ -32,8 +32,9 @@ columns:
         select: email
     phone:
         label: Contact
-    vehicles:
+    vehicle_count:
         label: Vehicles
-        relation: vehicles
+        relation: vehicle_count
         valueFrom: count
-    
+    active_plate:
+        label: Plate

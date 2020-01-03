@@ -16,7 +16,7 @@ class CreateCartsTable extends Migration
             $table->string('code')->nullable();
             $table->string('status')->nullable();
             $table->string('orderNumber')->nullable();
-            $table->decimal('subtotal', 10, 2)->nullable();
+            $table->decimal('amount', 10, 2)->nullable();
             $table->decimal('fee', 10, 2)->nullable();
             $table->string('refNum')->nullable();
             $table->string('paymentId')->nullable();

@@ -81,6 +81,12 @@ fields:
             - preview
 
 tabs:
+    icons:
+        Details: icon-info
+        Vehicle: icon-car
+        Key Movements: icon-info
+        Notes: icon-sticky-note
+        Cart: icon-cart-plus
     fields:
         customer_section:
             label: Customer
@@ -225,13 +231,6 @@ tabs:
             context:
                 - update
                 - preview
-        # _terminal:
-        #     tab: Terminals
-        #     type: dropdown
-        #     emptyOption: " "
-        #     options:
-        #         international: 'International'
-        #         domestic: 'Domestic'
         note:
             label: Notes
             size: large
@@ -242,7 +241,8 @@ tabs:
             tab: Cart
             span: full
             type: partial
-            path: $/bookrr/store/controllers/cart/_cart.htm
+            path: cart
+            # path: $/bookrr/store/controllers/cart/_cart.htm
         # destination_out:
         #     label: 'Departure Destination'
         #     options:
