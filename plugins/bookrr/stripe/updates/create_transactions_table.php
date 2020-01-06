@@ -12,7 +12,7 @@ class CreateTransactionsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
-            $table->integer('booking_id')->unsigned()->index()->nullable();
+            $table->integer('other_id')->unsigned()->index()->nullable();
             $table->integer('customer_id')->unsigned()->index()->nullable();
             $table->string('amount')->nullable();
             $table->string('email')->nullable();

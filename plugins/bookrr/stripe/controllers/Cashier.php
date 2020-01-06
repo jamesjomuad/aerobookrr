@@ -82,20 +82,16 @@ class Cashier extends Controller
         $result = \Stripe\Charge::create($options);
 
         $transaction = Transaction::create([
-            'amount'        => $result->amount,
-            'email'         => $result->billing_details->email,
-            'payment_method'=> $result->payment_method,
-            'ref_id'        => $result->id,
-            'refunded'      => $result->refunded,
+            'amount'         => $result->amount,
+            'email'          => $result->billing_details->email,
+            'payment_method' => $result->payment_method,
+            'ref_id'         => $result->id,
+            'refunded'       => $result->refunded,
             'amount_refunded'=> $result->amount_refunded,
-            'receipt_url'   => $result->receipt_url,
-            'status'        => $result->status,
-            'response'      => $result
+            'receipt_url'    => $result->receipt_url,
+            'status'         => $result->status,
+            'response'       => $result
         ]);
-
-        if(!$config->isLive){
-            trace_log($result);
-        }
 
         return true;
     }

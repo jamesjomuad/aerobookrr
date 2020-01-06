@@ -4,6 +4,7 @@ use Backend;
 use System\Classes\PluginBase;
 use Backend\Models\User as UserModel;
 use Bookrr\Stripe\Models\Transaction;
+use BackendAuth;
 
 
 class Plugin extends PluginBase
@@ -37,10 +38,12 @@ class Plugin extends PluginBase
         Transaction::extend(function($model){
 
             $model->bindEvent('model.afterCreate', function() use($model) {
-                if($cart = \Bookrr\Booking\Models\Parking::find(input('id'))->cart)
+                if($book = \Bookrr\Booking\Models\Parking::find(input('id')))
                 {
-                    trace_log($model->result);
-                    $cart->setPaid($model->result);
+                    $book->cart->setPaid($model->response);
+                    $model->user_id = BackendAuth::getUser()->id;
+                    $model->other_id = $book->id;
+                    $model->save();
                 }
             });
 

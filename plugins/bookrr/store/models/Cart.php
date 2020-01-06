@@ -64,13 +64,12 @@ class Cart extends Model
 
     public function scopeSetPaid($query,$stripe)
     {
-        
         if($stripe)
         {
             $this->status     = "paid";
-            $this->amount   = ($stripe->amount)/100;
-            $this->paymentId  = $stripe->id;
-            $this->receiptUrl = $stripe->receipt_url;
+            $this->amount     = ($stripe['amount'])/100;
+            $this->paymentId  = $stripe['id'];
+            $this->receiptUrl = $stripe['receipt_url'];
             $this->save();
             return $this;
         }
