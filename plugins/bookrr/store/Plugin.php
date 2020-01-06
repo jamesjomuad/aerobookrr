@@ -89,29 +89,6 @@ class Plugin extends PluginBase
                 'order' => 208,
             ],
             /* end Permision */
-            
-            /* Rule Permision */
-            'bookrr.rule.create' => [
-                'tab' => 'Store Management',
-                'label' => 'Can Create rule',
-                'order' => 209,
-            ],
-            'bookrr.rule.read' => [
-                'tab' => 'Store Management',
-                'label' => 'Can View rule',
-                'order' => 210,
-            ],
-            'bookrr.rule.update' => [
-                'tab' => 'Store Management',
-                'label' => 'Can Update rule',
-                'order' => 211,
-            ],
-            'bookrr.rule.delete' => [
-                'tab' => 'Store Management',
-                'label' => 'Can Remove rule',
-                'order' => 212,
-            ],
-            /* end Permision */
         ];
     }
 
@@ -174,12 +151,6 @@ class Plugin extends PluginBase
                         'url'         => Backend::url('bookrr/store/category'),
                         'icon'        => 'icon-bookmark-o',
                         'permissions' => ['bookrr.productCategory.*'],
-                    ],
-                    'rules' => [
-                        'label'       => 'Rule Set',
-                        'url'         => Backend::url('bookrr/store/rule'),
-                        'icon'        => 'icon-list',
-                        'permissions' => ['bookrr.rule.*'],
                     ]
                 ]
             ]
