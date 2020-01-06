@@ -3,6 +3,8 @@
 use Backend;
 use System\Classes\PluginBase;
 use BackendAuth;
+use Bookrr\Stripe\Models\Transaction;
+
 
 class Plugin extends PluginBase
 {
@@ -14,6 +16,20 @@ class Plugin extends PluginBase
             'author'      => 'bookrr',
             'icon'        => 'icon-leaf'
         ];
+    }
+
+    public function boot()
+    {
+        # Extend Transaction from Stripe
+        Transaction::extend(function($model){
+            # Extending Relation
+            $model->belongsTo['Cart'] = [
+                \Bookrr\Store\Models\Cart::class,
+                'key' => 'other_id'
+            ];
+
+            return $model;
+        });
     }
 
     public function registerPermissions()

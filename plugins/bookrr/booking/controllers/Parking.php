@@ -212,8 +212,6 @@ class Parking extends CartController
         return $this->makePartial('payment');
     }
 
-    
-
     public function onCartForm($id)
     {
         $cart = $this->model->find($id)->cart;
@@ -393,12 +391,20 @@ class Parking extends CartController
         ];
     }
 
-    public function isPaid($model=null)
-    {
-        if(!$model){
-            $model = $this->model;
-        }
+    // public function isPaid($model=null)
+    // {
+    //     if(!$model){
+    //         $model = $this->model;
+    //     }
 
-        return $model->cart ? $model->cart->isPaid() : false;
+    //     return $model->cart ? $model->cart->isPaid() : false;
+    // }
+
+    public function test()
+    {
+        dd(
+            Cart::find(3)
+            ->isFail()
+        );
     }
 }

@@ -83,7 +83,7 @@ class Cashier extends Controller
 
         $transaction = Transaction::create([
             'amount'         => $result->amount,
-            'email'          => $result->billing_details->email,
+            'email'          => $config->receipt_email ? input('email') : $result->billing_details->email,
             'payment_method' => $result->payment_method,
             'ref_id'         => $result->id,
             'refunded'       => $result->refunded,

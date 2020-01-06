@@ -22,12 +22,10 @@ class Plugin extends PluginBase
 
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
-
         return [
-            'bookrr.stripe.some_permission' => [
-                'tab' => 'stripe',
-                'label' => 'Some permission'
+            'bookrr.stripe.edit' => [
+                'tab' => 'Bookrr',
+                'label' => 'Manage Stripe Settings'
             ],
         ];
     }
@@ -56,7 +54,7 @@ class Plugin extends PluginBase
                 'url'         => Backend::url('bookrr/stripe/settings'),
                 'order'       => 900,
                 'keywords'    => 'aeropark setting payment gateway',
-                'permissions' => ['stripe.*']
+                'permissions' => ['bookrr.stripe.edit']
             ]
         ];
     }

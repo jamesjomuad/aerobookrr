@@ -1,4 +1,5 @@
-<?php if($this->isPaid($record)): ?>
+<?php dump($record->Cart->isPaid); ?>
+<!-- <?php if($record->Cart->isPaid): ?> -->
     <a href="#" class="btn btn-success btn-xs active">Paid</a>
 <?php elseif($record->isFail): ?>
     <a href="#" class="btn btn-danger btn-xs active">Fail</a>

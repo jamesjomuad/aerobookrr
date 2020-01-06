@@ -37,12 +37,13 @@ class Plugin extends PluginBase
         # Extend Transaction from Stripe
         Transaction::extend(function($model){
 
+            # Event Listener
             $model->bindEvent('model.afterCreate', function() use($model) {
                 if($book = \Bookrr\Booking\Models\Parking::find(input('id')))
                 {
                     $book->cart->setPaid($model->response);
                     $model->user_id = BackendAuth::getUser()->id;
-                    $model->other_id = $book->id;
+                    $model->other_id = $book->cart->id;
                     $model->save();
                 }
             });

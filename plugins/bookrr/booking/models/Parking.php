@@ -193,16 +193,6 @@ class Parking extends Model
         return $value;
     }
 
-    // public function getIsPaidAttribute($value)
-    // {
-    //     return Transaction::isPaid($this->ref_num);
-    // }
-
-    // public function getIsFailAttribute($value)
-    // {
-    //     return Transaction::isFail($this->ref_num);
-    // }
-
 
     /*
     *   Filter Fields

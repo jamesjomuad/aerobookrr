@@ -24,6 +24,14 @@ class Cart extends Model
         ]
     ];
 
+    public $hasMany = [
+        'Transaction' => [
+            \Bookrr\Stripe\Models\Transaction::class, 
+            'key' => 'other_id'
+        ]
+    ];
+
+
     public function getTotalPrice()
     {
         return number_format((float)$this->products->sum(function($product) {
@@ -52,11 +60,25 @@ class Cart extends Model
         });
     }
 
-    public function scopeIsPaid()
+    public function scopeIsPaid($query)
     {
-        if($this->status=='paid' AND $this->paymentId)
+        $collect = $this->Transaction()->where('status', 'succeeded')->get();
+        
+        if($collect->isNotEmpty())
         {
-           return true;
+            return true;
+        }
+        
+        return false;
+    }
+
+    public function scopeIsFail($query)
+    {
+        $collect = $this->Transaction()->where('status', 'fail')->get();
+        
+        if($collect->isNotEmpty())
+        {
+            return true;
         }
         
         return false;
@@ -75,6 +97,14 @@ class Cart extends Model
         }
 
         return null;
+    }
+
+    /*
+    *   Attribute
+    */
+    public function getIsPaidAttribute($value)
+    {
+        return $this->isPaid();
     }
 
 }
