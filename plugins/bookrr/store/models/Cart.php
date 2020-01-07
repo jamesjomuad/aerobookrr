@@ -25,12 +25,11 @@ class Cart extends Model
     ];
 
     public $hasMany = [
-        'Transaction' => [
+        'transaction' => [
             \Bookrr\Stripe\Models\Transaction::class, 
             'key' => 'other_id'
         ]
     ];
-
 
     public function getTotalPrice()
     {
@@ -62,7 +61,7 @@ class Cart extends Model
 
     public function scopeIsPaid($query)
     {
-        $collect = $this->Transaction()->where('status', 'succeeded')->get();
+        $collect = $this->transaction()->where('status', 'succeeded')->get();
         
         if($collect->isNotEmpty())
         {
@@ -74,7 +73,7 @@ class Cart extends Model
 
     public function scopeIsFail($query)
     {
-        $collect = $this->Transaction()->where('status', 'fail')->get();
+        $collect = $this->transaction()->where('status', 'fail')->get();
         
         if($collect->isNotEmpty())
         {
@@ -88,7 +87,7 @@ class Cart extends Model
     {
         if($stripe)
         {
-            $this->status     = "paid";
+            $this->status     = $stripe['status'];
             $this->amount     = ($stripe['amount'])/100;
             $this->paymentId  = $stripe['id'];
             $this->receiptUrl = $stripe['receipt_url'];
@@ -105,6 +104,25 @@ class Cart extends Model
     public function getIsPaidAttribute($value)
     {
         return $this->isPaid();
+    }
+
+    public function getIsFailAttribute($value)
+    {
+        return $this->isFail();
+    }
+
+    /*
+    *   Events
+    */
+    public function afterSave()
+    {
+        # Update pivot extra field
+        // $products = $this->products->mapWithKeys(function ($product) {
+        //     dump($product->pivot);
+        //     return [$product->id => ['quantity' => 1]];
+        // })->all();
+        
+        // $this->products()->sync($products);
     }
 
 }

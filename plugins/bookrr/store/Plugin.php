@@ -23,7 +23,7 @@ class Plugin extends PluginBase
         # Extend Transaction from Stripe
         Transaction::extend(function($model){
             # Extending Relation
-            $model->belongsTo['Cart'] = [
+            $model->belongsTo['cart'] = [
                 \Bookrr\Store\Models\Cart::class,
                 'key' => 'other_id'
             ];

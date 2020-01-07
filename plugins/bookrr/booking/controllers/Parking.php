@@ -36,11 +36,13 @@ class Parking extends CartController
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController',
-        // 'Backend.Behaviors.RelationController'
+        'Backend.Behaviors.RelationController'
     ];
 
     public $formConfig = 'config_form.yaml';
+    
     public $listConfig = 'config_list.yaml';
+
     public $relationConfig = 'config_relation.yaml';
 
     public $assetPath = '/plugins/bookrr/booking/assets/';
@@ -326,7 +328,10 @@ class Parking extends CartController
         return $model;
     }
 
-
+    public function isProductPaid($product)
+    {
+        return true;
+    }
 
     /*
     *   Helper
@@ -389,22 +394,5 @@ class Parking extends CartController
             "email"     => $model->customer->user->email,
             "total"     => number_format($orders->pluck('total')->sum(), 2, '.', '')
         ];
-    }
-
-    // public function isPaid($model=null)
-    // {
-    //     if(!$model){
-    //         $model = $this->model;
-    //     }
-
-    //     return $model->cart ? $model->cart->isPaid() : false;
-    // }
-
-    public function test()
-    {
-        dd(
-            Cart::find(3)
-            ->isFail()
-        );
     }
 }

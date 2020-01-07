@@ -35,8 +35,18 @@ class Cart extends Controller
         $this->currency = '$';
     }
 
+    public function update($recordId,$context = null)
+    {
+        return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
     public function formBeforeSave($model)
     {
+        // # Update pivot data
+        // $model->products->each(function($product){
+        //     $product->pivot->quantity = 1;
+        // });
+
         return $model;
     }
 
@@ -168,6 +178,13 @@ class Cart extends Controller
         {
             return $this->onRefreshCartItem($cart);
         }
+    }
+
+    public function test()
+    {
+        dd(
+            Product::all()
+        );
     }
 
 }

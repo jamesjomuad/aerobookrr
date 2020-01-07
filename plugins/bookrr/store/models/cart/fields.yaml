@@ -3,18 +3,10 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
-        span: auto
     products:
-        label: Product
-        nameFrom: name
-        descriptionFrom: description
-        span: auto
-        type: relation
-    #     emptyOption: 'No Service/Product available right now.'
-    # product:
+        type: taglist
+        mode: relation
+    # products:
     #     label: Product
     #     type: recordfinder
     #     list: ~/plugins/bookrr/store/models/product/columns_cart.yaml

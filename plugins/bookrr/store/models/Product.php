@@ -15,16 +15,11 @@ class Product extends BaseModel
 
     protected $fillable = ['name','description','price','sku','barcode','status','hash','type'];
 
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
+
     public $attachMany = [
         'images' => 'System\Models\File'
     ];
+    
     public $belongsToMany = [
         'category' => [
             'Bookrr\Store\Models\Category',

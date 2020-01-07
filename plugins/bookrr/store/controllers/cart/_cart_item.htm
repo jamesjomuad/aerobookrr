@@ -9,7 +9,7 @@
     <td><?= $product->name ?></td>
     <td><?= $product->description ?></td>
     <td width="50">
-        <?php if(!$this->isPaid()) : ?>
+        <?php if(!$this->isProductPaid($product->id)) : ?>
         <input type="text" name="Cart[qty][<?=$product->id?>]" class="form-control qty" 
             value="<?= $product->quantity() ?>"
             data-request="onUpdateQty"
