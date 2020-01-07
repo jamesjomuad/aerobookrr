@@ -1,0 +1,9 @@
+products:
+    label: Products    
+    deferredBinding: true
+    view:
+        list: $/bookrr/store/models/product/columns.yaml
+        toolbarButtons: add
+    manage:
+        form: $/bookrr/store/models/product/fields.yaml
+        recordsPerPage: 10

@@ -40,35 +40,3 @@ columns:
         width: 170px
         align: center
         searchable: true
-    status:
-        label: 'Status'
-        type: partial
-        path: $/bookrr/booking/controllers/parking/_status.htm
-        searchable: true
-    barcode:
-        label: Barcode
-        type: text
-        searchable: true
-        invisible: true
-    # _ticket: 
-    #     label: 'Ticket'
-    #     relation: ticket
-    #     valueFrom: barcode
-    #     select: barcode
-    #     searchable: true
-    paid:
-        label: Paid
-        type: partial
-        default: 'NO'
-        align: center
-        path: $/bookrr/booking/controllers/parking/_paid.htm
-        sortable: false
-    created_at:
-        label: Created
-        searchable: true
-        sortable: true
-    action:
-        label: Action
-        type: partial
-        path: $/bookrr/booking/controllers/parking/_action.htm
-        clickable: false

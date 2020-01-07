@@ -3,18 +3,29 @@
 # ===================================
 
 fields:
+    parking:
+        label: Select the Booking
+        span: full
+        nameFrom: full_name
+        descriptionFrom: number
+        prompt: 'Click the %s button to find the Booking'
+        list: $/bookrr/booking/models/parking/columns_cart.yaml
+        span: auto
+        required: 1
+        type: recordfinder
+        context:
+            - create
+    item_sections:
+        label: Cart Items
+        type: section
+        comment: This section contains cart items.
+        context:
+            - create
     products:
-        type: taglist
-        mode: relation
-    # products:
-    #     label: Product
-    #     type: recordfinder
-    #     list: ~/plugins/bookrr/store/models/product/columns_cart.yaml
-    #     recordsPerPage: 10
-    #     title: Find Record
-    #     prompt: Click the Find button to find a user
-    #     keyFrom: id
-    #     nameFrom: name
-    #     searchMode: all
-    #     useRelation: false
-    #     modelClass: Bookrr\Store\Models\Product
+            span: full
+            path: $/bookrr/store/controllers/cart/_products.htm
+            type: partial
+            context:
+                - create
+                - update
+                - preview

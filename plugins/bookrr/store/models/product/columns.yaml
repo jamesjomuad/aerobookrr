@@ -14,11 +14,11 @@ columns:
         type: text
         searchable: false
         sortable: false
-    price:
-        label: Price
-        type: partial
-        path: price
-        searchable: true
+    # price:
+    #     label: Price
+    #     type: partial
+    #     path: price
+    #     searchable: true
     sku:
         label: SKU
         type: text
@@ -27,7 +27,7 @@ columns:
         label: Type
         type: text
         sortable: true
-    thumb:
-        label: Thumb
-        type: partial
-        path: thumb
+    # thumb:
+    #     label: Thumb
+    #     type: partial
+    #     path: thumb
