@@ -2,17 +2,17 @@
 #     label: Cart
 #     deferredBinding: true
 #     view:
-#         list: $/bookrr/store/models/cart/columns.yaml
-#         toolbarButtons: create|delete
+#         form: $/bookrr/store/models/cart/fields.yaml
+#         toolbarButtons: add|update
 #     manage:
 #         form: $/bookrr/store/models/cart/fields.yaml
-#         recordsPerPage: 10
+#         list: $/bookrr/store/models/cart/columns.yaml
 
 cart:
     label: Cart
     view:
         form: $/bookrr/store/models/cart/fields.yaml
-        toolbarButtons: update|delete
     manage:
-        form: $/bookrr/store/models/cart/fields.yaml
         list: $/bookrr/store/models/cart/columns.yaml
+    pivot:
+        form: $/bookrr/store/models/cart/fields.yaml

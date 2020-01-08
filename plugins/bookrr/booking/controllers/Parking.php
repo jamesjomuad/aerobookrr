@@ -65,7 +65,7 @@ class Parking extends CartController
     }
 
     public function onMoveKey()
-    {     
+    {
         $this->asExtension('FormController')->update(post('record_id'));
         $this->vars['recordId'] = post('record_id');
         return $this->makePartial('update_form');
@@ -97,6 +97,16 @@ class Parking extends CartController
         {
             $this->fatalError = 'No Vehicle associated';
         }
+
+        // Create Cart formWidget
+        // $cartWidget = $this->FormWidget([
+        //     'config'    => '$/bookrr/store/models/cart/fields.yaml',
+        //     'alias'     => 'cartWidget',
+        //     'model'     => $this->model->find($recordId)->cart,
+        //     'arrayName' => 'cartWidget'
+        // ]);
+
+        // $this->vars['cartWidget'] = $cartWidget;
 
         return $this->asExtension('FormController')->update($recordId, $context);
     }
@@ -232,6 +242,7 @@ class Parking extends CartController
 
         return $this->makePartial('cart/cart');
     }
+
 
 
     /*

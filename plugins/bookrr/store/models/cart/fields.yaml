@@ -3,6 +3,10 @@
 # ===================================
 
 fields:
+    book_id:
+        label: Booking ID
+    parking[number]:
+        label: Booking Number
     parking:
         label: Select the Booking
         span: full
@@ -22,10 +26,10 @@ fields:
         context:
             - create
     products:
-            span: full
-            path: $/bookrr/store/controllers/cart/_products.htm
-            type: partial
-            context:
-                - create
-                - update
-                - preview
+        span: full
+        path: $/bookrr/store/controllers/cart/_products.htm
+        type: partial
+        context:
+            - create
+            - update
+            - preview

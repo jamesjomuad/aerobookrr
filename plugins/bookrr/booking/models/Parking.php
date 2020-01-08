@@ -62,7 +62,7 @@ class Parking extends Model
             \Bookrr\Booking\Models\Movement::class,
             'key'    => 'booking_id',
             'delete' => true
-        ],
+        ]
     ];
 
     public $belongsTo = [
@@ -335,15 +335,15 @@ class Parking extends Model
         return $this;
     }
 
-    public function listProducts()
-    {
-        $options = Product::select('name')
-            ->get()
-            ->pluck('name')
-            ->filter()
-            ->toArray();
+    // public function listProducts()
+    // {
+    //     $options = Product::select('name')
+    //         ->get()
+    //         ->pluck('name')
+    //         ->filter()
+    //         ->toArray();
 
-        return $options;
-    }
+    //     return $options;
+    // }
 
 }
