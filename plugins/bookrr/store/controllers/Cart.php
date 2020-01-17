@@ -22,9 +22,9 @@ class Cart extends Controller
         'Backend.Behaviors.RelationController'
     ];
 
-    public $formConfig = 'config_form.yaml';
-    public $listConfig = 'config_list.yaml';
-    public $relationConfig = 'config_relation.yaml';
+    public $formConfig = '$/bookrr/store/controllers/cart/config_form.yaml';
+    public $listConfig = '$/bookrr/store/controllers/cart/config_list.yaml';
+    public $relationConfig = '$/bookrr/store/controllers/cart/config_relation.yaml';
 
     public function __construct()
     {
@@ -182,11 +182,33 @@ class Cart extends Controller
         }
     }
 
-    public function test()
-    {
-        dd(
-            Product::all()
-        );
+    public function onRelationManagePivotCreate() {
+        $result = $this->asExtension('RelationController')->onRelationManagePivotCreate();
+
+        $result['#Form-field-Cart-total-group'] = $this->formRenderField('total', ['useContainer'=>false]);
+
+        return $result;
     }
 
+    public function onRelationManagePivotUpdate() {
+        $result = $this->asExtension('RelationController')->onRelationManagePivotUpdate();
+
+        $result['#Form-field-Cart-total-group'] = $this->formRenderField('total', ['useContainer'=>false]);
+
+        return $result;
+    }
+
+    // public function onRelationManagePivotUpdate() {}
+    // public function relationExtendViewWidget() {}
+    // public function relationExtendManageWidget() {}
+    // public function relationExtendPivotWidget() {}
+    // public function relationExtendRefreshResults() {}
+
+    // public function onRelationManagePivotCreate() {
+    //     $result = $this->asExtension('RelationController')->onRelationManagePivotCreate();
+
+    //     $result['#Form-field-Cart-total-group'] = '<label for="Form-field-Cart-total">Total</label> <!-- Text --> <input type="text" name="Cart[total]" id="Form-field-Cart-total" value="'.$this->formGetModel()->total().'" placeholder="" class="form-control" autocomplete="off" maxlength="255" disabled/>';
+
+    //     return $result;
+    // }
 }

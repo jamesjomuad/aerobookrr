@@ -98,6 +98,15 @@ class Cart extends Model
         return null;
     }
 
+    public function scopeTotal($query)
+    {
+        $total = $this->products->sum(function($product){
+            return $product->price * $product->pivot['quantity'];
+        });
+
+        return $total;
+    }
+
     /*
     *   Attribute
     */
@@ -110,6 +119,12 @@ class Cart extends Model
     {
         return $this->isFail();
     }
+
+    public function getTotalAttribute($value)
+    {
+        return "$ ".number_format($this->total(), 2);
+    }
+
 
     /*
     *   Events
@@ -124,5 +139,12 @@ class Cart extends Model
         
         // $this->products()->sync($products);
     }
+
+    // public function filterFields($fields, $context = null)
+    // {
+    //     $fields->total->value = "$ ".number_format($this->total(), 2);
+
+    //     return $this;
+    // }
 
 }

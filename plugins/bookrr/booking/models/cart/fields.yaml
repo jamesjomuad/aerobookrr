@@ -29,10 +29,8 @@ fields:
             - create
             - update
             - preview
-    total:
+    total_float:
         label: Total
         span: right
-        type: partial
-        path: $/bookrr/store/controllers/cart/_total.htm
+        type: text
         dependsOn: products
-        disabled: true

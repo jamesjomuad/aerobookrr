@@ -98,15 +98,7 @@ class Parking extends CartController
             $this->fatalError = 'No Vehicle associated';
         }
 
-        // Create Cart formWidget
-        // $cartWidget = $this->FormWidget([
-        //     'config'    => '$/bookrr/store/models/cart/fields.yaml',
-        //     'alias'     => 'cartWidget',
-        //     'model'     => $this->model->find($recordId)->cart,
-        //     'arrayName' => 'cartWidget'
-        // ]);
-
-        // $this->vars['cartWidget'] = $cartWidget;
+        $this->vars['cartUrl'] = "/backend/bookrr/booking/cart/update/".$this->model->cart->id;
 
         return $this->asExtension('FormController')->update($recordId, $context);
     }

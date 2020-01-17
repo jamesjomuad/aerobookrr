@@ -38,6 +38,9 @@ class Product extends BaseModel
         return \Bookrr\Store\Models\Category::all()->pluck('name')->toArray();
     }
 
+    /*
+    *   Attributes
+    */
     public function getDescriptionAttribute($value)
     {
         if(empty($value))
@@ -59,15 +62,37 @@ class Product extends BaseModel
         return str_limit(Html::strip($value).'...', 100);
     }
 
-    public function scopeQuantity($query)
+    public function getTotalAttribute($value)
     {
-        if($this->pivot)
-            return $this->pivot->quantity;
-        return 1;
+        if($this->pivot->quantity)
+        {
+            return $this->pivot->quantity * $this->price;
+        }
+
+        return 0;
     }
 
-    public function scopeTotalwithQty($query)
+    /*
+    *   Scopes
+    */
+    // public function scopeQuantity($query)
+    // {
+    //     if($this->pivot)
+    //         return $this->pivot->quantity;
+    //     return 1;
+    // }
+
+    // public function scopeTotalwithQty($query)
+    // {
+    //     return number_format((float)$this->quantity() * $this->price, 2, '.', '');
+    // }
+
+    public function filterFields($fields, $context = null)
     {
-        return number_format((float)$this->quantity() * $this->price, 2, '.', '');
+        if(($fields->{"pivot[quantity]"} ?? false) AND $this->pivot->quantity == null)
+        {
+            $fields->{"pivot[quantity]"}->value = 1;
+        }
     }
+
 }

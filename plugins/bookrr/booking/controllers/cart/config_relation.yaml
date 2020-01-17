@@ -1,7 +1,6 @@
 products:
     label: Products
     view:
-        toolbarButtons: add|remove
         list:
             columns:
                 id:
@@ -10,20 +9,22 @@ products:
                     label: Product/Service Name
                 price:
                     label: Price
+                    type: float
                 pivot[quantity]:
                     label: Quantity
                     type: text
                 total:
                     label: Total
+                    type: float
                 _action:
                     type: partial
                     width: 100px
+                    path: $/bookrr/booking/controllers/cart/relation/_action.htm
                     clickable: false
-                    path: $/bookrr/store/controllers/cart/relation/_action.htm
     manage:
         showSearch: true
         showSorting: true
-        list: $/bookrr/store/models/product/columns.yaml
+        list: $/bookrr/booking/models/cart/columns_product.yaml
     pivot:
         form:
             fields:

@@ -1,6 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('bookrr/store/product') ?>">Product</a></li>
+        <li><a href="<?= Backend::url('bookrr/booking/parking/update/'.$formModel->parking->id) ?>">Booking</a></li>
+        <li><a href="#">Cart</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -13,49 +14,44 @@
             <?= $this->formRender() ?>
         </div>
 
-        <div class="form-buttons">
+        <!-- <div class="form-buttons">
             <div class="loading-indicator-container">
-                <?php if ($this->user->hasAccess(['bookrr.product.update'])): ?>
                 <button
                     type="submit"
                     data-request="onSave"
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving Product..."
+                    data-load-indicator="Saving Cart..."
                     class="btn btn-primary">
                     <u>S</u>ave
                 </button>
-                <?php endif ?>
-
-                <?php if ($this->user->hasAccess(['bookrr.product.update'])): ?>
                 <button
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving Product..."
+                    data-load-indicator="Saving Cart..."
                     class="btn btn-default">
                     Save and Close
                 </button>
-                <?php endif ?>
-
-                <?php if ($this->user->hasAccess('bookrr.product.delete')): ?>
                 <button
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="Deleting Product..."
-                    data-request-confirm="Delete this product?">
+                    data-load-indicator="Deleting Cart..."
+                    data-request-confirm="Delete this cart?">
                 </button>
-                <?php endif ?>
-
                 <span class="btn-text">
-                    <a href="<?= Backend::url('bookrr/store/product') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('bookrr/store/cart') ?>">Cancel</a>
                 </span>
             </div>
-        </div>
+        </div> -->
+
     <?= Form::close() ?>
+
 <?php else: ?>
+
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('bookrr/store/product') ?>" class="btn btn-default">Return to product list</a></p>
+    <p><a href="<?= Backend::url('bookrr/store/cart') ?>" class="btn btn-default">Return to cart list</a></p>
+
 <?php endif ?>

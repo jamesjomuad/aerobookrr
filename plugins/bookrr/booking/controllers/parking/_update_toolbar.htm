@@ -24,13 +24,14 @@
 
         <div class="btn-group">
             <button type="button" class="btn btn-primary oc-icon-key">Move Key</button>
-            <button type="button" 
+            <a class="btn btn-default oc-icon-cart-plus" href="<?= $cartUrl ?>">Cart</a>
+            <!-- <button type="button" 
                 class="btn btn-default oc-icon-cart-plus" 
                 data-handler="onCartForm"
                 data-control="popup"
                 data-request-data="id:<?= $formModel->id ?>">
                 Cart
-            </button>
+            </button> -->
             <?php if($formModel->status=='pending'): ?>
             <button
                 type="submit"
