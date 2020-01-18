@@ -39,6 +39,8 @@ class Cart extends Controller
 
     public function update($recordId,$context = null)
     {
+        $this->model = $this->model->find($recordId);
+
         return $this->asExtension('FormController')->update($recordId, $context);
     }
 
@@ -204,11 +206,4 @@ class Cart extends Controller
     // public function relationExtendPivotWidget() {}
     // public function relationExtendRefreshResults() {}
 
-    // public function onRelationManagePivotCreate() {
-    //     $result = $this->asExtension('RelationController')->onRelationManagePivotCreate();
-
-    //     $result['#Form-field-Cart-total-group'] = '<label for="Form-field-Cart-total">Total</label> <!-- Text --> <input type="text" name="Cart[total]" id="Form-field-Cart-total" value="'.$this->formGetModel()->total().'" placeholder="" class="form-control" autocomplete="off" maxlength="255" disabled/>';
-
-    //     return $result;
-    // }
 }

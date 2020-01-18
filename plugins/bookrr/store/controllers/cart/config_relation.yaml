@@ -13,12 +13,15 @@ products:
                 pivot[quantity]:
                     label: Quantity
                     type: text
+                    clickable: false
                 total:
                     label: Total
+                    sortable: false
                 _action:
                     type: partial
                     width: 100px
                     clickable: false
+                    sortable: false
                     path: $/bookrr/store/controllers/cart/relation/_action.htm
     manage:
         showSearch: true
