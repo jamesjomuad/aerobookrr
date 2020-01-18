@@ -107,12 +107,4 @@ class Plugin extends PluginBase
         ];
     }
 
-    public function registerListColumnTypes()
-    {
-        return [
-            // Using an inline closure
-            'float' => function($value) { return "$ ".number_format($value, 2); }
-        ];
-    }
-
 }

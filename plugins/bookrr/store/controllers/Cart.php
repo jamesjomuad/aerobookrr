@@ -35,11 +35,20 @@ class Cart extends Controller
         $this->model = new CartModel;
 
         $this->currency = '$';
+
+        $this->addJs('/plugins/bookrr/store/assets/js/cart.js');
     }
 
     public function update($recordId,$context = null)
     {
         $this->model = $this->model->find($recordId);
+
+        if(request()->header('x-october-request-handler') == "form::onRefresh" AND input('Product.pivot'))
+        {
+            $pivot = array_map(function($value){ return ['quantity' => (int) $value['quantity']]; }, input('Product.pivot') );
+
+            $this->model->products()->sync($pivot);
+        }
 
         return $this->asExtension('FormController')->update($recordId, $context);
     }
@@ -198,6 +207,27 @@ class Cart extends Controller
         $result['#Form-field-Cart-total-group'] = $this->formRenderField('total', ['useContainer'=>false]);
 
         return $result;
+    }
+
+    // public function onUpdatePivot($id)
+    // {
+    //     $this->model = $this->model->find($id);
+
+    //     $pivot = array_map(function($value){ 
+    //         return ['quantity' => (int) $value['quantity']]; 
+    //     }, input('Product.pivot') );
+
+    //     $this->model->products()->sync($pivot);
+    // }
+
+    public function formExtendRefreshData($host)
+    {
+        // if(input('Product.pivot'))
+        // {
+        //     $pivot = array_map(function($value){ return ['quantity' => (int) $value['quantity']]; }, input('Product.pivot') );
+
+        //     $this->model->products()->sync($pivot);
+        // }
     }
 
     // public function onRelationManagePivotUpdate() {}

@@ -140,11 +140,11 @@ class Cart extends Model
         // $this->products()->sync($products);
     }
 
-    public function filterFields($fields, $context = null)
-    {
-        $fields->total->value = "$ ".number_format($this->total(), 2);
+    // public function filterFields($fields, $context = null)
+    // {
+    //     $fields->total->value = "$ ".number_format($this->total(), 2);
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
 }

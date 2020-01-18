@@ -113,6 +113,8 @@ class Parking extends CartController
     {
         $validator = \Validator::make(post(),[
             'Parking.bay' => 'required'
+        ],[
+            'required' => "test"
         ]);
 
         if ($validator->fails()) {

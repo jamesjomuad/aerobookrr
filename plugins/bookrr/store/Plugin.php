@@ -173,4 +173,11 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerListColumnTypes()
+    {
+        return [
+            'currency' => function($value) { return "$ ".number_format($value, 2); }
+        ];
+    }
+
 }

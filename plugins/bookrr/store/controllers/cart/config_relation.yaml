@@ -8,15 +8,19 @@ products:
                     label: ID
                 name:
                     label: Product/Service Name
-                price:
-                    label: Price
                 pivot[quantity]:
                     label: Quantity
-                    type: text
                     clickable: false
+                    width: 100px
+                    type: partial
+                    path: $/bookrr/store/controllers/cart/relation/_quantity.htm
+                price:
+                    label: Price
+                    type: currency
                 total:
                     label: Total
                     sortable: false
+                    type: currency
                 _action:
                     type: partial
                     width: 100px
@@ -27,10 +31,10 @@ products:
         showSearch: true
         showSorting: true
         list: $/bookrr/store/models/product/columns.yaml
-    pivot:
-        form:
-            fields:
-                pivot[quantity]:
-                    label: Quantity
-                    type: number
-                    min: 1
+    # pivot:
+    #     form:
+    #         fields:
+    #             pivot[quantity]:
+    #                 label: Quantity
+    #                 type: number
+    #                 min: 1
