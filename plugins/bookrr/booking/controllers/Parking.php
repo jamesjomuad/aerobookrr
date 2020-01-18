@@ -203,6 +203,11 @@ class Parking extends CartController
             throw new \ApplicationException('No cart!');
         }
 
+        if($this->model->find(input('id'))->cart->isPaid)
+        {
+            throw new \ApplicationException('Already Paid!');
+        }
+
         $orders = $this->getOrders(input('id'));
 
         $this->vars['symbol'] = $orders['symbol'];

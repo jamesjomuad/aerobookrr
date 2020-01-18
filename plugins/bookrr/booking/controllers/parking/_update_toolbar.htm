@@ -52,12 +52,14 @@
                 Check <u>Out</u>
             </button>
             <?php endif; ?>
+            <?php if(!$this->model->cart->isPaid): ?>
             <button tabindex="-1"
                 class="btn btn-warning oc-icon-credit-card"
                 data-handler="onPay"
                 data-request-data="id:<?= $formModel->id ?>"
                 data-control="popup">Pay
             </button>
+            <?php endif; ?>
         </div>
         
         <button
