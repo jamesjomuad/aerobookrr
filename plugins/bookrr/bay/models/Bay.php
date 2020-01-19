@@ -38,15 +38,15 @@ class Bay extends Model
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y');
     }
 
-    public function getStatusColorAttribute($value)
+    public function getStatusColorAttribute()
     {
         if($this->status==NULL)
         {
-            return "btn-primary";
+            return "btn-default bg-p";
         }
         elseif($this->status=='reserve')
         {
-            return "btn-default bg-p";
+            return "btn-primary";
         }
         else
         {
@@ -54,11 +54,21 @@ class Bay extends Model
         }
     }
 
+    public function getStatusAttribute($value)
+    {
+        if($value===NULL OR $value===0)
+        {
+            return false;
+        }
+        
+        return $value;
+    }
+
     public function getAvailabilityAttribute()
     {
-        if($this->status==NULL OR $this->status==1)
+        if($this->status==false)
         {
-            return "Available";
+            return "Not Available";
         }
         elseif($this->status=='reserve')
         {
@@ -68,9 +78,9 @@ class Bay extends Model
         {
             return "Occupied";
         }
-        else
+        elseif($this->status==1)
         {
-            return "Not Available";
+            return "Available";
         }
     }
 
