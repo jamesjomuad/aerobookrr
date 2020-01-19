@@ -45,7 +45,6 @@ fields:
             # canceled: Canceled
             # expired: Expired
         span: auto
-        disabled: 0
         type: dropdown
         context:
             - create
@@ -79,7 +78,7 @@ fields:
         context:
             - update
             - preview
-
+    
 tabs:
     icons:
         Details: icon-info

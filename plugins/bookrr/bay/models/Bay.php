@@ -6,6 +6,8 @@ use \Carbon\Carbon;
 
 class Bay extends Model
 {
+    use \October\Rain\Database\Traits\Validation;
+    
     public $table = 'bookrr_bay';
 
     protected $guarded = ['*'];
@@ -13,6 +15,10 @@ class Bay extends Model
     protected $fillable = ['name','status'];
 
     protected $hidden = ['created_at','updated_at','deleted_at'];
+
+    public $rules = [
+        'name' => 'unique',
+    ];
 
 
     public $hasOne = [];
@@ -50,7 +56,7 @@ class Bay extends Model
 
     public function getAvailabilityAttribute()
     {
-        if($this->status==NULL)
+        if($this->status==NULL OR $this->status==1)
         {
             return "Available";
         }
@@ -92,13 +98,15 @@ class Bay extends Model
 
     public function scopeIsAvailable($query)
     {
-        $query->where('status',null);
+        $query->where('status',null)
+        ->orWhere('status',1);
         return $query;
     }
 
     public function scopeGetAvailable($query)
     {
-        $query->where('status',null);
+        $query->where('status',null)
+        ->orWhere('status',1);
         return $query;
     }
 

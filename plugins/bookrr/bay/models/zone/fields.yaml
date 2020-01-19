@@ -10,20 +10,12 @@ fields:
     name:
         label: Name
         type: text
-        span: auto
+        span: full
     slug:
         label: Slug
         type: text
         span: auto
         dependsOn: name
-    building:
-        label: Building
-        span: auto
-        type: dropdown
-        options:
-            first: Main Building
-            second: Second Building
-            Third: Third Building
     floor:
         label: Floor
         span: auto

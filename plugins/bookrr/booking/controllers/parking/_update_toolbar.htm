@@ -7,6 +7,7 @@
                 data-request-data="redirect:0"
                 data-hotkey="ctrl+s, cmd+s"
                 data-load-indicator="Saving Booking..."
+                data-request-success="$.request('form::onRefresh')"
                 class="btn btn-primary">
                 <u>S</u>ave
             </button>
@@ -24,39 +25,34 @@
 
         <div class="btn-group">
             <button type="button" class="btn btn-primary oc-icon-key">Move Key</button>
-            <a class="btn btn-default oc-icon-cart-plus" href="<?= $cartUrl ?>">Cart</a>
-            <!-- <button type="button" 
-                class="btn btn-default oc-icon-cart-plus" 
-                data-handler="onCartForm"
-                data-control="popup"
-                data-request-data="id:<?= $formModel->id ?>">
-                Cart
-            </button> -->
-            <?php if($formModel->status=='pending'): ?>
+            <a class="btn btn-default oc-icon-cart-plus" href="<?= '/backend/bookrr/booking/cart/update/'.$this->formGetModel()->cart->id ?>">Cart</a>
+            <?php if($this->formGetModel()->status=='pending'): ?>
             <button
                 type="submit"
                 data-request="onCheckIn"
-                data-request-data="id:<?= $formModel->id ?>,context:'update'"
+                data-request-data="id:<?= $this->formGetModel()->id ?>,context:'update'"
                 data-load-indicator="Checking In..."
                 class="btn btn-info oc-icon-arrow-circle-down">
                 Check <u>In</u>
             </button>
             <?php endif; ?>
-            <?php if($formModel->status=='parked'): ?>
+            <?php if($this->formGetModel()->status=='parked'): ?>
             <button
                 type="submit"
                 data-request="onCheckOut"
                 data-load-indicator="Checking Out..."
-                data-request-data="id:<?= $formModel->id ?>,context:'update'"
+                data-request-data="id:<?= $this->formGetModel()->id ?>,context:'update'"
+                data-load-indicator="Updating..."
+                data-request-success="$.request('form::onRefresh')"
                 class="btn btn-warning oc-icon-arrow-circle-up">
                 Check <u>Out</u>
             </button>
             <?php endif; ?>
-            <?php if(!$this->model->cart->isPaid): ?>
+            <?php if(!$this->formGetModel()->cart->isPaid): ?>
             <button tabindex="-1"
                 class="btn btn-warning oc-icon-credit-card"
                 data-handler="onPay"
-                data-request-data="id:<?= $formModel->id ?>"
+                data-request-data="id:<?= $this->formGetModel()->id ?>"
                 data-control="popup">Pay
             </button>
             <?php endif; ?>

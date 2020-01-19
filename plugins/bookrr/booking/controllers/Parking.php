@@ -25,9 +25,9 @@ class Parking extends CartController
 
     public $model;
 
-    public $ProductListWidget;
+    // public $ProductListWidget;
 
-    public $ProductToolbarWidget;
+    // public $ProductToolbarWidget;
 
     public $requiredPermissions = [
         'bookrr.booking.park'
@@ -39,7 +39,7 @@ class Parking extends CartController
         'Backend.Behaviors.RelationController'
     ];
 
-    public $formConfig = 'config_form.yaml';
+    public $formConfig = '$/bookrr/booking/controllers/parking/config_form.yaml';
     
     public $listConfig = 'config_list.yaml';
 
@@ -59,16 +59,9 @@ class Parking extends CartController
         
         $this->addJs($this->assetPath.'js/parking.js');
 
-        $this->ProductListWidget = $this->ListWidget('config_list_product.yaml');
+        // $this->ProductListWidget = $this->ListWidget('config_list_product.yaml');
 
-        $this->ProductToolbarWidget = $this->ToolbarWidget($this->ProductListWidget,'config_list_product.yaml');
-    }
-
-    public function onMoveKey()
-    {
-        $this->asExtension('FormController')->update(post('record_id'));
-        $this->vars['recordId'] = post('record_id');
-        return $this->makePartial('update_form');
+        // $this->ProductToolbarWidget = $this->ToolbarWidget($this->ProductListWidget,'config_list_product.yaml');
     }
 
     public function index()
@@ -98,9 +91,14 @@ class Parking extends CartController
             $this->fatalError = 'No Vehicle associated';
         }
 
-        $this->vars['cartUrl'] = "/backend/bookrr/booking/cart/update/".$this->model->cart->id;
-
         return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
+    public function onMoveKey()
+    {
+        $this->asExtension('FormController')->update(post('record_id'));
+        $this->vars['recordId'] = post('record_id');
+        return $this->makePartial('update_form');
     }
 
     public function onAddVehicleForm()
@@ -111,10 +109,12 @@ class Parking extends CartController
 
     public function onCheckIn($id=null)
     {
+        $this->update_onSave($id,'update');
+
         $validator = \Validator::make(post(),[
             'Parking.bay' => 'required'
         ],[
-            'required' => "test"
+            'required' => "Parking Bay is required."
         ]);
 
         if ($validator->fails()) {
@@ -125,8 +125,6 @@ class Parking extends CartController
         $id = $id ? : post('id');
 
         $model = $this->model->find($id);
-
-        $this->vars['formModel'] = $model;
 
         if($model->setCheckIn())
         {
@@ -153,15 +151,15 @@ class Parking extends CartController
 
         return [
             '#toolbar' => $this->makePartial('update_toolbar',$this->vars),
-            '#Form-field-Parking-status-group' => $this->formGetWidget()->renderField('status',['useContainer' => true])
+            '#Form-field-Parking-status-group' => $this->formGetWidget()->renderField('status',['useContainer' => false])
         ];
     }
 
-    public function onCheckOut()
+    public function onCheckOut($id=null)
     {
-        $model = $this->model->find(post('id'));
+        $model = $this->model->find($id ?? post('id'));
 
-        $this->vars['formModel'] = $model;
+        $this->initForm($model);
 
         if($model->setCheckOut())
         {
@@ -178,17 +176,15 @@ class Parking extends CartController
                     return \Redirect::to('/backend/bookrr/booking/parking/update/'.$id);
                 }
             }
-
+            
             return [
-                '#toolbar' => $this->makePartial('update_toolbar',$this->vars)
+                '#toolbar' => $this->makePartial('update_toolbar'),
             ];
         }
         elseif($model->status == 'checkout')
         {
             \Flash::warning('Already Check Out!...');
         }
-
-        \Flash::error('Error Checking Out!...');
     }
 
     public function onPay()
@@ -338,10 +334,18 @@ class Parking extends CartController
         return $model;
     }
 
+    public function formAfterSave($id)
+    {
+        return [
+            '#toolbar' => $this->makePartial('update_toolbar',$this->vars),
+        ];
+    }
+
     public function isProductPaid($product)
     {
         return true;
     }
+
 
     /*
     *   Helper

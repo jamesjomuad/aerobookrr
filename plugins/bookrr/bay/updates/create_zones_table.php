@@ -12,7 +12,6 @@ class CreateZonesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
-            $table->string('building')->nullable();
             $table->string('floor')->nullable();
             $table->text('description')->nullable();
             $table->string('slug',30);

@@ -9,12 +9,6 @@ columns:
     name:
         label: Bay
         searchable: true
-    # zone_name:
-    #     label: 'Zone'
-    #     relation: zone
-    #     valueFrom: name
-    #     select: name
-    #     searchable: true
     zone[name]:
         label: Zone
         searchable: true
