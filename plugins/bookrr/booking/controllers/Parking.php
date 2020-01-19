@@ -334,13 +334,6 @@ class Parking extends CartController
         return $model;
     }
 
-    public function formAfterSave($id)
-    {
-        return [
-            '#toolbar' => $this->makePartial('update_toolbar',$this->vars),
-        ];
-    }
-
     public function isProductPaid($product)
     {
         return true;
