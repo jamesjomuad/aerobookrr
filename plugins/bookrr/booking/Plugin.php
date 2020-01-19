@@ -43,6 +43,7 @@ class Plugin extends PluginBase
                 {
                     $book->cart->setPaid($model->response);
                     $model->user_id = BackendAuth::getUser()->id;
+                    $model->customer_id = $book->customer->id;
                     $model->other_id = $book->cart->id;
                     $model->save();
                 }

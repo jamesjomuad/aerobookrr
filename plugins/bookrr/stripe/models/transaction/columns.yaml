@@ -6,3 +6,13 @@ columns:
     id:
         label: ID
         searchable: true
+    customer_id:
+        label: Customer Id
+    amount:
+        label: Amount
+    ref_id:
+        label: Reference ID
+    receipt_url:
+        label: Receipt
+    status:
+        label: Status
