@@ -50,7 +50,7 @@ class Bay extends Model
         }
         else
         {
-            return "br-a";
+            return "br";
         }
     }
 
