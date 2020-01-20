@@ -154,8 +154,9 @@ class Plugin extends PluginBase
     {
         return [
             'humandate' => [$this, 'humanDateListColumn'],
-            'color' => [$this, 'colorListColumn'],
-            'dot' => [$this, 'dotListColumn']
+            'color'     => function($value, $column, $record){ return '<span style="background:'.$value.';width: 30px;height: 30px;display: block;">&nbsp;</span>'; },
+            'dot'       => function($value, $column, $record){ if($value) return '<i class="icon-circle" style="color: lime;"></i>'; else return '<i class="icon-circle-o"></i>'; },
+            'currency'  => function($value) { return "$ ".number_format($value, 2); }
         ];
     }
 
@@ -183,17 +184,5 @@ class Plugin extends PluginBase
         ]);
     }
 
-    public function colorListColumn($value, $column, $record)
-    {
-        return '<span style="background:'.$value.';width: 30px;height: 30px;display: block;">&nbsp;</span>';
-    }
-
-    public function dotListColumn($value, $column, $record)
-    {
-        if($value)
-            return '<i class="icon-circle" style="color: lime;"></i>';
-        else
-            return '<i class="icon-circle-o"></i>';
-    }
 
 }

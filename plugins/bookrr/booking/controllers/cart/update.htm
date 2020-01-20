@@ -1,51 +1,25 @@
-<?php Block::put('breadcrumb') ?>
-    <ul>
-        <li><a href="<?= Backend::url('bookrr/booking/parking/update/'.$formModel->parking->id) ?>">Booking</a></li>
-        <li><a href="#">Cart</a></li>
-        <li><?= e($this->pageTitle) ?></li>
-    </ul>
+<?php Block::put('breadcrumb'); ?>
+    <?php if($this->formGetModel()): ?>
+        <ul>
+            <li><a href="<?= Backend::url('bookrr/booking/parking/update/'.$this->formGetModel()->parking->id) ?>">Booking</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><?= e($this->pageTitle) ?></li>
+        </ul>
+    <?php endif; ?>
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
 
     <?= Form::open(['class' => 'layout']) ?>
 
-        <div class="layout-row">
-            <?= $this->formRender() ?>
-        </div>
-
-        <!-- <div class="form-buttons">
-            <div class="loading-indicator-container">
-                <button
-                    type="submit"
-                    data-request="onSave"
-                    data-request-data="redirect:0"
-                    data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving Cart..."
-                    class="btn btn-primary">
-                    <u>S</u>ave
-                </button>
-                <button
-                    type="button"
-                    data-request="onSave"
-                    data-request-data="close:1"
-                    data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving Cart..."
-                    class="btn btn-default">
-                    Save and Close
-                </button>
-                <button
-                    type="button"
-                    class="oc-icon-trash-o btn-icon danger pull-right"
-                    data-request="onDelete"
-                    data-load-indicator="Deleting Cart..."
-                    data-request-confirm="Delete this cart?">
-                </button>
-                <span class="btn-text">
-                    or <a href="<?= Backend::url('bookrr/store/cart') ?>">Cancel</a>
-                </span>
+        <div class="row row-flush">
+            <div class="col-sm-8 list-with-sidebar">
+                <?= $this->formRender() ?>
             </div>
-        </div> -->
+            <div class="col-sm-4">
+                <h2 style="padding:10px 23px;background:#6a6a6a;margin:-20px 0 30px 0; color:#eee;">Details</h2>
+            </div>
+        </div>
 
     <?= Form::close() ?>
 

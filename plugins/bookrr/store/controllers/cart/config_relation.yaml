@@ -4,8 +4,6 @@ products:
         toolbarButtons: add|remove
         list:
             columns:
-                id:
-                    label: ID
                 name:
                     label: Product/Service Name
                 pivot[quantity]:

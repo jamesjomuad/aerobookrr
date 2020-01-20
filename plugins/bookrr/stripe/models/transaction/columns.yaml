@@ -6,8 +6,8 @@ columns:
     id:
         label: ID
         searchable: true
-    customer_id:
-        label: Customer Id
+    customer['first_name']:
+        label: Customer
     amount:
         label: Amount
     ref_id:

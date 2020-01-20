@@ -41,6 +41,8 @@ class Cart extends Controller
 
     public function update($recordId,$context = null)
     {
+        $this->bodyClass = 'compact-container';
+
         $this->model = $this->model->find($recordId);
 
         if(request()->header('x-october-request-handler') == "form::onRefresh" AND input('Product.pivot'))

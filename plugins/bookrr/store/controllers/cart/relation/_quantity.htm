@@ -1,3 +1,13 @@
+<?php if($this->formGetModel()->isPaid): ?>
+<input type="number" step="any" 
+    name="Product[pivot][<?= $record->id ?>][quantity]" 
+    value="<?= $value ?>"
+    class="form-control" 
+    style="padding:5px;height: 30px;"
+    disabled>
+
+<?php else: ?>
+
 <input type="number" step="any" 
     name="Product[pivot][<?= $record->id ?>][quantity]" 
     value="<?= $value ?>" 
@@ -7,4 +17,6 @@
     min="1" 
     pattern="-?\d+(\.\d+)?" 
     maxlength="255" 
-    style="padding:5px;">
+    style="padding:5px;height: 30px;">
+
+<?php endIf; ?>

@@ -9,11 +9,6 @@ use Backend\Classes\Controller;
 class Cart extends \Bookrr\Store\Controllers\Cart
 {
 
-    // public $formConfig      = '$/bookrr/booking/controllers/cart/config_form.yaml';
-    // public $listConfig      = '$/bookrr/booking/controllers/cart/config_list.yaml';
-    // public $relationConfig  = '$/bookrr/booking/controllers/cart/config_relation.yaml';
-
-
     public function __construct()
     {
         parent::__construct();
@@ -26,6 +21,17 @@ class Cart extends \Bookrr\Store\Controllers\Cart
         $this->pageTitle = 'Cart Bookings';
 
         return false;
+    }
+
+    public function relationExtendConfig($config, $field, $model)
+    {
+
+        if($model->isPaid)
+        {
+            $config->view['toolbarButtons'] = false;
+            unset($config->view['list']['columns']['_action']);
+        }
+
     }
 
 }

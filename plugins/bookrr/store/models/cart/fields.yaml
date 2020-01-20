@@ -29,8 +29,13 @@ fields:
             - create
             - update
             - preview
+    _park_rate:
+        label: Parking Fee
+        type: text
+        disabled: 1
+        span: right
     total:
-        label: Total
+        label: Subtotal
         span: right
         type: partial
         path: $/bookrr/store/controllers/cart/_total.htm

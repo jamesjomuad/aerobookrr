@@ -7,19 +7,10 @@ use Model;
  */
 class Transaction extends Model
 {
-    /**
-     * @var string The database table used by the model.
-     */
     public $table = 'bookrr_stripe_transactions';
 
-    /**
-     * @var array Guarded fields
-     */
     protected $guarded = ['*'];
 
-    /**
-     * @var array Fillable fields
-     */
     protected $fillable = [
         'amount',
         'email',
@@ -33,4 +24,10 @@ class Transaction extends Model
     ];
 
     protected $jsonable = ['response'];
+
+    public $hasOne = [
+        'customer' => ['Bookrr\User\Models\Customers','key'=>'id']
+    ];
+
+
 }
