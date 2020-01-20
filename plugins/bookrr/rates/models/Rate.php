@@ -106,11 +106,11 @@ class Rate extends Model
     {
         if($query->rate()->count()>0 AND $query->rate()->active)
         {
-            return $query->rate()->rate;
+            return (float)$query->rate()->rate;
         }
 
         // Return default rate
-        return Settings::get('rate') ? : false ;
+        return (float)Settings::get('rate') ? : false ;
     }
 
     public function scopeIsCurrent($query)

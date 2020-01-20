@@ -21,22 +21,14 @@ fields:
         comment: This section contains cart items.
         context:
             - create
-    products:
-        span: full
-        path: $/bookrr/store/controllers/cart/_products.htm
-        type: partial
-        context:
-            - create
-            - update
-            - preview
     _park_rate:
         label: Parking Fee
         type: text
         disabled: 1
-        span: right
+        span: full
     total:
         label: Subtotal
-        span: right
+        span: full
         type: partial
         path: $/bookrr/store/controllers/cart/_total.htm
         dependsOn: products

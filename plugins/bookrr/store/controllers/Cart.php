@@ -45,6 +45,8 @@ class Cart extends Controller
 
         $this->model = $this->model->find($recordId);
 
+        $this->addViewPath(dirname(__DIR__)."\controllers/cart");
+
         if(request()->header('x-october-request-handler') == "form::onRefresh" AND input('Product.pivot'))
         {
             $pivot = array_map(function($value){ return ['quantity' => (int) $value['quantity']]; }, input('Product.pivot') );
@@ -97,7 +99,6 @@ class Cart extends Controller
             'discount_amount'  => '$0'
         ];
     }
-
 
     #
     #  Event Handlers
@@ -210,17 +211,6 @@ class Cart extends Controller
 
         return $result;
     }
-
-    // public function onUpdatePivot($id)
-    // {
-    //     $this->model = $this->model->find($id);
-
-    //     $pivot = array_map(function($value){ 
-    //         return ['quantity' => (int) $value['quantity']]; 
-    //     }, input('Product.pivot') );
-
-    //     $this->model->products()->sync($pivot);
-    // }
 
     public function formExtendRefreshData($host)
     {

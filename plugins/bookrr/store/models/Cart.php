@@ -125,6 +125,11 @@ class Cart extends Model
         return "$ ".number_format($this->total(), 2);
     }
 
+    public function getParkRateAttribute($value)
+    {
+        return number_format($this->parking->getRates()['subtotal'],2);
+    }
+
 
     /*
     *   Events
@@ -139,12 +144,5 @@ class Cart extends Model
         
         // $this->products()->sync($products);
     }
-
-    // public function filterFields($fields, $context = null)
-    // {
-    //     $fields->total->value = "$ ".number_format($this->total(), 2);
-
-    //     return $this;
-    // }
 
 }
