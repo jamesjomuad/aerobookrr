@@ -34,4 +34,13 @@ class Cart extends \Bookrr\Store\Controllers\Cart
 
     }
 
+    #
+    #   Form Overider
+    #
+    // public function formExtendFields($form,$fields)
+    // {
+    //     // $fields['_park_rate']->value = "{$this->currency} ".$fields['_park_rate']->value;
+    //     return $form;
+    // }
+
 }

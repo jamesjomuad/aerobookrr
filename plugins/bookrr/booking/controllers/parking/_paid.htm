@@ -1,7 +1,11 @@
-<?php if($record->cart->isPaid): ?>
-    <a href="#" class="btn btn-success btn-xs active">Paid</a>
-<?php elseif($record->cart->isFail): ?>
-    <a href="#" class="btn btn-info btn-xs active">Fail</a>
-<?php else: ?>
-    <a href="#" class="btn btn-danger btn-xs active">No</a>
+<?php if($record->cart): ?>
+    <?php if($record->cart->isPaid): ?>
+        <a href="#" class="btn btn-success btn-xs active">Paid</a>
+    <?php elseif($record->cart->isFail): ?>
+        <a href="#" class="btn btn-info btn-xs active">Fail</a>
+    <?php else: ?>
+        <a href="#" class="btn btn-danger btn-xs active">No</a>
+    <?php endif; ?>
 <?php endif; ?>
+
+<?= $value ?>

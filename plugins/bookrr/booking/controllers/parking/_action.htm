@@ -1,8 +1,10 @@
-<?php if(!$record->cart->isPaid): ?>
-<a tabindex="-1" 
-    href="#" 
-    class="btn btn-xs btn-warning oc-icon-credit-card"
-    data-handler="onPay"
-    data-request-data="id:<?= $record->id ?>"
-    data-control="popup">Pay</a>
+<?php if($record->cart): ?>
+    <?php if(!$record->cart->isPaid): ?>
+    <a tabindex="-1" 
+        href="#" 
+        class="btn btn-xs btn-warning oc-icon-credit-card"
+        data-handler="onPay"
+        data-request-data="id:<?= $record->id ?>"
+        data-control="popup">Pay</a>
+    <?php endif; ?>
 <?php endif; ?>

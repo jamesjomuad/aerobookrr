@@ -223,7 +223,7 @@ class Parking extends CartController
     {
         $cart = $this->model->find($id)->cart;
 
-        $parking = (object)$this->getParking($id);
+        $parking = (object)$this->getParkingRate($id);
 
         $product = (new \Bookrr\Store\Models\Product([
             'name' => $parking->name,
@@ -355,7 +355,7 @@ class Parking extends CartController
         ];
     }
 
-    public function getParking($id)
+    public function getParkingRate($id)
     {
         $book = $this->model->find($id);
         $rate = Rate::amount();
@@ -391,7 +391,7 @@ class Parking extends CartController
         $orders = ($model->cart) ? $model->cart->basket() : collect();
 
         // Append Parking Hours:Rate
-        $orders->prepend( $this->getParking($id) );
+        $orders->prepend( $this->getParkingRate($id) );
 
         return [
             "orders"    => $orders,

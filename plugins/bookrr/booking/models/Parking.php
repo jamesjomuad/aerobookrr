@@ -81,6 +81,15 @@ class Parking extends Model
         'expired'
     ];
 
+    # Set Rate
+    public $rate;
+
+
+    public function __construct()
+    {
+        $this->rate = new \Bookrr\Rates\Models\Rate;
+    }
+
 
     /*
     *   OPTIONS
@@ -335,15 +344,29 @@ class Parking extends Model
         return $this;
     }
 
-    // public function listProducts()
-    // {
-    //     $options = Product::select('name')
-    //         ->get()
-    //         ->pluck('name')
-    //         ->filter()
-    //         ->toArray();
+    public function getRates()
+    {
+        $rate = $this->rate->amount();
 
-    //     return $options;
-    // }
+        if(!$this->date_in OR !$this->date_out)
+        {
+            throw new \ApplicationException('Date error!');
+        }
+
+        if($this->park_in AND $this->park_out)
+        {
+            $hours = $this->rate->getHours($this->park_in,$this->park_out);
+        }
+        else if($this->date_in AND $this->date_out)
+        {
+            $hours = $this->rate->getHours($this->date_in,$this->date_out);
+        }
+
+        return [
+            "totalHours" => $hours."/Hrs",
+            "hourlyRate" => number_format($rate,2),
+            "subtotal"   => $hours*round($rate,2)
+        ];
+    }
 
 }
