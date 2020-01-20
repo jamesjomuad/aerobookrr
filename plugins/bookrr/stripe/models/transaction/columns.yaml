@@ -14,5 +14,10 @@ columns:
         label: Reference ID
     receipt_url:
         label: Receipt
+        type: partial
+        path: url
+        clickable: false
     status:
         label: Status
+        type: partial
+        path: status
